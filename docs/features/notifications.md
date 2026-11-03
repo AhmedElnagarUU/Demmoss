@@ -11,7 +11,8 @@ a demo action, a WhatsApp click, new feedback.
 
 1. Other features call `createNotification({ type, title, template?, link? })` from their services.
 2. The admin header shows a bell with the unread count (refreshed periodically while the dashboard is open).
-3. The notifications page lists them, newest first, filterable by type; clicking one opens the related item and marks it read.
+3. Each notification is saved on its own. The list **groups them when showing**: by day, then by type with a count
+   (e.g. "Today · New registrations (30)"). A group expands to show each item; clicking one opens the related item and marks it read.
 4. "Mark all as read" clears the count.
 
 ## User stories
@@ -33,8 +34,9 @@ flowchart TD
   E5[New feedback] --> C
   C --> DB[(Notification saved, unread)]
   DB --> BELL[Admin bell: unread count]
-  BELL --> LIST[Notifications page]
-  LIST --> OPEN[Open related item]
+  BELL --> LIST[Notifications page<br/>grouped by day and type]
+  LIST --> EXP[Expand a group]
+  EXP --> OPEN[Open related item]
   OPEN --> READ[Mark read]
 ```
 
@@ -55,4 +57,4 @@ src/features/notifications/
 
 ## Out of scope (v1)
 
-- Email, Telegram, or push notifications. Grouping is done in the list view by type and day, not in storage.
+- Email, Telegram, or push notifications.

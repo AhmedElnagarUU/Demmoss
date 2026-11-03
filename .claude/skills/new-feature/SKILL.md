@@ -30,12 +30,14 @@ src/features/<feature>/
   hooks/          only if needed
   model.ts        only if it stores data in MongoDB
   repository.ts   only with model.ts
+  server-functions.ts  only if the UI needs server logic
   service.ts
   store.ts        only for client demo state (Zustand)
   types.ts        zod schemas + inferred types
 ```
 
-- Routes in `src/app/**`: parse → call service → respond. No business logic.
+- Routes in `src/routes/**`: read params → call loader/server function → render. No business logic.
+- Server functions: validate with Zod → call service → return. No business logic.
 - Validate all outside input with Zod.
 - All UI text in ar/en; logical CSS only (`.claude/rules/i18n-rtl.md`).
 - Imports from other features: types, schemas, public functions only, one direction, no cycles.

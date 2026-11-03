@@ -36,7 +36,7 @@ flowchart TD
   T --> ID{Visitor id exists?}
   ID -->|no| NEW[Create random id + read UTM/referrer]
   ID -->|yes| SEND
-  NEW --> SEND[POST /api/track]
+  NEW --> SEND[recordEventFn server function]
   SEND --> UP[Upsert visitor]
   UP --> SAVE[(Save event)]
   SAVE --> Q{Notify event?}
@@ -60,6 +60,7 @@ src/features/tracking/
   client/         track(), visitor id
   model.ts        Visitor, Event
   repository.ts
+  server-functions.ts  recordEventFn
   service.ts      recordEvent, stats queries for admin
   types.ts        eventInputSchema, event names
 ```

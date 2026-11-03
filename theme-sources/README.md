@@ -4,5 +4,5 @@ Original, ready-made HTML/CSS templates, one folder per theme: `theme-sources/<n
 
 - They are **input** for conversion into project templates (see `.claude/skills/new-template`).
 - Application code **never imports** from this folder.
-- Before converting, make sure the theme's license allows this use.
-- Add a short `NOTES.md` inside each theme folder: source, license, and which template it became.
+- The themes are the owner's own original HTML/CSS work.
+- Add a short `NOTES.md` inside each theme folder: what business it is for and which template it became.

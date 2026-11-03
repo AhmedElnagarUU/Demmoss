@@ -33,7 +33,8 @@ Demo templates keep all their data in the visitor's browser. Nothing a demo user
 ## Images
 
 - Version 1: users pick images from a built-in image library (bundled, optimized files).
-- Uploads are not in version 1. If added later, they go to IndexedDB, compressed, never to localStorage (5MB limit).
+- Uploads are **not decided**. If enabled, they go to the owner's existing AWS S3 bucket
+  (implementation to be created then, see `docs/03-architecture.md`). Never store uploaded images in localStorage (5MB limit).
 
 ## Reading stored data
 

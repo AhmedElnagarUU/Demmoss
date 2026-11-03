@@ -8,7 +8,7 @@ what their final product could be and what value it brings. It is never a page o
 - Business field → one or more complete templates (e.g. Restaurant → Fine Dining, Fast Food & Delivery).
 - No color/theme variants of one template. Variety comes from different complete templates.
 - Each template is its own feature: `src/features/template-<slug>/`.
-- Each template has its own thin route folder: `src/app/[locale]/demos/<slug>/...`.
+- Each template has its own thin route folder: `src/routes/$locale/demos/<slug>/...`.
 
 ## Every template must have
 
@@ -45,5 +45,5 @@ src/features/template-<slug>/
 - Conversion rebuilds the design as React + Tailwind components inside the template feature:
   keep the look, replace the original CSS/JS with Tailwind and React, extract all text into the seed as `{ ar, en }`,
   make it RTL-safe, and remove anything that does not serve a business goal.
-- Confirm the theme's license allows this use before converting.
+- The themes are the owner's own original work, so there is no license check.
 - Follow `.claude/skills/new-template`.

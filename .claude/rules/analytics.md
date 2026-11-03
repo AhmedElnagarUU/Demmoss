@@ -2,10 +2,16 @@
 
 We track **key actions only**, **anonymously**, to learn what works. Owned by the `tracking` feature.
 
+The data must answer the owner's marketing questions:
+- **Who** uses the site (country, device, language, where they came from)?
+- **How many** visitors, per day/week/month?
+- **How many created a demo account**, and in which template?
+- **What do they do** in each template (actions, edits, time), and where do they stop?
+
 ## How
 
 - Client code calls one function: `track(event, data)` from `src/features/tracking`.
-- It sends to `POST /api/track` with the anonymous visitor id (`demo:visitor-id` in localStorage).
+- It calls the `recordEventFn` server function with the anonymous visitor id (`demo:visitor-id` in localStorage).
 - The server stores the event and creates a notification when the event is in the notify list.
 
 ## Privacy

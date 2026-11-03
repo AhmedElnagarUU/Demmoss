@@ -15,9 +15,9 @@ flowchart LR
 |---|---|---|
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
 | **0b. Planning next** | Software Guide content plan; Generic Business template + dashboard plan | next |
-| **1. Foundation** | Next.js + TS strict, Tailwind tokens, next-intl AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking API | |
+| **1. Foundation** | TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
 | **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
-| **3. Admin dashboard** | Login, overview, leads, demos, activity, feedback, notifications | |
+| **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
 | **4. Demo engine** | Storage helper, fake auth, dashboard shell, editors, image library, banner | |
 | **5. First template** | Generic Business, built against the contract | |
 | **6. More templates** | New fields and templates (often from `theme-sources/`), guided by admin stats | |
@@ -28,6 +28,7 @@ flowchart LR
 |---|---|
 | Brand name, logo, colors, fonts | not decided; placeholders via `.env` and tokens |
 | Hosting | not decided; code stays host-agnostic |
+| Image uploads | not decided; if enabled, create the AWS S3 upload implementation (owner's existing bucket) |
 | Admin dashboard language | proposal: English first, Arabic later if needed |
 | Wizard business field list | to define with the Software Guide plan |
 | First fields after Generic Business | decided later from admin stats |

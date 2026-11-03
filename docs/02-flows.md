@@ -112,7 +112,7 @@ No color variants of one template; variety comes from different complete templat
 | C2 | see visitors over time, sources, countries, devices, languages | I know if marketing works |
 | C3 | see every wizard submission as a lead and manage its status | I follow up with each one |
 | C4 | be notified of new registrations per demo | I know which templates attract people |
-| C5 | see key actions per template | I know what works and what doesn't |
+| C5 | see key actions per template and each visitor's journey | I know what works, what doesn't, and where people stop |
 | C6 | read feedback | I hear directly from visitors |
 | C7 | compare fields and templates | I decide what to build next |
 

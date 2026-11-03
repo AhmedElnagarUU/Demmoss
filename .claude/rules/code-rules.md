@@ -13,14 +13,15 @@ The codebase is organized by feature/module, not by technical type.
 
 ```
 src/
-  app/                          routes only: page.tsx, layout.tsx, route.ts
+  routes/                       TanStack Router route files only (thin)
   features/
     <feature>/
       components/               React components of this feature
       hooks/                    React hooks of this feature (if needed)
       model.ts                  Mongoose schema/model (if it persists data)
       repository.ts             data access through model.ts
-      service.ts                feature logic called by routes
+      server-functions.ts       createServerFn wrappers: validate input → call service → return
+      service.ts                feature logic called by server functions
       store.ts                  Zustand store (client-side demo state only)
       types.ts                  zod schemas + inferred types
       <sub-area>/               group related files when the feature grows
@@ -35,7 +36,8 @@ docs/                           vision, flows, architecture, feature flow docs, 
 ```
 
 - Each feature owns its components, hooks, API logic, schemas, and types under `src/features/<feature>/`.
-- A route file in `src/app/**` must contain no business logic: parse request → call feature function → return response.
+- A route file in `src/routes/**` must contain no business logic: read params → call loader/server function → render feature components.
+- A server function must contain no business logic: validate input with Zod → call the service → return the result.
 - `src/shared/` holds generic, domain-free code only (db connection, UI primitives, i18n setup, env).
   Domain code (templates, leads, events, catalog, content) stays in its feature, even when another feature uses it.
 - A feature may import another feature's types, schemas, and public functions
@@ -63,13 +65,15 @@ The doc is updated in the same change whenever the flow changes. Use `docs/featu
 
 ## 5. Data access
 
-- Only `repository.ts` talks to the Mongoose model. Services call repositories. Routes call services.
+- Only `repository.ts` talks to the Mongoose model. Services call repositories. Server functions call services.
+- Mongoose code runs only on the server: never import `model.ts`, `repository.ts`, or `service.ts` from a component.
 - One model per file: `model.ts` in the feature that owns the data. The schema is the documentation of the data shape.
 
 ## 6. Configuration
 
 - Anything that may change (brand name, WhatsApp number, default locale, site URL, secrets) comes from `.env`,
   read only through `src/shared/env.ts`, which validates it with Zod.
+- Public values use the `VITE_` prefix (visible in the browser). Secrets never use it.
 - Never hardcode those values in components.
 
 ## 7. Naming

@@ -29,7 +29,7 @@ flowchart TD
 ```mermaid
 sequenceDiagram
   participant B as Browser
-  participant R as route.ts
+  participant R as server-functions.ts
   participant S as service.ts
   B->>R: request
   R->>S: call

@@ -26,7 +26,6 @@ Get the user's agreement on the plan.
 
 ## 2. If converting from `theme-sources/<name>/`
 
-- Confirm with the user that the theme's license allows this use.
 - Read the original HTML/CSS. List its pages and sections and map them to the value map; drop or replace sections without a goal.
 - Rebuild as React + Tailwind components in `src/features/template-<slug>/site/`. Keep the look; do not copy the original CSS/JS files.
   Replace jQuery or plugin behaviour with plain React.
@@ -44,7 +43,7 @@ src/features/template-<slug>/
   store.ts       createTemplateStore("<slug>", version, seed, schema) from demo-engine
   types.ts       zod schema of the template data
   meta.ts        slug, field, name ar/en, pitch ar/en, screenshot
-src/app/[locale]/demos/<slug>/...   thin route files only
+src/routes/$locale/demos/<slug>/...   thin route files only
 ```
 
 - Use `demo-engine` for storage, fake auth, dashboard shell, editors, image library, banner.
