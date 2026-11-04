@@ -14,7 +14,7 @@ flowchart LR
 | Phase | Scope | Status |
 |---|---|---|
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
-| **0b. Planning next** | Software Guide content plan; Generic Business template + dashboard plan | next |
+| **0b. Planning next** | Software Guide content plan (draft ready); Generic Business template + dashboard plan (draft for discussion) | in progress |
 | **1. Foundation** | TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
 | **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
 | **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
