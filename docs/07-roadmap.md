@@ -27,7 +27,7 @@ flowchart LR
 | Decision | Status |
 |---|---|
 | Brand name, logo, colors, fonts | not decided; placeholders via `.env` and tokens |
-| Hosting | not decided; code stays host-agnostic |
+| Hosting | not decided: VPS + Cloudflare CDN, or AWS (S3 + CloudFront + Lambda); MongoDB Atlas free tier either way. See `docs/03-architecture.md` |
 | Image uploads | not decided; if enabled, create the AWS S3 upload implementation (owner's existing bucket) |
 | Admin dashboard language | proposal: English first, Arabic later if needed |
 | Wizard business field list | to define with the Software Guide plan |

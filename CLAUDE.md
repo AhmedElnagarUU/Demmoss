@@ -33,7 +33,8 @@ Read `docs/01-vision.md` before writing any user-facing content.
 - Zod for all validation; types are inferred from Zod schemas
 - Our own small i18n (`shared/i18n`: JSON messages + `t()`) for Arabic/English with full RTL support
 - Zustand (with `persist`) for demo state in localStorage only, never for server data
-- Hosting not decided: stay host-agnostic, no platform-only APIs
+- Public pages are prerendered (SEO, CDN); demos run in the browser; only server functions need a small Node server
+- Hosting not decided (VPS or AWS, low cost): stay host-agnostic, no platform-only APIs
 
 ## Folder map
 
