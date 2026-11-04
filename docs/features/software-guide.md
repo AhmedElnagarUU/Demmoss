@@ -69,7 +69,7 @@ flowchart LR
 - Each answer option has a `type`. The type with the most answers wins.
 - Tie → the simpler type wins (profile < functional < system < saas), and the result says
   "You're between X and Y. Let's talk to choose the best one" with the WhatsApp button.
-- The result maps to the wizard: `profile`/`functional` → **Business website**, `saas` → **SaaS**, `system` → see open question 1.
+- The result maps to the wizard: `profile`/`functional` → **Business website**, `system` → **Custom system for my business**, `saas` → **SaaS product**.
 - Nothing is saved; the quiz runs in the browser. `guide_quiz_completed` with the result type is tracked (new event, see open question 2).
 
 ```mermaid
@@ -122,10 +122,11 @@ src/features/software-guide/
   types.ts        guideContentSchema (Zod) + inferred types
 ```
 
+## Decisions
+
+- ✅ The wizard has the same four types as the guide (custom system added).
+- ✅ `guide_quiz_completed` is tracked with the result type.
+
 ## Open questions
 
-1. **Custom business system in the wizard.** The guide has 4 types but the wizard has 3 options (business website, SaaS, other).
-   Proposal: add **"Custom system for my business"** to the wizard, so the quiz result maps 1:1.
-2. **New event `guide_quiz_completed`** (with the result type) to learn what visitors need. Add it?
-3. **Facts with numbers.** The figures come from industry reports and vendor studies; they are marked
-   "verify before publishing" in the draft. Keep a facts section, or keep the guide number-free?
+1. **Facts with numbers:** verify and keep with sources, rewrite without exact numbers, or remove the section.

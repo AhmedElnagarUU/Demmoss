@@ -38,6 +38,7 @@ Use these names exactly. Adding an event = update this table and `docs/04-data-a
 | `demo_reset` | reset demo | no |
 | `whatsapp_clicked` | any WhatsApp button | yes |
 | `feedback_sent` | feedback saved | yes |
+| `guide_quiz_completed` | Software Guide quiz finished (`meta.result`: profile/functional/system/saas/tie) | no |
 
 ## Naming
 

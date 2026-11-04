@@ -9,9 +9,9 @@ Shapes below are the plan; `model.ts` becomes the source of truth once written.
 
 | Field | Type | Notes |
 |---|---|---|
-| `type` | `"business" \| "saas" \| "other"` | |
+| `type` | `"business" \| "system" \| "saas" \| "other"` | `system` = custom system for their own business |
 | `field` | string, optional | business field slug, for `business` |
-| `idea` | string, optional | free text, for `saas`/`other` (optional for business) |
+| `idea` | string, optional | free text, for `system`/`saas`/`other` (optional for business) |
 | `name` | string | |
 | `whatsapp` | string | |
 | `email` | string, optional | |

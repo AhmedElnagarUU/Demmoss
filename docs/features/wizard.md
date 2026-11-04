@@ -9,15 +9,16 @@ in the admin dashboard, and the visitor immediately sees matching demos and a Wh
 
 ## Flow in plain words
 
-1. Step 1, "What do you want to build?": **Business website**, **SaaS / system**, or **Other**.
+1. Step 1, "What do you want to build?": **Business website**, **Custom system for my business**, **SaaS product**, or **Other**.
+   (Same types as the Software Guide; the guide quiz can open the wizard with the type already chosen.)
 2. Step 2:
    - Business website → choose a business field from a suggested list (or "other" + text). Optional short note.
-   - SaaS / Other → describe the idea in a few lines.
+   - Custom system / SaaS / Other → describe the idea in a few lines.
 3. Step 3: name, WhatsApp number, optional email.
 4. Submit → the lead is saved and the admin gets a notification.
 5. Result page:
    - Business → suggested templates for the chosen field (Generic Business when none match).
-   - SaaS / Other → "We received your idea".
+   - Custom system / SaaS / Other → "We received your idea".
    - Always → **Continue on WhatsApp** with a prefilled message (type, field/idea, name).
 6. Back and forth between steps keeps the answers. Errors are shown next to the field.
 
@@ -42,7 +43,8 @@ flowchart TD
   A[Start wizard] --> TR1[track wizard_started]
   TR1 --> B{What do you want to build?}
   B -->|Business website| C[Choose business field]
-  B -->|SaaS / system| D[Describe your idea]
+  B -->|Custom system| D[Describe your idea]
+  B -->|SaaS product| D
   B -->|Other| D
   C --> E[Name + WhatsApp + optional email]
   D --> E
@@ -53,7 +55,7 @@ flowchart TD
   S --> TR2[track wizard_completed]
   TR2 --> R{Type}
   R -->|Business| SUG[Suggested templates for field]
-  R -->|SaaS / Other| ACK[We received your idea]
+  R -->|System / SaaS / Other| ACK[We received your idea]
   SUG --> WA[Continue on WhatsApp]
   ACK --> WA
 ```
