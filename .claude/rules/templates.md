@@ -3,12 +3,19 @@
 A template is a **complete business website plus its dashboard**, built so a business owner sees exactly
 what their final product could be and what value it brings. It is never a page of random sections.
 
-## Organization
+## Organization: categories and variants
 
-- Business field → one or more complete templates (e.g. Restaurant → Fine Dining, Fast Food & Delivery).
-- No color/theme variants of one template. Variety comes from different complete templates.
-- Each template is its own feature: `src/features/template-<slug>/`.
-- Each template has its own thin route folder: `src/routes/$locale/demos/<slug>/...`.
+- Demos are grouped by **business category** (Restaurants & cafés, Clinics, Real estate…).
+  The list is in `docs/06-template-contract.md`.
+- Each category has **2 variants**. A variant is a **different kind of business inside the category**
+  (e.g. Restaurant → Fine dining with reservations, Fast food with online orders), not a color or style change.
+- **No generic content.** Each variant has its own business, its own real content, and its own website design.
+- **One dashboard per category**, shared by both variants: the same shell and common modules
+  (overview, content editing, customers, settings), plus **variant modules** for what differs
+  (e.g. reservations for fine dining, orders for fast food).
+- Each category is one feature: `src/features/template-<category>/`.
+- Each variant has its own slug `<category>-<variant>` (used for the storage key, tracking, and the gallery)
+  and its own thin route folder: `src/routes/$locale/demos/<category>/<variant>/...`.
 
 ## Every template must have
 
@@ -23,26 +30,35 @@ what their final product could be and what value it brings. It is never a page o
 7. **Seed data** (`seed/`), a **schema version**, and a **reset demo** action.
 8. **Demo banner** from `demo-engine` ("live demo, changes saved only in your browser").
 9. **Tracking** of key actions via `track()`.
-10. **Catalog entry** (`meta.ts`: slug, field, name ar/en, short value pitch ar/en, screenshot) used by the gallery.
+10. **Catalog entry** per variant (`meta.ts`: slug, category, variant, name ar/en, short value pitch ar/en, screenshot) used by the gallery.
 11. **Mobile-first, accessible, fast**: semantic HTML, keyboard usable, images optimized.
-12. **A plan doc** `docs/features/template-<slug>.md` written and agreed before building.
+12. **A plan doc** per category `docs/features/template-<category>.md` (shared dashboard + both variants), agreed before building.
+
+Rules 1–11 apply to **each variant**.
 
 ## Folder layout
 
 ```
-src/features/template-<slug>/
-  site/            public website pages and sections
-  dashboard/       dashboard pages and modules
-  seed/            initial content { ar, en } and sample data
-  store.ts         Zustand store (persist key, version, seed, actions)
-  types.ts         zod schemas for the template data
-  meta.ts          catalog entry for the gallery
+src/features/template-<category>/
+  dashboard/               shared dashboard: shell config + common modules
+  modules/                 variant modules (e.g. reservations/, orders/), each used by one or both variants
+  types.ts                 zod schemas shared by both variants
+  variants/
+    <variant>/
+      site/                public website pages and sections (own design)
+      seed/                content { ar, en } and sample data for this business
+      dashboard.ts         which modules this variant shows in the dashboard
+      store.ts             Zustand store (key demo:<category>-<variant>, version, seed, actions)
+      meta.ts              catalog entry for the gallery
 ```
+
+- The two variants never import each other. Shared code lives at the category level.
+- A variant's dashboard = shared modules + the modules listed in its `dashboard.ts`. No other switches.
 
 ## Converting a template from `theme-sources/`
 
 - `theme-sources/<name>/` holds the original HTML/CSS. Code never imports from it.
-- Conversion rebuilds the design as React + Tailwind components inside the template feature:
+- Conversion rebuilds the design as React + Tailwind components inside the variant folder (`variants/<variant>/site/`):
   keep the look, replace the original CSS/JS with Tailwind and React, extract all text into the seed as `{ ar, en }`,
   make it RTL-safe, and remove anything that does not serve a business goal.
 - The themes are the owner's own original work, so there is no license check.

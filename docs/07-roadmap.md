@@ -6,7 +6,7 @@ flowchart LR
   P1 --> P2[2 Marketing site]
   P1 --> P4[4 Demo engine]
   P2 --> P3[3 Admin dashboard]
-  P4 --> P5[5 Generic Business template]
+  P4 --> P5[5 First category: 2 variants]
   P3 --> P6[6 More templates]
   P5 --> P6
 ```
@@ -14,13 +14,13 @@ flowchart LR
 | Phase | Scope | Status |
 |---|---|---|
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
-| **0b. Planning next** | Software Guide content plan (draft ready); Generic Business template + dashboard plan (draft for discussion) | in progress |
+| **0b. Planning next** | Software Guide (decisions closed, content draft ready); category/variant model agreed; first category plan | in progress |
 | **1. Foundation** | TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
 | **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
 | **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
 | **4. Demo engine** | Storage helper, fake auth, dashboard shell, editors, image library, banner | |
-| **5. First template** | Generic Business, built against the contract | |
-| **6. More templates** | New fields and templates (often from `theme-sources/`), guided by admin stats | |
+| **5. First category** | 2 variants + shared dashboard, built against the contract | |
+| **6. More categories** | Next categories from `docs/06-template-contract.md`, designs from `theme-sources/`, order guided by admin stats | |
 
 ## Open decisions
 
@@ -30,5 +30,7 @@ flowchart LR
 | Hosting | not decided: VPS + Cloudflare CDN, or AWS (S3 + CloudFront + Lambda); MongoDB Atlas free tier either way. See `docs/03-architecture.md` |
 | Image uploads | not decided; if enabled, create the AWS S3 upload implementation (owner's existing bucket) |
 | Admin dashboard language | proposal: English first, Arabic later if needed |
-| Wizard business field list | to define with the Software Guide plan |
-| First fields after Generic Business | decided later from admin stats |
+| Wizard business list | = gallery category list + "other" (decided) |
+| First category | not chosen (candidates in `docs/06-template-contract.md`) |
+| Theme designs (HTML/CSS) | owner provides later in `theme-sources/`; plans are written without them |
+| Cross-template features | proposals, to confirm: optional business name at register shown on the site; brand color palettes in settings; small value tips in the dashboard; sample data so the dashboard is never empty |

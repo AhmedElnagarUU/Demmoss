@@ -16,7 +16,7 @@ feedback, and notifications, to follow up with people and decide what to build n
 | **How many created a demo account**, in which template? | Overview, Demos |
 | **What do they do** in each template, and where do they stop? | Demos (funnel), Visitors (journey), Activity |
 | Which marketing source brings leads? | Overview (sources → leads) |
-| Which business fields are requested most? | Leads, Overview |
+| Which business categories are requested most? | Leads, Overview |
 
 ## Flow in plain words
 

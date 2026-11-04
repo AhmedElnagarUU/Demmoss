@@ -24,16 +24,16 @@ Arabic is written as natural Arabic, not a word-for-word translation.
 
 ## 2. Why it matters (facts)
 
-> ⚠️ Figures are indicative, collected from industry reports and vendor studies. **Verify each one before publishing**
-> (sources at the end). Each fact keeps a `source` field in the content file.
+> Decision: general facts, **no exact numbers**. They stay true over time and need no source check.
+> Exact figures may be added later only after verifying the original report.
 
-| id | EN | AR | Source |
-|---|---|---|---|
-| search-first | Most customers search online before choosing a local business, and many decide in under half an hour. | معظم العملاء يبحثون على الإنترنت قبل اختيار أي نشاط تجاري قريب منهم، وكثير منهم يقرر خلال أقل من نصف ساعة. | BrightLocal consumer search research (2026), via Network Solutions / Wix roundups |
-| trust | About 3 in 4 people judge a business's credibility by its website. | حوالي ٣ من كل ٤ أشخاص يحكمون على مصداقية النشاط التجاري من موقعه الإلكتروني. | Stanford credibility research, cited in Zippia / Network Solutions |
-| mobile | Around two thirds of web visits now come from phones. | حوالي ثلثي زيارات المواقع اليوم تأتي من الهواتف. | Small business website statistics 2026 roundups |
-| after-hours | Up to 40% of online bookings happen outside working hours, when nobody answers the phone. | ما يصل إلى ٤٠٪ من الحجوزات الإلكترونية تتم خارج ساعات العمل، في الوقت الذي لا يرد فيه أحد على الهاتف. | SchedulingKit online booking statistics (vendor data) |
-| whatsapp | In the Gulf, WhatsApp reaches almost everyone (about 96% of people in the UAE). A website that connects to WhatsApp meets customers where they already are. | في الخليج يصل واتساب إلى الجميع تقريبًا (حوالي ٩٦٪ من سكان الإمارات). والموقع المرتبط بواتساب يقابل العميل حيث هو أصلًا. | WhatsApp Business UAE guide (2026), Infobip WhatsApp statistics |
+| id | EN | AR |
+|---|---|---|
+| search-first | Most customers look a business up online before they call, visit, or buy. | معظم العملاء يبحثون عن النشاط التجاري على الإنترنت قبل أن يتصلوا أو يزوروا أو يشتروا. |
+| trust | People judge how serious a business is by its website. No website, or a weak one, makes them doubt. | الناس يحكمون على جدية النشاط التجاري من موقعه. غياب الموقع أو ضعفه يزرع الشك. |
+| mobile | Most visits now come from phones, so the site must work perfectly on a small screen. | أغلب الزيارات اليوم تأتي من الهاتف، لذلك يجب أن يعمل الموقع بشكل ممتاز على الشاشة الصغيرة. |
+| after-hours | Many customers want to book or order at night or on weekends, when nobody answers the phone. A website takes their request anytime. | كثير من العملاء يريدون الحجز أو الطلب ليلًا أو في العطلات، حين لا يرد أحد على الهاتف. الموقع يستقبل طلبهم في أي وقت. |
+| whatsapp | In our region almost everyone uses WhatsApp. A website that connects to WhatsApp meets customers where they already are. | في منطقتنا يستخدم الجميع تقريبًا واتساب. والموقع المرتبط بواتساب يقابل العميل حيث هو أصلًا. |
 
 ---
 
@@ -274,7 +274,7 @@ Buttons: Start your project · See matching demos · Talk on WhatsApp
 
 ## Sources (research, November 2026)
 
-Most figures come from industry roundups and vendor studies; verify against the original reports before publishing.
+Background research only. The page shows general facts without numbers; verify an original report before adding any exact figure.
 
 - Website vs web app vs SaaS:
   [Subscribed.FYI: Web App vs SaaS](https://subscribed.fyi/?p=25888) ·

@@ -1,6 +1,6 @@
 # Feature: Software Guide
 
-Status: planned (draft content ready for review: `docs/content/software-guide.md`)
+Status: planned, decisions closed (draft content ready for review: `docs/content/software-guide.md`)
 
 ## Purpose
 
@@ -45,7 +45,7 @@ flowchart LR
 | # | Section | Goal |
 |---|---|---|
 | 1 | Hero | Promise: "Know what you need before you pay for it" |
-| 2 | Why it matters | Short facts on how customers look for businesses today (with sources) |
+| 2 | Why it matters | Short, general facts on how customers look for businesses today (no exact numbers) |
 | 3 | The four types | Profile website · Functional website + dashboard · Custom business system · SaaS product, each with a plain-language analogy (a shop) |
 | 4 | Comparison table | Side-by-side: goal, who uses it, examples, effort, ongoing care |
 | 5 | Rent or build? | Ready-made tools (rented subscription) vs custom (owned): when each makes sense |
@@ -70,7 +70,7 @@ flowchart LR
 - Tie → the simpler type wins (profile < functional < system < saas), and the result says
   "You're between X and Y. Let's talk to choose the best one" with the WhatsApp button.
 - The result maps to the wizard: `profile`/`functional` → **Business website**, `system` → **Custom system for my business**, `saas` → **SaaS product**.
-- Nothing is saved; the quiz runs in the browser. `guide_quiz_completed` with the result type is tracked (new event, see open question 2).
+- Nothing is saved; the quiz runs in the browser. `guide_quiz_completed` with the result type is tracked.
 
 ```mermaid
 flowchart TD
@@ -107,7 +107,7 @@ flowchart TD
 
 ## Data
 
-No database. Content in `content/en.json` and `content/ar.json`. Tracking: `page_view`, `guide_quiz_completed` (proposed).
+No database. Content in `content/en.json` and `content/ar.json`. Tracking: `page_view`, `guide_quiz_completed`.
 
 ## Files
 
@@ -126,7 +126,8 @@ src/features/software-guide/
 
 - ✅ The wizard has the same four types as the guide (custom system added).
 - ✅ `guide_quiz_completed` is tracked with the result type.
+- ✅ Facts are general, without exact numbers. An exact figure is added later only after checking the original report.
 
 ## Open questions
 
-1. **Facts with numbers:** verify and keep with sources, rewrite without exact numbers, or remove the section.
+None. Content draft ready for the owner's review: `docs/content/software-guide.md`.

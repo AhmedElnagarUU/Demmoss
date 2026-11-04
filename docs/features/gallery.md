@@ -9,8 +9,9 @@ Show every demo template, open to everyone, so visitors find an example close to
 ## Flow in plain words
 
 1. The visitor opens `/demos` (from the header, landing, or the wizard result).
-2. They see template cards: screenshot, name, business field, one-line value pitch (ar/en).
-3. They filter by business field.
+2. They see demo cards grouped by business category. Each category shows its 2 variants: screenshot, name,
+   kind of business, one-line value pitch (ar/en).
+3. They filter by category.
 4. A card opens the template's live site. A second button opens its dashboard directly.
 
 ## User stories
@@ -18,7 +19,7 @@ Show every demo template, open to everyone, so visitors find an example close to
 | # | As a visitor I want to… | So that… |
 |---|---|---|
 | G1 | see all demos without signing up | I explore freely |
-| G2 | filter by my business field | I find relevant examples fast |
+| G2 | filter by my business category | I find relevant examples fast |
 | G3 | understand each template's value from its card | I choose which to open |
 
 ## Flow diagram
@@ -26,7 +27,7 @@ Show every demo template, open to everyone, so visitors find an example close to
 ```mermaid
 flowchart TD
   O[Open gallery] --> L[All template cards]
-  L --> F{Filter by field?}
+  L --> F{Filter by category?}
   F -->|yes| FL[Filtered cards]
   F -->|no| L
   FL --> C[Choose a card]
@@ -37,15 +38,18 @@ flowchart TD
 
 ## Data
 
-No database. The catalog is a static list built from each template's `meta.ts`
-(slug, field, name ar/en, pitch ar/en, screenshot). Adding a template = adding its `meta` to the catalog.
+No database. Two static lists:
+- `categories.ts`: category slug, name ar/en, order. Also used by the wizard.
+- `catalog.ts`: every variant's `meta.ts` (slug, category, variant, name ar/en, pitch ar/en, screenshot).
+Adding a variant = adding its `meta` to the catalog. A category with no variants yet is hidden in the gallery.
 
 ## Files
 
 ```
 src/features/gallery/
-  components/     template-card, field-filter, gallery-grid
-  catalog.ts      list of template metas; getTemplatesByField(field)
+  components/     demo-card, category-filter, gallery-grid
+  categories.ts   category list (slug, ar, en)
+  catalog.ts      list of variant metas; getDemosByCategory(category)
   types.ts        templateMetaSchema
 ```
 

@@ -10,7 +10,7 @@ Shapes below are the plan; `model.ts` becomes the source of truth once written.
 | Field | Type | Notes |
 |---|---|---|
 | `type` | `"business" \| "system" \| "saas" \| "other"` | `system` = custom system for their own business |
-| `field` | string, optional | business field slug, for `business` |
+| `field` | string, optional | business category slug (or `other`), for `business` |
 | `idea` | string, optional | free text, for `system`/`saas`/`other` (optional for business) |
 | `name` | string | |
 | `whatsapp` | string | |
@@ -95,5 +95,5 @@ sequenceDiagram
 
 - Visitors per day/week/month, unique visitors, devices, countries, languages, sources.
 - Wizard conversion: `wizard_started` → `wizard_completed`.
-- Per template: `demo_opened` → `demo_registered` → `demo_action`, plus `content_edited` counts.
+- Per category and variant: `demo_opened` → `demo_registered` → `demo_action`, plus `content_edited` counts.
 - WhatsApp clicks, feedback count.

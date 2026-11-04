@@ -70,12 +70,14 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  F[Business field] --> T1[Template A<br/>full site + dashboard]
-  F --> T2[Template B<br/>full site + dashboard]
-  GEN[Generic Business] --> TG[First template]
+  C[Business category] --> V1[Variant A<br/>own business, content, site]
+  C --> V2[Variant B<br/>own business, content, site]
+  V1 --> D[Shared category dashboard<br/>+ variant modules]
+  V2 --> D
 ```
 
-No color variants of one template; variety comes from different complete templates.
+No generic content and no color variants: each variant is a different kind of business with its own content.
+See `.claude/rules/templates.md`.
 
 ## User stories
 
@@ -85,7 +87,7 @@ No color variants of one template; variety comes from different complete templat
 |---|---|---|
 | A1 | read a landing page in Arabic or English about what we deliver and the value for my business | I understand the value before any tech |
 | A2 | learn the difference between a profile website, a functional website with dashboard, and SaaS | I choose what I really need |
-| A3 | browse all demos freely and filter by business field | I find examples close to my business |
+| A3 | browse all demos freely and filter by business category | I find examples close to my business |
 | A4 | fill a short wizard: business website (pick field), SaaS idea, or other | I describe my need without a call |
 | A5 | see suggested templates for my field after the wizard | I see an example right away |
 | A6 | continue on WhatsApp with one click and a prefilled message | I talk to the agency immediately |

@@ -5,19 +5,21 @@ description: Plan and build a demo template (complete business website + dashboa
 
 # New template
 
-A template is a complete business website plus its dashboard. It must sell value. Read first:
-`CLAUDE.md`, `.claude/rules/templates.md`, `.claude/rules/storage.md`, `.claude/rules/i18n-rtl.md`,
+A template is a complete business website plus its dashboard. It must sell value.
+Templates are planned per **category**: 2 variants (different kinds of business, own content and site) and one shared dashboard.
+
+Read first: `CLAUDE.md`, `.claude/rules/templates.md`, `.claude/rules/storage.md`, `.claude/rules/i18n-rtl.md`,
 `docs/05-demo-engine.md`, `docs/06-template-contract.md`.
 
 ## 1. Plan (no code)
 
-Create `docs/features/template-<slug>.md` from `docs/features/_template.md` and add:
+Create `docs/features/template-<category>.md` from `docs/features/_template.md` and add, for each variant:
 
 1. **Business profile**: field, its customers, what the owner wants.
 2. **Value map**: every page and section with the business goal it serves and its value message. Drop anything without a goal.
 3. **Site pages and sections**.
 4. **Closed-loop flow(s)**: site action → what appears in the dashboard (at least one).
-5. **Dashboard modules**: bilingual content editing + business management.
+5. **Dashboard modules**: shared modules (both variants) and variant modules.
 6. **Data schema** (Zod outline) and **seed content** outline in ar/en.
 7. **Source**: scratch, or `theme-sources/<name>/`.
 8. Mermaid diagrams and user stories.
@@ -27,7 +29,7 @@ Get the user's agreement on the plan.
 ## 2. If converting from `theme-sources/<name>/`
 
 - Read the original HTML/CSS. List its pages and sections and map them to the value map; drop or replace sections without a goal.
-- Rebuild as React + Tailwind components in `src/features/template-<slug>/site/`. Keep the look; do not copy the original CSS/JS files.
+- Rebuild as React + Tailwind components in `src/features/template-<category>/variants/<variant>/site/`. Keep the look; do not copy the original CSS/JS files.
   Replace jQuery or plugin behaviour with plain React.
 - Move every text into the seed as `{ ar, en }`. Write real Arabic, not a literal translation.
 - Make it RTL-safe (logical utilities, flipped directional icons).
@@ -35,19 +37,18 @@ Get the user's agreement on the plan.
 
 ## 3. Build
 
+Folder layout: `.claude/rules/templates.md`. Short version:
+
 ```
-src/features/template-<slug>/
-  site/          public pages and sections
-  dashboard/     dashboard pages and modules
-  seed/          content { ar, en } + sample data
-  store.ts       createTemplateStore("<slug>", version, seed, schema) from demo-engine
-  types.ts       zod schema of the template data
-  meta.ts        slug, field, name ar/en, pitch ar/en, screenshot
-src/routes/$locale/demos/<slug>/...   thin route files only
+src/features/template-<category>/
+  dashboard/ modules/ types.ts           shared by both variants
+  variants/<variant>/site/ seed/ dashboard.ts store.ts meta.ts
+src/routes/$locale/demos/<category>/<variant>/...   thin route files only
 ```
 
+- `store.ts`: `createTemplateStore("<category>-<variant>", version, seed, schema)` from demo-engine.
 - Use `demo-engine` for storage, fake auth, dashboard shell, editors, image library, banner.
-- Business modules (bookings, menu, requests…) stay in the template.
+- Business modules (bookings, menu, requests…) stay in the category feature (`modules/`).
 - Track `demo_action` for each closed-loop action.
 - Add `meta` to the gallery catalog.
 

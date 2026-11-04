@@ -31,7 +31,7 @@ src/
       start/index.tsx                 → features/wizard
       start/result.tsx                → features/wizard
       demos/index.tsx                 → features/gallery
-      demos/generic-business/...      → features/template-generic-business
+      demos/<category>/<variant>/...  → features/template-<category> (one per category)
       admin/login.tsx                 → features/admin
       admin/_protected/...            → features/admin (beforeLoad checks the session)
   features/
@@ -44,7 +44,7 @@ src/
     notifications/
     admin/
     demo-engine/
-    template-generic-business/
+    template-<category>/              e.g. template-restaurant (2 variants inside)
   shared/
     db/
     ui/
@@ -69,8 +69,8 @@ flowchart LR
   admin --> tracking
   admin --> notifications
   admin --> gallery
-  gallery --> tgb[template-generic-business<br/>meta only]
-  tgb --> engine[demo-engine]
+  gallery --> tc[template-category<br/>meta only]
+  tc --> engine[demo-engine]
   engine --> tracking
   landing --> gallery
 ```
@@ -109,9 +109,9 @@ sequenceDiagram
 | `/$locale/guide` | software-guide |
 | `/$locale/start`, `/$locale/start/result` | wizard |
 | `/$locale/demos` | gallery |
-| `/$locale/demos/<slug>/...` | template-<slug> (site) |
-| `/$locale/demos/<slug>/register`, `/login` | template-<slug> via demo-engine fake auth |
-| `/$locale/demos/<slug>/dashboard/...` | template-<slug> (dashboard) |
+| `/$locale/demos/<category>/<variant>/...` | template-<category> (variant site) |
+| `/$locale/demos/<category>/<variant>/register`, `/login` | template-<category> via demo-engine fake auth |
+| `/$locale/demos/<category>/<variant>/dashboard/...` | template-<category> (shared dashboard + variant modules) |
 | `/$locale/admin/login`, `/$locale/admin/...` | admin |
 
 ## Server functions

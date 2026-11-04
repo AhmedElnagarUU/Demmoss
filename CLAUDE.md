@@ -19,8 +19,8 @@ Read `docs/01-vision.md` before writing any user-facing content.
 | Landing | Marketing page: value, what we deliver, how we work | none |
 | Software Guide | Explains profile website vs functional website + dashboard vs SaaS | none |
 | Wizard | "What do you want to build?" → saved as a lead → suggested demos + WhatsApp | MongoDB |
-| Gallery | All demos, open to everyone, filtered by business field | none (static catalog) |
-| Demo templates | Full business website + fake register/login + dashboard | browser localStorage |
+| Gallery | All demos, open to everyone, filtered by business category | none (static catalog) |
+| Demo templates | Per category: 2 variants (own business, content, site) + one shared dashboard; fake register/login | browser localStorage |
 | Feedback | Message form, everywhere | MongoDB |
 | Tracking | Anonymous visitors + key actions | MongoDB |
 | Admin | Owner dashboard: visitors, leads, demo registrations, activity, feedback, notifications | MongoDB |
@@ -69,4 +69,4 @@ Details: `docs/03-architecture.md`.
 ## Status
 
 Phase 0 (planning) is done. See `docs/07-roadmap.md` for the phases and what is still to be planned
-(Software Guide content, Generic Business template).
+(first category to plan: 2 variants + shared dashboard).
