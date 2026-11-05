@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ORBIS CARGO — Freight from Asia, door to door</title>
+<meta name="description" content="ORBIS CARGO is an import freight forwarder from China and Asia: air, sea, road and rail freight with customs clearance.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f3f4;--ink:#111;--muted:#6b6b70;--line:#e7e7ea;--card:#fff;--r:22px;--shadow:0 10px 40px rgba(17,17,17,.06);--shadow2:0 18px 50px rgba(17,17,17,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.muted{color:var(--muted)}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+h1,h2,h3{font-weight:500;letter-spacing:-.025em;line-height:1.08}
+h2{font-size:clamp(28px,3.4vw,44px)}
+h2 span,h1 span{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:15px 26px;font-weight:600;font-size:14.5px;border:1px solid var(--ink);cursor:pointer;transition:.25s;background:var(--ink);color:#fff}
+.btn svg{width:18px;height:18px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.btn:hover svg{transform:translateX(3px)}
+.btn svg{transition:.25s}
+.btn.out{background:transparent;color:var(--ink);border-color:#d6d6da}
+.btn.out:hover{background:var(--ink);color:#fff;box-shadow:none}
+.btn.w{background:#fff;color:var(--ink);border-color:#fff}
+.rnd{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#f0f0f2;transition:.25s;border:0;cursor:pointer}
+.rnd svg{width:18px;height:18px}
+.card:hover .rnd{background:var(--ink);color:#fff;transform:translateX(3px)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+header.sc{background:rgba(255,255,255,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:36px;height:36px}
+.logo b{display:block;font-weight:700;letter-spacing:.04em;font-size:16px;line-height:1.1}
+.logo small{display:block;font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;font-weight:500}
+.links{display:flex;gap:30px}
+.links a{position:relative;font-size:13.5px;font-weight:500;padding:6px 0;color:#333}
+.links a::after{content:"";position:absolute;left:50%;bottom:-5px;width:4px;height:4px;border-radius:50%;background:var(--ink);transform:translateX(-50%) scale(0);transition:.25s}
+.links a.act::after,.links a:hover::after{transform:translateX(-50%) scale(1)}
+.navr{display:flex;align-items:center;gap:22px}
+.tel{font-size:13px;line-height:1.35;font-weight:600}
+.tel small{display:block;font-weight:400;color:var(--muted);font-size:11.5px}
+.navr .btn{padding:12px 22px;font-size:13.5px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid #d6d6da;background:#fff;cursor:pointer;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.5px;background:var(--ink);position:relative;transition:.25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger.o span{background:transparent}.burger.o span::before{top:0;transform:rotate(45deg)}.burger.o span::after{top:0;transform:rotate(-45deg)}
+.mob{display:none}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#ececee 0%,#f3f3f4 45%,#fff 100%);padding:130px 0 150px;position:relative;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(44px,6vw,82px);margin:22px 0 28px;font-weight:400;letter-spacing:-.035em;line-height:1.02}
+.hero h1 span{display:block;font-weight:500}
+.hero p.lead{font-size:16.5px;color:#3a3a3f;max-width:400px;margin-bottom:36px}
+.cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.play{display:flex;align-items:center;gap:14px;background:none;border:0;cursor:pointer;font-size:13px;font-weight:500;text-align:left;line-height:1.35}
+.play i{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);transition:.25s;position:relative}
+.play i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(0,0,0,.12);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}
+.play:hover i{transform:scale(1.08)}
+.play svg{width:16px;height:16px;fill:var(--ink);stroke:none}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:58px;max-width:560px}
+.feat svg{margin-bottom:12px;width:26px;height:26px}
+.feat p{font-size:11.5px;color:#555;line-height:1.4}
+.comp{position:relative;height:560px}
+.comp .m{position:absolute;overflow:hidden;border-radius:28px;box-shadow:var(--shadow2)}
+.comp .m img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.comp .m:hover img{transform:scale(1.05)}
+.m1{top:0;right:0;width:84%;height:350px;border-radius:200px 28px 28px 28px!important}
+.m2{bottom:0;left:0;width:62%;height:250px}
+.m3{bottom:30px;right:0;width:30%;height:170px;border-radius:999px 999px 24px 24px!important}
+.m3 img{filter:grayscale(1) contrast(1.05)}
+.m1 img,.m2 img{filter:grayscale(.85) contrast(1.05)}
+.m1::after,.m2::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(0,0,0,.08))}
+.float{position:absolute;right:2%;top:340px;z-index:3;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:var(--shadow2);display:flex;align-items:center;gap:14px;animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.av{display:flex}
+.av span{width:36px;height:36px;border-radius:50%;border:2px solid #fff;background:#cfcfd4;overflow:hidden}
+.av span+span{margin-left:-12px}
+.av img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.float b{font-size:20px;display:block;line-height:1.1;font-weight:600}
+.float small{font-size:11.5px;color:var(--muted);line-height:1.3;display:block}
+.ring{position:absolute;left:10%;top:60px;width:150px;height:150px;border:1px dashed #c5c5ca;border-radius:50%;animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ABOUT PANEL */
+.panel{background:#fff;border-radius:32px;margin:-90px auto 0;max-width:1400px;position:relative;z-index:2;box-shadow:0 -10px 60px rgba(17,17,17,.06);padding:70px 0 70px}
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.about h2{margin:18px 0 22px;font-size:clamp(26px,3vw,38px)}
+.about p{color:var(--muted);max-width:430px;font-size:15px}
+.note{display:flex;gap:14px;align-items:center;margin:34px 0;font-size:13.5px}
+.note svg{width:38px;height:38px}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.photos .ph{border-radius:22px;overflow:hidden;aspect-ratio:3/3.6;box-shadow:var(--shadow)}
+.photos .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.photos .ph:hover img{transform:scale(1.06)}
+.photos .col2{display:flex;flex-direction:column;gap:18px}
+.photos .col2 .ph{aspect-ratio:1/1}
+.photos .btn{justify-content:space-between;width:100%}
+.sec{padding:60px 0 0}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:34px;border-top:1px solid var(--line);padding-top:34px}
+.shead h2{margin-top:12px;font-size:clamp(26px,3vw,36px)}
+.alllink{display:flex;gap:14px;align-items:center;font-size:13.5px;font-weight:500;white-space:nowrap}
+.alllink svg{width:20px;height:20px;transition:.25s}.alllink:hover svg{transform:translateX(5px)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);transition:.3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow2)}
+.svc .img{height:150px;border-radius:16px;overflow:hidden;margin-bottom:22px}
+.svc .img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.9);transition:transform 1s,filter .5s}
+.svc .card:hover img{transform:scale(1.07);filter:grayscale(.2)}
+.svc h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px}
+.svc ul{list-style:none;font-size:13px;color:var(--muted);flex:1}
+.svc li{padding-left:16px;position:relative;margin-bottom:8px}
+.svc li::before{content:"";position:absolute;left:2px;top:9px;width:4px;height:4px;background:#999;border-radius:50%}
+.svc .rnd{align-self:flex-end;margin-top:12px}
+
+/* CALC */
+.calcS{padding:100px 0 0}
+.calc{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1.15fr 1fr;gap:50px;position:relative;overflow:hidden}
+.calc::before{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+.calc h2{color:#fff;margin:14px 0 10px}.calc h2 span{color:#8b8b92}
+.calc .eyebrow{color:#9a9aa1}
+.calc p.s{color:#a0a0a8;font-size:14.5px;margin-bottom:28px;max-width:440px}
+.tabs{display:flex;gap:6px;background:rgba(255,255,255,.08);padding:5px;border-radius:999px;width:max-content;max-width:100%;margin-bottom:24px}
+.tabs button{border:0;background:none;color:#bbb;padding:10px 20px;border-radius:999px;cursor:pointer;font-weight:600;font-size:13.5px;display:flex;gap:8px;align-items:center;transition:.25s}
+.tabs button svg{width:17px;height:17px}
+.tabs button.on{background:#fff;color:var(--ink)}
+.fld{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld label{display:block;font-size:11.5px;color:#9a9aa1;margin-bottom:7px;letter-spacing:.06em;text-transform:uppercase}
+.fld input,.fld select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px;color:#fff;outline:0;transition:.2s;appearance:none;-webkit-appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23aaa' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.fld option{color:#111}
+.fld input:focus,.fld select:focus{border-color:#fff;background:rgba(255,255,255,.12)}
+.res{background:#fff;color:var(--ink);border-radius:24px;padding:34px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.res .eyebrow{margin-bottom:10px}
+.price{font-size:clamp(34px,4.2vw,52px);font-weight:600;letter-spacing:-.03em;line-height:1.05;transition:.2s}
+.res .rows{margin:24px 0;border-top:1px solid var(--line)}
+.res .row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.res .row span{color:var(--muted)}.res .row b{font-weight:600;text-align:right}
+.res small{display:block;color:var(--muted);font-size:11.5px;margin-top:14px;line-height:1.5}
+.res .btn{justify-content:center}
+
+/* STATS */
+.stats{padding:100px 0 0}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);background:#f6f6f7;border-radius:28px;overflow:hidden}
+.stat{padding:44px 34px;border-right:1px solid #e4e4e7}
+.stat:last-child{border:0}
+.stat b{display:block;font-size:clamp(38px,4.5vw,60px);font-weight:300;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:12px;color:var(--muted);font-size:14px}
+
+/* STEPS */
+.block{padding:110px 0 0}
+.bhead{text-align:center;max-width:640px;margin:0 auto 54px}
+.bhead h2{margin-top:14px}
+.bhead p{color:var(--muted);margin-top:14px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
+.steps::before{content:"";position:absolute;left:10%;right:10%;top:29px;border-top:1px dashed #cfcfd4}
+.step{text-align:center;position:relative}
+.step .n{width:58px;height:58px;border-radius:50%;background:#fff;border:1px solid #d9d9dd;display:grid;place-items:center;margin:0 auto 20px;font-weight:600;position:relative;transition:.3s;box-shadow:var(--shadow)}
+.step:hover .n{background:var(--ink);color:#fff;transform:scale(1.1)}
+.step h3{font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.step p{font-size:13.5px;color:var(--muted);padding:0 8px}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.plan{padding:38px 34px;border-radius:26px;display:flex;flex-direction:column}
+.plan .tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.plan .pr{font-size:48px;font-weight:600;letter-spacing:-.035em;margin:16px 0 4px;line-height:1}
+.plan .pr small{font-size:14px;font-weight:400;color:var(--muted);letter-spacing:0}
+.plan>p{font-size:14px;color:var(--muted);margin-bottom:26px}
+.plan ul{list-style:none;margin-bottom:30px;flex:1}
+.plan li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:14px}
+.plan li svg{width:18px;height:18px;margin-top:2px}
+.plan .btn{justify-content:center}
+.plan.hi{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-14px);box-shadow:0 30px 70px rgba(0,0,0,.25)}
+.plan.hi:hover{transform:translateY(-20px)}
+.plan.hi .tag,.plan.hi>p,.plan.hi .pr small{color:#9a9aa1}
+.plan.hi li{border-color:rgba(255,255,255,.14)}
+.badge{align-self:flex-start;background:#fff;color:var(--ink);font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+
+/* TESTI */
+.tsl{overflow:hidden;border-radius:28px}
+.trk{display:flex;transition:transform .6s cubic-bezier(.6,.05,.2,1)}
+.tsl .slide{flex:0 0 100%;display:grid;grid-template-columns:300px 1fr;gap:50px;background:#f6f6f7;padding:44px;align-items:center}
+.tsl .pt{aspect-ratio:1;border-radius:24px;overflow:hidden}
+.tsl .pt img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.tsl blockquote{font-size:clamp(19px,2.2vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.4;margin:16px 0 28px}
+.tsl .who b{display:block;font-weight:600}.tsl .who span{font-size:13.5px;color:var(--muted)}
+.tctl{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+.dots{display:flex;gap:8px}
+.dots button{width:8px;height:8px;border-radius:99px;border:0;background:#cfcfd4;cursor:pointer;transition:.3s;padding:0}
+.dots button.on{width:28px;background:var(--ink)}
+.arrs{display:flex;gap:10px}
+.arrs .rnd{border:1px solid #d6d6da;background:#fff}.arrs .rnd:hover{background:var(--ink);color:#fff}
+
+/* FAQ */
+.faqw{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.faqw h2{margin-top:14px}.faqw>div:first-child p{color:var(--muted);margin:16px 0 26px;max-width:340px}
+.fq{border-bottom:1px solid var(--line)}
+.fq button{width:100%;background:none;border:0;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-size:17px;font-weight:500;text-align:left;cursor:pointer;letter-spacing:-.01em}
+.fq .pl{width:32px;height:32px;border-radius:50%;border:1px solid #d6d6da;flex:none;position:relative;transition:.3s}
+.fq .pl::before,.fq .pl::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%);transition:.3s}
+.fq .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.fq.o .pl{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fq.o .pl::after{transform:translate(-50%,-50%) rotate(0)}
+.fq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.fq.o .a{grid-template-rows:1fr}
+.fq .a div{overflow:hidden}
+.fq .a p{color:var(--muted);font-size:15px;padding:0 50px 24px 0}
+
+/* QUOTE */
+.qgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px}
+.form{padding:42px;border-radius:28px}
+.form h3{font-size:28px;margin-bottom:8px}
+.form>p{color:var(--muted);margin-bottom:26px;font-size:14.5px}
+.form .g{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .f{display:block}.form .f.full{grid-column:1/-1}
+.form label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px;font-weight:500}
+.form input,.form select,.form textarea{width:100%;border:1px solid #dcdce0;border-radius:14px;padding:14px 16px;background:#fafafa;outline:0;transition:.2s;appearance:none;-webkit-appearance:none}
+.form select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23666' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.form textarea{resize:vertical;min-height:100px}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink);background:#fff}
+.form .btn{margin-top:20px}
+.ok{display:none;margin-top:18px;padding:16px 18px;background:#f0f0f2;border-radius:14px;font-size:14px;align-items:center;gap:12px}
+.ok.s{display:flex}
+.ok svg{width:22px;height:22px}
+.side{display:flex;flex-direction:column;gap:22px}
+.info{padding:32px;border-radius:26px;background:var(--ink);color:#fff;border-color:var(--ink)}
+.info .it{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.info .it:last-child{border:0}
+.info small{display:block;color:#9a9aa1;font-size:12px}
+.info b{font-weight:500;font-size:15px}
+.map{flex:1;min-height:220px;border-radius:26px;overflow:hidden;position:relative;border:1px solid var(--line);background:#ececee;background-image:linear-gradient(#dcdce0 1px,transparent 1px),linear-gradient(90deg,#dcdce0 1px,transparent 1px);background-size:36px 36px}
+.map svg.roads{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+.pin i{width:46px;height:46px;border-radius:50% 50% 50% 0;background:var(--ink);transform:rotate(-45deg);display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.pin i::after{content:"";width:14px;height:14px;background:#fff;border-radius:50%}
+.pin em{margin-top:14px;font-style:normal;background:#fff;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;box-shadow:var(--shadow);transform:translateY(40px);position:absolute;white-space:nowrap}
+
+/* FOOTER */
+footer{background:#111;color:#fff;margin-top:110px;padding:80px 0 30px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.12)}
+footer .logo small{color:#8b8b92}
+footer p.d{color:#8b8b92;font-size:14px;margin:20px 0;max-width:300px}
+footer h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8b8b92;margin-bottom:18px;font-weight:600}
+footer ul{list-style:none}footer li{margin-bottom:11px;font-size:14.5px}
+footer li a{color:#ddd;transition:.2s}footer li a:hover{color:#fff;padding-left:4px}
+.soc{display:flex;gap:10px}
+.soc a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;transition:.25s}
+.soc a:hover{background:#fff;color:#111;transform:translateY(-3px)}
+.soc svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+.fb{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:#8b8b92}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(10,10,12,.72);backdrop-filter:blur(6px);z-index:100;display:none;place-items:center;padding:20px}
+.modal.o{display:grid;animation:fi .3s}
+@keyframes fi{from{opacity:0}}
+.mbox{background:#fff;border-radius:26px;width:min(820px,100%);padding:14px;position:relative}
+.vid{aspect-ratio:16/9;border-radius:18px;background:linear-gradient(135deg,#1c1c1f,#3a3a40);display:grid;place-items:center;color:#fff;text-align:center;position:relative;overflow:hidden}
+.vid::before{content:"";position:absolute;inset:0;background:url(https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=900&q=70&auto=format&fit=crop) center/cover;opacity:.25;filter:grayscale(1)}
+.vid div{position:relative}
+.vid i{width:76px;height:76px;border-radius:50%;background:#fff;display:grid;place-items:center;margin:0 auto 14px}
+.vid i svg{width:26px;height:26px;fill:#111;stroke:none;margin-left:3px}
+.mx{position:absolute;right:-8px;top:-8px;width:42px;height:42px;border-radius:50%;border:0;background:var(--ink);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.mx svg{width:18px;height:18px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+ .wrap{padding:0 24px}
+ .links,.tel{display:none}
+ .burger{display:grid}
+ .mob{position:fixed;top:78px;left:0;right:0;background:#fff;padding:12px 24px 24px;box-shadow:0 20px 40px rgba(0,0,0,.1);z-index:49;flex-direction:column}
+ .mob.o{display:flex}
+ .mob a{padding:15px 0;border-bottom:1px solid var(--line);font-weight:500;font-size:17px}
+ .mob .btn{margin-top:18px;justify-content:center;color:#fff;border-bottom:0}
+ .hgrid{grid-template-columns:1fr}
+ .comp{height:520px;max-width:640px;margin:20px auto 0;width:100%}
+ .hero{padding:110px 0 130px}
+ .svc{grid-template-columns:repeat(2,1fr)}
+ .calc{grid-template-columns:1fr;padding:40px}
+ .about{grid-template-columns:1fr}
+ .steps{grid-template-columns:repeat(3,1fr);row-gap:36px}.steps::before{display:none}
+ .plans{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+ .plan.hi{transform:none}.plan.hi:hover{transform:translateY(-6px)}
+ .faqw,.qgrid{grid-template-columns:1fr}
+ .fg{grid-template-columns:1fr 1fr}
+ .sgrid{grid-template-columns:repeat(2,1fr)}
+ .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #e4e4e7}
+ .tsl .slide{grid-template-columns:200px 1fr;gap:30px}
+ .panel{margin-top:-80px;border-radius:26px;margin-left:12px;margin-right:12px}
+}
+@media(max-width:640px){
+ .wrap{padding:0 16px}
+ .navr .btn{display:none}
+ .nav{height:68px}.mob{top:68px;padding:12px 16px 24px}
+ .hero{padding:96px 0 110px}
+ .feats{grid-template-columns:repeat(2,1fr);gap:24px}
+ .comp{height:430px}
+ .m1{height:270px;width:88%}.m2{height:190px;width:60%}.m3{height:130px;width:32%;bottom:20px}
+ .float{top:250px;right:0;padding:12px 14px}.ring{display:none}
+ .panel{margin-left:8px;margin-right:8px;padding:44px 0}
+ .svc{grid-template-columns:1fr}
+ .shead{flex-direction:column;align-items:flex-start}
+ .calc{padding:26px 20px;border-radius:24px}
+ .tabs{width:100%;overflow-x:auto}.tabs button{padding:10px 14px;flex:1;justify-content:center}
+ .tabs button svg{display:none}
+ .fld{grid-template-columns:1fr}
+ .res{padding:26px 22px}
+ .steps{grid-template-columns:1fr 1fr}
+ .tsl .slide{grid-template-columns:1fr;padding:26px 22px;gap:22px}
+ .tsl .pt{width:120px}
+ .form{padding:26px 20px}.form .g{grid-template-columns:1fr}
+ .fg{grid-template-columns:1fr}
+ .block{padding-top:80px}.calcS,.stats{padding-top:70px}
+ .stat{padding:28px 20px}
+ .fq button{font-size:15.5px}.fq .a p{padding-right:0}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="mark" viewBox="0 0 40 40"><path d="M20 3l14.4 8.3v17.4L20 37 5.6 28.7V11.3z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M5.6 11.3L20 19.6l14.4-8.3M20 19.6V37" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 19.6l-7.2-4.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="19.6" r="2.6" fill="currentColor"/></symbol>
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+ </defs>
+</svg>
+
+<header id="hd">
+ <div class="wrap nav">
+  <a href="#home" class="logo" aria-label="ORBIS CARGO"><svg><use href="#mark"/></svg><span><b>ORBIS CARGO</b><small>Freight from Asia</small></span></a>
+  <nav class="links">
+   <a href="#home" class="act">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contacts">Contacts</a>
+  </nav>
+  <div class="navr">
+   <div class="tel">+1 (555) 014-2200<small>Daily 09:00 – 21:00</small></div>
+   <a href="#calculator" class="btn">Calculate shipping <svg class="i"><use href="#arr"/></svg></a>
+   <button class="burger" id="bg" aria-label="Menu"><span></span></button>
+  </div>
+ </div>
+ <div class="mob" id="mob">
+  <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#contacts">Contacts</a>
+  <a href="#calculator" class="btn">Calculate shipping <svg class="i"><use href="#arr"/></svg></a>
+ </div>
+</header>
+
+<section class="hero" id="home">
+ <div class="wrap hgrid">
+  <div>
+   <div class="eyebrow rv">Import freight from China &amp; Asia</div>
+   <h1 class="rv d1">We move your business <span>further</span></h1>
+   <p class="lead rv d2">Reliable turnkey cargo delivery from Asia by air, sea, road and rail. From supplier check to your warehouse door.</p>
+   <div class="cta rv d3">
+    <a href="#calculator" class="btn">Calculate shipping <svg class="i"><use href="#arr"/></svg></a>
+    <button class="play" id="playBtn"><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l15-8.5z"/></svg></i><span>Watch our<br>story</span></button>
+   </div>
+   <div class="feats rv d4">
+    <div class="feat"><svg class="i" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.3 7.8-8 9-4.7-1.2-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><p>Cargo insured at every stage</p></div>
+    <div class="feat"><svg class="i" viewBox="0 0 24 24"><path d="M12 2.8l8 4.4v9.6l-8 4.4-8-4.4V7.2z"/><path d="M4 7.2l8 4.4 8-4.4M12 11.6v9.6"/></svg><p>Delivery from 7 days by air or road</p></div>
+    <div class="feat"><svg class="i" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg><p>Customs fully handled</p></div>
+    <div class="feat"><svg class="i" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2-5 2"/></svg><p>Personal manager 24/7</p></div>
+   </div>
+  </div>
+  <div class="comp rv d2">
+   <div class="ring"></div>
+   <div class="m m1"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1000&q=70&auto=format&fit=crop" alt="Cargo airplane in the sky"></div>
+   <div class="m m2"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=70&auto=format&fit=crop" alt="Container ship at sea"></div>
+   <div class="m m3"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=70&auto=format&fit=crop" alt="Port cranes"></div>
+   <div class="float"><div class="av"><span><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=70&auto=format&fit=crop" alt=""></span><span><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=70&auto=format&fit=crop" alt=""></span></div><div><b>5000+</b><small>clients trust us<br>with their cargo</small></div></div>
+  </div>
+ </div>
+</section>
+
+<div class="panel" id="about">
+ <div class="wrap">
+  <div class="about">
+   <div class="rv">
+    <div class="eyebrow">About the company</div>
+    <h2>Complete logistics from Asia <span>for your business</span></h2>
+    <p>We take care of every stage of delivery: sourcing, supplier verification, consolidation, international transport and customs clearance. One contract, one manager, no surprises.</p>
+    <div class="note"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.7 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.7-4-9s1.4-6.4 4-9z"/></svg><span>We work with companies<br>and private importers</span></div>
+   </div>
+   <div class="photos rv d1">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=70&auto=format&fit=crop" alt="Warehouse interior" loading="lazy"></div>
+    <div class="col2">
+     <div class="ph"><img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=70&auto=format&fit=crop" alt="Port cranes" loading="lazy"></div>
+     <a href="#services" class="btn out">More about us <svg class="i"><use href="#arr"/></svg></a>
+    </div>
+   </div>
+  </div>
+
+  <div class="sec" id="services">
+   <div class="shead rv">
+    <div><div class="eyebrow">Our services</div><h2>Solutions for any task</h2></div>
+    <a href="#pricing" class="alllink">All services <svg class="i"><use href="#arr"/></svg></a>
+   </div>
+   <div class="svc">
+    <a href="#calculator" class="card rv"><div class="img"><img src="https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=500&q=70&auto=format&fit=crop" alt="Air freight" loading="lazy"></div><h3>Air freight</h3><ul><li>Fast delivery from 7 days</li><li>Ideal for urgent cargo</li></ul><span class="rnd"><svg class="i"><use href="#arr"/></svg></span></a>
+    <a href="#calculator" class="card rv d1"><div class="img"><img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=500&q=70&auto=format&fit=crop" alt="Sea freight" loading="lazy"></div><h3>Sea freight</h3><ul><li>Best rates for large shipments</li><li>FCL and LCL options</li></ul><span class="rnd"><svg class="i"><use href="#arr"/></svg></span></a>
+    <a href="#calculator" class="card rv d2"><div class="img"><img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&q=70&auto=format&fit=crop" alt="Road freight" loading="lazy"></div><h3>Road freight</h3><ul><li>Balanced price and speed</li><li>Door-to-door delivery</li></ul><span class="rnd"><svg class="i"><use href="#arr"/></svg></span></a>
+    <a href="#faq" class="card rv d3"><div class="img"><img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=500&q=70&auto=format&fit=crop" alt="Customs clearance" loading="lazy"></div><h3>Customs clearance</h3><ul><li>Full documentation support</li><li>Certification and declaration</li></ul><span class="rnd"><svg class="i"><use href="#arr"/></svg></span></a>
+   </div>
+  </div>
+ </div>
+</div>
+
+<section class="calcS" id="calculator">
+ <div class="wrap">
+  <div class="calc rv">
+   <div>
+    <div class="eyebrow">Shipping calculator</div>
+    <h2>Estimate your cost <span>in seconds</span></h2>
+    <p class="s">Pick a mode, enter your cargo and route. You will see an indicative price range and transit time right away.</p>
+    <div class="tabs" id="tabs" role="tablist">
+     <button class="on" data-m="air"><svg class="i" viewBox="0 0 24 24"><path d="M3 13l18-8-6 15-3-6z"/></svg>Air</button>
+     <button data-m="sea"><svg class="i" viewBox="0 0 24 24"><path d="M3 17l2 3h14l2-3zM6 17V10h12v7M9 10V6h6v4"/></svg>Sea</button>
+     <button data-m="road"><svg class="i" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>Road</button>
+     <button data-m="rail"><svg class="i" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/></svg>Rail</button>
+    </div>
+    <div class="fld">
+     <div><label for="cw">Weight, kg</label><input id="cw" type="number" min="1" value="500"></div>
+     <div><label for="cv">Volume, m³</label><input id="cv" type="number" min="0.1" step="0.1" value="2"></div>
+     <div><label for="co">Origin</label><select id="co"><option value="1">Shanghai, China</option><option value="1">Shenzhen, China</option><option value="1.03">Guangzhou, China</option><option value="1.08">Yiwu, China</option><option value="1.12">Beijing, China</option><option value="1.15">Ho Chi Minh City, Vietnam</option><option value="1.2">Seoul, South Korea</option></select></div>
+     <div><label for="cd">Destination</label><select id="cd"><option value="1">Warsaw, Poland</option><option value="1.1">Hamburg, Germany</option><option value="1.1">Rotterdam, Netherlands</option><option value="1.2">London, UK</option><option value="0.9">Dubai, UAE</option><option value="1.4">New York, USA</option></select></div>
+    </div>
+   </div>
+   <div class="res">
+    <div class="eyebrow">Estimated cost</div>
+    <div class="price" id="price">$0</div>
+    <div class="rows">
+     <div class="row"><span>Mode</span><b id="rMode">Air freight</b></div>
+     <div class="row"><span>Transit time</span><b id="rDays">—</b></div>
+     <div class="row"><span>Chargeable weight</span><b id="rCw">—</b></div>
+    </div>
+    <a href="#contacts" class="btn" id="quoteBtn">Get exact quote <svg class="i"><use href="#arr"/></svg></a>
+    <small>Indicative estimate only. Final price depends on cargo type, packaging, season and customs duties.</small>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="stats">
+ <div class="wrap">
+  <div class="sgrid rv">
+   <div class="stat"><b data-c="12">0</b><span>years on the market</span></div>
+   <div class="stat"><b data-c="5000" data-s="+">0</b><span>clients worldwide</span></div>
+   <div class="stat"><b data-c="48">0</b><span>countries served</span></div>
+   <div class="stat"><b data-c="99.2" data-s="%" data-d="1">0</b><span>deliveries on time</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="block" id="how">
+ <div class="wrap">
+  <div class="bhead rv"><div class="eyebrow">How it works</div><h2>Five steps <span>from request to door</span></h2></div>
+  <div class="steps">
+   <div class="step rv"><div class="n">01</div><h3>Request</h3><p>Send details of your cargo and get a quote within an hour.</p></div>
+   <div class="step rv d1"><div class="n">02</div><h3>Supplier check</h3><p>We verify the factory, goods quality and documents.</p></div>
+   <div class="step rv d2"><div class="n">03</div><h3>Consolidation</h3><p>Goods are gathered, packed and labelled at our hub.</p></div>
+   <div class="step rv d3"><div class="n">04</div><h3>Shipping</h3><p>Transport by the mode you chose, tracked end to end.</p></div>
+   <div class="step rv d4"><div class="n">05</div><h3>Delivery</h3><p>Customs cleared and cargo handed over at your door.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="block" id="pricing">
+ <div class="wrap">
+  <div class="bhead rv"><div class="eyebrow">Pricing</div><h2>Plans <span>for every volume</span></h2><p>Transparent service tiers. Freight itself is quoted per shipment.</p></div>
+  <div class="plans">
+   <div class="card plan rv"><span class="tag">Start</span><div class="pr">$49<small> / shipment</small></div><p>For first-time importers and small parcels.</p><ul>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Cargo up to 300 kg</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Basic insurance</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Online tracking</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Email support</li></ul><a href="#contacts" class="btn out">Choose Start <svg class="i"><use href="#arr"/></svg></a></div>
+   <div class="card plan hi rv d1"><span class="badge">Most popular</span><span class="tag">Business</span><div class="pr">$199<small> / shipment</small></div><p>For regular importers and growing brands.</p><ul>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Cargo up to 5 tonnes</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Full insurance</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Customs clearance included</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Supplier check</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Personal manager</li></ul><a href="#contacts" class="btn w">Choose Business <svg class="i"><use href="#arr"/></svg></a></div>
+   <div class="card plan rv d2"><span class="tag">Enterprise</span><div class="pr">Custom</div><p>For large volumes and contract logistics.</p><ul>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Unlimited volume, FCL</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Fixed annual rates</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Bonded warehousing</li><li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg>24/7 dedicated team</li></ul><a href="#contacts" class="btn out">Talk to sales <svg class="i"><use href="#arr"/></svg></a></div>
+  </div>
+ </div>
+</section>
+
+<section class="block">
+ <div class="wrap">
+  <div class="bhead rv"><div class="eyebrow">Testimonials</div><h2>Trusted <span>by importers</span></h2></div>
+  <div class="rv">
+   <div class="tsl"><div class="trk" id="trk">
+    <div class="slide"><div class="pt"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=70&auto=format&fit=crop" alt="Daniel Reyes" loading="lazy"></div><div><div class="eyebrow">Electronics retailer</div><blockquote>“Our last three containers arrived days ahead of plan. Orbis handled customs without a single call from our side.”</blockquote><div class="who"><b>Daniel Reyes</b><span>Head of Procurement, Voltline</span></div></div></div>
+    <div class="slide"><div class="pt"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=70&auto=format&fit=crop" alt="Amelia Brandt" loading="lazy"></div><div><div class="eyebrow">Home goods brand</div><blockquote>“Consolidating forty suppliers into one shipment cut our freight cost by a quarter. The personal manager is a real lifesaver.”</blockquote><div class="who"><b>Amelia Brandt</b><span>Founder, Nordhaus Living</span></div></div></div>
+    <div class="slide"><div class="pt"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&q=70&auto=format&fit=crop" alt="Marcus Hale" loading="lazy"></div><div><div class="eyebrow">Auto parts distributor</div><blockquote>“Transparent tracking and honest pricing. We moved all our Asian freight to Orbis within one season.”</blockquote><div class="who"><b>Marcus Hale</b><span>Operations Director, Hale Motors</span></div></div></div>
+    <div class="slide"><div class="pt"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&q=70&auto=format&fit=crop" alt="Priya Nair" loading="lazy"></div><div><div class="eyebrow">Fashion e-commerce</div><blockquote>“Air freight for new collections, sea for restocks — all managed in one place. Exactly what a growing brand needs.”</blockquote><div class="who"><b>Priya Nair</b><span>COO, Studio Aurelle</span></div></div></div>
+   </div></div>
+   <div class="tctl"><div class="dots" id="dots"></div><div class="arrs"><button class="rnd" id="tp" aria-label="Previous"><svg class="i" viewBox="0 0 24 24" style="transform:scaleX(-1)"><use href="#arr"/></svg></button><button class="rnd" id="tn" aria-label="Next"><svg class="i"><use href="#arr"/></svg></button></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="block" id="faq">
+ <div class="wrap faqw">
+  <div class="rv"><div class="eyebrow">FAQ</div><h2>Questions <span>we hear often</span></h2><p>Can't find your answer? Our managers reply within one working hour.</p><a href="#contacts" class="btn out">Ask a manager <svg class="i"><use href="#arr"/></svg></a></div>
+  <div class="rv d1" id="fqs">
+   <div class="fq o"><button>How long does delivery from China take?<span class="pl"></span></button><div class="a"><div><p>Air freight takes 4–7 days, rail 14–20, road 18–25 and sea 28–40 days depending on the route and season.</p></div></div></div>
+   <div class="fq"><button>Is my cargo insured?<span class="pl"></span></button><div class="a"><div><p>Yes. Every shipment is covered from the supplier warehouse until handover to you. Extended all-risk coverage is available.</p></div></div></div>
+   <div class="fq"><button>Do you handle customs clearance?<span class="pl"></span></button><div class="a"><div><p>We prepare all documents, calculate duties and clear your cargo through customs, including certification where required.</p></div></div></div>
+   <div class="fq"><button>What is the minimum shipment size?<span class="pl"></span></button><div class="a"><div><p>There is no strict minimum. Small parcels are consolidated with other cargo to keep rates low.</p></div></div></div>
+   <div class="fq"><button>Can you check my supplier before payment?<span class="pl"></span></button><div class="a"><div><p>Yes. Our team in Asia verifies company registration, visits the factory and inspects the goods on request.</p></div></div></div>
+   <div class="fq"><button>How can I track my shipment?<span class="pl"></span></button><div class="a"><div><p>You receive a tracking link and status updates at each milestone, and your manager is available any time.</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="block" id="contacts">
+ <div class="wrap">
+  <div class="bhead rv"><div class="eyebrow">Get a quote</div><h2>Tell us about <span>your cargo</span></h2></div>
+  <div class="qgrid">
+   <form class="card form rv" id="qf" novalidate>
+    <h3>Request a quote</h3><p>Fill in the form and we will contact you within one hour.</p>
+    <div class="g">
+     <div class="f"><label for="qn">Name</label><input id="qn" required placeholder="Your name"></div>
+     <div class="f"><label for="qp">Phone</label><input id="qp" type="tel" required placeholder="+1 555 000 0000"></div>
+     <div class="f full"><label for="qe">Email</label><input id="qe" type="email" required placeholder="you@company.com"></div>
+     <div class="f"><label for="qc">Cargo type</label><select id="qc"><option>General goods</option><option>Electronics</option><option>Apparel &amp; textiles</option><option>Machinery &amp; parts</option><option>Fragile / oversized</option></select></div>
+     <div class="f"><label for="qm">Mode</label><select id="qm"><option>Air freight</option><option>Sea freight</option><option>Road freight</option><option>Rail freight</option><option>Not sure yet</option></select></div>
+     <div class="f full"><label for="qt">Message</label><textarea id="qt" placeholder="Route, weight, volume, supplier…"></textarea></div>
+    </div>
+    <button class="btn" type="submit">Send request <svg class="i"><use href="#arr"/></svg></button>
+    <div class="ok" id="ok" role="status"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg><span id="okt">Thank you! We received your request.</span></div>
+   </form>
+   <div class="side rv d1">
+    <div class="card info">
+     <div class="it"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><div><small>Phone</small><b>+1 (555) 014-2200</b></div></div>
+     <div class="it"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><div><small>Email</small><b>hello@orbiscargo.example</b></div></div>
+     <div class="it"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><small>Office</small><b>100 Harbor Street, Suite 12</b></div></div>
+     <div class="it"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>Hours</small><b>Daily 09:00 – 21:00</b></div></div>
+    </div>
+    <div class="map" aria-label="Map placeholder">
+     <svg class="roads" viewBox="0 0 400 260" preserveAspectRatio="none"><path d="M-10 190C80 170 120 100 220 120S340 40 420 60" fill="none" stroke="#fff" stroke-width="12"/><path d="M60 -10C80 80 150 140 170 270" fill="none" stroke="#fff" stroke-width="8"/><path d="M-10 60C100 80 260 200 420 190" fill="none" stroke="#d3d3d8" stroke-width="5"/></svg>
+     <div class="pin"><i></i><em>ORBIS CARGO HQ</em></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="fg">
+   <div><a href="#home" class="logo"><svg><use href="#mark"/></svg><span><b>ORBIS CARGO</b><small>Freight from Asia</small></span></a><p class="d">Freight from Asia, door to door. Air, sea, road and rail with customs handled.</p>
+    <div class="soc">
+     <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 4 3z"/><path d="M9 13l8-6"/></svg></a>
+     <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.2-4A8 8 0 118 19z"/><path d="M9 8.5c0 3 3 6 6 6l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.400-2.400l.8-1-1-2z"/></svg></a>
+     <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7.5v.01M12 16v-6M12 12.5c0-1.5 1-2.500 2.500-2.500S17 11 17 12.500V16"/></svg></a>
+     <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500v.01"/></svg></a>
+    </div></div>
+   <div><h4>Services</h4><ul><li><a href="#services">Air freight</a></li><li><a href="#services">Sea freight</a></li><li><a href="#services">Road freight</a></li><li><a href="#services">Customs clearance</a></li></ul></div>
+   <div><h4>Company</h4><ul><li><a href="#about">About us</a></li><li><a href="#how">How it works</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+   <div><h4>Contacts</h4><ul><li><a href="#contacts">+1 (555) 014-2200</a></li><li><a href="#contacts">hello@orbiscargo.example</a></li><li><a href="#contacts">100 Harbor Street</a></li></ul></div>
+  </div>
+  <div class="fb"><span>© 2026 ORBIS CARGO. All rights reserved.</span><span>Privacy policy · Terms of service</span></div>
+ </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Our story video">
+ <div class="mbox"><button class="mx" id="mx" aria-label="Close"><svg class="i" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="vid"><div><i><svg viewBox="0 0 24 24"><path d="M6 3.5v17l15-8.5z"/></svg></i><b>Video placeholder</b><p style="opacity:.7;font-size:13px">Our story — coming soon</p></div></div></div>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const hd=$('#hd');
+const onS=()=>hd.classList.toggle('sc',scrollY>20);onS();addEventListener('scroll',onS,{passive:true});
+/* burger */
+const bg=$('#bg'),mob=$('#mob');
+bg.onclick=()=>{bg.classList.toggle('o');mob.classList.toggle('o')};
+$$('#mob a').forEach(a=>a.onclick=()=>{bg.classList.remove('o');mob.classList.remove('o')});
+/* active link */
+const secs=['home','services','about','pricing','faq','contacts'];
+const lk=$$('.links a');
+addEventListener('scroll',()=>{let cur='home';secs.forEach(id=>{const e=document.getElementById(id);if(e&&e.getBoundingClientRect().top<200)cur=id});lk.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur))},{passive:true});
+/* reveal + counters */
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function count(el){const t=+el.dataset.c,d=+el.dataset.d||0,s=el.dataset.s||'';if(reduce){el.textContent=t.toFixed(d)+s;return}
+ const st=performance.now(),du=1600;(function f(n){const p=Math.min((n-st)/du,1),e=1-Math.pow(1-p,3);el.textContent=(t*e).toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,d?'':',')+s;if(p<1)requestAnimationFrame(f)})(st)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll&&e.target.querySelectorAll('[data-c]').forEach(count);io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(e=>io.observe(e));
+/* modal */
+const md=$('#modal');
+const om=()=>{md.classList.add('o');$('#mx').focus()},cm=()=>md.classList.remove('o');
+$('#playBtn').onclick=om;$('#mx').onclick=cm;md.onclick=e=>{if(e.target===md)cm()};
+addEventListener('keydown',e=>{if(e.key==='Escape')cm()});
+/* calculator */
+const M={air:{n:'Air freight',r:4.2,f:167,d:[4,7],min:60},sea:{n:'Sea freight',r:.32,f:1000,d:[28,40],min:90},road:{n:'Road freight',r:1.05,f:333,d:[18,25],min:75},rail:{n:'Rail freight',r:.75,f:500,d:[14,20],min:80}};
+let mode='air';
+const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+function calc(){const w=Math.max(+$('#cw').value||0,0),v=Math.max(+$('#cv').value||0,0),m=M[mode];
+ const cw=Math.max(w,v*m.f),o=+$('#co').value,ds=+$('#cd').value;
+ let base=Math.max(cw*m.r*o*ds+m.min,m.min);
+ const lo=base*.9,hi=base*1.15,adj=Math.round((o*ds-1)*6);
+ $('#price').textContent=w||v?fmt(lo)+' – '+fmt(hi):'$0';
+ $('#rMode').textContent=m.n;
+ $('#rDays').textContent=(m.d[0]+Math.max(adj,0))+'–'+(m.d[1]+Math.max(adj,0))+' days';
+ $('#rCw').textContent=Math.round(cw).toLocaleString('en-US')+' kg'}
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;calc()});
+['cw','cv','co','cd'].forEach(id=>{$('#'+id).addEventListener('input',calc);$('#'+id).addEventListener('change',calc)});calc();
+$('#quoteBtn').addEventListener('click',()=>{const nm={air:'Air freight',sea:'Sea freight',road:'Road freight',rail:'Rail freight'}[mode];$('#qm').value=nm;
+ const t=$('#qt');if(!t.value)t.value='Estimate: '+$('#price').textContent+', '+$('#cw').value+' kg, '+$('#cv').value+' m³, '+$('#co').selectedOptions[0].text+' → '+$('#cd').selectedOptions[0].text+'.'});
+/* slider */
+const trk=$('#trk'),n=trk.children.length,dots=$('#dots');let i=0,tm;
+for(let k=0;k<n;k++){const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(k+1));b.onclick=()=>go(k);dots.appendChild(b)}
+function go(k){i=(k+n)%n;trk.style.transform='translateX(-'+i*100+'%)';[...dots.children].forEach((d,x)=>d.classList.toggle('on',x===i));clearInterval(tm);if(!reduce)tm=setInterval(()=>go(i+1),7000)}
+$('#tp').onclick=()=>go(i-1);$('#tn').onclick=()=>go(i+1);go(0);
+/* faq */
+$$('.fq button').forEach(b=>b.onclick=()=>{const f=b.parentElement,o=f.classList.contains('o');$$('.fq').forEach(x=>x.classList.remove('o'));if(!o)f.classList.add('o')});
+/* form */
+$('#qf').addEventListener('submit',e=>{e.preventDefault();const nm=$('#qn').value.trim(),ph=$('#qp').value.trim(),em=$('#qe').value.trim();const ok=$('#ok');
+ if(!nm||!ph||!/^\S+@\S+\.\S+$/.test(em)){$('#okt').textContent='Please enter your name, phone and a valid email.';ok.classList.add('s');return}
+ $('#okt').textContent='Thank you, '+nm+'! We received your request and will contact you within one hour.';ok.classList.add('s');e.target.reset()});
+})();
+</script>
+</body>
+</html>

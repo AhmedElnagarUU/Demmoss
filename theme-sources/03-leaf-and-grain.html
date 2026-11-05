@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sage &amp; Grain — specialty coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--sage:#9fb59b;--deep:#6f8a6b;--dark:#3f5640;--cream:#f6efe4;--white:#fbf7f1;--orange:#e2763f;--ink:#2d2a26;--r:32px;--shadow:0 10px 30px rgba(63,86,64,.15)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Nunito',sans-serif;color:var(--ink);background:var(--sage);line-height:1.55;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3{font-weight:800;line-height:1.15;color:var(--ink)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:13px 28px;font-weight:700;font-size:15px;transition:.25s}
+.pill.orange{background:var(--orange);color:#fff;box-shadow:0 8px 18px rgba(226,118,63,.35)}
+.pill.orange:hover{transform:translateY(-2px);background:#d4642c}
+.pill.dark{background:var(--dark);color:#fff}.pill.dark:hover{background:#2f4430;transform:translateY(-2px)}
+.pill.light{background:var(--white);color:var(--ink);box-shadow:var(--shadow)}.pill.light:hover{transform:translateY(-2px)}
+.add{width:38px;height:38px;border-radius:50%;background:var(--deep);color:#fff;font-size:22px;line-height:1;display:grid;place-items:center;transition:.2s;flex:none}
+.add:hover{background:var(--dark);transform:scale(1.1) rotate(90deg)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+/* NAV */
+header{position:sticky;top:0;z-index:50;padding:14px 0 0;background:var(--sage)}
+.nav{background:var(--cream);border-radius:28px;display:flex;align-items:center;gap:20px;padding:12px 24px;box-shadow:var(--shadow);margin:0 16px;position:relative}
+.logo{display:flex;align-items:center;gap:12px}
+.logo i{width:44px;height:44px;border-radius:50%;background:var(--deep);display:grid;place-items:center;flex:none}
+.logo b{display:block;font-size:21px;font-weight:800;line-height:1;color:var(--ink)}
+.logo small{font-size:12px;color:#6b665f;font-weight:600}
+.links{display:flex;gap:34px;margin:0 auto}
+.links a{font-weight:700;font-size:15px;position:relative}
+.links a:after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--orange);transition:.25s}
+.links a:hover:after{width:100%}
+.cartbtn{position:relative;width:44px;height:44px;border-radius:50%;background:var(--white);display:grid;place-items:center;transition:.2s}
+.cartbtn:hover{background:#fff;transform:scale(1.07)}
+.badge{position:absolute;top:-4px;right:-4px;background:var(--orange);color:#fff;border-radius:999px;min-width:20px;height:20px;font-size:12px;font-weight:800;display:grid;place-items:center;padding:0 5px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;background:var(--white);place-items:center}
+/* HERO */
+.hero{background:var(--sage);position:relative;padding:50px 0 130px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;position:relative}
+.hero h1{font-size:clamp(34px,4.4vw,56px);margin-bottom:20px}
+.hero p{font-size:18px;max-width:430px;margin-bottom:30px;color:#2d3a2e}
+.feats{display:flex;gap:22px;margin-top:46px;flex-wrap:wrap}
+.feats div{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;line-height:1.2}
+.feats i{width:42px;height:42px;border-radius:50%;background:var(--cream);display:grid;place-items:center;flex:none}
+.heroimg{position:relative;background:var(--cream);border-radius:70px 40px 40px 120px;padding:14px;box-shadow:0 20px 50px rgba(63,86,64,.25)}
+.heroimg img{width:100%;height:440px;object-fit:cover;border-radius:60px 30px 30px 110px}
+.float{position:absolute;right:30px;bottom:30px;background:var(--white);border-radius:20px;padding:10px 16px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;box-shadow:var(--shadow);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;display:block}
+/* FEATURES */
+.cream{background:var(--cream)}
+.features{padding:20px 0 50px}
+.features .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.feature{text-align:left}
+.feature svg{margin-bottom:12px}
+.feature h3{font-size:17px;margin-bottom:6px}
+.feature p{font-size:14px;color:#5b5750}
+/* PANEL */
+.panel{background:var(--sage);border-radius:44px 80px 44px 80px;padding:46px 50px;box-shadow:var(--shadow)}
+.popular{padding:10px 0 40px}
+.popular .panel{display:grid;grid-template-columns:.8fr 2.2fr;gap:30px;align-items:center}
+.popular h2{font-size:32px;margin-bottom:12px}
+.popular p{margin-bottom:26px;font-size:15px;color:#2d3a2e}
+.drinks{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.drink{text-align:center;position:relative;padding:0 14px}
+.drink+.drink:before{content:"";position:absolute;left:-10px;top:10px;bottom:10px;border-left:1px solid rgba(63,86,64,.25)}
+.circle{width:170px;height:170px;margin:0 auto 14px;border-radius:50%;background:#fff;padding:8px;box-shadow:0 8px 20px rgba(63,86,64,.2);overflow:hidden;transition:.35s}
+.circle img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.drink:hover .circle{transform:scale(1.05) rotate(-3deg)}
+.drink h3{font-size:17px}
+.drink small{display:block;font-size:13px;color:#33422f;margin:2px 0 6px}
+.drink b{font-size:18px;display:block;font-weight:800}
+.drink .add{margin:10px auto 0;opacity:0;transform:translateY(8px);background:var(--dark)}
+.drink:hover .add,.drink:focus-within .add{opacity:1;transform:none}
+@media (hover:none){.drink .add{opacity:1;transform:none}}
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:16px;padding:30px 0 24px;font-weight:800;font-size:20px}
+.divider:before,.divider:after{content:"";flex:1;border-top:1px solid #cfc6b6}
+.rec{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:50px}
+.rcard{background:var(--white);border-radius:24px;padding:10px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 18px rgba(63,86,64,.1);transition:.25s}
+.rcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.rcard img{width:120px;height:120px;border-radius:18px;object-fit:cover;flex:none}
+.rcard h3{font-size:17px;margin-bottom:4px}
+.rcard p{font-size:13px;color:#6b665f;line-height:1.35;margin-bottom:10px}
+.rcard div.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-right:6px}
+.price{font-weight:800;font-size:17px}
+/* MENU */
+.menu{padding:30px 0 70px}
+.sechead{text-align:center;margin-bottom:26px}
+.sechead h2{font-size:clamp(28px,3.4vw,40px)}
+.sechead p{color:#6b665f;margin-top:6px}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab{padding:10px 22px;border-radius:999px;background:var(--white);font-weight:700;font-size:15px;transition:.2s;box-shadow:0 3px 10px rgba(63,86,64,.08)}
+.tab:hover{background:#fff}
+.tab.on{background:var(--deep);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.item{background:var(--white);border-radius:30px 30px 30px 60px;overflow:hidden;box-shadow:0 6px 18px rgba(63,86,64,.1);transition:.3s;animation:pop .45s both}
+@keyframes pop{from{opacity:0;transform:scale(.94)}}
+.item:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.item img{width:100%;height:170px;object-fit:cover}
+.item .b{padding:14px 16px 16px}
+.item h3{font-size:16px}
+.item p{font-size:13px;color:#6b665f;margin:3px 0 12px;min-height:38px;line-height:1.4}
+.item .row{display:flex;justify-content:space-between;align-items:center}
+/* BEANS */
+.beans{padding:30px 0 60px;position:relative}
+.beans .panel{background:var(--sage)}
+.beanhero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.beanhero h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:14px}
+.beanhero>div>p{max-width:460px;margin-bottom:24px;color:#2d3a2e}
+.steps{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+.steps div{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:12.5px;font-weight:700;max-width:100px;line-height:1.25;gap:8px}
+.visual{position:relative;height:340px}
+.bowl{position:absolute;left:0;top:10px;width:300px;height:300px;border-radius:50%;object-fit:cover;border:10px solid var(--cream);box-shadow:var(--shadow)}
+.bag{position:absolute;right:0;bottom:-6px;width:210px;filter:drop-shadow(0 14px 18px rgba(40,50,35,.3));transition:.4s}
+.bag:hover{transform:rotate(-3deg) translateY(-6px)}
+.selector{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.origin{background:var(--cream);border-radius:28px;padding:22px;box-shadow:0 6px 18px rgba(63,86,64,.15)}
+.origin .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.origin h3{font-size:21px}
+.tag{font-size:11px;font-weight:800;background:var(--sage);color:var(--dark);padding:3px 10px;border-radius:999px}
+.origin p{font-size:13.5px;color:#5b5750;margin-bottom:14px;min-height:42px}
+.toggle{display:inline-flex;background:var(--white);border-radius:999px;padding:4px;margin-bottom:14px}
+.toggle button{padding:7px 18px;border-radius:999px;font-weight:700;font-size:14px;transition:.2s}
+.toggle button.on{background:var(--dark);color:#fff}
+.origin .row{display:flex;justify-content:space-between;align-items:center}
+.origin .price{font-size:22px}
+/* TESTIMONIALS */
+.reviews{padding:10px 0 60px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{background:var(--white);border-radius:28px 28px 28px 8px;padding:24px;box-shadow:0 6px 18px rgba(63,86,64,.1)}
+.review p{font-size:15px;margin:10px 0 16px}
+.review .who{display:flex;align-items:center;gap:12px;font-weight:800;font-size:14px}
+.review .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.review .who small{display:block;font-weight:600;color:#6b665f}
+.stars{color:var(--orange);letter-spacing:2px}
+/* VISIT */
+.visit{padding:0 0 30px}
+.vpanel{background:var(--white);border-radius:44px;padding:40px 46px;display:grid;grid-template-columns:1fr 1.2fr .8fr;gap:36px;align-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.vpanel h2{font-size:24px;margin-bottom:16px}
+.vpanel ul{list-style:none;display:grid;gap:12px;font-size:15px;font-weight:600}
+.vpanel li{display:flex;gap:12px;align-items:center}
+.vpanel li i{width:34px;height:34px;border-radius:50%;background:var(--cream);display:grid;place-items:center;flex:none}
+.news{border-left:1px solid #e3dac9;padding-left:36px}
+.news p{font-size:14px;color:#6b665f;margin-bottom:14px}
+.nform{display:flex;border-radius:999px;background:#fff;border:1.5px solid #e3dac9;overflow:hidden}
+.nform input{flex:1;min-width:0;border:0;outline:0;padding:0 18px;font:inherit;font-size:14px;background:none}
+.nform button{background:var(--orange);color:#fff;font-weight:700;padding:13px 24px;transition:.2s}
+.nform button:hover{background:#d4642c}
+.msg{margin-top:10px;font-weight:700;color:var(--dark);font-size:14px;min-height:20px}
+.art{display:flex;justify-content:center}
+/* FOOTER */
+footer{background:var(--sage);padding:20px 0 26px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;font-weight:600;color:#2d3a2e}
+.socials{display:flex;gap:10px}
+.socials a{width:38px;height:38px;border-radius:50%;background:var(--cream);display:grid;place-items:center;transition:.2s}
+.socials a:hover{background:var(--orange);transform:translateY(-3px)}
+.socials a:hover svg{stroke:#fff}
+.flinks{display:flex;gap:22px}
+.flinks a:hover{text-decoration:underline}
+/* DRAWER */
+.overlay{position:fixed;inset:0;background:rgba(30,40,30,.45);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.overlay.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--cream);z-index:100;transform:translateX(105%);transition:transform .4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;border-radius:36px 0 0 36px;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:24px 24px 14px}
+.dh h3{font-size:22px}
+.close{width:40px;height:40px;border-radius:50%;background:var(--white);font-size:22px}
+.lines{flex:1;overflow:auto;padding:6px 24px}
+.line{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #e3dac9}
+.line img{width:56px;height:56px;border-radius:14px;object-fit:cover;flex:none;background:var(--sage)}
+.line .info{flex:1;min-width:0}
+.line b{font-size:14.5px;display:block}
+.line span{font-size:13px;color:#6b665f}
+.qty{display:flex;align-items:center;gap:8px;margin-top:4px}
+.qty button{width:26px;height:26px;border-radius:50%;background:var(--white);font-weight:800;line-height:1}
+.qty button:hover{background:var(--sage)}
+.rm{color:#a05a3a;font-size:12px;font-weight:700;text-decoration:underline}
+.empty{text-align:center;color:#6b665f;padding:50px 0}
+.df{padding:20px 24px 26px;border-top:1px solid #e3dac9}
+.sub{display:flex;justify-content:space-between;font-weight:800;font-size:19px;margin-bottom:14px}
+.df .pill{width:100%;justify-content:center}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--dark);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;transition:.35s;z-index:120;opacity:0}
+.toast.on{transform:translate(-50%,0);opacity:1}
+/* RESPONSIVE */
+@media(max-width:1024px){
+ .links{gap:20px}.nav{gap:12px}
+ .grid{grid-template-columns:repeat(3,1fr)}
+ .rec{grid-template-columns:1fr}
+ .features .wrap{grid-template-columns:repeat(2,1fr)}
+ .popular .panel{grid-template-columns:1fr}
+ .beanhero{grid-template-columns:1fr}
+ .vpanel{grid-template-columns:1fr 1fr}.art{display:none}
+ .selector{grid-template-columns:1fr}
+ .rgrid{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+ .burger{display:grid;margin-left:auto}
+ .nav .pill{display:none}
+ .links{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--cream);border-radius:24px;flex-direction:column;padding:20px 24px;gap:16px;box-shadow:var(--shadow);display:none;margin:0}
+ .links.on{display:flex}
+ .hero .wrap{grid-template-columns:1fr}
+ .heroimg img{height:340px}
+}
+@media(max-width:640px){
+ .wrap{padding:0 16px}.nav{margin:0 16px;padding:10px 14px}
+ .logo small{display:none}
+ .hero{padding:30px 0 100px}
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .item img{height:120px}.item .b{padding:10px}
+ .item p{display:none}
+ .features .wrap{grid-template-columns:1fr}
+ .panel{padding:30px 22px;border-radius:36px 56px 36px 56px}
+ .drinks{grid-template-columns:1fr;gap:34px}
+ .drink+.drink:before{display:none}
+ .rcard img{width:92px;height:92px}
+ .visual{height:280px}.bowl{width:220px;height:220px}.bag{width:160px}
+ .vpanel{grid-template-columns:1fr;padding:30px 22px}
+ .news{border-left:0;padding-left:0;border-top:1px solid #e3dac9;padding-top:24px}
+ footer .wrap{flex-direction:column;text-align:center}
+ .hero p{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+ <nav class="nav">
+  <a href="#top" class="logo" aria-label="Sage &amp; Grain">
+   <i><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#fbf7f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28V13M16 20c-5 0-8-3-8-8 5 0 8 3 8 8zM16 16c0-5 3-8 8-8 0 5-3 8-8 8z"/></svg></i>
+   <span><b>Sage &amp; Grain</b><small>specialty coffee</small></span>
+  </a>
+  <div class="links" id="links">
+   <a href="#menu">Menu</a><a href="#about">About</a><a href="#beans">Beans</a><a href="#delivery">Delivery</a><a href="#contacts">Contacts</a>
+  </div>
+  <a href="#contacts" class="pill orange">Reserve a table</a>
+  <button class="cartbtn" id="cartOpen" aria-label="Open cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.5l2 11h10l2-8H7"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><span class="badge" id="badge">0</span></button>
+  <button class="burger" id="burger" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+ </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="wrap">
+  <div class="reveal">
+   <h1>Coffee you fall in love with at first sip</h1>
+   <p>Specialty coffee, fresh-baked pastries and a cozy atmosphere in the very heart of the city.</p>
+   <a href="#menu" class="pill orange">View menu</a>
+   <div class="feats">
+    <div><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10M12 15c-4 0-6-2-6-6 4 0 6 2 6 6zM12 12c0-4 2-6 6-6 0 4-2 6-6 6z"/></svg></i>Specialty<br>coffee</div>
+    <div><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.5A4 4 0 0119 10c0 5.600-7 10-7 10z"/></svg></i>Made with<br>love</div>
+    <div><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a4 4 0 01-4 4H9a4 4 0 01-4-4zM16 10h1.5a2 2 0 010 4H16M8 3v2M12 3v2"/></svg></i>Cozy<br>mornings</div>
+   </div>
+  </div>
+  <div class="heroimg reveal">
+   <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1000&q=70&auto=format&fit=crop" alt="Coffee tools on a wooden board, seen from above">
+   <div class="float"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6f8a6b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10M12 15c-4 0-6-2-6-6 4 0 6 2 6 6zM12 12c0-4 2-6 6-6 0 4-2 6-6 6z"/></svg><span>100%<br>arabica</span></div>
+  </div>
+ </div>
+ <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none"><path fill="#f6efe4" d="M0 70C180 10 330 20 520 55s330 50 520 10 290-45 400-5v50H0z"/></svg>
+</section>
+
+<section class="cream features" id="about">
+ <div class="wrap">
+  <div class="feature reveal"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42V24M24 32c-7 0-10-4-10-10 7 0 10 4 10 10zM24 26c0-7 4-10 10-10 0 7-4 10-10 10zM10 12c3-4 7-4 9 0M34 8c3-3 6-2 7 1"/></svg><h3>Selected beans</h3><p>We work only with verified plantations and small-lot growers.</p></div>
+  <div class="feature reveal"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="8" width="20" height="14" rx="4"/><path d="M14 22v6M26 22v6M8 28h24v10H8zM36 14c3 2 3 6 0 8M14 38v4M26 38v4"/></svg><h3>Fresh roasting</h3><p>Small batches roasted every week, never sitting on a shelf.</p></div>
+  <div class="feature reveal"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="14" r="7"/><path d="M10 42c0-9 6-14 14-14s14 5 14 14M20 28l4 6 4-6"/></svg><h3>Skilled baristas</h3><p>Professionals who pour with heart and attention to every detail.</p></div>
+  <div class="feature reveal"><svg width="44" height="44" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18h22v10a8 8 0 01-8 8h-6a8 8 0 01-8-8zM32 20h3a4 4 0 010 8h-3M16 8c-2 3 2 4 0 7M23 8c-2 3 2 4 0 7M8 42h28"/></svg><h3>Cozy space</h3><p>Bright, calm and welcoming — your favorite place to slow down.</p></div>
+ </div>
+</section>
+
+<section class="cream popular" id="popular">
+ <div class="wrap"><div class="panel reveal">
+  <div><h2>Popular drinks</h2><p>Classics and signature creations for every taste.</p><a href="#menu" class="pill light">See full menu</a></div>
+  <div class="drinks">
+   <div class="drink"><div class="circle"><img loading="lazy" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=70&auto=format&fit=crop" alt="Latte"></div><h3>Latte</h3><small>Gentle and creamy</small><b>$4.50</b><button class="add" data-add="d1" aria-label="Add Latte">+</button></div>
+   <div class="drink"><div class="circle"><img loading="lazy" src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400&q=70&auto=format&fit=crop" alt="Matcha latte"></div><h3>Matcha latte</h3><small>Ceremonial grade green tea</small><b>$5.20</b><button class="add" data-add="d2" aria-label="Add Matcha latte">+</button></div>
+   <div class="drink"><div class="circle"><img loading="lazy" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=70&auto=format&fit=crop" alt="Iced coffee"></div><h3>Iced coffee</h3><small>Refreshing and bright</small><b>$4.80</b><button class="add" data-add="d3" aria-label="Add Iced coffee">+</button></div>
+  </div>
+ </div></div>
+</section>
+
+<section class="cream">
+ <div class="wrap">
+  <div class="divider reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="#6f8a6b"><path d="M12 21s-8-5-8-11a4.500 4.500 0 018-2.800A4.500 4.500 0 0120 10c0 6-8 11-8 11z"/></svg>We recommend</div>
+  <div class="rec">
+   <div class="rcard reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&q=70&auto=format&fit=crop" alt="Almond croissant"><div style="flex:1"><h3>Almond croissant</h3><p>Flaky, buttery layers with a nutty filling.</p><div class="row"><span class="price">$3.90</span><button class="add" data-add="r1" aria-label="Add">+</button></div></div></div>
+   <div class="rcard reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&q=70&auto=format&fit=crop" alt="Berry cheesecake"><div style="flex:1"><h3>Berry cheesecake</h3><p>Silky cream cheese with seasonal berries.</p><div class="row"><span class="price">$5.50</span><button class="add" data-add="r2" aria-label="Add">+</button></div></div></div>
+   <div class="rcard reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&q=70&auto=format&fit=crop" alt="Chocolate cookies"><div style="flex:1"><h3>Chocolate cookies</h3><p>Soft, chewy and loaded with dark chocolate.</p><div class="row"><span class="price">$3.20</span><button class="add" data-add="r3" aria-label="Add">+</button></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="cream menu" id="menu">
+ <div class="wrap">
+  <div class="sechead reveal"><h2>Full menu</h2><p>Everything we make, fresh every morning.</p></div>
+  <div class="tabs reveal" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+ </div>
+</section>
+
+<section class="cream beans" id="beans">
+ <div class="wrap"><div class="panel reveal">
+  <div class="beanhero">
+   <div>
+    <h2>Beans we're proud of</h2>
+    <p>We travel, taste and choose only the best lots, then roast them in-house so every cup shows off its character.</p>
+    <a href="#selector" class="pill dark">Choose beans</a>
+    <div class="steps">
+     <div><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 38l12-20 7 11 5-7 16 16z"/><circle cx="36" cy="12" r="3"/></svg>Direct from farms</div>
+     <div><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h32c0 10-6 16-16 16S8 32 8 22zM16 14c-2 3 2 4 0 7M24 12c-2 3 2 4 0 8M32 14c-2 3 2 4 0 7"/></svg>Roasted in-house</div>
+     <div><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h16v6l4 4v20H12V20l4-4zM16 10v-3h16v3M18 28h12"/></svg>Freshness in every cup</div>
+    </div>
+   </div>
+   <div class="visual">
+    <img class="bowl" loading="lazy" src="https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=700&q=70&auto=format&fit=crop" alt="Bowl of coffee beans">
+    <svg class="bag" viewBox="0 0 200 270" aria-label="Kraft coffee bag">
+     <path d="M22 28l14-18h128l14 18 6 220q0 14-14 14H30q-14 0-14-14z" fill="#c9a77c"/>
+     <path d="M22 28h156l-4 18H26z" fill="#b8936a"/>
+     <path d="M30 40h140" stroke="#a37e56" stroke-width="2" stroke-dasharray="4 4"/>
+     <rect x="42" y="76" width="116" height="150" rx="16" fill="#f6efe4"/>
+     <circle cx="100" cy="112" r="22" fill="#6f8a6b"/>
+     <path d="M100 124v-22M100 114c-7 0-10-4-10-10 7 0 10 4 10 10zM100 110c0-7 4-10 10-10 0 7-4 10-10 10z" stroke="#fbf7f1" stroke-width="2" fill="none" stroke-linecap="round"/>
+     <text x="100" y="156" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="15" fill="#2d2a26">Sage &amp; Grain</text>
+     <text x="100" y="172" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="600" font-size="8.500" fill="#6b665f">SPECIALTY COFFEE BEANS</text>
+     <path d="M62 186h76" stroke="#9fb59b" stroke-width="2"/>
+     <text x="100" y="204" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="700" font-size="9" fill="#3f5640">Single origin · 250 g</text>
+     <path d="M70 232c10-8 50-8 60 0" stroke="#9fb59b" stroke-width="2" fill="none"/>
+    </svg>
+   </div>
+  </div>
+  <div class="selector" id="selector"></div>
+ </div></div>
+</section>
+
+<section class="cream reviews">
+ <div class="wrap">
+  <div class="sechead reveal"><h2>Kind words from our regulars</h2></div>
+  <div class="rgrid">
+   <div class="review reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"The best flat white I've had in years. The beans from Ethiopia taste like blueberries!"</p><div class="who"><img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=70&auto=format&fit=crop" alt=""><div>Maya R.<small>Weekly regular</small></div></div></div>
+   <div class="review reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Cozy, calm and the almond croissant is unreal. My morning ritual now."</p><div class="who"><img loading="lazy" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=70&auto=format&fit=crop" alt=""><div>Daniel K.<small>Remote worker</small></div></div></div>
+   <div class="review reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"I order a kilo of Colombia every month. Always fresh, always smooth."</p><div class="who"><img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&q=70&auto=format&fit=crop" alt=""><div>Priya S.<small>Home brewer</small></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="cream visit" id="contacts">
+ <div class="wrap"><div class="vpanel reveal" id="delivery">
+  <div>
+   <h2>We're waiting for you!</h2>
+   <ul>
+    <li><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.500"/></svg></i>12 Willow Lane, Springfield</li>
+    <li><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>Daily 08:00 – 21:00</li>
+    <li><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></i>+1 (555) 012-3456</li>
+   </ul>
+  </div>
+  <div class="news">
+   <h2>Stay in the loop</h2>
+   <p>New roasts, seasonal drinks and special offers — once a month, no spam.</p>
+   <form class="nform" id="nform"><input type="email" required placeholder="Your e-mail" aria-label="Email"><button type="submit">Subscribe</button></form>
+   <div class="msg" id="nmsg" aria-live="polite"></div>
+  </div>
+  <div class="art">
+   <svg width="190" height="150" viewBox="0 0 190 150" fill="none" stroke="#3f5640" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M95 0v22M80 22h30a15 8 0 00-30 0z"/>
+    <path d="M60 80h70M95 80v50M80 130h30M75 80c0-14 8-20 20-20s20 6 20 20"/>
+    <path d="M62 82v48M52 82h20M128 82v48M118 82h20M52 82l4-24h12M138 82l-4-24h-12"/>
+    <path d="M14 130h24M26 130v-30M26 112c-10 0-14-8-12-18 10 0 14 8 12 18zM26 102c0-10 6-14 14-14 0 10-6 14-14 14z"/>
+    <path d="M152 130h24M164 130v-34M164 108c-10 0-14-8-12-18 10 0 14 8 12 18zM164 98c0-10 6-14 14-14 0 10-6 14-14 14z"/>
+   </svg>
+  </div>
+ </div></div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="socials">
+   <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4L3 11l6 2 2 6 3-4 5 4zM9 13l7-5"/></svg></a>
+   <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.800"/><circle cx="17" cy="7" r=".6"/></svg></a>
+   <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f5640" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 21v-8h3l.5-3H14V8c0-1 .5-2 2-2h1.500V3.200C17 3.100 16 3 15 3c-2.500 0-4 1.500-4 4v3H8v3h3v8z"/></svg></a>
+  </div>
+  <span>&copy; 2025 Sage &amp; Grain. All rights reserved.</span>
+  <div class="flinks"><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+ </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+ <div class="dh"><h3>Your cart</h3><button class="close" id="cartClose" aria-label="Close">&times;</button></div>
+ <div class="lines" id="lines"></div>
+ <div class="df"><div class="sub"><span>Subtotal</span><span id="subtotal">$0.00</span></div><button class="pill orange" id="checkout">Checkout</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+const U=(id,w)=>`https://images.unsplash.com/photo-${id}?w=${w||400}&q=70&auto=format&fit=crop`;
+const IMG={latte:'1495474472287-4d71bcdd2085',matcha:'1536256263959-770b48d82b0a',iced:'1461023058943-07fcbe16d735',espresso:'1559496417-e7f25cb247f3',black:'1514432324607-a09d9b4aefdd',pour:'1442512595331-e89e73853f31',greens:'1509042239860-f550ce710b93',portafilter:'1511920170033-f8396924c348',croissant:'1555507036-ab1f4038808a',cake:'1578985545062-69928b1d9587',pancakes:'1567620905732-2d1ec7ab7445',toast:'1541519227354-08fa5d50c44d',matcha2:'1515823064-d6e0c04616a7',beans:'1587734195503-904fca47e0e9',roast:'1447933601403-0c6688de566e'};
+const P={};
+const add=(id,name,price,img)=>P[id]={id,name,price,img};
+add('d1','Latte',4.5,IMG.latte);add('d2','Matcha latte',5.2,IMG.matcha);add('d3','Iced coffee',4.8,IMG.iced);
+add('r1','Almond croissant',3.9,IMG.croissant);add('r2','Berry cheesecake',5.5,IMG.cake);add('r3','Chocolate cookies',3.2,IMG.pancakes.replace(IMG.pancakes,'1567620905732-2d1ec7ab7445'));
+const MENU=[
+['m1','Espresso','Coffee','Rich, short and bold.',3.2,IMG.espresso],
+['m2','Flat white','Coffee','Velvety microfoam over a double shot.',4.4,IMG.portafilter],
+['m3','Pour-over','Coffee','Single origin, brewed to order.',5.0,IMG.pour],
+['m4','Americano','Coffee','Clean and smooth black coffee.',3.6,IMG.black],
+['m5','Matcha latte','Non-coffee','Ceremonial matcha with oat milk.',5.2,IMG.matcha],
+['m6','Iced matcha','Non-coffee','Cold, creamy and earthy.',5.4,IMG.matcha2],
+['m7','Hot chocolate','Non-coffee','Thick dark cocoa with cream.',4.6,IMG.greens],
+['m8','Berry lemonade','Non-coffee','Fresh berries and sparkling water.',4.2,IMG.iced],
+['m9','Almond croissant','Bakery','Flaky layers, almond cream.',3.9,IMG.croissant],
+['m10','Avocado toast','Bakery','Sourdough, egg and chili flakes.',7.5,IMG.toast],
+['m11','Chocolate cookies','Bakery','Soft-baked with dark chunks.',3.2,'1567620905732-2d1ec7ab7445'],
+['m12','Butter croissant','Bakery','Classic, golden and airy.',3.3,IMG.croissant],
+['m13','Berry cheesecake','Desserts','Silky cream with seasonal berries.',5.5,IMG.cake],
+['m14','Chocolate cake','Desserts','Dense, moist, deeply cocoa.',5.8,IMG.cake],
+['m15','Fluffy pancakes','Desserts','Stack of three with maple syrup.',6.9,IMG.pancakes],
+['m16','Tiramisu cup','Desserts','Espresso-soaked layers of cream.',5.6,IMG.black]];
+MENU.forEach(m=>add(m[0],m[1],m[4],m[5]));
+const TABS=['All','Coffee','Non-coffee','Bakery','Desserts'];
+let tab='All';
+const $=s=>document.querySelector(s);
+function renderMenu(){
+ $('#tabs').innerHTML=TABS.map(t=>`<button class="tab ${t===tab?'on':''}" data-tab="${t}">${t}</button>`).join('');
+ $('#grid').innerHTML=MENU.filter(m=>tab==='All'||m[2]===tab).map(m=>`<article class="item"><img loading="lazy" src="${U(m[5],500)}" alt="${m[1]}"><div class="b"><h3>${m[1]}</h3><p>${m[3]}</p><div class="row"><span class="price">$${m[4].toFixed(2)}</span><button class="add" data-add="${m[0]}" aria-label="Add ${m[1]}">+</button></div></div></article>`).join('');
+}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(b){tab=b.dataset.tab;renderMenu()}});
+renderMenu();
+/* beans */
+const ORIG=[['eth','Ethiopia','Floral','Jasmine, blueberry and bergamot. Bright and tea-like.',14,48],['col','Colombia','Balanced','Caramel, red apple and cocoa. Smooth everyday cup.',12,42],['bra','Brazil','Nutty','Hazelnut, milk chocolate and low acidity. Great for espresso.',11,38]];
+const sel={eth:'250',col:'250',bra:'250'};
+function renderBeans(){
+ $('#selector').innerHTML=ORIG.map(o=>{const w=sel[o[0]];const pr=w==='250'?o[4]:o[5];return `<div class="origin"><div class="top"><h3>${o[1]}</h3><span class="tag">${o[2]}</span></div><p>${o[3]}</p><div class="toggle" data-o="${o[0]}"><button class="${w==='250'?'on':''}" data-w="250">250 g</button><button class="${w==='1000'?'on':''}" data-w="1000">1 kg</button></div><div class="row"><span class="price">$${pr.toFixed(2)}</span><button class="pill dark" data-bean="${o[0]}" style="padding:10px 20px">Add to cart</button></div></div>`}).join('');
+}
+$('#selector').addEventListener('click',e=>{
+ const w=e.target.closest('[data-w]');
+ if(w){sel[w.parentNode.dataset.o]=w.dataset.w;renderBeans();return}
+ const b=e.target.closest('[data-bean]');
+ if(b){const o=ORIG.find(x=>x[0]===b.dataset.bean),k=sel[o[0]];const id='bean-'+o[0]+'-'+k;add(id,`${o[1]} beans · ${k==='250'?'250 g':'1 kg'}`,k==='250'?o[4]:o[5],IMG.roast);addToCart(id)}
+});
+renderBeans();
+/* cart */
+let cart={};
+const money=n=>'$'+n.toFixed(2);
+function save(){try{localStorage.setItem('sg-cart',JSON.stringify(cart))}catch(e){}}
+try{cart=JSON.parse(localStorage.getItem('sg-cart')||'{}')||{};Object.keys(cart).forEach(k=>{if(!P[k]&&cart[k].p)P[k]=cart[k].p})}catch(e){cart={}}
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('on'),1600)}
+function addToCart(id){const p=P[id];cart[id]=cart[id]||{q:0,p};cart[id].q++;cart[id].p=p;render();save();toast(p.name+' added to cart')}
+function render(){
+ const ids=Object.keys(cart);let n=0,sum=0;
+ $('#lines').innerHTML=ids.length?ids.map(id=>{const c=cart[id],p=c.p;n+=c.q;sum+=c.q*p.price;const src=p.img.includes('-')?U(p.img,120):p.img;return `<div class="line"><img src="${src}" alt=""><div class="info"><b>${p.name}</b><span>${money(p.price)}</span><div class="qty"><button data-q="-1" data-id="${id}" aria-label="Less">&minus;</button><span>${c.q}</span><button data-q="1" data-id="${id}" aria-label="More">+</button></div></div><button class="rm" data-rm="${id}">Remove</button></div>`}).join(''):'<div class="empty">Your cart is empty.<br>Add something tasty!</div>';
+ $('#badge').textContent=n;$('#subtotal').textContent=money(sum);
+}
+$('#lines').addEventListener('click',e=>{
+ const q=e.target.closest('[data-q]'),r=e.target.closest('[data-rm]');
+ if(q){const id=q.dataset.id;cart[id].q+=+q.dataset.q;if(cart[id].q<1)delete cart[id];render();save()}
+ if(r){delete cart[r.dataset.rm];render();save()}
+});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b)addToCart(b.dataset.add)});
+const open=v=>{$('#drawer').classList.toggle('on',v);$('#overlay').classList.toggle('on',v)};
+$('#cartOpen').onclick=()=>open(true);$('#cartClose').onclick=()=>open(false);$('#overlay').onclick=()=>open(false);
+$('#checkout').onclick=()=>{if(!Object.keys(cart).length)return toast('Your cart is empty');cart={};render();save();open(false);toast('Thank you! Order placed (demo)')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+render();
+/* nav */
+$('#burger').onclick=()=>$('#links').classList.toggle('on');
+$('#links').addEventListener('click',e=>{if(e.target.tagName==='A')$('#links').classList.remove('on')});
+/* newsletter */
+$('#nform').addEventListener('submit',e=>{e.preventDefault();$('#nmsg').textContent='Thank you! You are subscribed — check your inbox soon.';e.target.reset()});
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

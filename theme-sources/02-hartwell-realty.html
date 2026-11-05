@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hartwell &amp; Co. Realty</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ec;--surf:#fff;--ink:#111;--muted:#7c776f;--acc:#b8946f;--dark:#121212;--beige:#d9b99b;--line:rgba(17,17,17,.14);--lined:rgba(255,255,255,.15)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Montserrat',sans-serif;font-weight:300;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+svg{display:block}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+section{overflow-x:clip}
+.up{text-transform:uppercase;letter-spacing:.2em}
+h1,h2,h3{font-weight:200;text-transform:uppercase;letter-spacing:.14em;line-height:1.2}
+h2{font-size:clamp(26px,3.4vw,44px)}
+.label{font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.label:before{content:"";width:44px;height:1px;background:currentColor}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 30px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:.3s}
+.pill.dark{background:var(--ink);color:#fff}.pill.dark:hover{background:var(--acc)}
+.pill.beige{background:var(--beige);color:#111}.pill.beige:hover{background:#fff}
+.pill.line{border-color:var(--line)}.pill.line:hover{border-color:var(--ink)}
+section{padding:110px 0}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,241,236,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-weight:300;letter-spacing:.3em;font-size:14px;text-transform:uppercase;white-space:nowrap}.logo b{font-weight:600}
+.links{display:flex;gap:38px}
+.links a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;position:relative;padding:6px 0}
+.links a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--acc);transition:.3s}
+.links a:hover:after{width:100%}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;position:relative}
+.burger i{position:absolute;left:9px;right:9px;height:1px;background:var(--ink);transition:.3s}
+.burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:20px}.burger i:nth-child(3){top:26px}
+.burger.open i:nth-child(1){top:20px;transform:rotate(45deg)}.burger.open i:nth-child(2){opacity:0}.burger.open i:nth-child(3){top:20px;transform:rotate(-45deg)}
+.mob{display:none}
+/* hero */
+.hero{padding:130px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:stretch}
+.hero-l{padding:50px 0 170px;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(34px,5vw,76px);letter-spacing:.12em;line-height:1.12}
+.hero p.sub{margin-top:28px;max-width:440px;color:var(--muted);font-size:14px;letter-spacing:.04em}
+.hero-img{position:relative;border-radius:200px 200px 24px 24px;overflow:hidden;min-height:640px}
+.hero-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hot{position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;border:0;cursor:pointer;box-shadow:0 0 0 6px rgba(255,255,255,.3),0 0 24px 6px rgba(255,255,255,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(255,255,255,.1),0 0 34px 10px rgba(255,255,255,.9)}}
+.tip{position:absolute;bottom:30px;left:50%;transform:translateX(-50%) translateY(6px);background:rgba(18,18,18,.9);color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:10px 16px;border-radius:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:.3s}
+.hot:hover .tip,.hot:focus .tip,.hot.show .tip{opacity:1;transform:translateX(-50%)}
+.hot .tip small{display:block;color:var(--beige);letter-spacing:.1em;margin-top:2px}
+.search{position:relative;z-index:5;margin:-90px 0 0;background:var(--surf);border-radius:28px;padding:22px 26px 26px;box-shadow:0 30px 70px rgba(17,17,17,.12);max-width:calc(100% - 0px);width:min(760px,62%)}
+.tabs2{display:flex;gap:26px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.tabs2 button{background:none;border:0;padding:6px 0 12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:1px solid transparent;margin-bottom:-1px}
+.tabs2 button.on{color:var(--ink);border-color:var(--ink)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:14px;align-items:end}
+.fld label{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+select,input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);padding:9px 2px;font-size:13px;outline:0;border-radius:0;transition:.3s}
+select:focus,input:focus,textarea:focus{border-color:var(--acc)}
+.search .pill{padding:14px 28px}
+/* stats */
+.stats{padding:0;background:var(--surf);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:70px}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:46px 20px;text-align:center;border-left:1px solid var(--line)}
+.st:first-child{border-left:0}
+.st b{display:block;font-weight:200;font-size:clamp(30px,3.6vw,52px);letter-spacing:.06em;line-height:1.1}
+.st span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+/* listings */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+.ftabs{display:flex;gap:8px;flex-wrap:wrap}
+.ftabs button{background:none;border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.ftabs button:hover{border-color:var(--ink)}.ftabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.card{background:var(--surf);border-radius:20px;overflow:hidden;transition:.4s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(17,17,17,.1)}
+.card.hide{display:none}
+.ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:.8s}.card:hover .ph img{transform:scale(1.06)}
+.tag{position:absolute;top:14px;left:14px;background:var(--surf);border-radius:999px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:6px 13px;font-weight:500}
+.heart{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:0;cursor:pointer;display:grid;place-items:center;transition:.3s}
+.heart svg{width:17px;height:17px;fill:none;stroke:var(--ink);stroke-width:1.5;transition:.3s}
+.heart.on svg{fill:#c0504a;stroke:#c0504a}.heart:hover{transform:scale(1.1)}
+.cb{padding:20px 22px 24px}
+.price{font-size:20px;font-weight:300;letter-spacing:.08em}.price small{font-size:11px;color:var(--muted);letter-spacing:.1em}
+.addr{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:4px 0 14px}
+.meta{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:13px;font-size:11px;letter-spacing:.08em}
+.meta span{display:flex;align-items:center;gap:6px}.meta svg{width:15px;height:15px;stroke:var(--acc);fill:none;stroke-width:1.3}
+.none{display:none;color:var(--muted);padding:30px 0}
+/* dark why */
+.dark{background:var(--dark);color:#fff}
+.dark h2{color:#fff}
+.why3{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px}
+.why3>div{padding:10px 44px;border-left:1px solid var(--lined)}.why3>div:first-child{border-left:0;padding-left:0}
+.why3 em{font-style:normal;font-weight:200;font-size:48px;color:var(--beige);letter-spacing:.06em;display:block;line-height:1;margin-bottom:26px}
+.why3 h3{font-size:15px;color:var(--beige);letter-spacing:.2em;margin-bottom:16px;font-weight:300}
+.why3 p{font-size:13px;color:rgba(255,255,255,.62);line-height:1.9}
+/* hoods */
+.hoods{padding:0;position:relative;height:620px;color:#fff;background:#111}
+.hoods>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hoods:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.1) 40%,rgba(0,0,0,.75))}
+.hoods-t{position:absolute;top:60px;left:0;right:0;z-index:3}
+.hoods-t h2{color:#fff}
+.hp{position:absolute;inset:0;z-index:2;display:grid;grid-template-columns:repeat(4,1fr)}
+.hp div{border-left:1px solid rgba(255,255,255,.3);padding:0 28px 50px;display:flex;flex-direction:column;justify-content:flex-end;transition:.4s;cursor:pointer}
+.hp div:first-child{border-left:0}
+.hp div:hover{background:rgba(217,185,155,.14)}
+.hp h3{font-size:14px;letter-spacing:.22em;font-weight:400;color:var(--beige)}
+.hp p{font-size:12px;letter-spacing:.08em;opacity:.85;margin-top:6px}
+/* mortgage */
+.mort{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.mort-card{background:var(--surf);border-radius:28px;padding:42px}
+.mort p.lead{color:var(--muted);font-size:14px;margin-top:22px;max-width:420px}
+.rg{margin-bottom:26px}
+.rg .rt{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.rg .rt b{color:var(--ink);font-weight:500;letter-spacing:.1em;font-size:13px}
+input[type=range]{-webkit-appearance:none;appearance:none;padding:0;border:0;height:2px;background:linear-gradient(90deg,var(--acc) var(--p,50%),var(--line) var(--p,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--ink);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--ink);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--ink);border:3px solid var(--bg);cursor:pointer}
+.out{border-top:1px solid var(--line);padding-top:24px}
+.out .big{font-size:clamp(34px,4vw,52px);font-weight:200;letter-spacing:.06em;line-height:1.1}.out .big small{font-size:12px;color:var(--muted);letter-spacing:.2em}
+.bar{display:flex;height:10px;border-radius:99px;overflow:hidden;margin:20px 0 12px;background:var(--line)}
+.bar i{display:block;transition:width .4s}.bar .p{background:var(--ink)}.bar .i{background:var(--acc)}
+.lg{display:flex;gap:24px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
+.lg span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;background:var(--ink)}.lg span+span:before{background:var(--acc)}
+.lg b{color:var(--ink);font-weight:500}
+/* agents */
+.agents{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.ag{position:relative}
+.ag .pt{aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative}
+.ag img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3);transition:.7s}.ag:hover img{transform:scale(1.05);filter:none}
+.soc{position:absolute;left:0;right:0;bottom:0;padding:16px;display:flex;justify-content:center;gap:10px;transform:translateY(100%);transition:.4s;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent)}
+.ag:hover .soc,.ag:focus-within .soc{transform:none}
+.soc a,.socs a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.6);color:#fff;display:grid;place-items:center;transition:.3s}
+.soc a:hover{background:var(--beige);color:#111;border-color:var(--beige)}
+.soc svg,.socs svg{width:15px;height:15px;fill:currentColor}
+.ag h3{font-size:14px;letter-spacing:.2em;margin-top:18px;font-weight:400}
+.ag .role{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:2px 0}
+.ag .ph2{font-size:12px;color:var(--muted);letter-spacing:.08em}
+/* testi */
+.testi{background:var(--surf);text-align:center}
+.slider{max-width:780px;margin:50px auto 0;position:relative;overflow:hidden}
+.track{display:flex;transition:transform .7s cubic-bezier(.7,0,.2,1)}
+.slide{flex:0 0 100%;padding:0 10px}
+.slide q{display:block;quotes:none;font-weight:200;font-size:clamp(18px,2.2vw,26px);line-height:1.7;letter-spacing:.04em}
+.slide cite{display:block;margin-top:28px;font-style:normal;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+.slide cite span{display:block;color:var(--muted);margin-top:4px;letter-spacing:.14em;font-size:10px}
+.dots{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:38px}
+.dots button{width:8px;height:8px;border-radius:50%;border:1px solid var(--ink);background:none;cursor:pointer;padding:0;transition:.3s}.dots button.on{background:var(--ink);transform:scale(1.3)}
+.arr{background:none;border:1px solid var(--line);width:40px;height:40px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:.3s}.arr:hover{border-color:var(--ink)}
+.arr svg{width:14px;height:14px;stroke:var(--ink);fill:none;stroke-width:1.5}
+/* contact */
+.cg{display:grid;grid-template-columns:1.1fr 1fr;gap:60px}
+.form{background:var(--surf);border-radius:28px;padding:42px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.fg .full{grid-column:1/-1}
+textarea{resize:vertical;min-height:70px}
+.conf{display:none;margin-top:22px;padding:16px 20px;border:1px solid var(--acc);border-radius:14px;font-size:12px;letter-spacing:.06em;background:rgba(184,148,111,.08)}
+.conf.show{display:block}
+.info p{color:var(--muted);font-size:14px;margin:6px 0}
+.info .row{display:flex;gap:40px;flex-wrap:wrap;margin:26px 0}
+.info h4{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);font-weight:500;margin-bottom:6px}
+.map{position:relative;height:280px;border-radius:24px;overflow:hidden;background:#e6e0d6;border:1px solid var(--line)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:55%;top:46%;width:22px;height:22px;border-radius:50% 50% 50% 0;background:var(--ink);transform:rotate(-45deg) translate(-50%,-50%);box-shadow:0 0 0 8px rgba(17,17,17,.12)}
+.pin:after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--beige)}
+.mapl{position:absolute;left:16px;bottom:16px;background:var(--surf);border-radius:12px;padding:8px 14px;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+/* footer */
+footer{background:var(--dark);color:rgba(255,255,255,.65);padding:90px 0 36px;overflow-x:clip}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--lined)}
+footer h4{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--beige);font-weight:500;margin-bottom:20px}
+footer li{list-style:none;margin:9px 0;font-size:13px}footer li a:hover{color:var(--beige)}
+.nl{display:flex;border-bottom:1px solid rgba(255,255,255,.3);margin-top:18px;max-width:380px}
+.nl input{border:0;color:#fff;font-size:13px}.nl button{background:none;border:0;color:var(--beige);font-size:10px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;padding:0 4px}
+.nlc{font-size:12px;color:var(--beige);margin-top:10px;min-height:20px}
+.socs{display:flex;gap:10px;margin-top:22px}.socs a:hover{background:var(--beige);color:#111;border-color:var(--beige)}
+.copy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:30px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+/* responsive */
+@media(max-width:1024px){
+section{padding:80px 0}
+.links,.nav-in>.pill{display:none}.burger{display:block}
+.mob{display:block;position:fixed;top:76px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px 26px;z-index:49;transform:translateY(-120%);transition:.4s;visibility:hidden}
+.mob.open{transform:none;visibility:visible}
+.mob a{display:block;padding:16px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.mob .pill{margin-top:20px;display:flex}
+.hero-grid{grid-template-columns:1fr;gap:20px}.hero-l{padding:20px 0 0}
+.hero-img{min-height:480px;order:2;border-radius:140px 140px 20px 20px}
+.search{width:100%;margin:-60px 0 0;order:3}
+.hero-grid{display:flex;flex-direction:column}
+.hero{padding-bottom:0}
+.sgrid{grid-template-columns:1fr 1fr}.sgrid .pill{grid-column:1/-1}
+.cards{grid-template-columns:repeat(2,1fr)}
+.agents{grid-template-columns:repeat(2,1fr)}
+.mort,.cg{grid-template-columns:1fr;gap:40px}
+.fgrid{grid-template-columns:1fr 1fr}
+.why3>div{padding:10px 24px}
+.hoods{height:560px}
+}
+@media(max-width:640px){
+.wrap{padding:0 16px}
+section{padding:64px 0}
+.hero{padding-top:100px}
+.hero-img{min-height:380px;border-radius:110px 110px 18px 18px}
+.search{padding:18px 16px 20px;margin-top:-40px}
+.stats-g{grid-template-columns:1fr 1fr}.st{padding:30px 10px}.st:nth-child(3){border-left:0}.st:nth-child(n+3){border-top:1px solid var(--line)}
+.cards,.agents{grid-template-columns:1fr}
+.why3{grid-template-columns:1fr;margin-top:40px}.why3>div{border-left:0;border-top:1px solid var(--lined);padding:30px 0}.why3>div:first-child{border-top:0}
+.hoods{height:auto;min-height:0;padding:0}
+.hoods>img{height:100%}.hoods:before{display:none}
+.hoods-t{position:relative;top:0;padding:56px 0 20px;z-index:3}
+.hoods{background:#111}
+.hp{position:relative;grid-template-columns:1fr 1fr;grid-template-rows:200px 200px}
+.hp div{padding:0 14px 20px}.hp div:nth-child(3){border-left:0}.hp div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.3)}
+.hp h3{font-size:11px}
+.mort-card,.form{padding:26px 20px}
+.fg{grid-template-columns:1fr}
+.fgrid{grid-template-columns:1fr;gap:34px}
+.head{margin-bottom:30px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav>
+ <div class="wrap nav-in">
+  <a href="#top" class="logo">Hartwell <b>&amp;</b> Co. Realty</a>
+  <div class="links"><a href="#listings">Buy</a><a href="#listings" data-rent>Rent</a><a href="#mortgage">Sell</a><a href="#agents">Agents</a><a href="#contact">Contact</a></div>
+  <a href="#contact" class="pill dark">Schedule a viewing</a>
+  <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+ </div>
+</nav>
+<div class="mob" id="mob">
+ <a href="#listings">Buy</a><a href="#listings" data-rent>Rent</a><a href="#mortgage">Sell</a><a href="#agents">Agents</a><a href="#contact">Contact</a>
+ <a href="#contact" class="pill dark">Schedule a viewing</a>
+</div>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div class="hero-grid">
+   <div class="hero-l">
+    <div class="label">Residential brokerage</div>
+    <h1>Find the place you'll call home</h1>
+    <p class="sub">Considered homes, honest advice and a team that treats every key handover like a small celebration. Buy, rent or sell with Hartwell.</p>
+   </div>
+   <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=70&auto=format&fit=crop" alt="Modern house with pool" fetchpriority="high">
+    <button class="hot" style="left:30%;top:42%" aria-label="Pool terrace"><span class="tip">Heated pool terrace<small>Included</small></span></button>
+    <button class="hot" style="left:68%;top:62%" aria-label="Open living"><span class="tip">Open-plan living<small>180 m&sup2; ground floor</small></span></button>
+   </div>
+  </div>
+  <form class="search" id="search" onsubmit="return false">
+   <div class="tabs2" id="stabs"><button type="button" class="on" data-m="buy">Buy</button><button type="button" data-m="rent">Rent</button></div>
+   <div class="sgrid">
+    <div class="fld"><label for="sl">Location</label><select id="sl"><option>Any location</option><option>Riverside</option><option>Old Town</option><option>Hillcrest</option><option>Harbour District</option></select></div>
+    <div class="fld"><label for="st">Property type</label><select id="st"><option value="all">All types</option><option value="house">House</option><option value="apartment">Apartment</option><option value="villa">Villa</option></select></div>
+    <div class="fld"><label for="sp">Price range</label><select id="sp"><option>Any price</option><option>Up to $500k</option><option>$500k - $1M</option><option>$1M - $2M</option><option>$2M+</option></select></div>
+    <button class="pill dark" type="submit" id="sbtn">Search</button>
+   </div>
+  </form>
+ </div>
+</header>
+
+<div class="stats rv">
+ <div class="wrap stats-g">
+  <div class="st"><b><span data-c="2400">0</span>+</b><span>Homes sold</span></div>
+  <div class="st"><b>$<span data-c="1.2" data-d="1">0</span>B</b><span>Sales volume</span></div>
+  <div class="st"><b><span data-c="35">0</span></b><span>Expert agents</span></div>
+  <div class="st"><b><span data-c="18">0</span></b><span>Years in business</span></div>
+ </div>
+</div>
+
+<section id="listings">
+ <div class="wrap">
+  <div class="head rv">
+   <div><div class="label">Featured properties</div><h2>Current listings</h2></div>
+   <div class="ftabs" id="ftabs"><button class="on" data-f="all">All</button><button data-f="house">Houses</button><button data-f="apartment">Apartments</button><button data-f="villa">Villas</button><button data-f="rent">For rent</button></div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <p class="none" id="none">No properties match this filter right now.</p>
+ </div>
+</section>
+
+<section class="dark" id="why">
+ <div class="wrap">
+  <div class="label rv">Why Hartwell</div>
+  <h2 class="rv">Three principles,<br>one calm process</h2>
+  <div class="why3 rv">
+   <div><em>01</em><h3>Local insight</h3><p>Our agents live in the streets they sell. We know which school runs are quick, which lanes flood, and where the best bakery hides.</p></div>
+   <div><em>02</em><h3>Transparent pricing</h3><p>Every valuation comes with its evidence. No hidden fees, no inflated estimates just to win a listing; only clear numbers you can trust.</p></div>
+   <div><em>03</em><h3>Full-service</h3><p>Staging, photography, legal coordination and mortgage introductions under one roof, so you only ever need one phone number.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="hoods" id="hoods">
+ <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=70&auto=format&fit=crop" alt="City at night" loading="lazy">
+ <div class="wrap hoods-t"><div class="label" style="color:var(--beige)">Neighbourhoods</div><h2>Where we work</h2></div>
+ <div class="hp">
+  <div><h3>Riverside</h3><p>46 listings</p></div>
+  <div><h3>Old Town</h3><p>31 listings</p></div>
+  <div><h3>Hillcrest</h3><p>28 listings</p></div>
+  <div><h3>Harbour District</h3><p>19 listings</p></div>
+ </div>
+</section>
+
+<section id="mortgage">
+ <div class="wrap mort">
+  <div class="rv">
+   <div class="label">Mortgage calculator</div>
+   <h2>Plan your monthly payment</h2>
+   <p class="lead">Move the sliders to see an estimate of what your home could cost each month. Thinking of selling instead? Our team will value your home free of charge.</p>
+   <a href="#contact" class="pill line" style="margin-top:30px">Request a valuation</a>
+  </div>
+  <div class="mort-card rv">
+   <div class="rg"><div class="rt"><span>Home price</span><b id="vP"></b></div><input type="range" id="rP" min="100000" max="3000000" step="10000" value="850000"></div>
+   <div class="rg"><div class="rt"><span>Down payment</span><b id="vD"></b></div><input type="range" id="rD" min="5" max="60" step="1" value="20"></div>
+   <div class="rg"><div class="rt"><span>Interest rate</span><b id="vR"></b></div><input type="range" id="rR" min="1" max="10" step="0.05" value="5.2"></div>
+   <div class="rg"><div class="rt"><span>Term</span><b id="vT"></b></div><input type="range" id="rT" min="5" max="35" step="5" value="25"></div>
+   <div class="out">
+    <div class="big" id="mo"></div>
+    <div class="bar"><i class="p" id="bp"></i><i class="i" id="bi"></i></div>
+    <div class="lg"><span>Principal <b id="lp"></b></span><span>Interest <b id="li"></b></span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="agents" style="padding-top:0">
+ <div class="wrap">
+  <div class="head rv"><div><div class="label">Our agents</div><h2>Meet the team</h2></div></div>
+  <div class="agents" id="agl"></div>
+ </div>
+</section>
+
+<section class="testi" id="testi">
+ <div class="wrap">
+  <div class="label rv" style="justify-content:center">Kind words</div>
+  <h2 class="rv">Client stories</h2>
+  <div class="slider rv" id="slider">
+   <div class="track" id="track">
+    <div class="slide"><q>Hartwell found us a home we would never have spotted online. Calm, honest and endlessly patient from first viewing to the keys.</q><cite>Maya &amp; Daniel R.<span>Bought in Riverside</span></cite></div>
+    <div class="slide"><q>Our flat sold in eleven days, above asking. The pricing advice was spot on and the communication never dropped for a moment.</q><cite>Tomas Whitfield<span>Sold in Old Town</span></cite></div>
+    <div class="slide"><q>As a first-time renter in a new city I felt looked after. Clear contracts, quick repairs, and a genuinely friendly landlord team.</q><cite>Priya Nair<span>Renting in Harbour District</span></cite></div>
+   </div>
+  </div>
+  <div class="dots"><button class="arr" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><span id="dts" style="display:flex;gap:14px"></span><button class="arr" id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap cg">
+  <form class="form rv" id="vf">
+   <div class="label">Book a viewing</div>
+   <h2 style="font-size:clamp(22px,2.6vw,32px);margin-bottom:30px">Schedule a visit</h2>
+   <div class="fg">
+    <div class="fld"><label for="n">Name</label><input id="n" required></div>
+    <div class="fld"><label for="e">Email</label><input id="e" type="email" required></div>
+    <div class="fld"><label for="ph">Phone</label><input id="ph" type="tel" required></div>
+    <div class="fld"><label for="pr">Property</label><select id="pr"></select></div>
+    <div class="fld"><label for="d">Date</label><input id="d" type="date" required></div>
+    <div class="fld"><label for="t">Time</label><select id="t"><option>09:00</option><option>10:30</option><option>12:00</option><option>14:00</option><option>15:30</option><option>17:00</option></select></div>
+    <div class="fld full"><label for="m">Message</label><textarea id="m" rows="2"></textarea></div>
+    <div class="full"><button class="pill dark" type="submit">Request viewing</button></div>
+   </div>
+   <div class="conf" id="conf" role="status"></div>
+  </form>
+  <div class="info rv">
+   <div class="label">Visit our office</div>
+   <h2 style="font-size:clamp(22px,2.6vw,32px)">Hartwell House</h2>
+   <div class="row">
+    <div><h4>Address</h4><p>12 Example Row<br>Riverside, 00000</p></div>
+    <div><h4>Contact</h4><p>+1 (555) 010-2030<br>hello@hartwell.example</p></div>
+    <div><h4>Hours</h4><p>Mon - Fri 9:00 - 18:00<br>Sat 10:00 - 15:00</p></div>
+   </div>
+   <div class="map">
+    <svg viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice"><rect width="400" height="280" fill="#e6e0d6"/><path d="M0 200 Q120 150 220 190 T400 150 L400 280 L0 280Z" fill="#d3d9d6"/><g stroke="#fff" stroke-width="6" fill="none"><path d="M0 90H400"/><path d="M130 0V280"/><path d="M290 0V280"/><path d="M0 40L400 130"/></g><g stroke="#fff" stroke-width="2.5" fill="none"><path d="M0 150H400"/><path d="M210 0V200"/><path d="M60 0V280"/><path d="M350 0V280"/></g><g fill="#cfc8ba"><rect x="140" y="100" width="60" height="40"/><rect x="300" y="100" width="40" height="50"/><rect x="70" y="20" width="50" height="60"/></g></svg>
+    <div class="pin"></div><div class="mapl">Hartwell &amp; Co.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div>
+    <a href="#top" class="logo" style="color:#fff">Hartwell <b>&amp;</b> Co. Realty</a>
+    <p style="font-size:13px;margin-top:18px;max-width:340px">Property news and new listings, delivered monthly. No noise.</p>
+    <form class="nl" id="nl"><input type="email" required placeholder="Your email" aria-label="Email"><button>Subscribe</button></form>
+    <div class="nlc" id="nlc"></div>
+   </div>
+   <div><h4>Explore</h4><ul><li><a href="#listings">Buy</a></li><li><a href="#listings">Rent</a></li><li><a href="#mortgage">Sell</a></li><li><a href="#mortgage">Mortgage calculator</a></li></ul></div>
+   <div><h4>Company</h4><ul><li><a href="#agents">Agents</a></li><li><a href="#testi">Reviews</a></li><li><a href="#hoods">Neighbourhoods</a></li><li><a href="#contact">Contact</a></li></ul></div>
+   <div><h4>Follow</h4><div class="socs" style="margin-top:0">
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.2 5.5a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 3c-2.4 0-2.7 0-3.7.1-2.9.1-4.100 1.500-4.200 4.200C4 8.300 4 8.600 4 12s0 3.700.1 4.700c.1 2.700 1.300 4.100 4.200 4.200 1 .1 1.300.1 3.700.1s2.700 0 3.700-.1c2.900-.1 4.100-1.500 4.200-4.200.1-1 .1-1.300.1-4.700s0-3.700-.1-4.700c-.1-2.700-1.300-4.100-4.200-4.200C14.700 3 14.400 3 12 3zm0 1.600c2.400 0 2.700 0 3.600.1 2.100.1 3 1 3.100 3.100.1.900.1 1.200.1 3.600s0 2.700-.1 3.600c-.1 2.100-1 3-3.100 3.100-.9.100-1.200.1-3.600.1s-2.700 0-3.600-.1c-2.100-.1-3-1-3.100-3.100-.1-.9-.1-1.200-.1-3.600s0-2.700.1-3.600c.1-2.100 1-3 3.100-3.100.9-.1 1.200-.1 3.600-.1z"/></svg></a>
+    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.500 21v-8h2.700l.4-3.200h-3.100V7.800c0-.9.300-1.500 1.600-1.500h1.700V3.400c-.3 0-1.300-.1-2.400-.1-2.400 0-4 1.500-4 4.100v2.400H7.700V13h2.700v8z"/></svg></a>
+    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5.100 9h3.200v10.500H5.100zM6.700 4a1.900 1.900 0 1 1 0 3.800 1.900 1.900 0 0 1 0-3.800zM10.300 9h3v1.400c.5-.9 1.600-1.700 3.200-1.700 3.300 0 3.900 2.200 3.900 5v5.800h-3.200v-5.100c0-1.200 0-2.800-1.700-2.800s-2 1.300-2 2.700v5.200h-3.200z"/></svg></a>
+    <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.800 3.500h3L14.200 11l7.800 9.500h-6.100l-4.800-5.800-5.500 5.800h-3l7.100-7.900L2.300 3.500h6.200l4.300 5.300zm-1.100 15.200h1.700L7.700 5.200H5.900z"/></svg></a>
+   </div></div>
+  </div>
+  <div class="copy"><span>&copy; 2026 Hartwell &amp; Co. Realty</span><span>Privacy &middot; Terms</span></div>
+ </div>
+</footer>
+
+<script>
+const U=(id,w)=>`https://images.unsplash.com/photo-${id}?w=${w}&q=70&auto=format&fit=crop`;
+const L=[
+ {id:'1600596542815-ffad4c1539a9',t:'house',p:1250000,a:'14 Alder Lane, Riverside',b:4,ba:3,m:260,tag:'New'},
+ {id:'1586023492125-27b2c045efd7',t:'apartment',p:4200,rent:1,a:'8 Quay Street, Harbour District',b:2,ba:1,m:92,tag:'Open house'},
+ {id:'1613490493576-7fde63acd811',t:'villa',p:2980000,a:'3 Cypress Court, Hillcrest',b:6,ba:5,m:480,tag:'New'},
+ {id:'1555041469-a586c61ea9bc',t:'apartment',p:690000,a:'27 Mill Yard, Old Town',b:2,ba:2,m:88,tag:''},
+ {id:'1564013799919-ab600027ffc6',t:'house',p:3400,rent:1,a:'61 Birch Road, Riverside',b:3,ba:2,m:145,tag:''},
+ {id:'1512917774080-9991f1c4c750',t:'villa',p:2450000,a:'9 Laurel Heights, Hillcrest',b:5,ba:4,m:390,tag:'Open house'},
+ {id:'1493663284031-b7e3aefcae8e',t:'apartment',p:2900,rent:1,a:'102 Dock Lofts, Harbour District',b:1,ba:1,m:64,tag:'New'},
+ {id:'1580587771525-78b9dba3b914',t:'house',p:985000,a:'40 Orchard Close, Old Town',b:4,ba:2,m:198,tag:''}
+];
+const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+const ic={bed:'<svg viewBox="0 0 24 24"><path d="M3 18V7M3 14h18v4M21 14v-3a3 3 0 0 0-3-3h-7v6"/></svg>',bath:'<svg viewBox="0 0 24 24"><path d="M3 12h18v2a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4zM6 12V6a2 2 0 0 1 4 0"/></svg>',sq:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h6v10"/></svg>'};
+const cards=document.getElementById('cards');
+cards.innerHTML=L.map((h,i)=>`<article class="card rv" data-t="${h.t}" data-r="${h.rent?1:0}"><div class="ph"><img src="${U(h.id,700)}" alt="${h.a}" loading="lazy">${h.tag?`<span class="tag">${h.tag}</span>`:''}<button class="heart" aria-label="Favorite"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.400-7-10a4 4 0 0 1 7-2.500A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg></button></div><div class="cb"><div class="price">${fmt(h.p)}${h.rent?' <small>/mo</small>':''}</div><div class="addr">${h.a}</div><div class="meta"><span>${ic.bed}${h.b} bd</span><span>${ic.bath}${h.ba} ba</span><span>${ic.sq}${h.m} m&sup2;</span></div></div></article>`).join('');
+document.getElementById('pr').innerHTML='<option>General enquiry</option>'+L.map(h=>`<option>${h.a}</option>`).join('');
+cards.addEventListener('click',e=>{const b=e.target.closest('.heart');if(b)b.classList.toggle('on')});
+let filt='all';
+function applyF(f){filt=f;let n=0;document.querySelectorAll('#ftabs button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+ cards.querySelectorAll('.card').forEach(c=>{const r=c.dataset.r==='1';let ok=f==='all'||(f==='rent'?r:(c.dataset.t===f&&!r)||(c.dataset.t===f&&f!=='rent'&&!r));
+  if(f==='all')ok=true;c.classList.toggle('hide',!ok);if(ok){n++;c.classList.add('in')}});
+ document.getElementById('none').style.display=n?'none':'block'}
+document.getElementById('ftabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)applyF(b.dataset.f)});
+// search
+let mode='buy';
+document.getElementById('stabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;document.querySelectorAll('#stabs button').forEach(x=>x.classList.toggle('on',x===b))});
+document.getElementById('sbtn').addEventListener('click',()=>{const t=document.getElementById('st').value;applyF(mode==='rent'?'rent':t);document.getElementById('listings').scrollIntoView({behavior:'smooth'})});
+document.querySelectorAll('[data-rent]').forEach(a=>a.addEventListener('click',()=>applyF('rent')));
+// hotspots
+document.querySelectorAll('.hot').forEach(h=>h.addEventListener('click',()=>h.classList.toggle('show')));
+// nav
+const bg=document.getElementById('burger'),mob=document.getElementById('mob');
+bg.addEventListener('click',()=>{bg.classList.toggle('open');mob.classList.toggle('open')});
+mob.addEventListener('click',e=>{if(e.target.closest('a')){bg.classList.remove('open');mob.classList.remove('open')}});
+// agents
+const AG=[['Eleanor Hartwell','Principal Broker','1494790108377-be9c29b29330','+1 (555) 010-2031'],['James Calloway','Senior Sales Agent','1507003211169-0a1dd7228f2d','+1 (555) 010-2032'],['Sofia Marchetti','Lettings Director','1573496359142-b8d87734a5a2','+1 (555) 010-2033'],['Marcus Bell','Luxury Specialist','1500648767791-00dcc994a43e','+1 (555) 010-2034']];
+const sv={i:'<svg viewBox="0 0 24 24"><path d="M12 7.200A4.800 4.800 0 1 0 12 16.800 4.800 4.800 0 0 0 12 7.200zm0 7.900a3.100 3.100 0 1 1 0-6.200 3.100 3.100 0 0 1 0 6.200zM12 3c-3.400 0-3.700 0-4.700.1-2.700.1-4.100 1.500-4.200 4.200C3 8.300 3 8.600 3 12s0 3.700.1 4.700c.1 2.700 1.500 4.100 4.200 4.200 1 .1 1.300.1 4.700.1s3.700 0 4.700-.1c2.700-.1 4.100-1.500 4.200-4.200.1-1 .1-1.300.1-4.700s0-3.700-.1-4.700c-.1-2.700-1.500-4.100-4.200-4.200C15.700 3 15.400 3 12 3z" fill-rule="evenodd"/></svg>',l:'<svg viewBox="0 0 24 24"><path d="M5.100 9h3.200v10.500H5.100zM6.700 4a1.900 1.900 0 1 1 0 3.800 1.900 1.900 0 0 1 0-3.800zM10.300 9h3v1.400c.5-.9 1.600-1.700 3.200-1.700 3.300 0 3.900 2.200 3.900 5v5.800h-3.200v-5.100c0-1.200 0-2.800-1.700-2.800s-2 1.300-2 2.700v5.200h-3.200z"/></svg>',x:'<svg viewBox="0 0 24 24"><path d="M17.800 3.500h3L14.200 11l7.800 9.500h-6.100l-4.800-5.800-5.500 5.800h-3l7.100-7.900L2.300 3.500h6.200l4.300 5.300zm-1.100 15.200h1.700L7.700 5.200H5.900z"/></svg>'};
+document.getElementById('agl').innerHTML=AG.map(a=>`<div class="ag rv"><div class="pt"><img src="${U(a[2],600)}" alt="${a[0]}" loading="lazy"><div class="soc"><a href="#" aria-label="Instagram">${sv.i}</a><a href="#" aria-label="LinkedIn">${sv.l}</a><a href="#" aria-label="X">${sv.x}</a></div></div><h3>${a[0]}</h3><div class="role">${a[1]}</div><div class="ph2">${a[3]}</div></div>`).join('');
+// slider
+const tr=document.getElementById('track'),N=3,dts=document.getElementById('dts');let si=0,tm;
+dts.innerHTML=[0,1,2].map(i=>`<button aria-label="Slide ${i+1}"></button>`).join('');
+function go(i){si=(i+N)%N;tr.style.transform=`translateX(-${si*100}%)`;[...dts.children].forEach((d,k)=>d.classList.toggle('on',k===si))}
+function auto(){clearInterval(tm);tm=setInterval(()=>go(si+1),6000)}
+dts.addEventListener('click',e=>{const k=[...dts.children].indexOf(e.target);if(k>-1){go(k);auto()}});
+document.getElementById('prev').onclick=()=>{go(si-1);auto()};document.getElementById('next').onclick=()=>{go(si+1);auto()};
+go(0);auto();
+// mortgage
+const g=id=>document.getElementById(id);
+function calc(){const P=+g('rP').value,dp=+g('rD').value,r=+g('rR').value,y=+g('rT').value;
+ [['rP'],['rD'],['rR'],['rT']].forEach(([i])=>{const e=g(i);e.style.setProperty('--p',(e.value-e.min)/(e.max-e.min)*100+'%')});
+ const loan=P*(1-dp/100),n=y*12,i=r/100/12,pay=i?loan*i/(1-Math.pow(1+i,-n)):loan/n,tot=pay*n,int=tot-loan;
+ g('vP').textContent=fmt(P);g('vD').textContent=dp+'% ('+fmt(P*dp/100)+')';g('vR').textContent=r.toFixed(2)+'%';g('vT').textContent=y+' years';
+ g('mo').innerHTML=fmt(pay)+' <small>/ month</small>';
+ g('bp').style.width=loan/tot*100+'%';g('bi').style.width=int/tot*100+'%';g('lp').textContent=fmt(loan);g('li').textContent=fmt(int)}
+['rP','rD','rR','rT'].forEach(i=>g(i).addEventListener('input',calc));calc();
+// forms
+const dd=g('d');dd.min=new Date().toISOString().slice(0,10);
+g('vf').addEventListener('submit',e=>{e.preventDefault();const c=g('conf');c.textContent=`Thank you, ${g('n').value}. We have received your request to view ${g('pr').value} on ${g('d').value} at ${g('t').value}. An agent will confirm shortly.`;c.classList.add('show');e.target.reset()});
+g('nl').addEventListener('submit',e=>{e.preventDefault();g('nlc').textContent='Thank you for subscribing. Welcome to Hartwell.';e.target.reset()});
+// reveal + counters
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function count(el){const t=+el.dataset.c,d=+el.dataset.d||0;if(reduce){el.textContent=t.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');return}let s=null;const f=ts=>{s=s||ts;const k=Math.min((ts-s)/1600,1),v=t*(1-Math.pow(1-k,3));el.textContent=v.toFixed(d).replace(/\B(?=(\d{3})+(?!\d))/g,',');if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('[data-c]').forEach(count);io.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

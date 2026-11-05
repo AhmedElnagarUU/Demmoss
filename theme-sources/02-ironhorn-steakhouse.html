@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRONHORN Steakhouse | Perfectly Aged. Expertly Crafted.</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--bg2:#141414;--bg3:#101010;--gold:#c9a45c;--gold-d:#a8863f;--line:rgba(201,164,92,.28);--txt:#e9e4da;--mut:#a39d90;--serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',sans-serif;--body:'Lato',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--txt);font-family:var(--body);font-weight:300;line-height:1.7;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.lbl{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;line-height:1.15}
+.btn{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;transition:.3s;border-radius:0}
+.btn.solid{background:var(--gold);color:#111}
+.btn.solid:hover{background:#dcb86f}
+.btn:not(.solid):hover{background:var(--gold);color:#111}
+.rule{width:44px;height:1px;background:var(--gold);margin:24px 0}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;background:linear-gradient(#0b0b0bcc,transparent)}
+header.sc{background:rgba(11,11,11,.96);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--txt)}
+.logo svg{width:38px;height:28px}
+.logo b{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:.1em;line-height:1}
+.logo span{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:8px;letter-spacing:.34em;color:var(--gold)}
+.logo span:before,.logo span:after{content:"";width:18px;height:1px;background:var(--gold)}
+.links{display:flex;gap:30px;align-items:center}
+.links a{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:.25s}
+.links a:hover,.links a.act{color:var(--gold)}
+.links .btn{padding:12px 20px;font-size:10px;color:var(--gold)}
+.links .btn:hover{color:#111}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger i{display:block;width:24px;height:1px;background:var(--gold);margin:7px auto;transition:.3s}
+
+/* hero */
+.hero{position:relative;min-height:760px;display:flex;align-items:center;padding-top:84px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=1800&q=70&auto=format&fit=crop') 70% center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0b 0%,#0b0b0bd9 32%,#0b0b0b55 58%,#0b0b0b33 100%),linear-gradient(transparent 70%,#0b0b0b)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(40px,5.2vw,68px);font-weight:400;letter-spacing:.01em;margin-bottom:6px}
+.hero h1 em{font-style:normal;color:var(--gold);display:block}
+.hero p{max-width:340px;font-size:14px;color:#d4cec2;margin-bottom:30px}
+.hero .btns{display:flex;gap:16px;flex-wrap:wrap}
+
+/* features */
+.feat{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fi{display:flex;gap:18px;align-items:center;padding:34px 28px;border-left:1px solid var(--line)}
+.fi:first-child{border-left:0}
+.fi svg{width:38px;height:38px;flex:none;stroke:var(--gold);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.fi h3{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.16em;margin-bottom:4px}
+.fi p{font-size:12px;color:var(--mut);line-height:1.5}
+
+/* story */
+.story{position:relative;background:var(--bg3);overflow:hidden}
+.story .bg{position:absolute;top:0;right:0;bottom:0;width:68%;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=70&auto=format&fit=crop') center/cover}
+.story:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#101010 0%,#101010 32%,#10101099 55%,#10101022 100%)}
+.story .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:90px}
+.story .in{max-width:380px}
+.story h2{font-size:clamp(28px,3vw,36px);margin:16px 0 0}
+.story p{font-size:14px;color:#cfc9bd;margin-bottom:28px}
+.btn.sm{padding:12px 24px;font-size:10px}
+
+/* signatures */
+.sig{background:var(--bg2);padding:80px 0;border-top:1px solid var(--line)}
+.sec-h{position:relative;text-align:center;margin-bottom:40px}
+.sec-h h2{font-size:clamp(28px,3.2vw,40px);margin-top:8px}
+.sec-h .more{position:absolute;right:0;top:50%;font-family:var(--sans);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;display:flex;gap:10px;align-items:center;transition:.3s}
+.sec-h .more:hover{color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{border:1px solid var(--line);background:var(--bg);transition:.35s}
+.card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.card .im{aspect-ratio:1.45;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.card:hover img{transform:scale(1.06)}
+.card .tx{padding:18px 18px 22px}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.card h3{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em}
+.card .pr{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--gold)}
+.card p{font-size:12.5px;color:var(--mut);line-height:1.6}
+
+/* menu */
+.menu{padding:90px 0;background:var(--bg);border-top:1px solid var(--line)}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:44px}
+.tab{background:none;border:1px solid transparent;padding:12px 24px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:var(--mut);transition:.3s}
+.tab:hover{color:var(--gold)}
+.tab.on{border-color:var(--gold);color:var(--gold)}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:6px 64px;max-width:1000px;margin:0 auto}
+.it{padding:20px 0;border-bottom:1px solid rgba(201,164,92,.15)}
+.it.hide{display:none}
+.it .t{display:flex;align-items:baseline;gap:12px}
+.it h3{font-family:var(--serif);font-size:18px;letter-spacing:.04em}
+.it .dots{flex:1;border-bottom:1px dotted rgba(201,164,92,.4);transform:translateY(-4px)}
+.it .p{font-family:var(--sans);font-weight:500;font-size:14px;color:var(--gold)}
+.it p{font-size:13px;color:var(--mut);margin-top:4px}
+
+/* reserve */
+.res{position:relative;background:var(--bg2);border-top:1px solid var(--line);padding:56px 0;overflow:hidden}
+.res .wrap{display:grid;grid-template-columns:.7fr 2fr;gap:40px;align-items:center}
+.res .ph{height:100%;min-height:260px;background:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=70&auto=format&fit=crop') center/cover;position:relative}
+.res .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,#141414)}
+.panel{border:1px solid var(--line);background:#0e0e0e;padding:34px 36px}
+.panel h2{font-size:clamp(26px,3vw,36px);margin:6px 0 24px}
+.form{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:12px;align-items:stretch}
+.form label{position:relative;display:block}
+.form input,.form select{width:100%;height:50px;background:#0b0b0b;border:1px solid var(--line);padding:0 14px;font-family:var(--sans);font-size:11.5px;border-radius:0;outline:0;color-scheme:dark;transition:.25s}
+.form input:focus,.form select:focus{border-color:var(--gold)}
+.form .btn{height:50px;padding:0 24px;white-space:nowrap}
+.ok{display:none;margin-top:18px;padding:14px 18px;border:1px solid var(--gold);color:var(--gold);font-family:var(--sans);font-size:12px;letter-spacing:.08em}
+.ok.show{display:block}
+
+/* footer */
+footer{background:#080808;border-top:1px solid var(--line);padding:64px 0 0}
+.fg{display:grid;grid-template-columns:1.2fr .8fr 1.3fr 1.1fr 1fr;gap:36px}
+footer h4{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.24em;color:var(--gold);margin-bottom:16px;text-transform:uppercase}
+footer li{list-style:none;font-size:12.5px;color:var(--mut);margin-bottom:7px}
+footer li a:hover{color:var(--gold)}
+.hrs li{display:flex;justify-content:space-between;gap:12px;max-width:230px}
+.hrs li b{font-weight:400;color:var(--txt)}
+.fg .logo{align-items:flex-start}
+.fg .about{font-size:12.5px;color:var(--mut);margin-top:14px;max-width:220px}
+.soc{display:flex;gap:10px}
+.soc a{width:34px;height:34px;border:1px solid var(--line);display:grid;place-items:center;transition:.3s}
+.soc a:hover{background:var(--gold)}
+.soc a:hover svg{stroke:#111}
+.soc svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.map{margin-top:14px;height:90px;border:1px solid var(--line);background:repeating-linear-gradient(45deg,#111 0 10px,#151515 10px 20px);position:relative}
+.map:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;background:var(--gold);border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg)}
+.copy{margin-top:48px;padding:20px 0;border-top:1px solid rgba(201,164,92,.15);text-align:center;font-family:var(--sans);font-size:10px;letter-spacing:.18em;color:#6f6a60;text-transform:uppercase}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}*{transition:none!important}}
+
+@media(max-width:1180px){.links{gap:18px}.form{grid-template-columns:repeat(3,1fr)}.form .btn{grid-column:span 3}}
+@media(max-width:1024px){
+ .burger{display:block}
+ .links{position:fixed;top:84px;left:0;right:0;background:#0b0b0bf5;flex-direction:column;padding:24px 16px 32px;gap:22px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.4s;visibility:hidden}
+ .links.open{transform:none;visibility:visible}
+ header.o{background:#0b0b0b}
+ .feat .wrap{grid-template-columns:1fr 1fr}
+ .fi:nth-child(3){border-left:0}.fi:nth-child(n+3){border-top:1px solid var(--line)}
+ .cards{grid-template-columns:1fr 1fr}
+ .res .wrap{grid-template-columns:1fr}.res .ph{min-height:200px}
+ .fg{grid-template-columns:1fr 1fr 1fr}
+ .story .bg{width:100%}.story:after{background:linear-gradient(90deg,#101010 0%,#101010cc 50%,#10101066 100%)}
+}
+@media(max-width:640px){
+ .wrap{padding:0 16px}
+ .hero{min-height:680px}.hero:after{background:linear-gradient(#0b0b0b99,#0b0b0bcc 60%,#0b0b0b)}
+ .feat .wrap{grid-template-columns:1fr}.fi{border-left:0!important;border-top:1px solid var(--line)}.fi:first-child{border-top:0}
+ .cards{grid-template-columns:1fr}
+ .sec-h .more{position:static;justify-content:center;margin-top:14px}
+ .items{grid-template-columns:1fr}
+ .form{grid-template-columns:1fr}.form .btn{grid-column:auto}
+ .panel{padding:26px 18px}
+ .fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:span 2}
+ .tab{padding:10px 14px;font-size:10px}
+ .story .wrap{padding-top:70px;padding-bottom:70px}
+}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap nav">
+ <a href="#home" class="logo" aria-label="Ironhorn Steakhouse">
+  <svg viewBox="0 0 60 44" fill="none" stroke="#c9a45c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4c2 10 8 14 16 14M57 4c-2 10-8 14-16 14"/><path d="M19 18c-2-4 0-8 2-10M41 18c2-4 0-8-2-10"/><path d="M19 18c0 8 3 14 6 20 1.5 3 3 4 5 4s3.500-1 5-4c3-6 6-12 6-20-6-3-16-3-22 0z"/><path d="M26 34h8M2 14l8 2M58 14l-8 2"/><circle cx="26" cy="32" r=".8"/><circle cx="34" cy="32" r=".8"/></svg>
+  <b>IRONHORN</b><span>STEAKHOUSE</span></a>
+ <nav class="links" id="nav">
+  <a href="#home" class="act">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#wine">Wine</a><a href="#signatures">Signatures</a><a href="#hours">Hours</a><a href="#contact">Contact</a>
+  <a href="#reserve" class="btn">Reserve a Table</a>
+ </nav>
+ <button class="burger" id="bg" aria-label="Menu"><i></i><i></i><i></i></button>
+</div></header>
+
+<section class="hero" id="home">
+ <div class="bg"></div>
+ <div class="wrap"><div class="rv">
+  <h1>Perfectly Aged.<em>Expertly Crafted.</em></h1>
+  <div class="rule"></div>
+  <p>Dry-aged prime cuts. Bold reds. Unforgettable evenings. Welcome to a dining experience forged in fire and iron.</p>
+  <div class="btns"><a href="#reserve" class="btn solid">Reserve a Table</a><a href="#menu" class="btn">View Menu</a></div>
+ </div></div>
+</section>
+
+<section class="feat" id="wine"><div class="wrap">
+ <div class="fi rv"><svg viewBox="0 0 48 48"><path d="M6 26c0-8 8-14 18-14 8 0 14 3 17 8 3 5-1 12-9 14-6 2-12 3-18 1-5-2-8-5-8-9z"/><path d="M14 26c4-5 10-6 15-4"/></svg><div><h3>PREMIUM CUTS</h3><p>Hand-selected, dry-aged for perfection</p></div></div>
+ <div class="fi rv"><svg viewBox="0 0 48 48"><path d="M14 6h20c0 12-3 20-10 20S14 18 14 6z"/><path d="M24 26v14M16 42h16M14 14h20"/></svg><div><h3>FINE WINES</h3><p>Curated cellar from around the world</p></div></div>
+ <div class="fi rv"><svg viewBox="0 0 48 48"><path d="M14 30c-5-1-8-5-7-9 1-5 6-7 10-5 1-4 5-7 9-7s8 3 9 7c4-2 9 0 10 5 1 4-2 8-7 9v10H14z"/><path d="M14 36h20"/></svg><div><h3>EXPERT CHEFS</h3><p>Passionate about flavor and excellence</p></div></div>
+ <div class="fi rv"><svg viewBox="0 0 48 48"><path d="M24 43S10 29 10 19a14 14 0 0128 0c0 10-14 24-14 24z"/><circle cx="24" cy="19" r="5"/></svg><div><h3>PERFECT LOCATION</h3><p>In the heart of the city, easy parking</p></div></div>
+</div></section>
+
+<section class="story" id="about">
+ <div class="bg"></div>
+ <div class="wrap"><div class="in rv">
+  <span class="lbl">The Ironhorn Story</span>
+  <h2>A steakhouse<br>built on passion</h2>
+  <div class="rule"></div>
+  <p>We source only the finest cuts, age them to perfection in our own cellar, and sear them over oak and iron. Every detail, from the first pour to the last bite, is designed to leave a lasting impression.</p>
+  <a href="#contact" class="btn sm">Our Story</a>
+ </div></div>
+</section>
+
+<section class="sig" id="signatures"><div class="wrap">
+ <div class="sec-h rv"><span class="lbl">Our Signatures</span><h2>Cuts above the rest</h2><a href="#menu" class="more">View full menu <span>&rarr;</span></a></div>
+ <div class="cards">
+  <article class="card rv"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=70&auto=format&fit=crop" alt="Filet"></div><div class="tx"><div class="row"><h3>IRON FILET</h3><span class="pr">$56</span></div><p>8oz center-cut tenderloin, butter-basted and finished over open flame.</p></div></article>
+  <article class="card rv"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=70&auto=format&fit=crop" alt="Ribeye"></div><div class="tx"><div class="row"><h3>HORNED RIBEYE</h3><span class="pr">$92</span></div><p>32oz bone-in cut, 45-day dry-aged, deeply marbled and full of flavor.</p></div></article>
+  <article class="card rv"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=70&auto=format&fit=crop" alt="Short rib"></div><div class="tx"><div class="row"><h3>SMOKED SHORT RIB</h3><span class="pr">$49</span></div><p>Slow-smoked beef rib glazed with bourbon and black garlic.</p></div></article>
+  <article class="card rv"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=70&auto=format&fit=crop" alt="Skewers"></div><div class="tx"><div class="row"><h3>FIRE-GRILLED SKEWERS</h3><span class="pr">$44</span></div><p>Wagyu sirloin, charred shallots and chimichurri, straight off the coals.</p></div></article>
+ </div>
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+ <div class="sec-h rv"><span class="lbl">The Menu</span><h2>Taste the iron</h2></div>
+ <div class="tabs" role="tablist">
+  <button class="tab on" data-c="steaks">Steaks</button><button class="tab" data-c="seafood">Seafood</button><button class="tab" data-c="sides">Sides</button><button class="tab" data-c="desserts">Desserts</button><button class="tab" data-c="wine">Wine</button>
+ </div>
+ <div class="items" id="items"></div>
+</div></section>
+
+<section class="res" id="reserve"><div class="wrap">
+ <div class="ph" role="img" aria-label="Red wine"></div>
+ <div class="panel rv">
+  <span class="lbl">Ready for an extraordinary meal?</span>
+  <h2>Reserve your table</h2>
+  <form class="form" id="rf">
+   <label><input type="date" name="date" required aria-label="Date"></label>
+   <label><input type="time" name="time" value="19:00" required aria-label="Time"></label>
+   <label><select name="guests" aria-label="Guests"><option>1 Person</option><option selected>2 People</option><option>3 People</option><option>4 People</option><option>5 People</option><option>6 People</option><option>7+ People</option></select></label>
+   <label><input type="text" name="name" placeholder="Your name" required aria-label="Name"></label>
+   <label><input type="tel" name="phone" placeholder="Phone" required aria-label="Phone"></label>
+   <button class="btn solid" type="submit">Find a Table</button>
+  </form>
+  <div class="ok" id="ok" role="status"></div>
+ </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+ <div class="fg">
+  <div><a href="#home" class="logo"><svg viewBox="0 0 60 44" fill="none" stroke="#c9a45c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:38px;height:28px"><path d="M3 4c2 10 8 14 16 14M57 4c-2 10-8 14-16 14"/><path d="M19 18c-2-4 0-8 2-10M41 18c2-4 0-8-2-10"/><path d="M19 18c0 8 3 14 6 20 1.500 3 3 4 5 4s3.500-1 5-4c3-6 6-12 6-20-6-3-16-3-22 0z"/><path d="M26 34h8M2 14l8 2M58 14l-8 2"/></svg><b>IRONHORN</b><span>STEAKHOUSE</span></a><p class="about">Dry-aged steaks, fine wines and open-flame cooking since 2012.</p></div>
+  <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#menu">Menu</a></li><li><a href="#about">About</a></li><li><a href="#signatures">Signatures</a></li><li><a href="#reserve">Reservations</a></li></ul></div>
+  <div id="hours"><h4>Hours</h4><ul class="hrs"><li>Mon - Thu <b>4:00 - 10:00 PM</b></li><li>Fri - Sat <b>4:00 - 11:00 PM</b></li><li>Sunday <b>4:00 - 9:00 PM</b></li></ul></div>
+  <div><h4>Contact</h4><ul><li>123 Steakhouse Way</li><li>Sample City, ST 10001</li><li>(212) 555-0148</li><li>hello@ironhorn.example</li></ul><div class="map" aria-hidden="true"></div></div>
+  <div><h4>Follow Us</h4><div class="soc">
+   <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+   <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r=".5"/></svg></a>
+   <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+  </div></div>
+ </div>
+ <div class="copy">&copy; 2026 Ironhorn Steakhouse. All rights reserved.</div>
+</div></footer>
+
+<script>
+const M={
+steaks:[["Iron Filet","$56","8oz center-cut tenderloin, butter-basted"],["Horned Ribeye","$92","32oz bone-in, 45-day dry-aged"],["New York Strip","$62","14oz prime strip, cracked pepper crust"],["Porterhouse for Two","$128","40oz, filet and strip, carved tableside"],["Wagyu Flat Iron","$74","A5 marbling, smoked sea salt"],["Smoked Short Rib","$49","Bourbon glaze, black garlic"]],
+seafood:[["Butter-Poached Lobster","$62","Cold-water tail, drawn butter, lemon"],["Seared Scallops","$38","Cauliflower purée, brown butter"],["Grilled Octopus","$34","Smoked paprika, charred lemon"],["Salmon on Cedar","$42","Maple-miso glaze, wild greens"],["Oysters Half Dozen","$24","Mignonette, horseradish"],["Tiger Prawns","$36","Garlic, chili, flame-grilled"]],
+sides:[["Truffle Mac & Cheese","$14","Aged cheddar, crisp crumb"],["Creamed Spinach","$12","Nutmeg, parmesan"],["Duck Fat Potatoes","$13","Rosemary, sea salt"],["Charred Broccolini","$12","Lemon, chili, garlic"],["Wild Mushrooms","$14","Thyme, sherry butter"],["Loaded Baked Potato","$11","Chive cream, smoked bacon"]],
+desserts:[["Burnt Honey Cheesecake","$13","Salted caramel, walnut"],["Dark Chocolate Fondant","$14","Molten center, vanilla bean cream"],["Bourbon Pecan Tart","$12","Maple cream"],["Crème Brûlée","$11","Madagascar vanilla"],["Affogato","$10","Espresso, hazelnut gelato"],["Cheese Board","$18","Three local cheeses, honeycomb"]],
+wine:[["Napa Valley Cabernet","$16 / $64","Glass / bottle, dark fruit, cedar"],["Malbec Reserva","$14 / $56","Mendoza, plum and spice"],["Barolo","$24 / $96","Piedmont, structured and long"],["Syrah","$15 / $60","Rhône, peppery and smoky"],["Pinot Noir","$15 / $58","Oregon, silky red cherry"],["Champagne Brut","$22 / $110","Crisp, toasty, fine bead"]]};
+const box=document.getElementById('items');
+function show(c){box.innerHTML=M[c].map(i=>`<div class="it"><div class="t"><h3>${i[0]}</h3><span class="dots"></span><span class="p">${i[1]}</span></div><p>${i[2]}</p></div>`).join('');}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');show(t.dataset.c)});
+show('steaks');
+const hd=document.getElementById('hd'),nav=document.getElementById('nav');
+addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>30),{passive:true});
+document.getElementById('bg').onclick=()=>{nav.classList.toggle('open');hd.classList.toggle('o')};
+nav.querySelectorAll('a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');hd.classList.remove('o')});
+document.getElementById('rf').addEventListener('submit',e=>{e.preventDefault();const f=e.target,o=document.getElementById('ok');
+ o.textContent=`Thank you, ${f.name.value}. A table for ${f.guests.value} on ${f.date.value} at ${f.time.value} is being held. We will confirm by phone at ${f.phone.value}.`;o.classList.add('show');});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

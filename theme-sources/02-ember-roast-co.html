@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ember &amp; Oak Roasters — Better beans, better moments</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@1&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#2b1d15;--cream:#f4ece0;--paper:#efe4d3;--orange:#c0581f;--olive:#4f5b3a;--tan:#d9c2a0;--ink:#2b1d15;--serif:'Libre Caslon Display',Georgia,serif;--text:'Libre Caslon Text',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:14px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;border-radius:999px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:.25s;border:1px solid transparent}
+.pill.or{background:var(--orange);color:#fff}.pill.or:hover{background:#a84a15;transform:translateY(-2px)}
+.pill.ol{border-color:rgba(244,236,224,.5);color:var(--cream)}.pill.ol:hover{background:var(--cream);color:var(--dark)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+/* announcement + nav */
+.ann{background:#1d130d;color:var(--tan);text-align:center;padding:9px 16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+.ann b{color:var(--orange);margin:0 8px}
+nav{position:sticky;top:0;z-index:50;background:var(--dark);color:var(--cream);border-bottom:1px solid rgba(217,194,160,.1)}
+.nv{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--cream)}
+.logo svg{width:34px;height:34px;color:var(--orange);fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.logo span{font-family:var(--serif);font-size:23px;line-height:1}
+.logo small{display:block;font-family:var(--sans);font-size:8px;letter-spacing:.3em;color:var(--orange);margin-top:3px;text-transform:uppercase}
+.links{display:flex;gap:36px}
+.links a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;position:relative;padding:6px 0}
+.links a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--orange);transition:.3s}
+.links a:hover:after{width:100%}
+.ico{display:flex;gap:18px;align-items:center}
+.ico button{position:relative;display:flex;transition:.2s}.ico button:hover{color:var(--orange)}
+.badge{position:absolute;top:-8px;right:-9px;background:var(--orange);color:#fff;font-size:9px;font-weight:600;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+.burger{display:none}
+.srch{display:none;background:#1d130d;padding:12px 0}
+.srch.open{display:block}
+.srch input{width:100%;background:transparent;border:0;border-bottom:1px solid var(--tan);color:var(--cream);padding:8px 2px;font:inherit;outline:0;letter-spacing:.1em}
+
+/* hero */
+.hero{background:var(--dark);color:var(--cream);position:relative;overflow:hidden;padding-bottom:70px}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:20px;min-height:560px}
+.kick{color:var(--orange);display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.4vw,78px);line-height:1.04;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--orange);display:block}
+.hero p.lead{margin:26px 0 34px;max-width:430px;color:#d8c9b4;font-size:15px}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.feats{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.feats div{display:flex;gap:11px;align-items:center;color:var(--orange)}
+.feats span{color:var(--cream);font-size:10px;letter-spacing:.1em;text-transform:uppercase;line-height:1.5;font-weight:500}
+.feats small{display:block;color:var(--tan);font-size:10px;letter-spacing:.04em;text-transform:none;font-weight:400}
+.heroimg{position:absolute;right:0;top:0;bottom:0;width:56%;max-width:820px}
+.heroimg .ph{position:absolute;inset:-10px -40px -10px 0;background:url(https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=70&auto=format&fit=crop) center/cover;clip-path:path("M120 0H2000V1200H60C170 980 -30 860 70 640C150 470 40 300 120 0Z");}
+.heroimg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,29,21,.35),rgba(43,29,21,0) 50%)}
+.heroart{position:relative;height:520px}
+.heroart .bag{position:absolute;left:50%;top:50%;width:300px;transform:translate(-30%,-52%) rotate(2deg);filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translate(-30%,-55%) rotate(2deg)}}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:70px;display:block}
+
+/* sections */
+.sec{padding:20px 0 60px}
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.sh svg{color:var(--olive)}
+.sh h2{font-size:15px;letter-spacing:.2em;font-weight:500;text-transform:uppercase;white-space:nowrap}
+.sh .ln{flex:1;height:1px;background:rgba(43,29,21,.15)}
+.sh.c{justify-content:center}
+.sh a{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;display:flex;gap:8px;align-items:center}
+.sh a:hover{color:var(--orange)}
+
+/* roast */
+.roasts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.rc{position:relative;min-height:210px;padding:26px 24px;overflow:hidden;cursor:pointer;transition:.35s;text-align:left;display:block;width:100%}
+.rc:hover{transform:translateY(-6px) rotate(-.6deg)}
+.rc:nth-child(1){background:var(--tan);color:var(--dark);border-radius:30px 70px 30px 90px/30px 80px 30px 70px}
+.rc:nth-child(2){background:var(--orange);color:#fff;border-radius:70px 30px 80px 30px/60px 30px 80px 30px}
+.rc:nth-child(3){background:var(--dark);color:var(--cream);border-radius:30px 80px 30px 70px/40px 70px 30px 90px}
+.rc:nth-child(4){background:var(--olive);color:#fff;border-radius:80px 30px 70px 30px/70px 30px 60px 30px}
+.rc svg.i{width:24px;height:24px;margin-bottom:12px}
+.rc h3{font-size:12px;letter-spacing:.18em;font-weight:500;text-transform:uppercase;margin-bottom:8px}
+.rc p{font-size:12.5px;max-width:120px;opacity:.85;line-height:1.5;margin-bottom:18px}
+.rc .pill{padding:8px 20px;font-size:10px;border-color:currentColor}
+.rc img{position:absolute;right:-26px;bottom:-26px;width:150px;height:150px;border-radius:50%;object-fit:cover;border:5px solid rgba(255,255,255,.25)}
+
+/* products */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.tabs button{padding:10px 22px;border-radius:999px;border:1px solid rgba(43,29,21,.25);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:.2s}
+.tabs button:hover{border-color:var(--orange);color:var(--orange)}
+.tabs button.on{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:#fbf6ee;border-radius:12px;overflow:hidden;box-shadow:0 2px 0 rgba(43,29,21,.04),0 12px 30px -18px rgba(43,29,21,.35);transition:.3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px)}
+.card.hide{display:none}
+.pv{position:relative;height:250px;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;overflow:hidden}
+.pv:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(217,194,160,.78),rgba(239,228,211,.88))}
+.pv svg.bag{position:relative;height:215px;width:auto;filter:drop-shadow(0 14px 12px rgba(43,29,21,.35));transition:.4s}
+.card:hover .pv svg.bag{transform:scale(1.05) rotate(-1.5deg)}
+.tag{position:absolute;z-index:2;top:12px;left:12px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:5px 11px;border-radius:4px;color:#fff;background:var(--orange)}
+.tag.bs{background:var(--olive)}
+.cb{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.cb h3{font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.2}
+.cb .rl{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:500;margin:3px 0 8px}
+.cb .nt{font-family:var(--text);font-style:italic;font-size:13px;color:#6a5646;margin-bottom:12px}
+.cb select{width:100%;padding:8px 10px;border:1px solid rgba(43,29,21,.2);border-radius:6px;background:var(--cream);font:inherit;font-size:11px;letter-spacing:.08em;color:var(--ink);margin-bottom:14px}
+.cb .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.price{font-weight:600;font-size:15px}
+.add{width:38px;height:38px;border-radius:50%;background:var(--dark);color:var(--cream);display:flex;align-items:center;justify-content:center;transition:.2s}
+.add:hover{background:var(--orange);transform:scale(1.1)}
+.none{display:none;text-align:center;padding:30px;color:#6a5646}
+
+/* subscription */
+.sub{position:relative;background:var(--olive);color:#fff;padding:120px 0;margin:30px 0 0;overflow:hidden}
+.sub .w1,.sub .w2{position:absolute;left:0;width:100%;height:70px;display:block}
+.sub .w1{top:-1px}.sub .w2{bottom:-1px}
+.subg{display:grid;grid-template-columns:1fr 1.05fr .9fr;gap:44px;align-items:center}
+.sphoto{height:380px;border-radius:30px 140px 30px 90px/30px 120px 30px 90px;background:url(https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=900&q=70&auto=format&fit=crop) center/cover;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.sub h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.12;margin:12px 0 16px}
+.sub .k{color:var(--tan)}
+.sub p{color:#dfe3d0;max-width:400px;margin-bottom:26px}
+.perks{display:flex;gap:26px;flex-wrap:wrap}
+.perks div{display:flex;gap:10px;align-items:center;color:var(--tan)}
+.perks b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-weight:500}
+.perks small{font-size:10.5px;color:#c9d0b6}
+.plan{background:var(--cream);color:var(--ink);border-radius:22px;padding:28px;position:relative;box-shadow:0 24px 40px -20px rgba(0,0,0,.5)}
+.plan .mp{color:var(--orange);font-size:10px;letter-spacing:.18em;font-weight:600;text-transform:uppercase}
+.plan h3{font-family:var(--serif);font-weight:400;font-size:28px;margin:4px 0 6px}
+.plan p{color:#6a5646;font-size:12.5px;margin-bottom:14px}
+.plan ul{list-style:none;margin-bottom:18px}
+.plan li{font-size:12.5px;padding:4px 0 4px 22px;position:relative}
+.plan li:before{content:"";position:absolute;left:2px;top:10px;width:9px;height:5px;border-left:1.5px solid var(--orange);border-bottom:1.5px solid var(--orange);transform:rotate(-45deg)}
+.tg{display:flex;background:var(--paper);border-radius:999px;padding:4px;margin-bottom:16px}
+.tg button{flex:1;padding:8px 6px;border-radius:999px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;transition:.25s}
+.tg button.on{background:var(--dark);color:var(--cream)}
+.pr{font-size:30px;font-weight:600;margin-bottom:16px}.pr small{font-size:12px;font-weight:400;color:#6a5646}
+.plan .pill{width:100%}
+
+/* testimonials */
+.test{padding:90px 0 70px;position:relative;overflow:hidden}
+.car{display:flex;align-items:center;gap:18px}
+.vp{overflow:hidden;flex:1}
+.tr{display:flex;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.sl{flex:0 0 33.3333%;padding:0 12px}
+.tc{background:#fbf6ee;border:1px solid rgba(43,29,21,.1);border-radius:10px;padding:24px;height:100%}
+.st{color:var(--orange);letter-spacing:3px;font-size:14px;margin-bottom:12px}
+.tc q{font-family:var(--text);font-style:italic;font-size:15px;line-height:1.6;display:block;quotes:none;margin-bottom:20px;min-height:96px}
+.au{display:flex;gap:12px;align-items:center}
+.au img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.au b{display:block;font-size:12px;font-weight:600}.au small{font-size:10.5px;color:#7a6657}
+.ar{width:42px;height:42px;border-radius:50%;border:1px solid rgba(43,29,21,.25);display:flex;align-items:center;justify-content:center;transition:.2s;flex:none}
+.ar:hover{background:var(--dark);color:var(--cream)}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:26px}
+.dots button{width:10px;height:5px;border-radius:5px;background:var(--tan);transition:.3s}
+.dots button.on{width:26px;background:var(--orange)}
+.leaf{position:absolute;right:-30px;bottom:30px;width:150px;color:var(--tan);opacity:.7;pointer-events:none}
+
+/* bottom */
+.bot{background:var(--paper);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:stretch}
+.bot>div{padding:44px 40px}
+.loc h3,.nl h3{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:20px;display:flex;gap:8px;align-items:center;color:var(--dark)}
+.locs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;font-size:11.5px;line-height:1.6;color:#5b4838}
+.locs b{display:block;color:var(--dark);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;font-weight:600}
+.loc .pill{margin-top:22px;padding:9px 22px;font-size:10px;border-color:var(--dark)}.loc .pill:hover{background:var(--dark);color:var(--cream)}
+.vibe{padding:0!important;position:relative;min-height:240px;background:url(https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&q=70&auto=format&fit=crop) center/cover;display:flex;align-items:flex-end}
+.vibe:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(29,19,13,.85),rgba(29,19,13,.1) 70%)}
+.vibe p{position:relative;color:var(--cream);font-family:var(--text);font-style:italic;font-size:21px;line-height:1.3;padding:28px}
+.nl p{font-size:12.5px;color:#5b4838;margin-bottom:16px}
+.nf{display:flex;background:var(--cream);border:1px solid rgba(43,29,21,.2);border-radius:999px;overflow:hidden;padding:3px}
+.nf input{flex:1;min-width:0;border:0;background:transparent;padding:0 16px;font:inherit;font-size:12px;outline:0}
+.nf button{background:var(--orange);color:#fff;border-radius:999px;padding:11px 22px;font-size:10px;letter-spacing:.15em;font-weight:600;text-transform:uppercase}
+.msg{font-size:12px;color:var(--olive);margin-top:10px;min-height:18px;font-weight:500}
+.soc{display:flex;gap:12px;margin-top:14px}
+.soc a{width:32px;height:32px;border-radius:50%;background:var(--dark);color:var(--cream);display:flex;align-items:center;justify-content:center;transition:.2s}
+.soc a:hover{background:var(--orange)}.soc svg{width:15px;height:15px}
+
+/* footer */
+footer{background:var(--dark);color:var(--cream);position:relative;overflow:hidden;padding:56px 0 28px}
+.fg{display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr 1.4fr;gap:30px;position:relative;z-index:1}
+footer p{color:var(--tan);font-size:12.5px;max-width:230px;margin-top:14px}
+footer h4{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:14px;color:var(--cream)}
+footer li{list-style:none;margin-bottom:7px}
+footer li a{font-size:12px;color:var(--tan);transition:.2s}footer li a:hover{color:var(--orange)}
+.mt{position:absolute;right:0;bottom:30px;width:44%;max-width:560px;color:var(--orange);opacity:.5;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.copy{margin-top:46px;padding-top:20px;border-top:1px solid rgba(217,194,160,.15);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--tan);position:relative;z-index:1}
+.copy span a{margin-left:18px}
+
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(29,19,13,.6);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.ov.open{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--cream);z-index:100;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+.dr.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid rgba(43,29,21,.12)}
+.dh h3{font-family:var(--serif);font-weight:400;font-size:24px}
+.di{flex:1;overflow:auto;padding:10px 24px}
+.ci{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid rgba(43,29,21,.1);align-items:center}
+.ci .th{width:54px;height:70px;background:var(--tan);border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
+.ci .th svg{height:58px;width:auto}
+.ci .in{flex:1;min-width:0}.ci b{font-family:var(--serif);font-weight:400;font-size:16px;display:block;line-height:1.2}
+.ci small{color:#7a6657;font-size:11px;display:block;margin-bottom:6px}
+.q{display:inline-flex;align-items:center;border:1px solid rgba(43,29,21,.2);border-radius:999px}
+.q button{width:26px;height:26px;font-size:15px}.q span{min-width:22px;text-align:center;font-size:12px;font-weight:600}
+.ci .rt{text-align:right;font-weight:600;font-size:13px}
+.ci .rm{display:block;font-size:10px;color:var(--orange);text-decoration:underline;margin-top:6px;font-weight:500}
+.emp{text-align:center;color:#7a6657;padding:50px 0}
+.df{padding:20px 24px;border-top:1px solid rgba(43,29,21,.12);background:var(--paper)}
+.sb{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px}
+.df small{display:block;color:#7a6657;margin-bottom:14px;font-size:11px}
+.df .pill{width:100%}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:var(--dark);color:var(--cream);padding:12px 22px;border-radius:999px;font-size:12px;opacity:0;transition:.35s;z-index:120;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* responsive */
+@media(max-width:1180px){.links{gap:22px}.fg{grid-template-columns:1fr 1fr 1fr}.fg>div:first-child,.fg>div:last-child{grid-column:1/-1}}
+@media(max-width:1024px){
+.wrap{padding:0 28px}
+.links{position:fixed;top:0;left:0;right:0;transform:translateY(-110%);flex-direction:column;background:var(--dark);padding:100px 28px 30px;gap:6px;z-index:-1;transition:.35s;border-bottom:1px solid rgba(217,194,160,.2)}
+.links.open{transform:none}
+nav{z-index:60}.links a{padding:12px 0;border-bottom:1px solid rgba(217,194,160,.1)}
+.burger{display:flex}
+.hero .wrap{grid-template-columns:1fr;min-height:0;padding-bottom:20px}
+.heroimg{position:relative;width:auto;max-width:none;height:480px;margin:10px 0 0}
+.heroimg .ph{inset:0 -28px;clip-path:none;border-radius:40% 60% 50% 50%/30% 30% 20% 20%;border-radius:200px 40px 160px 40px}
+.heroart{height:480px}.heroart .bag{left:50%;transform:translate(-50%,-52%) rotate(2deg);animation:none}
+.roasts,.grid{grid-template-columns:repeat(2,1fr)}
+.subg{grid-template-columns:1fr 1fr}.subg>.plan{grid-column:1/-1}.sphoto{height:300px}
+.sl{flex-basis:50%}
+.bot{grid-template-columns:1fr 1fr}.bot .loc{grid-column:1/-1}.vibe{min-height:280px}
+}
+@media(max-width:640px){
+.wrap{padding:0 16px}
+.nv{height:64px}.logo span{font-size:19px}.ico{gap:14px}
+.hero{padding-bottom:50px}
+.heroimg{height:400px}.heroimg .ph{inset:0 -16px}.heroart .bag{width:230px}.heroart{height:400px}
+.feats{gap:20px}
+.roasts,.grid{grid-template-columns:1fr}
+.subg{grid-template-columns:1fr;gap:30px}.sub{padding:90px 0}
+.sl{flex-basis:100%}.sl{padding:0 4px}.ar{display:none}
+.bot{grid-template-columns:1fr}.bot>div{padding:34px 16px}.locs{grid-template-columns:1fr}.vibe{padding:0!important}
+.fg{grid-template-columns:1fr 1fr}.mt{width:90%;opacity:.25}
+.sh h2{font-size:13px;white-space:normal}.sh .ln{display:none}.sh{justify-content:space-between}
+.dots{margin-top:18px}.leaf{display:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="shade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset=".25" stop-color="#fff" stop-opacity=".08"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+<symbol id="leafbean" viewBox="0 0 40 40"><path d="M20 35V19"/><path d="M20 19C20 11 14 6 6 6c0 8 5 13 14 13z"/><path d="M20 24c0-7 5-11 13-11 0 7-4 11-13 11z"/><ellipse cx="20" cy="33" rx="5" ry="3"/></symbol>
+</defs></svg>
+
+<div class="ann">Free shipping over $60 <b>&bull;</b> Roasted fresh, shipped fast</div>
+
+<nav>
+<div class="wrap nv">
+<a href="#top" class="logo"><svg viewBox="0 0 40 40"><use href="#leafbean"/></svg><div><span>Ember &amp; Oak</span><small>Roasters</small></div></a>
+<div class="links" id="links">
+<a href="#shop">Shop</a><a href="#subscribe">Subscriptions</a><a href="#roast">Bundles</a><a href="#about">About</a><a href="#cafes">Locations</a><a href="#reviews">Blog</a>
+</div>
+<div class="ico">
+<button id="sbtn" aria-label="Search"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+<button aria-label="Account"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></button>
+<button id="cbtn" aria-label="Open cart"><svg class="i" viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 11h10.6l2-8H6.5"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></svg><span class="badge" id="badge">0</span></button>
+<button class="burger" id="burger" aria-label="Menu"><svg class="i" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+</div>
+</div>
+<div class="srch" id="srch"><div class="wrap"><input id="sinp" type="search" placeholder="Search our coffees..."></div></div>
+</nav>
+
+<header class="hero" id="top">
+<div class="wrap">
+<div class="rv">
+<div class="kick lbl"><svg class="i" viewBox="0 0 40 40" style="width:16px;height:16px"><use href="#leafbean"/></svg>Roasted with passion</div>
+<h1>Better beans,<em>better moments.</em></h1>
+<p class="lead">Small-batch coffee roasted every week over oak embers, then sent to your door while the aroma is still alive.</p>
+<div class="btns"><a href="#shop" class="pill or">Shop coffee</a><a href="#subscribe" class="pill ol">Explore bundles</a></div>
+<div class="feats">
+<div><svg class="i" viewBox="0 0 24 24"><path d="M12 3c3 3 5 6 5 9a5 5 0 01-10 0c0-3 2-6 5-9z"/></svg><span>Freshly roasted<small>Small batch</small></span></div>
+<div><svg class="i" viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11c0-4-3-6-7-6 0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 3-2 5-6 5z"/></svg><span>Ethically sourced<small>Fair &amp; direct</small></span></div>
+<div><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span>100% Arabica<small>Premium quality</small></span></div>
+</div>
+</div>
+<div class="heroart"></div>
+</div>
+<div class="heroimg"><div class="ph"></div>
+<div class="heroart" style="position:absolute;inset:0;height:auto" id="heroBag"></div></div>
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f4ece0" d="M0 40C180 -10 340 10 520 30S900 70 1100 40 1320 5 1440 30V70H0z"/></svg>
+</header>
+
+<section class="sec" id="roast">
+<div class="wrap">
+<div class="sh c rv"><svg class="i" viewBox="0 0 40 40"><use href="#leafbean"/></svg><h2>Shop by roast</h2></div>
+<div class="roasts">
+<button class="rc rv" data-f="light"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><h3>Light roast</h3><p>Bright, crisp &amp; fruity notes.</p><span class="pill ol">Shop now</span><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=70&auto=format&fit=crop"></button>
+<button class="rc rv" data-f="medium"><svg class="i" viewBox="0 0 24 24"><path d="M12 3c3 4 6 7 6 11a6 6 0 01-12 0c0-4 3-7 6-11z"/></svg><h3>Medium roast</h3><p>Balanced, smooth &amp; perfectly mellow.</p><span class="pill ol">Shop now</span><img loading="lazy" alt="" style="object-position:30% 40%" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=70&auto=format&fit=crop"></button>
+<button class="rc rv" data-f="dark"><svg class="i" viewBox="0 0 24 24"><path d="M12 2c1 4 6 6 6 12a6 6 0 01-12 0c0-3 2-4 3-6 1 1 1 2 2 2 0-3 0-5 1-8z"/></svg><h3>Dark roast</h3><p>Bold, rich &amp; full-bodied.</p><span class="pill ol">Shop now</span><img loading="lazy" alt="" style="object-position:70% 60%" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=70&auto=format&fit=crop"></button>
+<button class="rc rv" data-f="decaf"><svg class="i" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1110 4a6.5 6.5 0 0010 10z"/></svg><h3>Decaf</h3><p>All the flavor, zero the caffeine.</p><span class="pill ol">Shop now</span><img loading="lazy" alt="" style="object-position:50% 20%" src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=70&auto=format&fit=crop"></button>
+</div>
+</div>
+</section>
+
+<section class="sec" id="shop">
+<div class="wrap">
+<div class="sh rv"><svg class="i" viewBox="0 0 40 40"><use href="#leafbean"/></svg><h2>Featured products</h2><span class="ln"></span><a href="#shop" data-f="all">View all products <svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
+<div class="tabs rv" id="tabs">
+<button class="on" data-f="all">All</button><button data-f="light">Light</button><button data-f="medium">Medium</button><button data-f="dark">Dark</button><button data-f="decaf">Decaf</button><button data-f="cold">Cold brew</button>
+</div>
+<div class="grid" id="grid"></div>
+<p class="none" id="none">No coffees match that search yet.</p>
+</div>
+</section>
+
+<section class="sub" id="subscribe">
+<svg class="w1" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f4ece0" d="M0 0H1440V30C1200 80 1000 -10 760 30S300 70 0 25z"/></svg>
+<svg class="w2" viewBox="0 0 1440 70" preserveAspectRatio="none"><path fill="#f4ece0" d="M0 70V40C260 -10 480 60 760 35S1200 0 1440 40V70z"/></svg>
+<div class="wrap subg">
+<div class="sphoto rv"></div>
+<div class="rv">
+<div class="lbl k">Delivered to you</div>
+<h2>Never run out of great coffee</h2>
+<p>Subscribe and save on freshly roasted beans, delivered to your door on a schedule that fits your mornings.</p>
+<div class="perks">
+<div><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 15l6-6M9.5 9.5h.01M14.5 14.5h.01"/></svg><span><b>Save 10%</b><small>On every delivery</small></span></div>
+<div><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0114-5l2 2M20 12a8 8 0 01-14 5l-2-2M20 4v5h-5M4 20v-5h5"/></svg><span><b>Flexible</b><small>Skip or cancel anytime</small></span></div>
+<div><svg class="i" viewBox="0 0 24 24"><path d="M12 21V11"/><path d="M12 11c0-4-3-6-7-6 0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 3-2 5-6 5z"/></svg><span><b>Freshness</b><small>Guaranteed</small></span></div>
+</div>
+</div>
+<div class="plan rv">
+<div class="mp">Most popular</div>
+<h3>The Explorer Plan</h3>
+<p>Try new flavors. Discover what you love.</p>
+<ul><li>2 bags of coffee</li><li>Roasted fresh</li><li>Free shipping</li><li>Cancel anytime</li></ul>
+<div class="tg" id="tg"><button class="on" data-p="29.99" data-l="2 weeks">Every 2 weeks</button><button data-p="24.99" data-l="month">Monthly</button></div>
+<div class="pr">$<span id="pp">29.99</span> <small>/ delivery</small></div>
+<button class="pill or" id="plan">Choose plan</button>
+</div>
+</div>
+</section>
+
+<section class="test" id="reviews">
+<div class="wrap">
+<div class="sh c rv"><svg class="i" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg><h2>Loved by coffee drinkers</h2></div>
+<div class="car rv">
+<button class="ar" id="prev" aria-label="Previous"><svg class="i" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+<div class="vp"><div class="tr" id="tr"></div></div>
+<button class="ar" id="next" aria-label="Next"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+<div class="dots" id="dots"></div>
+</div>
+<svg class="leaf" viewBox="0 0 150 220" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M130 220C120 150 90 90 20 10"/><path d="M118 170c-25-5-40-25-42-45 24 5 40 22 42 45zM104 130c-20 0-32-14-34-30 20 3 32 15 34 30zM90 90c-16-3-26-14-27-26 16 3 26 11 27 26zM120 150c4-22 20-35 40-36-3 20-17 33-40 36zM108 110c4-16 16-26 32-26-2 15-13 24-32 26z"/></svg>
+</section>
+
+<section class="bot" id="cafes">
+<div class="loc rv">
+<h3><svg class="i" viewBox="0 0 24 24" style="color:var(--orange)"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.500 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Visit our caf&eacute;s</h3>
+<div class="locs">
+<div><b>Portland, OR</b>123 Cedar Lane<br>Portland, OR 97201<br>(503) 555-0142</div>
+<div><b>Seattle, WA</b>456 Pine Street<br>Seattle, WA 98101<br>(206) 555-0187</div>
+<div><b>San Francisco, CA</b>789 Market Street<br>San Francisco, CA 94103<br>(415) 555-0123</div>
+</div>
+<a href="#cafes" class="pill ol">View all locations</a>
+</div>
+<div class="vibe"><p>Come for the coffee, stay for the vibes.</p></div>
+<div class="nl rv">
+<h3>Stay in the loop</h3>
+<p>Be the first to hear about new coffees, exclusive offers and brewing tips.</p>
+<form class="nf" id="nf"><input type="email" required placeholder="Enter your email address" aria-label="Email"><button>Subscribe</button></form>
+<div class="msg" id="msg" role="status"></div>
+<div class="soc">
+<a href="#" aria-label="Instagram"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+<a href="#" aria-label="Facebook"><svg class="i" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+<a href="#" aria-label="Pinterest"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8c-3 0-4 3-3 5s3 1 3-1M12 9l-2 11"/></svg></a>
+<a href="#" aria-label="TikTok"><svg class="i" viewBox="0 0 24 24"><path d="M14 3v11a4 4 0 11-4-4M14 3c0 3 2 5 5 5"/></svg></a>
+</div>
+</div>
+</section>
+
+<footer id="about">
+<div class="wrap">
+<div class="fg">
+<div><a href="#top" class="logo"><svg viewBox="0 0 40 40"><use href="#leafbean"/></svg><div><span>Ember &amp; Oak</span><small>Roasters</small></div></a><p>Exceptional coffee. Thoughtful sourcing. Better moments.</p></div>
+<div><h4>Shop</h4><ul><li><a href="#shop">All coffee</a></li><li><a href="#shop">Single origin</a></li><li><a href="#subscribe">Bundles</a></li><li><a href="#shop">Cold brew</a></li><li><a href="#shop">Gift cards</a></li></ul></div>
+<div><h4>Customer care</h4><ul><li><a href="#">My account</a></li><li><a href="#">Orders &amp; returns</a></li><li><a href="#">Shipping info</a></li><li><a href="#">FAQs</a></li><li><a href="#cafes">Contact us</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="#">Our story</a></li><li><a href="#">Sustainability</a></li><li><a href="#reviews">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Wholesale</a></li></ul></div>
+<div></div>
+</div>
+<svg class="mt" viewBox="0 0 560 200"><path d="M0 190L90 90l40 50 70-110 100 160"/><path d="M200 30l-18 28 14 8-20 30"/><path d="M180 190L280 70l60 80 60-90 90 130 70-60 20 40"/><path d="M0 190H560"/><path d="M420 190v-40M420 150l-14 22h28zM420 120l-18 30h36zM420 92l-14 28h28z"/><path d="M460 190v-30M460 160l-12 18h24zM460 135l-14 25h28z"/><path d="M500 190v-34M500 156l-13 20h26zM500 128l-15 28h30z"/><path d="M60 40a10 10 0 1020 0 10 10 0 10-20 0"/></svg>
+<div class="copy"><div>&copy; 2025 Ember &amp; Oak Roasters. All rights reserved.</div><span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></span></div>
+</div>
+</footer>
+
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr" aria-label="Shopping cart">
+<div class="dh"><h3>Your cart</h3><button id="cx" aria-label="Close cart"><svg class="i" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+<div class="di" id="di"></div>
+<div class="df"><div class="sb"><span class="lbl">Subtotal</span><span id="st">$0.00</span></div><small id="sh">Add $60.00 more for free shipping.</small><button class="pill or" id="co">Checkout</button></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+function bag(o){
+ var c=o.c||'#2b1d15',l=o.l||'#d9b36a',tx=o.t||'#2b1d15',nm=(o.n||'Signature Blend').split('|'),r=o.r||'Medium roast';
+ return '<svg class="bag" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+nm.join(' ')+' coffee bag">'
+ +'<path d="M22 28h156l10 252c0 6-4 10-10 10H22c-6 0-10-4-10-10z" fill="'+c+'"/>'
+ +'<path d="M22 28h156l10 252c0 6-4 10-10 10H22c-6 0-10-4-10-10z" fill="url(#shade)"/>'
+ +'<path d="M22 28h156l1 18H21z" fill="#000" opacity=".22"/>'
+ +'<path d="M24 40h152M24 46h152" stroke="#fff" stroke-opacity=".12"/>'
+ +'<rect x="85" y="14" width="30" height="8" rx="3" fill="#000" opacity=".3"/>'
+ +'<g fill="none" stroke="'+l+'" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(88 62) scale(.6)"><path d="M20 35V19"/><path d="M20 19C20 11 14 6 6 6c0 8 5 13 14 13z"/><path d="M20 24c0-7 5-11 13-11 0 7-4 11-13 11z"/></g>'
+ +'<text x="100" y="104" text-anchor="middle" font-family="Libre Caslon Display,serif" font-size="17" fill="#f4ece0">Ember &amp; Oak</text>'
+ +'<text x="100" y="116" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="5.5" letter-spacing="2.4" fill="'+l+'">ROASTERS</text>'
+ +'<rect x="38" y="132" width="124" height="104" rx="5" fill="'+l+'"/>'
+ +'<rect x="42" y="136" width="116" height="96" rx="3" fill="none" stroke="'+tx+'" stroke-opacity=".35" stroke-width=".8"/>'
+ +'<text x="100" y="156" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="6" letter-spacing="1.6" fill="'+tx+'" opacity=".8">SINGLE ESTATE</text>'
+ +nm.map(function(t,i){return '<text x="100" y="'+(182+i*20)+'" text-anchor="middle" font-family="Libre Caslon Display,serif" font-size="'+(nm.length>1?17:19)+'" fill="'+tx+'">'+t+'</text>'}).join('')
+ +'<path d="M70 '+(nm.length>1?210:196)+'h60" stroke="'+tx+'" stroke-opacity=".5"/>'
+ +'<text x="100" y="'+(nm.length>1?222:212)+'" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="6.5" letter-spacing="1.4" fill="'+tx+'">'+r.toUpperCase()+'</text>'
+ +'<text x="100" y="262" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="5" letter-spacing="1.6" fill="'+l+'" opacity=".85">WHOLE BEAN &#183; NET WT 12 OZ</text>'
+ +'</svg>';
+}
+var hb=$('#heroBag');
+hb.innerHTML='<div class="bag" style="position:absolute;left:50%;top:50%;width:300px;margin:0;transform:translate(-30%,-52%) rotate(2deg);filter:drop-shadow(0 30px 30px rgba(0,0,0,.55))">'+bag({c:'#2b1d15',l:'#d9b36a',t:'#2b1d15',n:'Signature|Blend',r:'Medium roast'}).replace('class="bag"','style="width:100%;height:auto"')+'</div>';
+hb.firstChild.className='bag';
+var P=[
+{id:1,n:'Signature Blend',bn:'Signature|Blend',r:'medium',rl:'Medium roast',nt:'Caramel, cocoa, toasted nuts',p:16.99,tag:'New',c:'#2b1d15',l:'#d9b36a',t:'#2b1d15',img:'1447933601403-0c6688de566e'},
+{id:2,n:'Colombia Single Origin',bn:'Colombia',r:'light',rl:'Light roast',nt:'Citrus, floral, honey',p:17.99,tag:'Best seller',c:'#4a3226',l:'#e8d3a5',t:'#3a261b',img:'1587734195503-904fca47e0e9'},
+{id:3,n:'Italian Roast',bn:'Italian|Roast',r:'dark',rl:'Dark roast',nt:'Dark chocolate, smoke, spice',p:16.99,c:'#1d130d',l:'#c0581f',t:'#fff',img:'1511920170033-f8396924c348'},
+{id:4,n:'Sunrise Decaf',bn:'Sunrise|Decaf',r:'decaf',rl:'Decaf',nt:'Hazelnut, brown sugar, cream',p:15.99,tag:'New',c:'#4f5b3a',l:'#efe4d3',t:'#2b1d15',img:'1442512595331-e89e73853f31'},
+{id:5,n:'Ethiopia Yirgacheffe',bn:'Yirgacheffe',r:'light',rl:'Light roast',nt:'Blueberry, jasmine, lemon',p:19.99,tag:'Best seller',c:'#e9dcc4',l:'#2b1d15',t:'#e9dcc4',img:'1497935586351-b67a49e012bf'},
+{id:6,n:'Oak Ember House',bn:'Oak Ember|House',r:'medium',rl:'Medium roast',nt:'Maple, almond, orange peel',p:15.99,c:'#c0581f',l:'#2b1d15',t:'#f4ece0',img:'1509042239860-f550ce710b93'},
+{id:7,n:'Midnight Espresso',bn:'Midnight|Espresso',r:'dark',rl:'Dark roast',nt:'Molasses, cacao nib, black cherry',p:18.49,c:'#3a2a45',l:'#d9c2a0',t:'#2b1d15',img:'1514432324607-a09d9b4aefdd'},
+{id:8,n:'Cold Brew Blend',bn:'Cold Brew|Blend',r:'cold',rl:'Cold brew',nt:'Smooth, chocolatey, refreshing',p:14.99,c:'#2f4a52',l:'#f4ece0',t:'#2b1d15',img:'1461023058943-07fcbe16d735'}
+];
+var cart=[],grid=$('#grid');
+grid.innerHTML=P.map(function(p){
+ return '<article class="card rv" data-r="'+p.r+'" data-s="'+(p.n+' '+p.rl+' '+p.nt).toLowerCase()+'"><div class="pv" style="background-image:url(https://images.unsplash.com/photo-'+p.img+'?w=500&q=70&auto=format&fit=crop)">'
+ +(p.tag?'<span class="tag'+(p.tag=='New'?'':' bs')+'">'+p.tag+'</span>':'')+bag({c:p.c,l:p.l,t:p.t,n:p.bn,r:p.rl})+'</div>'
+ +'<div class="cb"><h3>'+p.n+'</h3><div class="rl">'+p.rl+'</div><div class="nt">'+p.nt+'</div>'
+ +'<select aria-label="Grind"><option>Whole bean</option><option>Filter</option><option>Espresso</option></select>'
+ +'<div class="row"><span class="price">$'+p.p.toFixed(2)+'</span><button class="add" data-id="'+p.id+'" aria-label="Add '+p.n+' to cart"><svg class="i" viewBox="0 0 24 24" style="width:17px;height:17px"><path d="M3 4h2.5l2.200 11h10.600l2-8H6.500"/><circle cx="9" cy="19.500" r="1.300"/><circle cx="17" cy="19.500" r="1.300"/></svg></button></div></div></article>';
+}).join('');
+
+/* filter */
+var cur='all',q='';
+function filt(f){
+ if(f)cur=f;
+ $$('#tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.f===cur)});
+ var n=0;
+ $$('.card',grid).forEach(function(c){var ok=(cur==='all'||c.dataset.r===cur)&&(!q||c.dataset.s.indexOf(q)>-1);c.classList.toggle('hide',!ok);if(ok){n++;c.classList.add('in')}});
+ $('#none').style.display=n?'none':'block';
+}
+$('#tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)filt(b.dataset.f)});
+$$('.rc').forEach(function(b){b.addEventListener('click',function(){filt(b.dataset.f);$('#shop').scrollIntoView({behavior:'smooth'})})});
+$('.sh a[data-f]').addEventListener('click',function(e){filt('all')});
+$('#sbtn').addEventListener('click',function(){var s=$('#srch');s.classList.toggle('open');if(s.classList.contains('open'))$('#sinp').focus()});
+$('#sinp').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();filt();if(q)$('#shop').scrollIntoView({behavior:'smooth'})});
+
+/* cart */
+function money(n){return '$'+n.toFixed(2)}
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('show')},1800)}
+function openC(o){$('#dr').classList.toggle('open',o);$('#ov').classList.toggle('open',o)}
+function addItem(key,name,sub,price,svg){
+ var it=cart.filter(function(i){return i.key===key})[0];
+ if(it)it.q++;else cart.push({key:key,name:name,sub:sub,price:price,svg:svg,q:1});
+ render();openC(true);
+}
+function render(){
+ var tot=0,cnt=0;
+ cart.forEach(function(i){tot+=i.price*i.q;cnt+=i.q});
+ $('#badge').textContent=cnt;
+ $('#di').innerHTML=cart.length?cart.map(function(i,k){return '<div class="ci"><div class="th">'+i.svg+'</div><div class="in"><b>'+i.name+'</b><small>'+i.sub+'</small><div class="q"><button data-a="m" data-k="'+k+'" aria-label="Decrease">&minus;</button><span>'+i.q+'</span><button data-a="p" data-k="'+k+'" aria-label="Increase">+</button></div></div><div class="rt">'+money(i.price*i.q)+'<button class="rm" data-a="r" data-k="'+k+'">Remove</button></div></div>'}).join(''):'<div class="emp">Your cart is empty.<br>Time to find a roast you love.</div>';
+ $('#st').textContent=money(tot);
+ var left=60-tot;$('#sh').textContent=tot===0?'Free shipping on orders over $60.':left>0?'Add '+money(left)+' more for free shipping.':'You have unlocked free shipping.';
+}
+$('#di').addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;var k=+b.dataset.k,a=b.dataset.a;
+ if(a==='p')cart[k].q++;else if(a==='m'){cart[k].q--;if(cart[k].q<1)cart.splice(k,1)}else if(a==='r')cart.splice(k,1);
+ render();
+});
+grid.addEventListener('click',function(e){
+ var b=e.target.closest('.add');if(!b)return;
+ var p=P.filter(function(x){return x.id==b.dataset.id})[0],g=b.closest('.card').querySelector('select').value;
+ addItem(p.id+'-'+g,p.n,p.rl+' · '+g,p.p,bag({c:p.c,l:p.l,t:p.t,n:p.bn,r:p.rl}));
+});
+$('#cbtn').addEventListener('click',function(){openC(true)});
+$('#cx').addEventListener('click',function(){openC(false)});
+$('#ov').addEventListener('click',function(){openC(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')openC(false)});
+$('#co').addEventListener('click',function(){toast(cart.length?'Demo only — checkout is not connected.':'Your cart is empty.')});
+render();
+
+/* plan */
+var plan={p:29.99,l:'2 weeks'};
+$('#tg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+ $$('#tg button').forEach(function(x){x.classList.toggle('on',x===b)});
+ plan={p:+b.dataset.p,l:b.dataset.l};$('#pp').textContent=plan.p.toFixed(2)});
+$('#plan').addEventListener('click',function(){
+ addItem('plan-'+plan.l,'The Explorer Plan','2 bags · every '+plan.l,plan.p,bag({c:'#4f5b3a',l:'#efe4d3',t:'#2b1d15',n:'Explorer|Plan',r:'2 bags'}));
+});
+
+/* nav */
+$('#burger').addEventListener('click',function(){$('#links').classList.toggle('open')});
+$$('#links a').forEach(function(a){a.addEventListener('click',function(){$('#links').classList.remove('open')})});
+
+/* testimonials */
+var T=[
+['Sarah M.','Brewing every morning with the Signature Blend has completely changed my routine. The beans are incredibly fresh and the flavor is unmatched.','1494790108377-be9c29b29330'],
+['James T.','Smooth, rich and always consistent. The subscription is the best decision I have made for my coffee habit.','1500648767791-00dcc994a43e'],
+['Emily R.','I love supporting a roaster that truly cares about quality and sustainability. Top-notch in every way.','1573496359142-b8d87734a5a2'],
+['Daniel K.','The Ethiopia light roast tastes like blueberry jam. I did not know coffee could be this bright.','1507003211169-0a1dd7228f2d'],
+['Priya S.','Beans arrive within days of roasting and you can smell it the second you open the bag. Wonderful.','1494790108377-be9c29b29330'],
+['Marcus L.','The cold brew blend is now a permanent fixture in my fridge. Easy, smooth and never bitter.','1500648767791-00dcc994a43e']];
+var tr=$('#tr'),idx=0,per=3;
+tr.innerHTML=T.map(function(t){return '<div class="sl"><div class="tc"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><q>&ldquo;'+t[1]+'&rdquo;</q><div class="au"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-'+t[2]+'?w=120&q=70&auto=format&fit=crop"><div><b>'+t[0]+'</b><small>Verified buyer</small></div></div></div></div>'}).join('');
+function pv(){return window.innerWidth<=640?1:window.innerWidth<=1024?2:3}
+function go(i){per=pv();var max=T.length-per;idx=i<0?max:i>max?0:i;tr.style.transform='translateX(-'+(idx*100/per)+'%)';
+ var d=$('#dots');if(d.children.length!==max+1)d.innerHTML=Array.apply(null,Array(max+1)).map(function(_,k){return '<button aria-label="Go to slide '+(k+1)+'" data-i="'+k+'"></button>'}).join('');
+ $$('#dots button').forEach(function(b,k){b.classList.toggle('on',k===idx)})}
+$('#prev').addEventListener('click',function(){go(idx-1)});
+$('#next').addEventListener('click',function(){go(idx+1)});
+$('#dots').addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(+b.dataset.i)});
+window.addEventListener('resize',function(){go(idx)});
+var auto=setInterval(function(){go(idx+1)},6000);
+$('.car').addEventListener('mouseenter',function(){clearInterval(auto)});
+go(0);
+
+/* newsletter */
+$('#nf').addEventListener('submit',function(e){e.preventDefault();var v=$('#nf input').value;$('#msg').textContent='Thank you! A welcome note is on its way to '+v+'.';this.reset()});
+
+/* reveal */
+if('IntersectionObserver' in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+ $$('.rv').forEach(function(el){io.observe(el)});
+}else $$('.rv').forEach(function(el){el.classList.add('in')});
+})();
+</script>
+</body>
+</html>

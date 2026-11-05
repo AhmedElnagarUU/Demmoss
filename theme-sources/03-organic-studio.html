@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Olivine Studio — Design · Brand · Space</title>
+<meta name="description" content="Olivine Studio is a multidisciplinary studio crafting brands, spaces and products rooted in nature, purpose and beauty.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f3ece1; --cream2:#f8f3ea; --sand:#e6d9c3; --sand2:#d9c8aa;
+  --olive:#5f6b45; --olive2:#6b7350; --olive-d:#4c563a;
+  --terra:#b8673f; --ink:#3d3a2c; --muted:#6f6a58;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.7;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;color:var(--olive-d)}
+h1 em,h2 em{font-style:italic}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px;position:relative}
+.label{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.label svg{width:11px;height:11px;stroke:var(--olive);fill:none;stroke-width:1.3}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--olive);color:#f3ece1;border:0;border-radius:40px;padding:12px 26px;font:400 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .3s}
+.btn:hover{background:var(--olive-d);transform:translateY(-2px)}
+.btn svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.3}
+.link{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border .3s,color .3s}
+.link:hover{border-color:var(--olive);color:var(--olive)}
+.deco{position:absolute;pointer-events:none;stroke:var(--olive);fill:none;stroke-width:1.1;opacity:.55}
+.deco.leaf{fill:var(--olive);stroke:none;opacity:.85}
+.wave{display:block;width:100%;height:auto}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}*{transition:none!important}}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.stuck{background:rgba(243,236,225,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(95,107,69,.15)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:34px;height:48px}
+.brand b{display:block;font-family:var(--serif);font-weight:500;font-size:28px;line-height:1;color:var(--olive-d)}
+.brand small{display:block;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+nav ul{display:flex;gap:34px;list-style:none}
+nav a{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;padding-bottom:4px;border-bottom:1px solid transparent;transition:border .3s}
+nav a:hover,nav a.on{border-color:var(--olive)}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--olive-d);margin:7px 8px;transition:transform .3s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding:30px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:5fr 7fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(44px,5.4vw,66px);margin-bottom:26px}
+.hero p{max-width:300px;color:var(--muted);margin-bottom:28px;padding-top:20px;border-top:1px solid var(--sand2);width:fit-content}
+.blob1{aspect-ratio:1.5/1;border-radius:62% 38% 55% 45% / 42% 58% 42% 58%;overflow:hidden;margin-right:-60px;box-shadow:0 20px 50px -30px rgba(80,70,40,.4)}
+.hero .deco.l1{left:-20px;top:140px;width:90px;height:190px}
+
+/* story */
+.story{position:relative;padding:30px 0 110px}
+.story .wrap{display:grid;grid-template-columns:5fr 6fr;gap:50px;align-items:center}
+.blob2{aspect-ratio:1.15/1;border-radius:45% 55% 40% 60% / 55% 45% 55% 45%;overflow:hidden;margin-left:-80px}
+.story h2{font-size:clamp(30px,3.2vw,38px);margin:10px 0 18px}
+.story p{max-width:430px;color:var(--muted);margin-bottom:20px}
+.story .deco{right:0;top:-10px;width:190px;height:240px}
+
+/* services */
+.services{position:relative;background:var(--olive2);color:#efe8d8;margin-top:-1px;padding:20px 0 40px}
+.services .wv-t{position:absolute;left:0;top:-59px;width:100%;height:60px}
+.services .wv-b{position:absolute;left:0;bottom:-59px;width:100%;height:60px}
+.services .head{text-align:center;margin-bottom:46px}
+.services .label{color:#dcd5bf}.services .label svg{stroke:#dcd5bf}
+.services h2{color:#f3ece1;font-size:34px;margin-top:8px}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);max-width:900px;margin:0 auto 40px}
+.svc div{text-align:center;padding:4px 26px;border-left:1px solid rgba(243,236,225,.28)}
+.svc div:first-child{border:0}
+.svc svg{width:38px;height:38px;stroke:#efe8d8;fill:none;stroke-width:1.1;margin-bottom:14px}
+.svc h3{font:400 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#f3ece1;margin-bottom:10px}
+.svc p{font-size:13px;opacity:.85;line-height:1.6}
+.vase{position:absolute;right:3%;bottom:0;width:150px;max-width:14vw}
+
+/* work */
+.work{padding:100px 0 90px}
+.work .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px}
+.work h2{font-size:34px;margin-top:6px}
+.projs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.proj{text-align:center}
+.proj .im{aspect-ratio:1.25/1;overflow:hidden;margin-bottom:18px}
+.proj:nth-child(1) .im{border-radius:60% 40% 55% 45% / 50% 60% 40% 50%}
+.proj:nth-child(2) .im{border-radius:35% 65% 45% 55% / 55% 40% 60% 45%}
+.proj:nth-child(3) .im{border-radius:50% 50% 38% 62% / 40% 55% 45% 60%}
+.proj:nth-child(4) .im{border-radius:42% 58% 60% 40% / 58% 45% 55% 42%}
+.proj img{transition:transform .8s}
+.proj:hover img{transform:scale(1.06)}
+.proj h3{font:400 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.proj em{font-family:var(--serif);font-size:15px;color:var(--muted)}
+.proj small{display:block;font-size:11px;letter-spacing:.08em;color:var(--muted);opacity:.8}
+
+/* process */
+.process{position:relative;background:var(--sand);padding:20px 0 40px;margin-top:20px}
+.process .wv-t{position:absolute;left:0;top:-59px;width:100%;height:60px}
+.process .wv-b{position:absolute;left:0;bottom:-59px;width:100%;height:60px}
+.process .wrap{display:grid;grid-template-columns:3fr 8fr;gap:40px;align-items:center;padding-top:40px}
+.process h2{font-size:34px;margin:8px 0 14px}
+.process p.s{font-size:13px;color:var(--muted);margin-bottom:20px;max-width:240px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.steps:before{content:"";position:absolute;left:10%;right:10%;top:26px;border-top:1px solid var(--sand2)}
+.step{text-align:center;position:relative;padding:0 6px}
+.step .ic{width:54px;height:54px;border-radius:50%;background:var(--cream2);display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 0 0 1px var(--sand2);transition:transform .4s,background .4s}
+.step:hover .ic{transform:translateY(-4px);background:#fff}
+.step svg{width:24px;height:24px;stroke:var(--olive);fill:none;stroke-width:1.2}
+.step small{display:block;font-size:10px;letter-spacing:.15em;color:var(--muted)}
+.step h3{font:500 11.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:2px 0 6px}
+.step p{font-size:12.5px;color:var(--muted);line-height:1.55}
+
+/* founder + why */
+.founder{padding:110px 0 30px;position:relative}
+.founder .wrap{display:grid;grid-template-columns:4.5fr 5fr 4.5fr;gap:40px;align-items:center}
+.fpic{position:relative;padding:0 0 0 30px}
+.fpic .olive{position:absolute;left:0;top:-14px;width:78%;aspect-ratio:1;background:var(--olive);border-radius:55% 45% 60% 40% / 45% 55% 45% 55%}
+.fpic .ph{position:relative;aspect-ratio:1/1.05;border-radius:38% 62% 45% 55% / 45% 40% 60% 55%;overflow:hidden;margin-left:30px}
+.fpic .badge{position:absolute;left:36px;bottom:-14px;width:62px;height:62px;border-radius:50%;background:var(--terra);display:grid;place-items:center}
+.fpic .badge svg{width:30px;height:30px;stroke:#f3ece1;fill:none;stroke-width:1.2}
+.founder h2{font-size:clamp(28px,3vw,36px);margin:8px 0 18px}
+.founder p{color:var(--muted);margin-bottom:14px;max-width:380px;font-size:14px}
+.blob3{aspect-ratio:1.1/1;border-radius:50% 50% 45% 55% / 55% 45% 55% 45%;overflow:hidden;margin-right:-60px}
+.why{position:relative;padding:50px 0 70px}
+.why .wrap{display:grid;grid-template-columns:8fr 4fr;gap:30px;align-items:center}
+.why h2{font-size:34px;text-align:center;margin-bottom:34px}
+.why .blobo{background:var(--olive);color:#efe8d8;border-radius:50% 50% 45% 55% / 45% 55% 45% 55%;padding:44px 40px 50px;margin-right:-80px;position:relative;overflow:hidden}
+.why ul{list-style:none;margin-top:14px}
+.why li{display:flex;gap:14px;align-items:center;font-size:13.5px;padding:9px 0}
+.why li svg{width:20px;height:20px;stroke:#dcd5bf;fill:none;stroke-width:1.2;flex:none}
+.why .label{color:#dcd5bf}.why .label svg{stroke:#dcd5bf}
+.why .blobo .deco{right:10px;bottom:0;width:90px;height:110px;stroke:#dcd5bf;opacity:.5}
+
+/* testimonials */
+.say{background:var(--cream2);position:relative;padding:60px 0 90px;text-align:center}
+.say h2{font-size:34px;margin:8px 0 40px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);text-align:left;max-width:960px;margin:0 auto}
+.quotes blockquote{padding:0 30px;border-left:1px solid var(--sand2);position:relative}
+.quotes blockquote:first-child{border:0}
+.quotes .qm{font-family:var(--serif);font-size:70px;line-height:.6;color:var(--sand2);display:block;margin-bottom:6px}
+.quotes p{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+.quotes cite{font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.quotes cite small{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:none;color:var(--muted)}
+
+/* contact */
+.contact{position:relative;background:var(--terra);color:#f6eadb;padding:30px 0 30px}
+.contact .wv-t{position:absolute;left:0;top:-39px;width:100%;height:40px}
+.contact .wrap{display:grid;grid-template-columns:4fr 3.5fr 5fr;gap:44px;align-items:center;padding-top:30px;padding-bottom:20px}
+.contact h2{color:#f6eadb;font-size:clamp(28px,3vw,36px)}
+.contact h2 em{color:#fbe3cc}
+.contact p{font-size:13.5px;opacity:.92;max-width:250px}
+.contact form{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+.contact input,.contact textarea{width:100%;background:none;border:0;border-bottom:1px solid rgba(246,234,219,.6);color:#fff;font:300 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 0;outline:0;transition:border .3s;resize:none}
+.contact input::placeholder,.contact textarea::placeholder{color:rgba(246,234,219,.75)}
+.contact input:focus,.contact textarea:focus{border-color:#fff}
+.contact .full{grid-column:1/-1}
+.contact .pill{background:#f3ece1;color:var(--terra);justify-self:start}
+.contact .pill:hover{background:#fff}
+.thanks{display:none;font-family:var(--serif);font-size:24px;font-style:italic;grid-column:1/-1}
+.contact .pot{position:absolute;right:0;bottom:0;width:130px;max-width:12vw;opacity:.9}
+
+/* footer */
+footer{background:var(--olive2);color:#e8e1cd;padding:26px 0 18px}
+footer .wrap{display:grid;grid-template-columns:3fr 5fr 3fr;gap:30px;align-items:center}
+footer .brand b,footer .brand small{color:#f3ece1}
+footer ul{display:flex;gap:24px;list-style:none;flex-wrap:wrap;justify-content:center}
+footer ul a{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+footer ul a:hover{opacity:1;text-decoration:underline}
+.soc{display:flex;gap:12px;justify-content:flex-end}
+.soc a{width:30px;height:30px;border:1px solid rgba(243,236,225,.55);border-radius:50%;display:grid;place-items:center;transition:background .3s}
+.soc a:hover{background:rgba(243,236,225,.18)}
+.soc svg{width:14px;height:14px;stroke:#f3ece1;fill:none;stroke-width:1.3}
+.copy{text-align:center;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin-top:14px}
+
+/* ---- responsive ---- */
+@media (max-width:1024px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:78px;background:var(--cream);padding:10px 16px 24px;display:none;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:6px}
+  nav a{display:block;padding:10px 0;border:0}
+  .nav .btn{display:none}
+  .hero .wrap,.story .wrap{grid-template-columns:1fr}
+  .blob1{margin-right:0}
+  .blob2{margin-left:0;max-width:520px}
+  .svc{grid-template-columns:1fr 1fr;row-gap:30px}
+  .svc div:nth-child(3){border-left:0}
+  .projs{grid-template-columns:1fr 1fr}
+  .process .wrap{grid-template-columns:1fr}
+  .founder .wrap{grid-template-columns:1fr 1fr}
+  .blob3{display:none}
+  .why .wrap{grid-template-columns:1fr}
+  .why .blobo{margin-right:0}
+  .contact .wrap{grid-template-columns:1fr 1fr}
+  .contact form{grid-column:1/-1}
+  footer .wrap{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .soc{justify-content:center}
+  .vase,.contact .pot{display:none}
+}
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .wrap{padding:0 16px}
+  .hero{padding-top:10px}
+  .hero .deco,.story .deco{display:none}
+  .svc{grid-template-columns:1fr}
+  .svc div{border:0!important;border-top:1px solid rgba(243,236,225,.28)!important;padding:22px 0 0}
+  .svc div:first-child{border-top:0!important;padding-top:0}
+  .work .top{flex-direction:column;align-items:flex-start;gap:12px}
+  .projs{gap:14px}
+  .steps{grid-template-columns:1fr;gap:26px}
+  .steps:before{display:none}
+  .founder .wrap{grid-template-columns:1fr}
+  .fpic{max-width:360px}
+  .why .blobo{padding:36px 26px 40px}
+  .quotes{grid-template-columns:1fr;gap:34px}
+  .quotes blockquote{border:0!important;padding:0 6px}
+  .contact .wrap{grid-template-columns:1fr}
+  .contact form{grid-template-columns:1fr}
+  .services .wv-t,.process .wv-t{top:-29px;height:30px}
+  .services .wv-b,.process .wv-b{bottom:-29px;height:30px}
+}
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 4 20 4c0 9-5 15-13 15M5 19l9-9"/></symbol>
+    <symbol id="sprig" viewBox="0 0 100 200"><path d="M50 195C50 130 54 70 62 8"/><path d="M52 150C30 146 18 130 16 110c20 2 34 16 36 40zM54 118c22-4 34-20 34-42-20 4-32 18-34 42zM56 80C38 74 28 58 30 38c18 4 28 20 26 42zM60 48c16-6 22-18 20-32-14 6-20 16-20 32z"/></symbol>
+    <symbol id="branch" viewBox="0 0 200 260"><path d="M20 250C60 190 110 120 180 20"/><path d="M52 206c-24 2-38-10-44-30 22-2 38 8 44 30zM78 170c4-24 20-36 42-36-2 22-16 36-42 36zM104 138c-22-6-32-22-30-44 22 6 32 22 30 44zM128 104c8-22 24-30 46-28-6 22-22 32-46 28zM150 74c-16-14-20-30-14-48 16 12 20 28 14 48zM30 232c-6-18 0-34 16-44"/></symbol>
+    <symbol id="monst" viewBox="0 0 100 100"><path d="M10 95C20 60 40 30 90 8c10 40-8 70-40 80-12 4-28 6-40 7zM10 95L70 30M45 60l-18-4M58 46l-4-20M32 76l-20-6" /></symbol>
+  </defs>
+</svg>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Olivine Studio">
+      <svg viewBox="0 0 34 48" fill="none" stroke="#5f6b45" stroke-width="1"><rect x=".5" y=".5" width="33" height="47" rx="16.5"/><path stroke-width="1.2" d="M17 36V16M17 30c-6 0-9-4-9-9 6 0 9 3 9 9zM17 24c5 0 8-3 8-8-5 0-8 3-8 8zM17 17c-3-1-4-4-3-7 3 1 4 4 3 7z"/></svg>
+      <span><b>Olivine Studio</b><small>Design · Brand · Space</small></span>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#top" class="on">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#work">Projects</a></li><li><a href="#process">Process</a></li><li><a href="#founder">Journal</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn">Let's connect</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <svg class="deco l1" viewBox="0 0 100 200"><use href="#sprig"/></svg>
+  <div class="wrap">
+    <div class="rv">
+      <h1>We design <em>meaningful</em> experiences.</h1>
+      <p>A multidisciplinary studio crafting brands, spaces and products rooted in nature, purpose and beauty.</p>
+      <a href="#work" class="btn">Explore our work <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></a>
+    </div>
+    <div class="blob1 rv"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=70&auto=format&fit=crop" alt="Sunlit living room with soft linen and a vase of branches"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="about">
+  <div class="wrap">
+    <div class="blob2 rv"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=70&auto=format&fit=crop" alt="Olive green armchair beside a plant" loading="lazy"></div>
+    <div class="rv">
+      <span class="label">Our story <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span>
+      <h2>Rooted in nature.<br><em>Designed for living.</em></h2>
+      <p>Olivine is a multidisciplinary studio working across brand, space and product design. We believe in slow creativity, intentional choices and timeless aesthetics that nurture both people and place.</p>
+      <a href="#founder" class="link">Read our story &rsaquo;</a>
+    </div>
+    <svg class="deco" viewBox="0 0 200 260"><use href="#branch"/></svg>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <svg class="wv-t" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#6b7350" d="M0 40C180 0 340 8 520 30S880 58 1080 30 1340 4 1440 24V60H0z"/></svg>
+  <div class="wrap">
+    <div class="head rv"><span class="label">What we do <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span><h2>Our Services</h2></div>
+    <div class="svc rv">
+      <div>
+        <svg viewBox="0 0 40 40"><path d="M20 34V18M20 28c-6 0-9-4-9-9 6 0 9 4 9 9zM20 22c5 0 8-3 8-8-5 0-8 3-8 8zM20 15c-3-1-4-4-3-7 3 1 4 4 3 7zM8 36h24"/></svg>
+        <h3>Brand Design</h3><p>Thoughtful identities and visual stories that connect and inspire.</p></div>
+      <div>
+        <svg viewBox="0 0 40 40"><path d="M8 36V16a12 12 0 0124 0v20M4 36h32M14 36V20a6 6 0 0112 0v16M20 6V3"/></svg>
+        <h3>Interior Design</h3><p>Spaces that blend function, beauty and a deep sense of place.</p></div>
+      <div>
+        <svg viewBox="0 0 40 40"><path d="M20 4c8 0 15 6 15 14s-7 14-15 14S5 26 5 18 12 4 20 4zM12 22c4 4 10 4 14-2M14 14c2-3 7-4 10-1"/></svg>
+        <h3>Product Design</h3><p>Purposeful objects and collections, designed with care and intention.</p></div>
+      <div>
+        <svg viewBox="0 0 40 40"><path d="M20 36V20M20 26c-6 0-8-4-8-8 5 0 8 3 8 8zM20 22c5 0 8-3 8-7-5 0-8 3-8 7zM8 36h24M20 14V5l5 4"/></svg>
+        <h3>Creative Direction</h3><p>Concepts and content that bring ideas to life across every touchpoint.</p></div>
+    </div>
+  </div>
+  <svg class="vase" viewBox="0 0 150 230" aria-hidden="true"><g stroke="#2f3a22" stroke-width="1.2" fill="#3d4a2c"><path d="M75 100V30M75 80c-18-2-28-12-30-28 18 2 28 12 30 28zM75 62c16-2 26-12 28-26-16 2-26 12-28 26zM75 40c-12-4-16-14-14-26 12 4 16 14 14 26z"/></g><path fill="#b0663f" d="M45 112c10-10 50-10 60 0 14 20 14 70-6 106H51C31 182 31 132 45 112z"/><path fill="#c27a50" d="M60 118c10-6 28-6 36 0-4 40-8 70-14 98H66c-8-30-10-60-6-98z" opacity=".5"/></svg>
+  <svg class="wv-b" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#6b7350" d="M0 0H1440V30C1300 62 1120 60 940 36S600 4 400 34 100 54 0 32z"/></svg>
+</section>
+
+<!-- RECENT WORK -->
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="top rv">
+      <div><span class="label">Selected projects <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span><h2>Recent Work</h2></div>
+      <a href="#work" class="link">View all projects &rarr;</a>
+    </div>
+    <div class="projs">
+      <a class="proj rv" href="#work"><div class="im"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=70&auto=format&fit=crop" alt="Fernhill Residence living room" loading="lazy"></div><h3>Fernhill Residence</h3><em>Interior Design</em><small>Austin, Texas</small></a>
+      <a class="proj rv" href="#work"><div class="im"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&q=70&auto=format&fit=crop" alt="Mossy Glen Loft" loading="lazy"></div><h3>Mossy Glen Loft</h3><em>Space &amp; Styling</em><small>Seattle, Washington</small></a>
+      <a class="proj rv" href="#work"><div class="im"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=70&auto=format&fit=crop" alt="Sunset Cliffs Home" loading="lazy"></div><h3>Sunset Cliffs Home</h3><em>Interior Design</em><small>San Diego, California</small></a>
+      <a class="proj rv" href="#work"><div class="im"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=70&auto=format&fit=crop" alt="Willow Creek Retreat" loading="lazy"></div><h3>Willow Creek Retreat</h3><em>Brand &amp; Creative Direction</em><small>Napa Valley, California</small></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <svg class="wv-t" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#e6d9c3" d="M0 30C200 -4 380 6 600 30S1000 56 1200 28 1380 8 1440 20V60H0z"/></svg>
+  <div class="wrap">
+    <div class="rv">
+      <span class="label">How we work <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span>
+      <h2>A thoughtful <em>process.</em></h2>
+      <p class="s">We guide each project with intention and clarity, from the first idea to the final detail.</p>
+      <a href="#contact" class="btn">Work with us</a>
+    </div>
+    <div class="steps rv">
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6M8 10c1-2 3-2 4 0"/></svg></div><small>01</small><h3>Discover</h3><p>We listen, learn and understand your vision and goals.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19zM14 6l4 4"/></svg></div><small>02</small><h3>Define</h3><p>We shape the concept and creative direction.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><use href="#leaf"/></svg></div><small>03</small><h3>Design</h3><p>We craft with care, refining every detail.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 013 0v5M12 9a1.5 1.5 0 013 0v2M15 10.5a1.5 1.5 0 013 0V15c0 4-3 6-6 6s-5-2-6-5l-1-3a1.5 1.5 0 013-1l1 2"/></svg></div><small>04</small><h3>Develop</h3><p>We bring ideas to life with precision.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v10l-8 4-8-4V7zM4 7l8 4 8-4M12 11v10"/></svg></div><small>05</small><h3>Deliver</h3><p>We launch with thoughtfulness and support.</p></div>
+    </div>
+  </div>
+  <svg class="wv-b" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#e6d9c3" d="M0 0H1440V24C1260 56 1080 56 880 32S520 2 320 30 80 50 0 36z"/></svg>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="wrap">
+    <div class="fpic rv">
+      <div class="olive"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&q=70&auto=format&fit=crop" alt="Portrait of the founder" loading="lazy"></div>
+      <div class="badge"><svg viewBox="0 0 24 24"><use href="#leaf"/></svg></div>
+    </div>
+    <div class="rv">
+      <span class="label">Meet the founder <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span>
+      <h2>Designing with intention. <em>Rooted in nature.</em></h2>
+      <p>Hi, I'm Mara. Olivine Studio was born from my love of natural materials, slow living, and the belief that our surroundings should support our well-being.</p>
+      <p>Every project is a collaboration. I take the time to understand your story, your needs and your lifestyle, to create work as beautiful as it is meaningful.</p>
+      <a href="#about" class="link">More about Mara &rarr;</a>
+    </div>
+    <div class="blob3 rv"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=900&q=70&auto=format&fit=crop" alt="Shelf with ceramics and a plant" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Work that feels <em>true</em> to you.</h2>
+      <p style="text-align:center;max-width:460px;margin:0 auto;color:var(--muted)">Our approach pairs craft with calm: honest materials, considered details and a process that never feels rushed.</p>
+    </div>
+    <div class="blobo rv">
+      <span class="label">Why choose us <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><use href="#leaf"/></svg>Wellness-focused design</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 21V9M12 15c-5 0-7-3-7-7 5 0 7 3 7 7zM12 12c4 0 6-2 6-6-4 0-6 2-6 6z"/></svg>Sustainable &amp; natural materials</li>
+        <li><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8M12 8v8"/></svg>Personalized, boutique approach</li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>Timeless, soulful spaces</li>
+      </ul>
+      <svg class="deco" viewBox="0 0 100 200"><use href="#sprig"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="say">
+  <div class="wrap">
+    <span class="label rv">Kind words <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></span>
+    <h2 class="rv">What Clients Say</h2>
+    <div class="quotes rv">
+      <blockquote><span class="qm">&ldquo;</span><p>Olivine transformed our vision into a brand and space that feels calm, intentional and truly aligned with who we are.</p><cite>— Natalie S.<small>Founder, Aurora Retreat</small></cite></blockquote>
+      <blockquote><span class="qm">&ldquo;</span><p>Their creativity, attention to detail and collaborative process were exceptional from start to finish.</p><cite>— James L.<small>Founder, Fernhill House</small></cite></blockquote>
+      <blockquote><span class="qm">&ldquo;</span><p>Every element feels considered and timeless. We couldn't have asked for a better partner.</p><cite>— Sophie M.<small>Founder, Lumen Botanicals</small></cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <svg class="wv-t" viewBox="0 0 1440 40" preserveAspectRatio="none"><path fill="#b8673f" d="M0 22C200 -6 420 -4 640 18S1060 40 1240 14 1400 4 1440 12V40H0z"/></svg>
+  <div class="wrap">
+    <h2 class="rv">Let's create <em>something beautiful</em> together.</h2>
+    <p class="rv">Have a project in mind? We'd love to hear about it and explore how we can bring your vision to life.</p>
+    <form id="cf" class="rv" novalidate>
+      <input type="text" name="name" placeholder="Name" aria-label="Name" required>
+      <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+      <textarea class="full" name="msg" rows="1" placeholder="Tell us about your project" aria-label="Project details"></textarea>
+      <button class="btn pill" type="submit">Send message <svg viewBox="0 0 24 24"><use href="#leaf"/></svg></button>
+      <p class="thanks" id="thanks" role="status">Thank you — we'll be in touch within two working days.</p>
+    </form>
+  </div>
+  <svg class="pot" viewBox="0 0 150 230" aria-hidden="true"><path fill="#7b3f22" d="M45 112c10-10 50-10 60 0 14 20 14 70-6 106H51C31 182 31 132 45 112z"/></svg>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <svg viewBox="0 0 34 48" fill="none" stroke="#f3ece1" stroke-width="1"><rect x=".5" y=".5" width="33" height="47" rx="16.5"/><path stroke-width="1.2" d="M17 36V16M17 30c-6 0-9-4-9-9 6 0 9 3 9 9zM17 24c5 0 8-3 8-8-5 0-8 3-8 8zM17 17c-3-1-4-4-3-7 3 1 4 4 3 7z"/></svg>
+      <span><b>Olivine Studio</b><small>Design · Brand · Space</small></span>
+    </a>
+    <ul><li><a href="#top">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#work">Projects</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul>
+    <div class="soc">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/></svg></a>
+      <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M11 8c3-1 5 1 4 4-1 2-3 2-3 0M11 11l-2 8"/></svg></a>
+      <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 8l8 6 8-6"/></svg></a>
+    </div>
+  </div>
+  <div class="wrap copy">hello@olivinestudio.example · +1 (555) 010-0123 · &copy; 2026 Olivine Studio. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd'),b=document.getElementById('burger'),n=document.getElementById('nav');
+  function sc(){hd.classList.toggle('stuck',window.scrollY>20)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.classList.toggle('open',o);b.setAttribute('aria-expanded',o)});
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');b.classList.remove('open');b.setAttribute('aria-expanded',false)})});
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+  document.getElementById('cf').addEventListener('submit',function(e){
+    e.preventDefault();
+    this.querySelectorAll('input,textarea,button').forEach(function(x){x.style.display='none'});
+    document.getElementById('thanks').style.display='block';
+  });
+})();
+</script>
+</body>
+</html>

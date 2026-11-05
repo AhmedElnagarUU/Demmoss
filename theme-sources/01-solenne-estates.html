@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solenne Estates — Villas & Architectural Homes</title>
+<meta name="description" content="Solenne Estates designs and builds luxury villas and architectural homes shaped by landscape.">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--panel:#141414;--text:#f2efe9;--muted:#8a857d;--accent:#d9b99b;--line:rgba(255,255,255,.14);--pad:clamp(16px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:300;line-height:1.7;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{padding-left:var(--pad);padding-right:var(--pad);max-width:1600px;margin:0 auto}
+section{position:relative;overflow-x:clip}
+.label{display:flex;align-items:center;gap:16px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.label::before{content:"";width:48px;height:1px;background:currentColor}
+h2.big{font-weight:200;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(28px,4.4vw,64px);line-height:1.2;margin-top:28px}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#14110d;border-radius:999px;padding:14px 30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:.3s}
+.pill:hover{background:#e8cdb3;transform:translateY(-2px);box-shadow:0 10px 30px rgba(217,185,155,.25)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 1s ease,transform 1s ease}
+.reveal.in{opacity:1;transform:none}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:22px 0}
+nav.solid{background:rgba(11,11,11,.92);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-weight:200;letter-spacing:.42em;font-size:18px;text-transform:uppercase;white-space:nowrap}
+.logo b{font-weight:500}
+.links{display:flex;gap:36px;align-items:center}
+.links a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,239,233,.8);position:relative;transition:.3s}
+.links a:not(.pill)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--accent);transition:.3s}
+.links a:not(.pill):hover{color:var(--accent)}
+.links a:not(.pill):hover::after{width:100%}
+.links .pill{padding:11px 22px;color:#14110d}
+.burger{display:none;width:32px;height:20px;position:relative;z-index:120}
+.burger span{position:absolute;left:0;right:0;height:1px;background:var(--text);transition:.3s}
+.burger span:nth-child(1){top:2px}.burger span:nth-child(2){top:10px}.burger span:nth-child(3){top:18px}
+.burger.open span:nth-child(1){top:10px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:10px;transform:rotate(-45deg)}
+/* hero */
+.hero{height:100vh;min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;background:url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=2000&q=70&auto=format&fit=crop') center/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,11,.55) 0%,rgba(11,11,11,.15) 35%,rgba(11,11,11,.7) 75%,#0b0b0b 100%),linear-gradient(90deg,rgba(11,11,11,.6),transparent 60%)}
+.hero .wrap{position:relative;width:100%;padding-bottom:40px}
+.hero-main{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.hero h1{font-weight:200;text-transform:uppercase;letter-spacing:.12em;font-size:clamp(34px,6.2vw,96px);line-height:1.08;max-width:11ch}
+.hero .since{color:var(--accent);text-transform:uppercase;letter-spacing:.3em;font-size:clamp(14px,1.6vw,22px);font-weight:300;align-self:flex-start;margin-top:-40px;text-align:right}
+.hero .sub{margin:28px 0 28px;max-width:520px;color:rgba(242,239,233,.78);font-size:14px;letter-spacing:.04em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:56px;border-top:1px solid var(--line)}
+.stat{padding:24px 24px 0 0}
+.stat+.stat{padding-left:32px;border-left:1px solid var(--line)}
+.stat .n{font-weight:200;font-size:clamp(30px,3.6vw,52px);letter-spacing:.08em;line-height:1.1}
+.stat .n em{font-style:normal;color:var(--accent)}
+.stat .t{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.hot{position:absolute;z-index:5;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18),0 0 24px 6px rgba(217,185,155,.7);animation:pulse 2.4s infinite;padding:0}
+.hot::after{content:"";position:absolute;inset:-12px;border-radius:50%}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5),0 0 24px 6px rgba(217,185,155,.7)}70%{box-shadow:0 0 0 22px rgba(255,255,255,0),0 0 24px 6px rgba(217,185,155,.7)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0),0 0 24px 6px rgba(217,185,155,.7)}}
+.tip{position:absolute;left:50%;bottom:calc(100% + 18px);transform:translate(-50%,8px);white-space:nowrap;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.25);padding:10px 18px;border-radius:10px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:0;pointer-events:none;transition:.3s;color:var(--text);font-weight:400}
+.hot:hover .tip,.hot.on .tip,.hot:focus-visible .tip{opacity:1;transform:translate(-50%,0)}
+/* principles */
+.principles{padding:140px 0 120px;background:#000}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);margin-top:80px}
+.pcol{padding:0 40px;border-left:1px solid var(--line)}
+.pcol:first-child{padding-left:0;border-left:0}
+.pcol h3{font-weight:400;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9b958c;line-height:1.7;min-height:44px}
+.pcol p{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.9}
+.pcol .num{display:block;margin-top:48px;font-weight:200;font-size:48px;letter-spacing:.1em;color:rgba(255,255,255,.2)}
+/* panorama */
+.pano{display:grid;grid-template-columns:repeat(4,1fr);height:min(88vh,760px);min-height:480px;position:relative;background:#000}
+.pano .p{position:relative;overflow:hidden;border-left:1px solid var(--line);cursor:pointer}
+.pano .p:first-child{border-left:0}
+.pano .bg{position:absolute;top:0;bottom:0;left:0;width:400%;background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2400&q=70&auto=format&fit=crop') 0 center/cover;filter:brightness(.6);transition:filter .6s}
+.pano .p:nth-child(2) .bg{left:-100%}.pano .p:nth-child(3) .bg{left:-200%}.pano .p:nth-child(4) .bg{left:-300%}
+.pano .p::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.85))}
+.pano .p:hover .bg{filter:brightness(1.05)}
+.pano .cap{position:absolute;z-index:2;left:28px;right:28px;bottom:36px}
+.pano .cap h4{font-weight:300;font-size:14px;letter-spacing:.22em;text-transform:uppercase}
+.pano .cap p{font-size:12px;color:rgba(242,239,233,.7);margin-top:8px;max-width:240px}
+.pano .arr{display:inline-block;margin-top:14px;color:var(--accent);font-size:22px;opacity:0;transform:translateX(-12px);transition:.4s}
+.pano .p:hover .arr{opacity:1;transform:none}
+/* collection */
+.collection{padding:140px 0;background:var(--bg)}
+.chead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{padding:10px 22px;border:1px solid var(--line);border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:.3s}
+.tab:hover{color:var(--text);border-color:rgba(255,255,255,.4)}
+.tab.active{background:var(--accent);border-color:var(--accent);color:#14110d;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px}
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:transform .4s,border-color .4s,opacity .4s}
+.card:hover{transform:translateY(-6px);border-color:rgba(217,185,155,.5)}
+.card.hide{display:none}
+.card .im{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .9s}
+.card:hover .im img{transform:scale(1.07)}
+.tag{position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:999px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;background:rgba(11,11,11,.7);backdrop-filter:blur(8px);border:1px solid var(--line)}
+.tag.av{color:var(--accent)}.tag.rs{color:#c9c4bb}
+.card .bd{padding:26px 26px 28px}
+.loc{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-weight:300;font-size:19px;letter-spacing:.14em;text-transform:uppercase;margin:8px 0 6px}
+.price{color:var(--accent);font-size:17px;letter-spacing:.08em;font-weight:300}
+.spec{display:flex;gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:#b9b4ab}
+.spec span{display:flex;align-items:center;gap:8px}
+.spec svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.4}
+/* about */
+.about{background:var(--text);color:#16130f;padding:140px 0}
+.about .label{color:#6f6a62}
+.about h2.big{color:#16130f}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:70px;align-items:center}
+.about p{font-size:14px;line-height:2;color:#4a463f;margin-bottom:20px}
+.sig{font-family:'Brush Script MT','Segoe Script','Snell Roundhand',cursive;font-size:44px;color:#16130f;margin-top:28px;line-height:1}
+.sigsub{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#7a756c;margin-top:8px}
+.about .photo{position:relative}
+.about .photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about .photo::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid #d9b99b;z-index:-1}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:100px;padding-top:50px;border-top:1px solid rgba(0,0,0,.14)}
+.mem{display:flex;gap:20px;align-items:center}
+.mem img{width:84px;height:84px;border-radius:50%;object-fit:cover;filter:grayscale(1);transition:.5s}
+.mem:hover img{filter:none}
+.mem h4{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+.mem span{font-size:11px;color:#7a756c;letter-spacing:.1em}
+/* process */
+.process{background:#000;padding:140px 0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:90px;position:relative}
+.steps::before{content:"";position:absolute;top:7px;left:0;right:0;height:1px;background:var(--line)}
+.step{position:relative;padding:44px 32px 0 0}
+.step::before{content:"";position:absolute;top:0;left:0;width:15px;height:15px;border-radius:50%;background:#000;border:1px solid var(--accent);transition:.4s}
+.step:hover::before{background:var(--accent);box-shadow:0 0 18px rgba(217,185,155,.7)}
+.step .no{font-weight:200;font-size:13px;letter-spacing:.3em;color:var(--accent)}
+.step h3{font-weight:300;font-size:16px;letter-spacing:.2em;text-transform:uppercase;margin:12px 0 14px}
+.step p{font-size:13px;color:var(--muted);line-height:1.9}
+/* testimonials */
+.testi{padding:140px 0;background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.slider{position:relative;margin-top:60px;overflow:hidden}
+.track{display:flex;transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.slide{flex:0 0 100%;padding-right:2px}
+.slide blockquote{font-weight:200;font-size:clamp(20px,2.8vw,38px);line-height:1.5;letter-spacing:.04em;max-width:960px}
+.slide cite{display:block;margin-top:32px;font-style:normal;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent)}
+.slide cite small{display:block;color:var(--muted);margin-top:4px;letter-spacing:.18em}
+.sctl{display:flex;align-items:center;gap:14px;margin-top:48px}
+.sctl button{width:50px;height:50px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:.3s}
+.sctl button:hover{background:var(--accent);color:#14110d;border-color:var(--accent)}
+.sctl svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+.dots{display:flex;gap:8px;margin-left:16px}
+.dots i{width:28px;height:1px;background:var(--line);transition:.3s;cursor:pointer;padding:6px 0;background-clip:content-box}
+.dots i.on{background:var(--accent);background-clip:content-box}
+/* contact */
+.contact{padding:140px 0;background:var(--bg)}
+.cg{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;margin-top:70px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.full{grid-column:1/-1}
+.f label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.f input,.f select,.f textarea{background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);font:inherit;font-size:14px;padding:10px 0;outline:0;border-radius:0;transition:.3s;width:100%;color-scheme:dark}
+.f select option{background:#141414}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--accent)}
+.f textarea{resize:vertical;min-height:90px}
+.f .err{display:none;color:#e08a7a;font-size:11px}
+.f.bad .err{display:block}.f.bad input,.f.bad select{border-color:#e08a7a}
+.ok{display:none;grid-column:1/-1;border:1px solid var(--accent);padding:22px 26px;color:var(--accent);font-size:13px;letter-spacing:.06em;background:rgba(217,185,155,.06)}
+.ok.show{display:block}
+.info h4{font-weight:400;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.info p{font-size:14px;margin-bottom:26px}
+.map{position:relative;height:240px;border:1px solid var(--line);background:#101010;overflow:hidden;margin-top:10px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:40px 40px}
+.map::before{content:"";position:absolute;left:-10%;top:55%;width:130%;height:14px;background:rgba(217,185,155,.1);transform:rotate(-14deg)}
+.map::after{content:"";position:absolute;top:-10%;left:38%;width:10px;height:130%;background:rgba(255,255,255,.05);transform:rotate(12deg)}
+.pin{position:absolute;left:55%;top:42%;width:22px;height:22px;border-radius:50% 50% 50% 0;background:var(--accent);transform:rotate(-45deg);z-index:2;box-shadow:0 0 24px rgba(217,185,155,.6)}
+.pin::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#0b0b0b}
+.maplbl{position:absolute;left:16px;bottom:12px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);z-index:2}
+/* footer */
+footer{background:#000;padding:100px 0 36px;border-top:1px solid var(--line)}
+.fword{font-weight:200;text-transform:uppercase;letter-spacing:.3em;font-size:clamp(30px,8.6vw,150px);line-height:1;color:rgba(242,239,233,.9);white-space:nowrap;overflow:hidden;text-align:center}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-top:90px;padding-top:50px;border-top:1px solid var(--line)}
+.fcols h5{font-weight:400;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.fcols a,.fcols p{display:block;font-size:13px;color:#cfcac1;margin-bottom:10px}
+.fcols a:hover{color:var(--accent)}
+.soc{display:flex;gap:12px;margin-top:16px}
+.soc a{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;margin:0;transition:.3s}
+.soc a:hover{background:var(--accent);border-color:var(--accent);color:#14110d}
+.soc svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.copy{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:60px;font-size:11px;letter-spacing:.14em;color:var(--muted)}
+/* responsive */
+@media(max-width:1024px){
+ .links{gap:20px}.links a{letter-spacing:.14em}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .about-g,.cg{grid-template-columns:1fr;gap:56px}
+ .steps{grid-template-columns:repeat(2,1fr);row-gap:50px}.steps::before{display:none}
+ .fcols{grid-template-columns:1fr 1fr}
+ .team{grid-template-columns:1fr}
+ .hero .since{margin-top:0}
+}
+@media(max-width:860px){
+ .burger{display:block}
+ .links{position:fixed;inset:0;background:#0b0b0b;flex-direction:column;justify-content:center;gap:28px;transform:translateY(-100%);transition:transform .5s;z-index:110}
+ .links.open{transform:none}
+ .links a{font-size:15px}
+ .links .pill{font-size:12px;padding:14px 30px}
+}
+@media(max-width:640px){
+ .hero{min-height:760px}
+ .hero-main{flex-direction:column-reverse;align-items:flex-start;gap:20px}
+ .hero .since{text-align:left}
+ .stats{grid-template-columns:1fr;margin-top:36px}
+ .stat{padding:16px 0}.stat+.stat{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+ .stats{display:grid}
+ .cols3{grid-template-columns:1fr;margin-top:50px}
+ .pcol{padding:36px 0;border-left:0;border-top:1px solid var(--line)}.pcol:first-child{border-top:0;padding-top:0}
+ .pcol h3{min-height:0}
+ .pano{grid-template-columns:1fr 1fr;height:auto;min-height:0}
+ .pano .p{height:260px;border-top:1px solid var(--line)}
+ .pano .p:nth-child(odd){border-left:0}
+ .pano .cap{left:14px;right:14px;bottom:18px}.pano .cap p{display:none}
+ .pano .arr{opacity:1;transform:none}
+ .grid{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr}
+ form{grid-template-columns:1fr}
+ .fcols{grid-template-columns:1fr}
+ .principles,.collection,.about,.process,.testi,.contact{padding:90px 0}
+ .logo{letter-spacing:.3em;font-size:15px}
+ .fword{letter-spacing:.12em}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap">
+ <a href="#top" class="logo">Solenne<b> Estates</b></a>
+ <div class="links" id="links">
+  <a href="#hero-links" data-t="#principles">Residences</a>
+  <a href="#principles">Principles</a>
+  <a href="#collection">Collection</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="pill">Book a viewing</a>
+ </div>
+ <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+
+<section class="hero" id="top">
+ <button class="hot" style="left:18%;top:34%" aria-label="Floor-to-ceiling glazing"><span class="tip">Floor-to-ceiling glazing</span></button>
+ <button class="hot" style="left:56%;top:46%" aria-label="Cedar cladding"><span class="tip">Cedar cladding</span></button>
+ <button class="hot" style="left:78%;top:62%" aria-label="Heated terrace"><span class="tip">Heated terrace</span></button>
+ <div class="wrap">
+  <div class="hero-main">
+   <h1>Homes shaped by landscape</h1>
+   <div class="since">Since 2009</div>
+  </div>
+  <p class="sub">We design and build villas and architectural homes that sit quietly in their setting and grow more beautiful with time.</p>
+  <a href="#collection" class="pill">Explore residences</a>
+  <div class="stats">
+   <div class="stat"><div class="n"><span data-c="120">0</span><em>+</em></div><div class="t">Homes delivered</div></div>
+   <div class="stat"><div class="n"><span data-c="14">0</span></div><div class="t">Awards</div></div>
+   <div class="stat"><div class="n"><span data-c="98">0</span><em>%</em></div><div class="t">Client referral</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="principles" id="principles"><div class="wrap">
+ <div class="label reveal">Our philosophy</div>
+ <h2 class="big reveal">Principles every<br>home is built on</h2>
+ <div class="cols3">
+  <div class="pcol reveal"><h3>Site first</h3><p>Every design begins with the land: its light, slope, wind and views. We shape the house around the site, never the other way around, so each home feels as if it has always belonged there.</p><span class="num">01</span></div>
+  <div class="pcol reveal"><h3>Honest materials</h3><p>Stone, cedar, glass and raw concrete are left to age with dignity. We choose a few exceptional materials and detail them with care, rather than layering finishes for effect.</p><span class="num">02</span></div>
+  <div class="pcol reveal"><h3>Quiet luxury</h3><p>True comfort is felt, not announced. Silence, proportion, daylight and craftsmanship define our homes far more than ornament or excess ever could.</p><span class="num">03</span></div>
+ </div>
+</div></section>
+
+<section class="pano" id="residences">
+ <div class="p"><div class="bg"></div><div class="cap"><h4>Forest Villas</h4><p>Retreats among the pines, open to the canopy.</p><span class="arr">&rarr;</span></div></div>
+ <div class="p"><div class="bg"></div><div class="cap"><h4>Coastal Homes</h4><p>Salt air, long horizons and deep terraces.</p><span class="arr">&rarr;</span></div></div>
+ <div class="p"><div class="bg"></div><div class="cap"><h4>City Penthouses</h4><p>Sky-level living above the skyline.</p><span class="arr">&rarr;</span></div></div>
+ <div class="p"><div class="bg"></div><div class="cap"><h4>Bespoke Builds</h4><p>Your land, your brief, our craft.</p><span class="arr">&rarr;</span></div></div>
+</section>
+
+<section class="collection" id="collection"><div class="wrap">
+ <div class="chead">
+  <div><div class="label reveal">The collection</div><h2 class="big reveal">Residences available</h2></div>
+  <div class="tabs reveal" id="tabs">
+   <button class="tab active" data-f="all">All</button><button class="tab" data-f="villa">Villas</button><button class="tab" data-f="pent">Penthouses</button><button class="tab" data-f="coast">Coastal</button>
+  </div>
+ </div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+ <div class="label reveal">About us</div>
+ <h2 class="big reveal">Built slowly,<br>lived in for generations</h2>
+ <div class="about-g">
+  <div class="reveal">
+   <p>Solenne Estates was founded in 2009 by a small group of architects and builders who believed a home should be a response to its place. Fifteen years on, we remain deliberately small, taking on a handful of residences each year so that every one receives our full attention.</p>
+   <p>From the first walk across the site to the final handover of keys, our in-house team of designers, engineers and craftspeople works as one. No intermediaries, no compromises, only homes we would be proud to live in ourselves.</p>
+   <div class="sig">Elena Marchetti</div><div class="sigsub">Founder &amp; Principal Architect</div>
+  </div>
+  <div class="photo reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=70&auto=format&fit=crop" alt="Modern Solenne residence exterior"></div>
+ </div>
+ <div class="team">
+  <div class="mem reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=70&auto=format&fit=crop" alt="Portrait"><div><h4>Elena Marchetti</h4><span>Principal Architect</span></div></div>
+  <div class="mem reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=70&auto=format&fit=crop" alt="Portrait"><div><h4>Daniel Reyes</h4><span>Head of Construction</span></div></div>
+  <div class="mem reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=70&auto=format&fit=crop" alt="Portrait"><div><h4>Sofia Lindqvist</h4><span>Interior Director</span></div></div>
+ </div>
+</div></section>
+
+<section class="process" id="process"><div class="wrap">
+ <div class="label reveal">How we work</div>
+ <h2 class="big reveal">From first sketch<br>to final key</h2>
+ <div class="steps">
+  <div class="step reveal"><span class="no">01</span><h3>Consultation</h3><p>We listen, walk the site with you and define the brief, budget and timeline.</p></div>
+  <div class="step reveal"><span class="no">02</span><h3>Site &amp; design</h3><p>Surveys, concept studies and detailed drawings refined together until it feels right.</p></div>
+  <div class="step reveal"><span class="no">03</span><h3>Build</h3><p>Our own crews build with fixed milestones and weekly visibility on progress.</p></div>
+  <div class="step reveal"><span class="no">04</span><h3>Handover</h3><p>A careful walkthrough, full documentation and a decade of aftercare support.</p></div>
+ </div>
+</div></section>
+
+<section class="testi" id="testimonials"><div class="wrap">
+ <div class="label reveal">Client voices</div>
+ <div class="slider" id="slider">
+  <div class="track" id="track">
+   <div class="slide"><blockquote>&ldquo;They understood the hillside before they drew a single line. Two years on, the house still surprises us with new light every morning.&rdquo;</blockquote><cite>Amelia &amp; Jonas H.<small>Forest Villa, Hallmark Ridge</small></cite></div>
+   <div class="slide"><blockquote>&ldquo;Calm, precise and honest throughout. The build finished on schedule and exactly on budget, which I had been told was impossible.&rdquo;</blockquote><cite>Marcus T.<small>Coastal Home, Cape Linden</small></cite></div>
+   <div class="slide"><blockquote>&ldquo;Our penthouse feels quiet in the best sense. Every material, every junction, shows the care of people who truly love their craft.&rdquo;</blockquote><cite>Priya N.<small>City Penthouse, Aurelia Tower</small></cite></div>
+  </div>
+ </div>
+ <div class="sctl">
+  <button id="prev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+  <button id="next" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <div class="dots" id="dots"></div>
+ </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+ <div class="label reveal">Private viewings</div>
+ <h2 class="big reveal">Book a viewing</h2>
+ <div class="cg">
+  <form id="form" novalidate class="reveal">
+   <div class="f"><label for="fn">Full name</label><input id="fn" required autocomplete="name"><span class="err">Please enter your name</span></div>
+   <div class="f"><label for="fe">Email</label><input id="fe" type="email" required autocomplete="email"><span class="err">Enter a valid email</span></div>
+   <div class="f"><label for="fp">Phone</label><input id="fp" type="tel" autocomplete="tel"></div>
+   <div class="f"><label for="fr">Residence of interest</label><select id="fr"><option>Forest Villas</option><option>Coastal Homes</option><option>City Penthouses</option><option>Bespoke Build</option></select></div>
+   <div class="f"><label for="fb">Budget</label><select id="fb"><option>$1M &ndash; $2M</option><option>$2M &ndash; $4M</option><option>$4M &ndash; $8M</option><option>$8M+</option></select></div>
+   <div class="f"><label for="fd">Preferred viewing date</label><input id="fd" type="date"></div>
+   <div class="f full"><label for="fm">Message</label><textarea id="fm" placeholder="Tell us about your plans"></textarea></div>
+   <div class="f full"><button class="pill" type="submit" style="align-self:flex-start">Request viewing</button></div>
+   <div class="ok" id="ok" role="status"></div>
+  </form>
+  <div class="info reveal">
+   <h4>Studio</h4><p>24 Linden Row, Hallmark Ridge<br>Example City 00000</p>
+   <h4>Contact</h4><p>+1 (555) 010-2090<br>hello@solenne-estates.example</p>
+   <h4>Hours</h4><p>Mon &ndash; Fri 9:00 &ndash; 18:00<br>Sat by appointment</p>
+   <div class="map"><div class="pin"></div><div class="maplbl">Solenne Studio</div></div>
+  </div>
+ </div>
+</div></section>
+
+<footer><div class="wrap">
+ <div class="fword">Solenne</div>
+ <div class="fcols">
+  <div><h5>Solenne Estates</h5><p style="max-width:300px;color:var(--muted)">Luxury villas and architectural homes, designed and built with respect for the land.</p>
+   <div class="soc">
+    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/></svg></a>
+    <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8c3-1 5 1 4 4s-3 2-3 .5M11 12l-2 8"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></svg></a>
+   </div></div>
+  <div><h5>Residences</h5><a href="#collection">Forest Villas</a><a href="#collection">Coastal Homes</a><a href="#collection">City Penthouses</a><a href="#contact">Bespoke Builds</a></div>
+  <div><h5>Company</h5><a href="#about">About</a><a href="#principles">Principles</a><a href="#process">Process</a><a href="#testimonials">Clients</a></div>
+  <div><h5>Contact</h5><p>+1 (555) 010-2090</p><p>hello@solenne-estates.example</p><p>24 Linden Row</p></div>
+ </div>
+ <div class="copy"><span>&copy; 2026 Solenne Estates. All rights reserved.</span><span>Privacy &nbsp;&middot;&nbsp; Terms</span></div>
+</div></footer>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// nav
+const nav=$('#nav');const onS=()=>nav.classList.toggle('solid',scrollY>60);onS();addEventListener('scroll',onS,{passive:true});
+const burger=$('#burger'),links=$('#links');
+burger.onclick=()=>{burger.classList.toggle('open');links.classList.toggle('open')};
+$$('#links a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');links.classList.remove('open')}));
+$('#links a[data-t]').setAttribute('href','#residences');
+// hotspots
+const hots=$$('.hot');
+hots.forEach(h=>h.addEventListener('click',e=>{e.stopPropagation();const was=h.classList.contains('on');hots.forEach(x=>x.classList.remove('on'));if(!was)h.classList.add('on')}));
+document.addEventListener('click',()=>hots.forEach(x=>x.classList.remove('on')));
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function count(el){const t=+el.dataset.c;if(reduce){el.textContent=t;return}const s=performance.now(),d=1800;(function f(n){const p=Math.min((n-s)/d,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(s)}
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);co.unobserve(e.target)}}),{threshold:.5});
+$$('[data-c]').forEach(el=>co.observe(el));
+// listings
+const ic={bed:'<svg viewBox="0 0 24 24"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 00-3-3h-7v5"/><circle cx="7" cy="11" r="1.5"/></svg>',bath:'<svg viewBox="0 0 24 24"><path d="M3 12h18v3a4 4 0 01-4 4H7a4 4 0 01-4-4zM6 12V6a2 2 0 013.5-1.3M6 19l-1 2M18 19l1 2"/></svg>',area:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h6v10M14 4v6h6"/></svg>'};
+const L=[
+['villa','1613490493576-7fde63acd811','Hallmark Ridge','Cedar Hollow Villa','$2,450,000',5,4,420,'Available'],
+['pent','1502672260266-1c1ef2d93688','Aurelia Tower, Downtown','Skyline Penthouse','$3,180,000',3,3,265,'Available'],
+['coast','1600585154340-be6161a56a0c','Cape Linden','Saltmarsh House','$4,200,000',6,5,510,'Reserved'],
+['villa','1512917774080-9991f1c4c750','Pinewood Reserve','Stillwater Villa','$2,980,000',4,4,380,'Available'],
+['pent','1618220179428-22790b461013','Marlowe Heights','Obsidian Sky Residence','$5,350,000',4,4,320,'Reserved'],
+['coast','1600596542815-ffad4c1539a9','Harbour Point','Driftline Residence','$3,640,000',5,4,450,'Available']];
+$('#grid').innerHTML=L.map(l=>`<article class="card" data-k="${l[0]}"><div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-${l[1]}?w=800&q=70&auto=format&fit=crop" alt="${l[3]}"><span class="tag ${l[8]=='Available'?'av':'rs'}">${l[8]}</span></div><div class="bd"><div class="loc">${l[2]}</div><h3>${l[3]}</h3><div class="price">${l[4]}</div><div class="spec"><span>${ic.bed}${l[5]} beds</span><span>${ic.bath}${l[6]} baths</span><span>${ic.area}${l[7]} m&sup2;</span></div></div></article>`).join('');
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');const f=t.dataset.f;$$('.card').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.k!==f))});
+// slider
+const tr=$('#track'),n=3,dots=$('#dots');let i=0,timer;
+dots.innerHTML=Array.from({length:n},(_,k)=>`<i data-k="${k}"></i>`).join('');
+function go(k){i=(k+n)%n;tr.style.transform=`translateX(-${i*100}%)`;[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===i))}
+function auto(){clearInterval(timer);if(!reduce)timer=setInterval(()=>go(i+1),6000)}
+$('#prev').onclick=()=>{go(i-1);auto()};$('#next').onclick=()=>{go(i+1);auto()};
+dots.onclick=e=>{if(e.target.dataset.k){go(+e.target.dataset.k);auto()}};
+go(0);auto();
+// form
+$('#form').addEventListener('submit',e=>{e.preventDefault();let ok=true;
+ const nm=$('#fn'),em=$('#fe');
+ const chk=(el,v)=>{el.parentElement.classList.toggle('bad',!v);if(!v)ok=false};
+ chk(nm,nm.value.trim().length>1);chk(em,/^\S+@\S+\.\S+$/.test(em.value));
+ if(!ok)return;
+ const o=$('#ok');o.textContent=`Thank you, ${nm.value.trim().split(' ')[0]}. Your viewing request for ${$('#fr').value} has been received. A member of our team will contact you within one business day.`;o.classList.add('show');e.target.reset();
+});
+})();
+</script>
+</body>
+</html>
