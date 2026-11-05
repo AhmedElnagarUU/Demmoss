@@ -1,0 +1,231 @@
+{
+  "common": {
+    "save": "Save changes",
+    "saved": "Saved",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "add": "Add",
+    "show": "Show",
+    "hide": "Hide",
+    "arabic": "Arabic",
+    "english": "English",
+    "whatsappReply": "Reply on WhatsApp",
+    "none": "None",
+    "demoNote": "Demo data stays in your browser."
+  },
+  "nav": {
+    "overview": "Overview",
+    "menu": "Menu",
+    "content": "Website content",
+    "customers": "Customers",
+    "reviews": "Reviews",
+    "settings": "Settings"
+  },
+  "tags": {
+    "new": "New",
+    "spicy": "Spicy",
+    "vegetarian": "Vegetarian",
+    "chef": "Chef's pick"
+  },
+  "overview": {
+    "title": "Your restaurant at a glance",
+    "intro": "What is happening right now, from your website to your team.",
+    "activityTitle": "Latest activity",
+    "noActivity": "No activity yet. Make a reservation on the website and it will appear here."
+  },
+  "tips": {
+    "afterHours": "{name}'s request came in at {time}, when the restaurant was closed. Without the website this would have been a missed call.",
+    "noShow": "{name} did not show up. In a real project we can send automatic reminders to reduce no-shows.",
+    "eventWaiting": "{name} asked about a private event. Events are your highest-value bookings: a fast reply wins them.",
+    "emptyCategory": "No dish in \"{name}\" is available, so guests see an empty section. Refill it or remove it."
+  },
+  "menu": {
+    "title": "Menu",
+    "intro": "Change dishes, prices, and availability in seconds, in both languages. The website updates immediately.",
+    "addCategory": "Add a category",
+    "categoryName": "Category name",
+    "renameCategory": "Save category name",
+    "deleteCategory": "Delete category",
+    "addDish": "Add a dish",
+    "newDishName": "New dish",
+    "dishName": "Dish name",
+    "dishDescription": "Description",
+    "price": "Price",
+    "image": "Image",
+    "tags": "Tags",
+    "available": "Available",
+    "featured": "Featured on the home page",
+    "editDish": "Edit dish",
+    "emptyCategory": "No dishes in this category yet.",
+    "unavailableBadge": "Not available",
+    "featuredBadge": "Featured"
+  },
+  "content": {
+    "title": "Website content",
+    "intro": "Edit the texts and pictures of your website. Each text has an Arabic and an English version.",
+    "hero": "Home page header",
+    "about": "About page",
+    "experience": "The experience",
+    "contact": "Contact page",
+    "heading": "Heading",
+    "subtitle": "Subtitle",
+    "text": "Text",
+    "introduction": "Introduction",
+    "point": "Point {number}",
+    "image": "Picture"
+  },
+  "customers": {
+    "title": "Customers",
+    "intro": "Built from your reservations and requests. Reach regulars in one click.",
+    "name": "Name",
+    "phone": "Phone",
+    "count": "Bookings",
+    "last": "Latest booking",
+    "empty": "No customers yet."
+  },
+  "reviews": {
+    "title": "Reviews",
+    "intro": "Choose which reviews build trust on your website.",
+    "shown": "Shown on the website",
+    "hidden": "Hidden"
+  },
+  "settings": {
+    "title": "Settings",
+    "intro": "Make the restaurant yours.",
+    "business": "Business",
+    "businessName": "Restaurant name",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp number",
+    "address": "Address",
+    "currency": "Currency",
+    "hours": "Opening hours",
+    "closed": "Closed",
+    "open": "Opens",
+    "close": "Closes",
+    "palette": "Colors",
+    "paletteHint": "Pick a color palette. The website and the dashboard change immediately.",
+    "resetTitle": "Reset the demo",
+    "resetText": "Restore the original sample data. You stay registered.",
+    "resetButton": "Reset demo",
+    "resetDone": "The demo was reset.",
+    "hoursError": "Closing time must be after opening time on open days.",
+    "whatsappError": "WhatsApp number: digits only, with the country code, no +."
+  },
+  "statuses": {
+    "new": "New",
+    "confirmed": "Confirmed",
+    "seated": "Seated",
+    "cancelled": "Cancelled",
+    "no_show": "No-show",
+    "replied": "Replied",
+    "booked": "Booked",
+    "closed": "Closed"
+  },
+  "statusActions": {
+    "confirmed": "Confirm",
+    "seated": "Mark as seated",
+    "cancelled": "Cancel reservation",
+    "no_show": "Mark as no-show",
+    "replied": "Mark as replied",
+    "booked": "Mark as booked",
+    "closed": "Close request"
+  },
+  "occasions": {
+    "birthday": "Birthday",
+    "anniversary": "Anniversary",
+    "business": "Business dinner",
+    "other": "Other"
+  },
+  "eventTypes": {
+    "birthday": "Birthday",
+    "business": "Business dinner",
+    "engagement": "Engagement dinner",
+    "family": "Family gathering",
+    "other": "Other"
+  },
+  "budgets": {
+    "under_5000": "Under 5,000",
+    "5000_10000": "5,000 to 10,000",
+    "over_10000": "Over 10,000"
+  },
+  "reservations": {
+    "title": "Reservations",
+    "intro": "Every table request from your website, in one place. Confirm, seat, or cancel in a tap.",
+    "filterAll": "All",
+    "filterToday": "Today",
+    "filterNew": "New",
+    "filterLabel": "Show",
+    "empty": "No reservations here.",
+    "guests": "{count} guests",
+    "occasion": "Occasion: {occasion}",
+    "note": "Note: {note}",
+    "received": "Received {when}",
+    "settingsTitle": "Time slots and capacity",
+    "settingsIntro": "Guests can only choose these times, while you are open and while there is room.",
+    "slots": "Time slots (24-hour, separated by commas)",
+    "slotMinutes": "Minutes a table is held",
+    "maxGuests": "Maximum guests per slot",
+    "settingsError": "Use times like 19:00, a table time between 30 and 300 minutes, and at least 1 guest.",
+    "newCount": "{count} new",
+    "whatsappMessage": "Hello {name}, this is {business}. About your reservation on {day} at {time}."
+  },
+  "eventRequests": {
+    "title": "Event requests",
+    "intro": "Private dinners, birthdays, and company events asked for through your website.",
+    "empty": "No event requests here.",
+    "guests": "{count} guests",
+    "budget": "Budget: {budget}",
+    "details": "Details: {details}",
+    "eventDate": "Event date {date}",
+    "whatsappMessage": "Hello {name}, this is {business}. Thank you for asking about your event on {date}."
+  },
+  "reserveForm": {
+    "date": "Day",
+    "time": "Time",
+    "guests": "Guests",
+    "name": "Your name",
+    "phone": "Phone number",
+    "occasion": "Occasion (optional)",
+    "note": "Anything we should know? (optional)",
+    "noOccasion": "No special occasion",
+    "noSlots": "No free tables this day for {count} guests. Try another day or fewer guests.",
+    "closedDay": "The restaurant is closed this day.",
+    "submit": "Request my table",
+    "today": "Today",
+    "errorSummary": "Please check the highlighted fields.",
+    "errors": {
+      "date": "Choose a day from today to 30 days ahead.",
+      "time": "Choose one of the free times.",
+      "guests": "Choose between 1 and 12 guests.",
+      "name": "Please write your name.",
+      "phone": "Please write a valid phone number."
+    },
+    "doneTitle": "We received your reservation",
+    "doneText": "{day} at {time} for {count} guests. The restaurant will confirm shortly.",
+    "doneDashboard": "Open your dashboard to see it arrive",
+    "doneAnother": "Make another reservation"
+  },
+  "eventForm": {
+    "type": "Type of event",
+    "date": "Event date",
+    "guests": "Number of guests",
+    "budget": "Budget (optional)",
+    "noBudget": "Prefer not to say",
+    "name": "Your name",
+    "phone": "Phone number",
+    "details": "Tell us about your event",
+    "submit": "Send my request",
+    "errorSummary": "Please check the highlighted fields.",
+    "errors": {
+      "date": "Choose a date from today to one year ahead.",
+      "guests": "Choose between 4 and 60 guests.",
+      "name": "Please write your name.",
+      "phone": "Please write a valid phone number."
+    },
+    "doneTitle": "We received your request",
+    "doneText": "The events team will reply to {name} soon.",
+    "doneDashboard": "Open your dashboard to see it arrive",
+    "doneAnother": "Send another request"
+  }
+}

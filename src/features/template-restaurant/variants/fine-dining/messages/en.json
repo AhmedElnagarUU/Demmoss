@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "home": {
+      "title": "Zaytouna · Levantine fine dining in Riyadh",
+      "description": "Reserve a table at Zaytouna in seconds. Family recipes, fire-grilled dishes, and a private room for your occasions."
+    },
+    "menu": {
+      "title": "Menu · Zaytouna",
+      "description": "Cold and hot mezze, grilled mains, desserts, and drinks. Know what you will enjoy before you arrive."
+    },
+    "about": {
+      "title": "Our story · Zaytouna",
+      "description": "Chef Layla Haddad and the family recipes behind Zaytouna."
+    },
+    "events": {
+      "title": "Private events · Zaytouna",
+      "description": "Birthdays, business dinners, engagements, and family gatherings in a private room for up to 20 guests."
+    },
+    "reserve": {
+      "title": "Reserve a table · Zaytouna",
+      "description": "Choose a day, a time, and the number of guests. We confirm your table quickly."
+    },
+    "contact": {
+      "title": "Contact · Zaytouna",
+      "description": "Address, opening hours, phone, and WhatsApp for Zaytouna."
+    },
+    "dashboard": {
+      "title": "Dashboard · Zaytouna demo"
+    }
+  },
+  "nav": {
+    "label": "Restaurant pages",
+    "home": "Home",
+    "menu": "Menu",
+    "about": "Our story",
+    "events": "Private events",
+    "reserve": "Reserve",
+    "contact": "Contact"
+  },
+  "header": {
+    "reserve": "Reserve a table"
+  },
+  "home": {
+    "heroCta": "Reserve a table",
+    "heroMenu": "View the menu",
+    "signatureEyebrow": "Signature dishes",
+    "signatureTitle": "Dishes people come back for",
+    "viewMenu": "See the full menu",
+    "chefEyebrow": "The chef",
+    "chefLink": "Read our story",
+    "reviewsEyebrow": "Guests",
+    "reviewsTitle": "What our guests say",
+    "rating": "Rated {rating} out of 5",
+    "eventsEyebrow": "Private events",
+    "eventsTitle": "Celebrate with us: private dining for your occasion",
+    "eventsText": "Birthdays, business dinners, engagements, and family gatherings in a private room for up to 20 guests, with a dedicated host and a menu planned with you.",
+    "eventsCta": "Plan your event",
+    "visitEyebrow": "Visit",
+    "visitTitle": "Find us, call us, or message on WhatsApp",
+    "experienceEyebrow": "The experience"
+  },
+  "menu": {
+    "eyebrow": "The menu",
+    "title": "Know what you will enjoy before you arrive",
+    "intro": "Everything is prepared fresh each day. Tell us about any allergy when you book and the kitchen will take care of it.",
+    "unavailable": "Not available today"
+  },
+  "about": {
+    "eyebrow": "Our story",
+    "promisesTitle": "Three promises from our kitchen",
+    "promises": {
+      "first": {
+        "title": "Fresh, never frozen",
+        "text": "Fish arrives daily and lamb comes from one local farm we know by name."
+      },
+      "second": {
+        "title": "Cooked slowly",
+        "text": "Stocks simmer for hours and every kibbeh is shaped by hand before service."
+      },
+      "third": {
+        "title": "Served with care",
+        "text": "Our team knows the menu, your allergies, and when it is time to bring the coffee."
+      }
+    }
+  },
+  "events": {
+    "eyebrow": "Private events",
+    "title": "Birthdays, business dinners, and family gatherings",
+    "intro": "Tell us about your occasion. The events team replies with a proposed menu, the room setup, and a price.",
+    "typesTitle": "What we host",
+    "types": {
+      "birthday": {
+        "title": "Birthdays",
+        "text": "A private room, a cake table, and a menu your guests will remember."
+      },
+      "business": {
+        "title": "Business dinners",
+        "text": "A quiet room for up to 20, set menus, and a screen for short presentations."
+      },
+      "engagement": {
+        "title": "Engagement dinners",
+        "text": "Flowers, a dessert table, and a host who keeps the evening running."
+      },
+      "family": {
+        "title": "Family gatherings",
+        "text": "Shared mezze and grills served to the table for every age."
+      }
+    },
+    "formTitle": "Request your event"
+  },
+  "reserve": {
+    "eyebrow": "Reservations",
+    "title": "Reserve your table",
+    "intro": "Choose a day, a time, and the number of guests. We confirm quickly.",
+    "largeParty": "Planning something bigger than 12 guests?",
+    "largePartyLink": "Send a private event request"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "hours": "Opening hours",
+    "whatsapp": "Message us on WhatsApp",
+    "whatsappMessage": "Hello, I would like to ask about {name}.",
+    "mapLabel": "Map showing the location of the restaurant",
+    "closed": "Closed"
+  },
+  "footer": {
+    "rights": "A demo restaurant website",
+    "hours": "Opening hours"
+  },
+  "overview": {
+    "cardsToday": "Reservations today",
+    "cardsNew": "New requests",
+    "cardsGuests": "Guests expected today",
+    "cardsEvents": "Event requests waiting",
+    "activityReservation": "{name} reserved for {count} guests on {day}",
+    "activityEvent": "{name} asked about a private event"
+  }
+}
