@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "title": "Tell us what you want to build · {brand}",
+    "description": "Answer three quick questions and see the demos that fit your business, or talk to us on WhatsApp.",
+    "resultTitle": "Your request · {brand}"
+  },
+  "common": {
+    "step": "Step {current} of {total}",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Send my request",
+    "sending": "Sending…",
+    "optional": "optional",
+    "serverError": "Something went wrong. Please try again, or talk to us on WhatsApp."
+  },
+  "type": {
+    "title": "What do you want to build?",
+    "hint": "Pick the closest one. You can explain more in the next step.",
+    "error": "Choose one option to continue.",
+    "business": {
+      "label": "A website for my business",
+      "hint": "Get more customers, bookings and trust online."
+    },
+    "system": {
+      "label": "A custom system for my business",
+      "hint": "Dashboards and tools that save your team time."
+    },
+    "saas": {
+      "label": "A SaaS product",
+      "hint": "Software you sell to many customers."
+    },
+    "other": {
+      "label": "Something else",
+      "hint": "Not sure yet? Tell us and we will guide you."
+    }
+  },
+  "details": {
+    "businessTitle": "What kind of business do you have?",
+    "ideaTitle": "Tell us about your idea",
+    "ideaHint": "A few lines are enough: what it does and who it is for.",
+    "fieldLabel": "Your business field",
+    "fieldPlaceholder": "Choose your field",
+    "fieldOther": "Another field",
+    "fieldError": "Choose your business field.",
+    "noteLabel": "Anything we should know?",
+    "otherFieldLabel": "Describe your field",
+    "ideaLabel": "Your idea",
+    "ideaError": "Write at least 10 characters so we understand you (up to 1000)."
+  },
+  "contact": {
+    "title": "How can we reach you?",
+    "hint": "We reply on WhatsApp, usually within a few hours.",
+    "nameLabel": "Your name",
+    "nameError": "Enter your name (2 to 80 characters).",
+    "whatsappLabel": "WhatsApp number",
+    "whatsappHint": "With the country code, for example +966 50 000 0000",
+    "whatsappError": "Enter a valid number: 8 to 15 digits, with an optional + at the start.",
+    "emailLabel": "Email",
+    "emailError": "Enter a valid email, or leave it empty."
+  },
+  "result": {
+    "businessTitle": "We received your request",
+    "ideaTitle": "We received your idea",
+    "demosTitle": "Try demos for your field",
+    "demosFallbackTitle": "We build for your field too",
+    "demosFallbackText": "We have no demo for your field yet, but we build for it. Meanwhile, try our other demos.",
+    "ideaText": "We will read it and reply to you on WhatsApp. You can also message us now.",
+    "allDemos": "See all demos",
+    "tryDemo": "Try this demo",
+    "whatsapp": "Continue on WhatsApp"
+  },
+  "whatsapp": {
+    "greeting": "Hello {brand}, I'm {name}.",
+    "greetingNoName": "Hello {brand}.",
+    "wantBusiness": "I want a website for my business.",
+    "wantSystem": "I want a custom system for my business.",
+    "wantSaas": "I want to build a SaaS product.",
+    "wantOther": "I have a project idea.",
+    "field": "My field: {field}",
+    "idea": "My idea: {idea}"
+  }
+}
