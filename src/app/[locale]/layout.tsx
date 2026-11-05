@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { FeedbackButton } from "@/features/feedback/components/feedback-button";
-import { SiteFooter } from "@/features/site-shell/components/site-footer";
-import { SiteHeader } from "@/features/site-shell/components/site-header";
-import { PageViewTracker } from "@/features/tracking/components/page-view-tracker";
 import { publicEnv } from "@/shared/env";
 import { directionOf, isLocale, locales } from "@/shared/i18n/config";
 import { getT } from "@/shared/i18n/t";
@@ -27,19 +23,14 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   };
 }
 
+// Only the html shell. Public pages: (site)/layout.tsx. Demo templates: demos/layout.tsx. Admin: admin/layout.tsx (not tracked).
 export default async function LocaleLayout({ children, params }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
   return (
     <html lang={locale} dir={directionOf(locale)}>
-      <body className="min-h-screen bg-bg font-sans text-text antialiased">
-        <SiteHeader locale={locale} />
-        {children}
-        <SiteFooter locale={locale} />
-        <FeedbackButton locale={locale} />
-        <PageViewTracker locale={locale} />
-      </body>
+      <body className="min-h-screen bg-bg font-sans text-text antialiased">{children}</body>
     </html>
   );
 }

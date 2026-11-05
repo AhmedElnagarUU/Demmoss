@@ -34,7 +34,10 @@ src/
     layout.tsx                        root html shell
     page.tsx                          / → redirect to /ar or /en (see proxy.ts)
     [locale]/
-      layout.tsx                      validates locale, sets lang/dir, header/footer, feedback + WhatsApp buttons
+      layout.tsx                      validates locale, sets lang/dir (html shell only)
+      (site)/layout.tsx               public pages: header, footer, feedback, page-view tracking
+      demos/layout.tsx                demo templates: feedback + tracking, no agency header/footer
+      admin/layout.tsx                private, dynamic, noindex, not tracked
       page.tsx                        → features/landing
       guide/page.tsx                  → features/software-guide
       start/page.tsx                  → features/wizard

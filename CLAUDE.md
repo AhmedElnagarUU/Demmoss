@@ -69,5 +69,5 @@ Details: `docs/03-architecture.md`. Testing strategy: `docs/08-testing.md`.
 
 ## Status
 
-Phase 0 (planning) and phase 1 (foundation: Next.js, i18n/RTL, env, db, tracking, tests, CI) are done.
-Next: phase 2 (marketing site) and phase 4 (demo engine). See `docs/07-roadmap.md`.
+Done: planning, foundation, marketing site (landing, guide, wizard, gallery, feedback), admin, demo engine core.
+In progress: Restaurants & cafés template. Layouts: `[locale]/(site)` public, `[locale]/demos` templates, `[locale]/admin` private (not tracked). See `docs/07-roadmap.md`.
