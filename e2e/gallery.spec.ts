@@ -17,7 +17,7 @@ for (const { locale, dir, title } of locales) {
     });
 
     test(`G2: a category without demos in ${locale} leads to the wizard and WhatsApp`, async ({ page }) => {
-      await page.goto(`/${locale}/demos?category=clinic`);
+      await page.goto(`/${locale}/demos?category=fitness`);
       await expect(page.locator("main").locator(`a[href='/${locale}/start']`)).toBeVisible();
       await expect(page.locator("main a[href*='wa.me']")).toBeVisible();
     });

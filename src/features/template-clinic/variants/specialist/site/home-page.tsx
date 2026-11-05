@@ -38,9 +38,11 @@ export function HomePage() {
   const doctor = store((state) => state.doctors[0]);
   const treatments = store((state) => state.treatments);
   const appointments = store((state) => state.appointments);
-  const results = store((state) => state.results.filter((item) => item.visible));
+  const allResults = store((state) => state.results);
   const faqs = store((state) => state.faqs);
-  const testimonials = store((state) => state.testimonials.filter((item) => item.visible));
+  const allTestimonials = store((state) => state.testimonials);
+  const results = allResults.filter((item) => item.visible);
+  const testimonials = allTestimonials.filter((item) => item.visible);
   const [now] = useState(() => new Date());
   const [technique, setTechnique] = useState<(typeof techniques)[number]>("immediate");
   const root = `/${locale}${config.basePath}`;

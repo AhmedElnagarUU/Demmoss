@@ -20,6 +20,8 @@ export function SettingsPage() {
   const resetDemo = store((state) => state.resetDemo);
   const updateSettings = store((state) => state.updateSettings);
   const [resetDone, setResetDone] = useState(false);
+  // the form keeps its own draft; it starts over only when the demo is reset
+  const [formVersion, setFormVersion] = useState(0);
 
   // The form shows the name that is really displayed (the registered business name, if any).
   const shownName = {
@@ -64,7 +66,7 @@ export function SettingsPage() {
       </Panel>
 
       <SettingsForm
-        key={JSON.stringify([settings, shownName, singleDoctor?.schedule])}
+        key={formVersion}
         settings={settings}
         shownName={shownName}
         schedule={singleDoctor?.schedule}
@@ -77,6 +79,7 @@ export function SettingsPage() {
             variant="secondary"
             onClick={() => {
               resetDemo();
+              setFormVersion((version) => version + 1);
               track("demo_reset", { locale, template: config.slug });
               setResetDone(true);
             }}

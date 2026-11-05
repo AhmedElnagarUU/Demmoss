@@ -28,8 +28,10 @@ export function HomePage() {
   const content = store((state) => state.content);
   const departments = store((state) => state.departments);
   const doctors = store((state) => state.doctors);
-  const results = store((state) => state.results.filter((item) => item.visible));
-  const testimonials = store((state) => state.testimonials.filter((item) => item.visible));
+  const allResults = store((state) => state.results);
+  const allTestimonials = store((state) => state.testimonials);
+  const results = allResults.filter((item) => item.visible);
+  const testimonials = allTestimonials.filter((item) => item.visible);
   const root = `/${locale}${config.basePath}`;
 
   return (

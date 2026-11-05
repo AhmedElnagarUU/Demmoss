@@ -133,7 +133,7 @@ test("W1-W3: errors are shown next to the field, and answers are kept when going
 test("W4: a business category without demos shows the fallback with a link to all demos", async ({
   page,
 }) => {
-  await page.goto("/en/start/result?type=business&field=clinic");
+  await page.goto("/en/start/result?type=business&field=fitness");
   await expect(page.getByRole("heading", { name: "We build for your field too" })).toBeVisible();
   await expect(page.getByRole("link", { name: "See all demos" })).toHaveAttribute("href", "/en/demos");
   await expect(page.getByRole("link", { name: "Continue on WhatsApp" })).toBeVisible();

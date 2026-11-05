@@ -9,7 +9,8 @@ import { getSpecialistT } from "../messages";
 export function ResultsPage() {
   const { store, locale } = useClinic();
   const st = getSpecialistT(locale);
-  const results = store((state) => state.results.filter((item) => item.visible));
+  const allResults = store((state) => state.results);
+  const results = allResults.filter((item) => item.visible);
 
   return (
     <div className={`${wrap} space-y-14 py-12`}>
