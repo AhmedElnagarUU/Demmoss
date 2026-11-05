@@ -1,0 +1,17 @@
+{
+  "button": "Send feedback",
+  "title": "Tell us what you think",
+  "intro": "A comment, a problem, an idea. We read every message.",
+  "message": "Your message",
+  "contact": "Email or phone (optional)",
+  "contactHint": "Only if you would like a reply. Leave it empty to stay anonymous.",
+  "send": "Send",
+  "sending": "Sending…",
+  "close": "Close",
+  "thanks": "Thank you! Your message reached us.",
+  "errors": {
+    "message": "Please write between 3 and 1000 characters.",
+    "contact": "Your contact is too long. Please shorten it.",
+    "generic": "We could not send your message. Please try again."
+  }
+}

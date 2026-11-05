@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "label": "Main",
+    "guide": "Guide",
+    "demos": "Demos",
+    "start": "Start"
+  },
+  "menu": {
+    "open": "Menu",
+    "close": "Close menu"
+  },
+  "footer": {
+    "value": "Websites and systems that bring your business more customers and give your team its time back.",
+    "linksTitle": "Explore",
+    "contactTitle": "Talk to a human",
+    "whatsapp": "WhatsApp",
+    "rights": "© {brand}"
+  }
+}
