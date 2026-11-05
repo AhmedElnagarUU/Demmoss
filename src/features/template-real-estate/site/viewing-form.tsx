@@ -9,7 +9,12 @@ import { ErrorSummary, SelectInput, TextArea, TextInput } from "../dashboard/ui"
 import { toDateKey } from "../dates";
 import { formatDateKey, formatPrice, formatTime } from "../format";
 import { getRealEstateT } from "../messages";
-import { bookableDates, freeViewingTimes, validateViewing, type ViewingErrors } from "../modules/viewings/slots";
+import {
+  bookableDates,
+  freeViewingTimes,
+  validateViewing,
+  type ViewingErrors,
+} from "../modules/viewings/slots";
 import { pillClasses } from "./site-ui";
 
 type Props = {
@@ -38,7 +43,9 @@ export function ViewingForm({ propertyId, defaultUnitId = "", idPrefix, titleId 
     freeViewingTimes({ dateKey, viewings, now, ...(chosenProperty ? { propertyId: chosenProperty } : {}) });
 
   const dates = bookableDates(now);
-  const [dateKey, setDateKey] = useState(() => dates.find((key) => freeFor(key).length > 0) ?? toDateKey(now));
+  const [dateKey, setDateKey] = useState(
+    () => dates.find((key) => freeFor(key).length > 0) ?? toDateKey(now),
+  );
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -175,7 +182,9 @@ export function ViewingForm({ propertyId, defaultUnitId = "", idPrefix, titleId 
             ))}
           </div>
         )}
-        {errors.time ? <p className="text-sm font-semibold text-text">{t("viewingForm.errors.time")}</p> : null}
+        {errors.time ? (
+          <p className="text-sm font-semibold text-text">{t("viewingForm.errors.time")}</p>
+        ) : null}
       </fieldset>
 
       <div className="grid gap-4 sm:grid-cols-2">

@@ -7,7 +7,6 @@ import type { Locale } from "@/shared/i18n/config";
 import type { Area, PriceBand } from "./listings";
 import type { RealEstateStore } from "./real-estate-store";
 import type { Photo } from "./site/photo";
-import type { TipFact } from "./value-tips";
 import type { PropertyType, Purpose } from "./types";
 
 export type OverviewCard = { id: string; label: string; value: string };
@@ -36,7 +35,6 @@ export type RealEstateConfig = {
   modules: readonly DashboardModule[];
   // variant hooks: they read the variant's own store
   useHighlightCard: (locale: Locale) => OverviewCard;
-  useExtraTips: () => TipFact[];
   useAgentOptions: () => { id: string; name: LocalizedText }[];
 };
 
@@ -44,7 +42,12 @@ type ContextValue = { store: RealEstateStore; config: RealEstateConfig; locale: 
 
 const RealEstateContext = createContext<ContextValue | null>(null);
 
-export function RealEstateProvider({ store, config, locale, children }: ContextValue & { children: ReactNode }) {
+export function RealEstateProvider({
+  store,
+  config,
+  locale,
+  children,
+}: ContextValue & { children: ReactNode }) {
   return <RealEstateContext value={{ store, config, locale }}>{children}</RealEstateContext>;
 }
 

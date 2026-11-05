@@ -7,7 +7,10 @@ import { purposes, propertyTypes, type Property, type PropertyType, type Purpose
 export type Area = { id: string; name: LocalizedText };
 
 // min and max are inclusive; a band without max is open ended
-export type PriceBand = { id: string; purpose: Purpose; min?: number; max?: number };
+// ids are the keys of the band labels in the shared messages (band.<id>)
+export type BandId =
+  "sale-1" | "sale-2" | "sale-3" | "sale-4" | "rent-1" | "rent-2" | "rent-3" | "dev-1" | "dev-2" | "dev-3";
+export type PriceBand = { id: BandId; purpose: Purpose; min?: number; max?: number };
 
 export type SortId = "featured" | "priceAsc" | "priceDesc";
 export const sortIds: readonly SortId[] = ["featured", "priceAsc", "priceDesc"];
@@ -69,7 +72,16 @@ export type FilterState = {
 };
 
 export function emptyFilterState(purpose: Purpose | ""): FilterState {
-  return { purpose, type: "", area: "", band: "", bedrooms: "", query: "", availableOnly: false, sort: "featured" };
+  return {
+    purpose,
+    type: "",
+    area: "",
+    band: "",
+    bedrooms: "",
+    query: "",
+    availableOnly: false,
+    sort: "featured",
+  };
 }
 
 export function toPropertyFilter(state: FilterState, bands: readonly PriceBand[]): PropertyFilter {

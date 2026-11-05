@@ -34,7 +34,8 @@ export function calculateMortgage(input: MortgageInput): MortgageResult | null {
   const loan = price * (1 - downPaymentPercent / 100);
   const months = years * 12;
   const monthlyRate = annualRatePercent / 100 / 12;
-  const monthly = monthlyRate === 0 ? loan / months : (loan * monthlyRate) / (1 - (1 + monthlyRate) ** -months);
+  const monthly =
+    monthlyRate === 0 ? loan / months : (loan * monthlyRate) / (1 - (1 + monthlyRate) ** -months);
   const total = monthly * months;
   return { loan, months, monthly, total, interest: total - loan };
 }

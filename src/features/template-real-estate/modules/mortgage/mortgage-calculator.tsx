@@ -36,7 +36,10 @@ export function MortgageCalculator({ price, idPrefix }: Props) {
     <div className="space-y-5 rounded-control border border-border bg-bg p-6">
       {price === undefined ? (
         <div>
-          <label htmlFor={`${idPrefix}-price`} className="flex justify-between text-sm font-semibold text-text">
+          <label
+            htmlFor={`${idPrefix}-price`}
+            className="flex justify-between text-sm font-semibold text-text"
+          >
             <span>{t("mortgage.price")}</span>
             <span>{formatPrice(slidePrice, locale)}</span>
           </label>
@@ -110,7 +113,9 @@ export function MortgageCalculator({ price, idPrefix }: Props) {
 
       <div className="border-t border-border pt-5" aria-live="polite">
         <p className="text-sm font-semibold text-muted">{t("mortgage.monthly")}</p>
-        <p className="text-3xl font-semibold text-text">{result ? formatPrice(result.monthly, locale) : "—"}</p>
+        <p className="text-3xl font-semibold text-text">
+          {result ? formatPrice(result.monthly, locale) : "—"}
+        </p>
         {result ? (
           <p className="mt-2 text-sm text-muted">
             {t("mortgage.split", {

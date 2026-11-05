@@ -5,7 +5,15 @@ import type { HydratableStore } from "@/features/demo-engine/storage/use-hydrate
 import { Button } from "@/shared/ui/button";
 import { unitCounts } from "../../availability";
 import { useRealEstate } from "../../context";
-import { ErrorSummary, PageHeader, Panel, SelectInput, StatusBadge, TextInput, inputClass } from "../../dashboard/ui";
+import {
+  ErrorSummary,
+  PageHeader,
+  Panel,
+  SelectInput,
+  StatusBadge,
+  TextInput,
+  inputClass,
+} from "../../dashboard/ui";
 import { trackEdit } from "../../dashboard/track-edit";
 import { formatNumber, formatPrice } from "../../format";
 import { getRealEstateT } from "../../messages";
@@ -178,7 +186,12 @@ function AddUnitForm({ store }: { store: UnitsStore }) {
               </option>
             ))}
           </SelectInput>
-          <TextInput id="unit-label" label={t("units.label")} value={label} onChange={(e) => setLabel(e.target.value)} />
+          <TextInput
+            id="unit-label"
+            label={t("units.label")}
+            value={label}
+            onChange={(e) => setLabel(e.target.value)}
+          />
           <TextInput
             id="unit-floor"
             label={t("units.floor")}

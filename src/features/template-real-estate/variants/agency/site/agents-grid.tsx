@@ -1,14 +1,12 @@
 "use client";
 
 import { useRealEstate } from "../../../context";
-import { getRealEstateT } from "../../../messages";
 import { findPhoto, SitePhoto } from "../../../site/photo";
 import { useAgencyStore } from "../store";
 
 // The agents of the agency (edited in the dashboard, Agents). Goal: trust, a real person to call.
 export function AgentsGrid() {
   const { config, locale } = useRealEstate();
-  const t = getRealEstateT(locale);
   const agents = useAgencyStore((state) => state.agents);
 
   return (
@@ -27,7 +25,6 @@ export function AgentsGrid() {
           <a
             href={`tel:${agent.phone.replace(/\s/g, "")}`}
             dir="ltr"
-            aria-label={t("common.call", { name: agent.name[locale] })}
             className="inline-block text-start text-sm font-semibold text-text underline focus-visible:outline-2 focus-visible:outline-focus"
           >
             {agent.phone}

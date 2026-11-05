@@ -30,10 +30,14 @@ export function createUnitsActions(set: SetData<UnitsData>): UnitsActions {
     },
 
     updateUnit: (propertyId, unitId, patch) =>
-      changeUnits(set, propertyId, (units) => units.map((unit) => (unit.id === unitId ? { ...unit, ...patch } : unit))),
+      changeUnits(set, propertyId, (units) =>
+        units.map((unit) => (unit.id === unitId ? { ...unit, ...patch } : unit)),
+      ),
 
     setUnitStatus: (propertyId, unitId, status) =>
-      changeUnits(set, propertyId, (units) => units.map((unit) => (unit.id === unitId ? { ...unit, status } : unit))),
+      changeUnits(set, propertyId, (units) =>
+        units.map((unit) => (unit.id === unitId ? { ...unit, status } : unit)),
+      ),
 
     removeUnit: (propertyId, unitId) =>
       changeUnits(set, propertyId, (units) => units.filter((unit) => unit.id !== unitId)),

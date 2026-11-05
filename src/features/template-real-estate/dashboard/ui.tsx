@@ -51,7 +51,12 @@ function errorProps(id: string, error: string | undefined) {
   return error ? { "aria-invalid": true, "aria-describedby": `${id}-error` } : {};
 }
 
-export function TextInput({ id, label, error, ...props }: InputHTMLAttributes<HTMLInputElement> & LabelProps) {
+export function TextInput({
+  id,
+  label,
+  error,
+  ...props
+}: InputHTMLAttributes<HTMLInputElement> & LabelProps) {
   return (
     <Field id={id} label={label} error={error}>
       <input id={id} className={inputClass} {...errorProps(id, error)} {...props} />
@@ -59,7 +64,12 @@ export function TextInput({ id, label, error, ...props }: InputHTMLAttributes<HT
   );
 }
 
-export function TextArea({ id, label, error, ...props }: TextareaHTMLAttributes<HTMLTextAreaElement> & LabelProps) {
+export function TextArea({
+  id,
+  label,
+  error,
+  ...props
+}: TextareaHTMLAttributes<HTMLTextAreaElement> & LabelProps) {
   return (
     <Field id={id} label={label} error={error}>
       <textarea id={id} rows={3} className={inputClass} {...errorProps(id, error)} {...props} />

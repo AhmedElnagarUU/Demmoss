@@ -29,7 +29,10 @@ export const seedContent: Content = {
     },
   },
   about: {
-    title: { ar: "وسيط عقاري يعرف شوارع الرياض شارعًا شارعًا", en: "A brokerage that knows Riyadh street by street" },
+    title: {
+      ar: "وسيط عقاري يعرف شوارع الرياض شارعًا شارعًا",
+      en: "A brokerage that knows Riyadh street by street",
+    },
     text: {
       ar: "منذ ٢٠٠٦ ونحن نساعد العائلات على شراء بيوتها وإيجارها في شمال الرياض. وكلاؤنا يسكنون في الأحياء التي يبيعون فيها، ويعرفون المدارس القريبة والشوارع الهادئة وأين يقع أفضل مخبز.",
       en: "Since 2006 we have helped families buy and rent homes in north Riyadh. Our agents live in the districts they sell, and know the nearby schools, the quiet streets, and where the best bakery is.",

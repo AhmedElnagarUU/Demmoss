@@ -18,17 +18,17 @@ export function createAgentsActions(set: SetData<AgentsData>): AgentsActions {
     },
 
     updateAgent: (id, patch) =>
-      set((state) => ({ agents: state.agents.map((agent) => (agent.id === id ? { ...agent, ...patch } : agent)) })),
+      set((state) => ({
+        agents: state.agents.map((agent) => (agent.id === id ? { ...agent, ...patch } : agent)),
+      })),
 
     // Properties of a removed agent simply have no agent card.
     removeAgent: (id) =>
       set((state) => ({
         agents: state.agents.filter((agent) => agent.id !== id),
-        properties: state.properties.map((property) => {
-          if (property.agentId !== id) return property;
-          const { agentId: _removed, ...rest } = property;
-          return rest;
-        }),
+        properties: state.properties.map((property) =>
+          property.agentId === id ? { ...property, agentId: undefined } : property,
+        ),
       })),
   };
 }

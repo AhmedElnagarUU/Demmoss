@@ -52,7 +52,12 @@ export function HeroSearch() {
         ))}
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:items-end">
-        <SelectInput id="hero-area" label={t("filters.area")} value={area} onChange={(e) => setArea(e.target.value)}>
+        <SelectInput
+          id="hero-area"
+          label={t("filters.area")}
+          value={area}
+          onChange={(e) => setArea(e.target.value)}
+        >
           <option value="">{t("filters.anyArea")}</option>
           {config.areas.map((item) => (
             <option key={item.id} value={item.id}>
@@ -60,7 +65,12 @@ export function HeroSearch() {
             </option>
           ))}
         </SelectInput>
-        <SelectInput id="hero-type" label={t("filters.type")} value={type} onChange={(e) => setType(e.target.value)}>
+        <SelectInput
+          id="hero-type"
+          label={t("filters.type")}
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+        >
           <option value="">{t("filters.anyType")}</option>
           {config.types.map((item) => (
             <option key={item} value={item}>
@@ -68,7 +78,12 @@ export function HeroSearch() {
             </option>
           ))}
         </SelectInput>
-        <SelectInput id="hero-price" label={t("filters.price")} value={band} onChange={(e) => setBand(e.target.value)}>
+        <SelectInput
+          id="hero-price"
+          label={t("filters.price")}
+          value={band}
+          onChange={(e) => setBand(e.target.value)}
+        >
           <option value="">{t("filters.anyPrice")}</option>
           {config.priceBands
             .filter((item) => item.purpose === purpose)

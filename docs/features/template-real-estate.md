@@ -83,8 +83,8 @@ Every section has a business goal. Sections without one are not built.
 
 ## 3. Pages and sections
 
-- **A (agency):** Home, Listings, Property detail (`/listings/<id>`), About & team, Contact. Register/login guards the dashboard.
-- **B (developer):** Home, Residences, Residence detail (`/residences/<id>`), Process & studio, Contact.
+- **A (agency):** Home, Listings, Property detail (`/listings/detail?id=<id>`), About & team, Contact. Register/login guards the dashboard.
+- **B (developer):** Home, Residences, Residence detail (`/residences/detail?id=<id>`), Process & studio, Contact.
 - Every page: demo banner, header with language switch and a "Schedule a viewing" button, footer with contact details.
 
 ## 4. Closed-loop flows
@@ -228,10 +228,10 @@ Photos come from CDN URLs (Unsplash) in one list per variant (`photos.ts`), alwa
 
 ```
 src/app/[locale]/demos/real-estate/agency/
-  (site)/ layout, page, listings/page, listings/[id]/page, about/page, contact/page
+  (site)/ layout, page, listings/page, listings/detail/page, about/page, contact/page
   dashboard/ layout, page, properties, viewings, inquiries, agents, content, testimonials, settings
 src/app/[locale]/demos/real-estate/developer/
-  (site)/ layout, page, residences/page, residences/[id]/page, process/page, contact/page
+  (site)/ layout, page, residences/page, residences/detail/page, process/page, contact/page
   dashboard/ layout, page, properties, viewings, inquiries, projects, content, testimonials, settings
 
 src/features/template-real-estate/

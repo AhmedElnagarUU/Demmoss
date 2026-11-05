@@ -68,13 +68,18 @@ export function PropertiesPage() {
                 <div className="space-y-1">
                   <p className="text-lg font-bold text-text">{title}</p>
                   <p className="text-muted">
-                    {t(`type.${property.type}`)} · {area?.name[locale] ?? ""} · {formatPrice(property.price, locale)}
+                    {t(`type.${property.type}`)} · {area?.name[locale] ?? ""} ·{" "}
+                    {formatPrice(property.price, locale)}
                     {property.purpose === "rent" ? ` ${t("common.perYear")}` : ""}
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <StatusBadge label={t(`state.${propertyState(property)}`)} />
-                  <Button variant="secondary" aria-label={`${t("common.edit")}: ${title}`} onClick={() => setEditing(property)}>
+                  <Button
+                    variant="secondary"
+                    aria-label={`${t("common.edit")}: ${title}`}
+                    onClick={() => setEditing(property)}
+                  >
                     {t("common.edit")}
                   </Button>
                   <Button
@@ -140,7 +145,8 @@ function PropertyForm({ property, onDone }: { property: Property | null; onDone:
   }));
   const [errors, setErrors] = useState<Set<string>>(new Set());
 
-  const set = <K extends keyof Draft>(key: K, value: Draft[K]) => setDraft((current) => ({ ...current, [key]: value }));
+  const set = <K extends keyof Draft>(key: K, value: Draft[K]) =>
+    setDraft((current) => ({ ...current, [key]: value }));
 
   function toggle<T extends string>(list: T[], item: T): T[] {
     return list.includes(item) ? list.filter((entry) => entry !== item) : [...list, item];
@@ -203,7 +209,9 @@ function PropertyForm({ property, onDone }: { property: Property | null; onDone:
     <form onSubmit={submit} noValidate>
       <Panel title={t(property ? "propertyForm.editTitle" : "propertyForm.addTitle")}>
         {errors.size > 0 ? <ErrorSummary text={t("propertyForm.errorSummary")} /> : null}
-        {errors.has("title") ? <p className="font-semibold text-text">{t("propertyForm.errors.title")}</p> : null}
+        {errors.has("title") ? (
+          <p className="font-semibold text-text">{t("propertyForm.errors.title")}</p>
+        ) : null}
         <BilingualField
           id="property-title"
           label={t("propertyForm.name")}
@@ -225,7 +233,9 @@ function PropertyForm({ property, onDone }: { property: Property | null; onDone:
               id="property-purpose"
               label={t("propertyForm.purpose")}
               value={draft.purpose}
-              onChange={(event) => set("purpose", purposes.find((item) => item === event.target.value) ?? "sale")}
+              onChange={(event) =>
+                set("purpose", purposes.find((item) => item === event.target.value) ?? "sale")
+              }
             >
               {config.purposes.map((purpose) => (
                 <option key={purpose} value={purpose}>
@@ -238,7 +248,9 @@ function PropertyForm({ property, onDone }: { property: Property | null; onDone:
             id="property-type"
             label={t("propertyForm.type")}
             value={draft.type}
-            onChange={(event) => set("type", config.types.find((item) => item === event.target.value) ?? draft.type)}
+            onChange={(event) =>
+              set("type", config.types.find((item) => item === event.target.value) ?? draft.type)
+            }
           >
             {config.types.map((type) => (
               <option key={type} value={type}>
@@ -351,7 +363,9 @@ function PropertyForm({ property, onDone }: { property: Property | null; onDone:
         <fieldset className="space-y-2">
           <legend className="text-sm font-bold text-text">{t("propertyForm.photos")}</legend>
           <p className="text-sm text-muted">{t("propertyForm.photosHint")}</p>
-          {errors.has("photos") ? <p className="font-semibold text-text">{t("propertyForm.errors.photos")}</p> : null}
+          {errors.has("photos") ? (
+            <p className="font-semibold text-text">{t("propertyForm.errors.photos")}</p>
+          ) : null}
           <div className="grid gap-2 sm:grid-cols-2">
             {propertyPhotos.map((photo) => (
               <label key={photo.id} className="flex min-h-11 items-center gap-2 text-text">

@@ -44,11 +44,7 @@ export function InquiriesPage() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {allowedInquiryStatuses(inquiry.status).map((status) => (
-                    <Button
-                      key={status}
-                      variant="secondary"
-                      onClick={() => setStatus(inquiry.id, status)}
-                    >
+                    <Button key={status} variant="secondary" onClick={() => setStatus(inquiry.id, status)}>
                       {t(`inquiries.action.${status}`)}: {inquiry.name}
                     </Button>
                   ))}

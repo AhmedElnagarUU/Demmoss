@@ -44,7 +44,14 @@ export function hotPropertyFacts(viewings: readonly Viewing[], properties: reado
     .filter((entry) => entry.count >= 2)
     .sort((a, b) => b.count - a.count)[0];
   if (!best) return [];
-  return [{ id: `hotProperty:${best.property.id}`, key: "hotProperty", label: best.property.title, count: best.count }];
+  return [
+    {
+      id: `hotProperty:${best.property.id}`,
+      key: "hotProperty",
+      label: best.property.title,
+      count: best.count,
+    },
+  ];
 }
 
 export function lastUnitFacts(properties: readonly Property[]): TipFact[] {
@@ -55,7 +62,11 @@ export function lastUnitFacts(properties: readonly Property[]): TipFact[] {
   }));
 }
 
-type TipData = { viewings: readonly Viewing[]; inquiries: readonly Inquiry[]; properties: readonly Property[] };
+type TipData = {
+  viewings: readonly Viewing[];
+  inquiries: readonly Inquiry[];
+  properties: readonly Property[];
+};
 
 export function allTipFacts(data: TipData, now: Date): TipFact[] {
   return [

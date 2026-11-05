@@ -6,7 +6,8 @@ import { sortIds, type FilterState } from "../listings";
 import { getRealEstateT } from "../messages";
 import { propertyTypes } from "../types";
 
-export type FilterField = "purpose" | "type" | "area" | "price" | "bedrooms" | "query" | "availableOnly" | "sort";
+export type FilterField =
+  "purpose" | "type" | "area" | "price" | "bedrooms" | "query" | "availableOnly" | "sort";
 
 type Props = {
   state: FilterState;
@@ -119,7 +120,9 @@ export function FilterBar({ state, onChange, fields, idPrefix }: Props) {
             id={`${idPrefix}-sort`}
             label={t("filters.sort")}
             value={state.sort}
-            onChange={(event) => set({ sort: sortIds.find((item) => item === event.target.value) ?? "featured" })}
+            onChange={(event) =>
+              set({ sort: sortIds.find((item) => item === event.target.value) ?? "featured" })
+            }
           >
             {sortIds.map((sort) => (
               <option key={sort} value={sort}>

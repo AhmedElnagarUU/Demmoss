@@ -8,7 +8,12 @@ export type PropertyState = "available" | "reserved" | "sold_out";
 
 export function unitCounts(units: readonly Unit[]): UnitCounts {
   const count = (status: Unit["status"]) => units.filter((unit) => unit.status === status).length;
-  return { available: count("available"), reserved: count("reserved"), sold: count("sold"), total: units.length };
+  return {
+    available: count("available"),
+    reserved: count("reserved"),
+    sold: count("sold"),
+    total: units.length,
+  };
 }
 
 // Sold out: nothing left to buy or reserve. Reserved: nothing free, but a reservation may fall through.

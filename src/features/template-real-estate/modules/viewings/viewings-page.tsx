@@ -44,11 +44,7 @@ export function ViewingsPage() {
                 {viewing.note ? <p className="text-text">{viewing.note}</p> : null}
                 <div className="flex flex-wrap gap-2">
                   {allowedViewingStatuses(viewing.status).map((status) => (
-                    <Button
-                      key={status}
-                      variant="secondary"
-                      onClick={() => setStatus(viewing.id, status)}
-                    >
+                    <Button key={status} variant="secondary" onClick={() => setStatus(viewing.id, status)}>
                       {t(`viewings.action.${status}`)}: {viewing.name}
                     </Button>
                   ))}

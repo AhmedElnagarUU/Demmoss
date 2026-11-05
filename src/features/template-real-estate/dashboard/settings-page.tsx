@@ -186,7 +186,9 @@ function SettingsForm({ settings, shownName }: FormProps) {
         ) : null}
       </Panel>
 
-      {error ? <ErrorSummary text={t(error === "rate" ? "settings.rateError" : "settings.whatsappError")} /> : null}
+      {error ? (
+        <ErrorSummary text={t(error === "rate" ? "settings.rateError" : "settings.whatsappError")} />
+      ) : null}
       <div className="flex items-center gap-3">
         <Button type="submit">{t("common.save")}</Button>
         {saved ? (

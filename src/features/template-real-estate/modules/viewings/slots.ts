@@ -40,7 +40,10 @@ export function validateViewing(
   context: { viewings: readonly Viewing[]; now: Date },
 ): ViewingErrors {
   const errors: ViewingErrors = {};
-  if (!bookableDates(context.now).includes(input.dateKey) || Number.isNaN(dateFromKey(input.dateKey).getTime())) {
+  if (
+    !bookableDates(context.now).includes(input.dateKey) ||
+    Number.isNaN(dateFromKey(input.dateKey).getTime())
+  ) {
     errors.date = true;
   }
   const free = freeViewingTimes({

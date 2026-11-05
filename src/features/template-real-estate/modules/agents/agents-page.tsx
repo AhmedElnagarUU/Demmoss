@@ -10,7 +10,8 @@ import { getRealEstateT } from "../../messages";
 import type { AgentsActions } from "./store-slice";
 import type { Agent } from "./types";
 
-export type AgentsStore = HydratableStore & (<T>(selector: (state: { agents: Agent[] } & AgentsActions) => T) => T);
+export type AgentsStore = HydratableStore &
+  (<T>(selector: (state: { agents: Agent[] } & AgentsActions) => T) => T);
 
 const blank = { name: { ar: "", en: "" }, role: { ar: "", en: "" }, phone: "", photo: "" };
 
@@ -54,7 +55,11 @@ export function AgentsPage({ store }: { store: AgentsStore }) {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => setEditing(agent)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${name}`}
+                  onClick={() => setEditing(agent)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -76,7 +81,15 @@ export function AgentsPage({ store }: { store: AgentsStore }) {
   );
 }
 
-function AgentForm({ store, agent, onDone }: { store: AgentsStore; agent: Agent | null; onDone: () => void }) {
+function AgentForm({
+  store,
+  agent,
+  onDone,
+}: {
+  store: AgentsStore;
+  agent: Agent | null;
+  onDone: () => void;
+}) {
   const { config, locale } = useRealEstate();
   const t = getRealEstateT(locale);
   const addAgent = store((state) => state.addAgent);
@@ -96,7 +109,12 @@ function AgentForm({ store, agent, onDone }: { store: AgentsStore; agent: Agent 
       ar: text.ar.trim() || text.en.trim(),
       en: text.en.trim() || text.ar.trim(),
     });
-    const values = { name: fill(draft.name), role: fill(draft.role), phone: draft.phone.trim(), photo: draft.photo };
+    const values = {
+      name: fill(draft.name),
+      role: fill(draft.role),
+      phone: draft.phone.trim(),
+      photo: draft.photo,
+    };
     if (agent) updateAgent(agent.id, values);
     else addAgent(values);
     trackEdit("agents", config.slug, locale);

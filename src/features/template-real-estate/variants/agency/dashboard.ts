@@ -9,7 +9,9 @@ import { AGENCY_SLUG } from "./slug";
 import { useAgencyStore } from "./store";
 
 // The shared dashboard + these variant modules, and nothing else.
-export const agencyModules: readonly DashboardModule[] = [{ path: "agents", label: { ar: "الوكلاء", en: "Agents" } }];
+export const agencyModules: readonly DashboardModule[] = [
+  { path: "agents", label: { ar: "الوكلاء", en: "Agents" } },
+];
 
 export const agencyConfig: RealEstateConfig = {
   slug: AGENCY_SLUG,
@@ -34,7 +36,6 @@ export const agencyConfig: RealEstateConfig = {
       value: formatNumber(active, locale),
     };
   },
-  useExtraTips: () => [],
   useAgentOptions: () => {
     const agents = useAgencyStore((state) => state.agents);
     return agents.map((agent) => ({ id: agent.id, name: agent.name }));

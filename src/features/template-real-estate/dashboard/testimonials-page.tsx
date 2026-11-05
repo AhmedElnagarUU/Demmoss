@@ -8,7 +8,12 @@ import type { Testimonial } from "../types";
 import { trackEdit } from "./track-edit";
 import { BilingualField, PageHeader, Panel, StatusBadge } from "./ui";
 
-const blank = { name: { ar: "", en: "" }, context: { ar: "", en: "" }, text: { ar: "", en: "" }, visible: true };
+const blank = {
+  name: { ar: "", en: "" },
+  context: { ar: "", en: "" },
+  text: { ar: "", en: "" },
+  visible: true,
+};
 
 // Dashboard: client stories shown on the site. Hidden ones stay saved but are not public.
 export function TestimonialsPage() {
@@ -55,7 +60,11 @@ export function TestimonialsPage() {
                 >
                   {t(item.visible ? "testimonials.hide" : "testimonials.show")}: {name}
                 </Button>
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => setEditing(item)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${name}`}
+                  onClick={() => setEditing(item)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -98,7 +107,12 @@ function TestimonialForm({ testimonial, onDone }: { testimonial: Testimonial | n
       ar: text.ar.trim() || text.en.trim(),
       en: text.en.trim() || text.ar.trim(),
     });
-    const values = { name: fill(draft.name), context: fill(draft.context), text: fill(draft.text), visible: draft.visible };
+    const values = {
+      name: fill(draft.name),
+      context: fill(draft.context),
+      text: fill(draft.text),
+      visible: draft.visible,
+    };
     if (testimonial) updateTestimonial(testimonial.id, values);
     else addTestimonial(values);
     trackEdit("testimonials", config.slug, locale);

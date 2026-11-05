@@ -17,6 +17,3 @@ export function createAgencySeed(now: Date): AgencyData {
     dismissedTips: [],
   };
 }
-
-// Used by the property route to build the static pages of the seed properties.
-export const seedPropertyIds = seedProperties.map((property) => property.id);

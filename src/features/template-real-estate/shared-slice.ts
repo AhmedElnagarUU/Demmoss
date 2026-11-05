@@ -43,7 +43,8 @@ export function createSharedActions(set: SetData<RealEstateData>): SharedActions
         properties: state.properties.map((property) => (property.id === id ? { ...input, id } : property)),
       })),
 
-    removeProperty: (id) => set((state) => ({ properties: state.properties.filter((property) => property.id !== id) })),
+    removeProperty: (id) =>
+      set((state) => ({ properties: state.properties.filter((property) => property.id !== id) })),
 
     addTestimonial: (input) => {
       const testimonial: Testimonial = { ...input, id: crypto.randomUUID() };
@@ -60,6 +61,8 @@ export function createSharedActions(set: SetData<RealEstateData>): SharedActions
       set((state) => ({ testimonials: state.testimonials.filter((item) => item.id !== id) })),
 
     dismissTip: (id) =>
-      set((state) => (state.dismissedTips.includes(id) ? {} : { dismissedTips: [...state.dismissedTips, id] })),
+      set((state) =>
+        state.dismissedTips.includes(id) ? {} : { dismissedTips: [...state.dismissedTips, id] },
+      ),
   };
 }

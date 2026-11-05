@@ -21,7 +21,6 @@ export function OverviewPage() {
   const dismissedTips = store((state) => state.dismissedTips);
   const dismissTip = store((state) => state.dismissTip);
   const highlight = config.useHighlightCard(locale);
-  const extraTips = config.useExtraTips();
   const [now] = useState(() => new Date());
 
   const today = toDateKey(now);
@@ -74,7 +73,7 @@ export function OverviewPage() {
 
       <ValueTipBox
         locale={locale}
-        tips={tipTexts([...facts, ...extraTips], locale, t)}
+        tips={tipTexts(facts, locale, t)}
         dismissedIds={dismissedTips}
         onDismiss={dismissTip}
       />

@@ -21,7 +21,7 @@ export function PropertyCard({ property, layout = "classic" }: Props) {
   const area = config.areas.find((item) => item.id === property.area);
   const hasUnits = property.units.length > 0;
   const counts = unitCounts(property.units);
-  const href = `/${locale}${config.basePath}/${config.listingsSegment}/${property.id}`;
+  const href = `/${locale}${config.basePath}/${config.listingsSegment}/detail?id=${property.id}`;
 
   const stateLabel =
     state === "available"
@@ -32,7 +32,9 @@ export function PropertyCard({ property, layout = "classic" }: Props) {
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-control border border-border bg-bg">
-      <div className={`relative overflow-hidden bg-surface ${layout === "tall" ? "aspect-4/5" : "aspect-4/3"}`}>
+      <div
+        className={`relative overflow-hidden bg-surface ${layout === "tall" ? "aspect-4/5" : "aspect-4/3"}`}
+      >
         <SitePhoto
           photo={findPhoto(config.photos, property.photos[0])}
           locale={locale}
