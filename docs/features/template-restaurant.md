@@ -1,6 +1,7 @@
 # Template category: Restaurants & cafés
 
-Status: plan agreed (not built). Design: from scratch until the owner adds HTML/CSS in `theme-sources/`.
+Status: shared layer + **Variant A (Zaytouna, fine dining) built**. Variant B (Smash Lab, fast food) not built yet.
+Design: from scratch until the owner adds HTML/CSS in `theme-sources/`.
 
 Two complete restaurant websites, each a different kind of restaurant with its own content and look,
 sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
@@ -357,6 +358,41 @@ flowchart TD
 
 ## 13. Files
 
+Built so far (Variant B will add `variants/fast-food/` and `modules/orders|offers|areas/`):
+
+```
+src/features/template-restaurant/
+  types.ts                  shared Zod schemas (settings, content, menu, reviews) + restaurantDataSchema
+  shared-slice.ts           createSharedActions(set): settings, content, menu CRUD, reviews, dismissTip
+  restaurant-store.ts       RestaurantState / RestaurantStore types any variant store fits
+  business-name.ts          businessNameOf(state, locale)
+  value-tips.ts, customers.ts, phone.ts, hours.ts, dates.ts, format.ts   pure helpers
+  images.ts, restaurant-image.tsx   placeholder image library
+  messages.ts + messages/   dashboard, forms, modules text (ar/en)
+  palette-scope.tsx         applies the chosen palette to site or dashboard
+  dashboard/                RestaurantProvider, DashboardFrame, Overview, Menu, Content, Customers, Reviews, Settings
+  modules/reservations/     types, slots (free slots, validation), status, store-slice, form, dashboard page, tips
+  modules/event-requests/   types, validate, status, store-slice, form, dashboard page, tips
+  variants/fine-dining/     slug, data (schema), store, seed/, palettes, dashboard (config), overview (hooks),
+                            site/, messages/, metadata, dashboard-pages, meta
+src/app/[locale]/demos/restaurant/fine-dining/   (site)/ pages + dashboard/ pages (thin)
+tests/contracts/template-contract.test.ts + template-registry.ts   contract for every catalog variant
+e2e/restaurant-fine-dining.spec.ts
+```
+
+### Shared API for the next variant (fast food)
+
+1. Schema: `restaurantDataSchema.extend({ ...yourModuleShapes })`, seed returns that shape with `account: null`.
+2. Store: `createTemplateStore({ slug, version, schema, createSeed, actions: (set) => ({ ...createSharedActions(set), ...yourActions(set) }) })`.
+3. Config (`RestaurantConfig`): `slug`, `templateName`, `basePath`, `palettes` (5, contrast-tested), `modules` (sidebar items),
+   `useOverview(locale)` (cards, activity, tip facts), `useCustomers()`.
+4. Wrap the dashboard routes in `DashboardFrame` (see `variants/fine-dining/dashboard-pages.tsx`); the shared pages
+   (`OverviewPage`, `MenuPage`, `ContentPage`, `CustomersPage`, `ReviewsPage`, `SettingsPage`) read the store from context.
+5. Variant module pages take a typed store prop (like `ReservationsStore`); add `useXStore` types per module.
+6. Add the slug to `tests/contracts/template-registry.ts` and the meta to `gallery/catalog.ts`.
+
+Planned layout of the whole category:
+
 ```
 src/features/template-restaurant/
   dashboard/        overview, menu, content, customers, reviews, settings (shared)
@@ -379,6 +415,26 @@ src/features/template-restaurant/
   table maps, loyalty points, delivery-driver app.
 
 ## Decisions
+
+Built with Zaytouna (phase 5, part 1):
+
+4. **Images are placeholders.** Downloads were not possible, so the image library (`images.ts`) points to small local SVG
+   illustrations in `public/demos/restaurant/`. To use real photos, replace the files (same names, optimized WebP 800x600)
+   or change `src` in `images.ts`; nothing else changes. Gallery screenshot: `public/demos/restaurant-fine-dining.svg`.
+5. **Business name:** register stores it in the account; `businessNameOf()` shows it in both languages until the owner
+   edits the name in Settings (`settings.nameEdited`), then Settings wins. Reset keeps the account, so the name stays.
+6. **Slots:** `reservationSettings.slots` are the times offered; `slotMinutes` is how long a table is held. A reservation
+   counts against every slot it overlaps, so back-to-back slots do not block each other. Cancelled and no-show free the table.
+   Parties above 12 are sent to the event request form.
+7. **Event requests:** 4 to 60 guests, date today to +1 year, budget optional (3 ranges).
+8. **Customers** are computed by a hook each variant provides (`useCustomers`), grouped by phone number.
+9. **Value tips** are facts (`value-tips.ts`: after-hours, no-show, event waiting, empty category), turned into text by the
+   dashboard. The seed contains one reservation created at 23:50 (closed), so the first tip is visible from the start.
+10. **Confirmation screens** link to the dashboard; the WhatsApp button of the banner is already visible on the same page,
+    so it is not repeated.
+11. **Language switch:** Zaytouna's site header has its own (the demo area has no agency header).
+12. **Routes:** the site pages live in the `(site)` route group, the dashboard under `dashboard/`, so the dashboard
+    has no site header. Register/login is `DashboardGuard` inside the dashboard layout (no separate pages).
 
 1. Default currency in the seed: **SAR** (changeable in Settings).
 2. Food photos: **free stock photos** that allow commercial use, optimized into the image library.

@@ -54,7 +54,7 @@ sharing one dashboard. Variants below are proposals, confirmed in each category'
 
 | Category | Variant A (proposal) | Variant B (proposal) | Status |
 |---|---|---|---|
-| Restaurants & cafés | Fine dining: table reservations | Fast food: online orders | **plan draft** (`docs/features/template-restaurant.md`) |
+| Restaurants & cafés | Fine dining: table reservations | Fast food: online orders | **in progress**: shared layer + fine dining built, fast food next (`docs/features/template-restaurant.md`) |
 | Clinics | Dental clinic: appointment booking | Medical center (several doctors): booking by doctor | not planned |
 | Real estate | Real estate agency: listings + viewing requests | Property developer: projects + unit inquiries | not planned |
 | Gyms & fitness | Gym: memberships + trial requests | Fitness studio: class schedule + class booking | not planned |

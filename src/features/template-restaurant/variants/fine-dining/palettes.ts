@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for Zaytouna. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// --fd-accent is Zaytouna's own accent (headings, rules, eyebrows).
+export const fineDiningPalettes: readonly Palette[] = [
+  {
+    id: "olive",
+    name: { ar: "زيتوني", en: "Olive" },
+    vars: {
+      "--color-bg": "#faf6ec",
+      "--color-surface": "#f0ead8",
+      "--color-text": "#232a1c",
+      "--color-muted": "#55594a",
+      "--color-border": "#cfc7ad",
+      "--color-primary": "#4a5d23",
+      "--color-primary-hover": "#3b4a1c",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#4a5d23",
+      "--fd-accent": "#7a5c1e",
+    },
+  },
+  {
+    id: "wine",
+    name: { ar: "عنابي", en: "Wine" },
+    vars: {
+      "--color-bg": "#fbf5f2",
+      "--color-surface": "#f3e6e1",
+      "--color-text": "#2b1a1d",
+      "--color-muted": "#5e4a4d",
+      "--color-border": "#dcc4c0",
+      "--color-primary": "#7a1f35",
+      "--color-primary-hover": "#5f1829",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#7a1f35",
+      "--fd-accent": "#8a5a1a",
+    },
+  },
+  {
+    id: "charcoal",
+    name: { ar: "فحمي", en: "Charcoal" },
+    vars: {
+      "--color-bg": "#1c1c1e",
+      "--color-surface": "#2a2a2d",
+      "--color-text": "#f3efe6",
+      "--color-muted": "#bdb8ab",
+      "--color-border": "#47464a",
+      "--color-primary": "#d4af6a",
+      "--color-primary-hover": "#e3c283",
+      "--color-on-primary": "#1c1c1e",
+      "--color-focus": "#d4af6a",
+      "--fd-accent": "#d4af6a",
+    },
+  },
+  {
+    id: "sand",
+    name: { ar: "رملي", en: "Sand" },
+    vars: {
+      "--color-bg": "#fbf7f0",
+      "--color-surface": "#f1e7d6",
+      "--color-text": "#2d261c",
+      "--color-muted": "#5c5243",
+      "--color-border": "#d9c9ab",
+      "--color-primary": "#8a5a2b",
+      "--color-primary-hover": "#6f4721",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#8a5a2b",
+      "--fd-accent": "#8a5a2b",
+    },
+  },
+  {
+    id: "navy",
+    name: { ar: "كحلي", en: "Navy" },
+    vars: {
+      "--color-bg": "#f6f8fb",
+      "--color-surface": "#e6ecf4",
+      "--color-text": "#14213a",
+      "--color-muted": "#46536b",
+      "--color-border": "#c4d0e2",
+      "--color-primary": "#1f3a68",
+      "--color-primary-hover": "#172c50",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#1f3a68",
+      "--fd-accent": "#7a5c14",
+    },
+  },
+];
