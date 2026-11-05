@@ -1,6 +1,6 @@
 # Feature: Wizard
 
-Status: planned
+Status: built (integration test and E2E run in CI)
 
 ## Purpose
 
@@ -94,16 +94,40 @@ so the wizard and gallery always agree. Suggested demos come from the gallery ca
 | Integration | `createLead` saves the lead and creates a `new_lead` notification | W6 |
 | E2E | each type path to the result page; back/forward keeps answers; errors next to fields; result shows category demos or all demos | W1–W5 |
 
+## Decisions made while building
+
+- **WhatsApp message and privacy:** the result URL carries only `type` and `field` (never the name). After a saved lead the
+  form keeps `{ name, idea }` in `sessionStorage` (`wizard:lead-summary`); the result page reads it in the browser and builds the
+  prefilled message with the pure function `buildWhatsAppMessage`. If sessionStorage is empty (page opened directly),
+  the message still has the type and field, just without the name.
+- **`?type=` prefill:** `/start?type=system` opens at step 2 with the type chosen; Back returns to step 1.
+- **Tracking:** `wizard_started` fires once when the wizard opens (also when the prefill skips step 1);
+  `wizard_completed` fires after the lead is saved.
+- **Business + "other" field** requires a description of 10 to 1000 characters (so the lead is never empty);
+  a known category needs no text and the note is optional.
+- **Validation:** the same `leadInputSchema` runs in the browser (per step) and on the server. The server returns the wrong
+  field names; the browser shows a translated message next to each field.
+- **WhatsApp number:** spaces, dashes and brackets are removed before saving.
+- **Result page** is rendered on demand (it reads the query), `noindex`. Its language switch keeps the path but not the query.
+- Demos shown on the result page come from `getDemosByCategory`; the catalog is empty until the first template is built,
+  so the "We build for your field too" fallback is what visitors see today.
+
 ## Files
 
 ```
 src/features/wizard/
-  components/     steps, progress, result
+  components/     wizard-shell, lead-form (steps), result-view, result-whatsapp
+  messages/       ar.json, en.json (+ messages.ts: getWizardT)
   model.ts        Lead
-  repository.ts
-  actions.ts  createLeadAction
-  service.ts      createLead, listLeads, updateLeadStatus
-  types.ts        leadInputSchema, Lead types
+  repository.ts   insertLead, findLeads
+  service.ts      createLead (saves + new_lead notification), listLeads
+  actions.ts      createLeadAction
+  types.ts        leadInputSchema, field errors helper
+  lead-summary.ts sessionStorage summary for the WhatsApp message
+  whatsapp-message.ts  buildWhatsAppMessage (pure)
+src/features/gallery/   categories.ts, types.ts, catalog.ts (data only for now)
+src/app/[locale]/start/page.tsx, start/result/page.tsx
+e2e/wizard.spec.ts
 ```
 
 ## Out of scope
