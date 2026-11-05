@@ -5,6 +5,7 @@ import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 import type { Locale } from "@/shared/i18n/config";
 import type { Customer } from "../customers";
+import type { LibraryPhoto } from "../images";
 import type { RestaurantStore } from "../restaurant-store";
 import type { TipFact } from "../value-tips";
 
@@ -24,6 +25,8 @@ export type RestaurantConfig = {
   // route of the variant without the locale, e.g. "/demos/restaurant/fine-dining"
   basePath: string;
   palettes: readonly Palette[];
+  // the variant's photo library: what the Menu and Content pickers offer
+  photos: readonly LibraryPhoto[];
   // variant modules, listed in the sidebar between Overview and Menu
   modules: readonly DashboardModule[];
   // variant hooks: they read the variant's own store (reservations, orders…)

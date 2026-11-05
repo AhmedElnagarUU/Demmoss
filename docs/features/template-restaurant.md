@@ -1,7 +1,7 @@
 # Template category: Restaurants & cafés
 
-Status: shared layer + **Variant A (Zaytouna, fine dining) built**. Variant B (Smash Lab, fast food) not built yet.
-Design: from scratch until the owner adds HTML/CSS in `theme-sources/`.
+Status: shared layer + **both variants built**: Zaytouna (restyled to the Verdant Table look) and Smash Lab (Sole Trattoria look, orders two-way loop).
+Design: inspired by `theme-sources/` (see "Design mapping" below).
 
 Two complete restaurant websites, each a different kind of restaurant with its own content and look,
 sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
@@ -409,6 +409,18 @@ src/features/template-restaurant/
     fast-food/      site/ seed/ dashboard.ts store.ts meta.ts
 ```
 
+## Design mapping (docs/09)
+
+| Variant | Source design | What was kept | Fonts (self-hosted by next/font/google, applied inside the template only) |
+|---|---|---|---|
+| Zaytouna | `03-verdant-table` (+ promise strip and footer ideas from `02-ironhorn-steakhouse`) | deep green / cream / gold as the default palette "Verdant"; round plates; script accent; hero, 4-point promise strip, story, signature dishes panel, experience band (3 round plates), menu preview tabs, reviews, events teaser, reserve band with hours, map, phone | Cormorant Garamond + Jost + Pinyon Script (English only) · Amiri + IBM Plex Sans Arabic |
+| Smash Lab | `06-sole-trattoria` (+ cart drawer behaviour from `01-hearthbean-cafe`) | cream / tomato / basil, pill buttons, big display headings, dashed ring around the hero plate, promise card, red info strip; hero + Order now, 4 promises, today's offers, best sellers, how it works, delivery areas, reviews, info strip; cart drawer | Bebas Neue + Poppins · Lalezar + IBM Plex Sans Arabic |
+
+Both variants keep their photos in one list (`variants/<variant>/photos.ts`, Unsplash URLs through `photoUrl`/`photoSrcSet`).
+`RestaurantPhoto` shows a neutral box with the alt text when a photo cannot load.
+Photo ids of Smash Lab burgers, fries, and shakes are well-known Unsplash photos that could not be opened from the build sandbox:
+open the gallery once in a real browser and replace any that do not show the right food.
+
 ## 14. Out of scope (said in the demo as "available in a real project")
 
 - Real payments, SMS/WhatsApp notifications to customers, printing kitchen tickets, item options (sizes/extras),
@@ -439,3 +451,37 @@ Built with Zaytouna (phase 5, part 1):
 1. Default currency in the seed: **SAR** (changeable in Settings).
 2. Food photos: **free stock photos** that allow commercial use, optimized into the image library.
 3. **Event requests** (Zaytouna) and **Offers** (Smash Lab) are in v1.
+
+Built with Smash Lab (phase 5, part 2):
+
+13. **Order status page is `/order?id=<order id>`**, not `/order/<id>`: the page is generated once and orders exist only in the
+    browser, so a dynamic path would need a server. The page lives in a `Suspense` boundary because it reads the query.
+14. **Cart is a drawer** (native `dialog`, slides from the end side, Esc closes), not a separate Cart page. The cart is stored in the
+    template store, so it survives a refresh. Cart lines point to a menu item or an offer; names and prices are read at order time.
+15. **Order numbers** start at 1001 and continue after the highest. An order stores a snapshot of each line's name and price,
+    the area name, the fee, and the total.
+16. **Placing an order** (`placeOrder`) re-checks everything (cart not empty, name, phone, area, address, minimum order) and returns
+    `null` when invalid; the checkout form shows the reasons first. A closed shop still accepts the order and says when it opens.
+17. **Statuses:** new → preparing → ready (pickup) or out_for_delivery (delivery) → completed; any unfinished order can be cancelled.
+18. **Value tips for orders:** `directOrders` (count of today's non-cancelled orders; no money amount is invented) and
+    `orderTracking` (newest order being worked on), plus the shared `afterHours` and `emptyCategory`.
+19. **Photos:** each variant has its own list (`photos.ts`); `RestaurantConfig.photos` feeds the Menu and Content pickers
+    and the Offers page. The old SVG placeholders were removed.
+20. **WhatsApp button text color** is white (`shared/ui/button-styles.ts`): it used the palette's `on-primary`, which is dark in
+    dark palettes (Verdant, Charcoal, Midnight) and failed contrast on the fixed green.
+21. **Customers** column names are now "Visits" / "Latest visit" because they count reservations, orders, and requests.
+
+### Files added for Smash Lab
+
+```
+src/features/template-restaurant/
+  contrast.ts, images.ts, restaurant-photo.tsx   shared: palette contrast helper, photo type, photo with fallback
+  modules/orders/    types, totals (cart, fees, minimum, validation), status, opening, tips, store-slice, orders-store,
+                     use-cart, cart-view, checkout-form, order-status-view, orders-page (+ tests)
+  modules/offers/    types, store-slice, offers-page
+  modules/areas/     types, store-slice, areas-page
+  variants/fast-food/  slug, data, store, fonts, photos, palettes, overview, dashboard, dashboard-pages, messages/, metadata, meta,
+                       seed/ (content, menu, sample-data), site/ (frame, cart drawer, home, menu, checkout, order, contact, footer)
+src/app/[locale]/demos/restaurant/fast-food/   (site)/ menu, checkout, order, contact + dashboard/ orders, offers, areas + shared pages
+e2e/restaurant-fast-food.spec.ts
+```

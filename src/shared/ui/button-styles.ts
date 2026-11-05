@@ -8,7 +8,7 @@ const base =
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-primary text-on-primary hover:bg-primary-hover",
   secondary: "border border-border bg-surface text-text hover:bg-border",
-  whatsapp: "bg-whatsapp text-on-primary hover:bg-whatsapp-hover",
+  whatsapp: "bg-whatsapp text-white hover:bg-whatsapp-hover",
 };
 
 export function buttonClasses(variant: ButtonVariant = "primary"): string {

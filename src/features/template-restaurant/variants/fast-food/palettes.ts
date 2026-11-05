@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for Smash Lab. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// --sl-accent is Smash Lab's second color (promises, eyebrows, small highlights). Tomato is the default (Sole Trattoria look).
+export const fastFoodPalettes: readonly Palette[] = [
+  {
+    id: "tomato",
+    name: { ar: "طماطم", en: "Tomato" },
+    vars: {
+      "--color-bg": "#fbf5ec",
+      "--color-surface": "#f6ecdc",
+      "--color-text": "#222222",
+      "--color-muted": "#5f574b",
+      "--color-border": "#d8c9b3",
+      "--color-primary": "#c93a24",
+      "--color-primary-hover": "#a92f1c",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#c93a24",
+      "--sl-accent": "#2f6b2b",
+    },
+  },
+  {
+    id: "basil",
+    name: { ar: "ريحان", en: "Basil" },
+    vars: {
+      "--color-bg": "#f5faf2",
+      "--color-surface": "#e4efdc",
+      "--color-text": "#1b2a1a",
+      "--color-muted": "#4a5a47",
+      "--color-border": "#bfd3b4",
+      "--color-primary": "#2f6b2b",
+      "--color-primary-hover": "#245220",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#2f6b2b",
+      "--sl-accent": "#b5361f",
+    },
+  },
+  {
+    id: "midnight",
+    name: { ar: "منتصف الليل", en: "Midnight" },
+    vars: {
+      "--color-bg": "#17171a",
+      "--color-surface": "#24242a",
+      "--color-text": "#f6f1e8",
+      "--color-muted": "#c2bcb0",
+      "--color-border": "#46464f",
+      "--color-primary": "#ff6a4d",
+      "--color-primary-hover": "#ff8468",
+      "--color-on-primary": "#17171a",
+      "--color-focus": "#ff6a4d",
+      "--sl-accent": "#ffc857",
+    },
+  },
+  {
+    id: "mustard",
+    name: { ar: "خردلي", en: "Mustard" },
+    vars: {
+      "--color-bg": "#fff9e6",
+      "--color-surface": "#fbefc2",
+      "--color-text": "#2a2208",
+      "--color-muted": "#5c5129",
+      "--color-border": "#e3d28f",
+      "--color-primary": "#b45309",
+      "--color-primary-hover": "#92400e",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#b45309",
+      "--sl-accent": "#8a2f12",
+    },
+  },
+  {
+    id: "ocean",
+    name: { ar: "محيطي", en: "Ocean" },
+    vars: {
+      "--color-bg": "#f2f8fb",
+      "--color-surface": "#dfedf4",
+      "--color-text": "#10222e",
+      "--color-muted": "#455a68",
+      "--color-border": "#b8d0de",
+      "--color-primary": "#1766a6",
+      "--color-primary-hover": "#0f4f85",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#1766a6",
+      "--sl-accent": "#b5361f",
+    },
+  },
+];

@@ -12,7 +12,7 @@ const openEveryDay: OpeningDay[] = [0, 1, 2, 3, 4, 5, 6].map((day) => ({
 export const seedSettings: Settings = {
   businessName: { ar: "زيتونة", en: "Zaytouna" },
   nameEdited: false,
-  palette: "olive",
+  palette: "verdant",
   phone: "+966 11 555 0142",
   whatsapp: "966115550142",
   address: {

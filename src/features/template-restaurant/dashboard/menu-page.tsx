@@ -4,7 +4,6 @@ import { useState } from "react";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import { Button } from "@/shared/ui/button";
 import { formatPrice } from "../format";
-import { restaurantImages } from "../images";
 import { getRestaurantT, type RestaurantTranslate } from "../messages";
 import { menuTags, type MenuCategory, type MenuItem } from "../types";
 import { useRestaurant } from "./restaurant-context";
@@ -78,7 +77,7 @@ function CategorySection({ category, items }: { category: MenuCategory; items: M
       name: { ar: getRestaurantT("ar")("menu.newDishName"), en: getRestaurantT("en")("menu.newDishName") },
       description: { ar: "", en: "" },
       price: 0,
-      image: items[0]?.image ?? restaurantImages[0]?.id ?? "",
+      image: items[0]?.image ?? config.photos[0]?.id ?? "",
       tags: [],
       available: true,
       featured: false,
@@ -303,7 +302,7 @@ function ItemForm({ item, t, onDone }: { item: MenuItem; t: RestaurantTranslate;
           value={draft.image}
           onChange={(event) => setDraft({ ...draft, image: event.target.value })}
         >
-          {restaurantImages.map((image) => (
+          {config.photos.map((image) => (
             <option key={image.id} value={image.id}>
               {image.alt[locale]}
             </option>

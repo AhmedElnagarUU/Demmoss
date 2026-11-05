@@ -2,12 +2,11 @@
 
 import type { Locale } from "@/shared/i18n/config";
 import { whatsappUrl } from "@/shared/ui/whatsapp";
-import { buttonClasses } from "@/shared/ui/button-styles";
 import { businessNameOf } from "../../../business-name";
 import { getFineDiningT } from "../messages";
 import { useFineDiningStore } from "../store";
 import { HoursList } from "./hours-list";
-import { eyebrowClass } from "./section";
+import { displayFont, labelClass, outlineButton } from "./styles";
 
 // Address, phone, WhatsApp, hours, and a map: everything that removes friction before a visit.
 export function VisitDetails({ locale }: { locale: Locale }) {
@@ -16,14 +15,25 @@ export function VisitDetails({ locale }: { locale: Locale }) {
   const name = useFineDiningStore((state) => businessNameOf(state, locale));
 
   return (
-    <div className="grid gap-8 md:grid-cols-2">
-      <div className="space-y-6 font-sans">
-        <div className="space-y-1">
-          <p className={eyebrowClass}>{t("contact.address")}</p>
-          <p>{settings.address[locale]}</p>
+    <div className="grid gap-10 md:grid-cols-2">
+      <div className="space-y-6">
+        <h3 className={`${displayFont} text-3xl font-semibold`}>{t("contact.hours")}</h3>
+        <HoursList locale={locale} />
+      </div>
+      <div className="space-y-6">
+        <h3 className={`${displayFont} text-3xl font-semibold`}>{t("contact.findUs")}</h3>
+        <div
+          role="img"
+          aria-label={t("contact.mapLabel")}
+          className="relative flex min-h-52 flex-col items-center justify-center gap-1 overflow-hidden border border-border bg-bg bg-[linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] bg-[length:36px_36px] text-center"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" className="size-8 fill-(--fd-accent)">
+            <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+          </svg>
+          <span className="bg-bg px-3 py-1">{settings.address[locale]}</span>
         </div>
         <div className="space-y-1">
-          <p className={eyebrowClass}>{t("contact.phone")}</p>
+          <p className={labelClass}>{t("contact.phone")}</p>
           <p dir="ltr" className="text-start">
             <a href={`tel:${settings.phone.replace(/\s/g, "")}`} className="underline">
               {settings.phone}
@@ -34,36 +44,10 @@ export function VisitDetails({ locale }: { locale: Locale }) {
           href={whatsappUrl(settings.whatsapp, t("contact.whatsappMessage", { name }))}
           target="_blank"
           rel="noopener noreferrer"
-          className={buttonClasses("secondary")}
+          className={outlineButton}
         >
           {t("contact.whatsapp")}
         </a>
-        <div className="space-y-2">
-          <p className={eyebrowClass}>{t("contact.hours")}</p>
-          <HoursList locale={locale} />
-        </div>
-      </div>
-      <div
-        role="img"
-        aria-label={t("contact.mapLabel")}
-        className="relative min-h-64 overflow-hidden rounded-control border border-border bg-surface"
-      >
-        <svg
-          viewBox="0 0 400 300"
-          className="size-full"
-          aria-hidden="true"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <rect width="400" height="300" fill="var(--color-surface)" />
-          <path
-            d="M0 210 L400 120 M120 0 L200 300 M0 80 L400 260 M300 0 L260 300"
-            stroke="var(--color-border)"
-            strokeWidth="10"
-            fill="none"
-          />
-          <circle cx="200" cy="140" r="14" fill="var(--color-primary)" />
-          <circle cx="200" cy="140" r="5" fill="var(--color-on-primary)" />
-        </svg>
       </div>
     </div>
   );

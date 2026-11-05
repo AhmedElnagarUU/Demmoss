@@ -1,5 +1,6 @@
 import type { DashboardModule, RestaurantConfig } from "../../dashboard/restaurant-context";
 import { fineDiningPalettes } from "./palettes";
+import { fineDiningPhotos } from "./photos";
 import { useCustomers, useOverview } from "./overview";
 import { FINE_DINING_SLUG } from "./slug";
 
@@ -14,6 +15,7 @@ export const fineDiningConfig: RestaurantConfig = {
   templateName: "Zaytouna",
   basePath: "/demos/restaurant/fine-dining",
   palettes: fineDiningPalettes,
+  photos: fineDiningPhotos,
   modules: fineDiningModules,
   useOverview,
   useCustomers,
