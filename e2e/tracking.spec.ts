@@ -1,10 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { withTestDatabase } from "./helpers/database";
 
+// Waits until the page has created the anonymous visitor id (after hydration), then returns it.
 async function visitorIdOf(page: import("@playwright/test").Page): Promise<string> {
-  const id = await page.evaluate(() => window.localStorage.getItem("demo:visitor-id"));
-  if (!id) throw new Error("no visitor id");
-  return id;
+  const readId = () => page.evaluate(() => window.localStorage.getItem("demo:visitor-id"));
+  await expect.poll(readId).not.toBeNull();
+  return (await readId()) ?? "";
 }
 
 async function eventsOf(visitorId: string) {

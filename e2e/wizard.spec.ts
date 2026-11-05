@@ -97,7 +97,7 @@ test("W3, W5, W6: a SaaS idea in English is saved and shown as received", async 
 test("W1: the Software Guide link with ?type= skips to step 2", async ({ page }) => {
   await page.goto("/en/start?type=system");
   await expect(page.getByRole("heading", { name: "Tell us about your idea" })).toBeVisible();
-  await page.getByRole("button", { name: "Back" }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
   await expect(page.getByRole("radio", { name: /custom system/ })).toBeChecked();
 });
 
@@ -124,9 +124,9 @@ test("W1-W3: errors are shown next to the field, and answers are kept when going
   await expect(page.getByText("Enter a valid email")).toBeVisible();
   expect(await leadNamed("A")).toBeNull();
 
-  await page.getByRole("button", { name: "Back" }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
   await expect(page.getByLabel("Your idea")).toHaveValue("I need advice about what to build");
-  await page.getByRole("button", { name: "Back" }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
   await expect(page.getByRole("radio", { name: /Something else/ })).toBeChecked();
 });
 
