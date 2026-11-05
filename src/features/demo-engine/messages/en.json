@@ -1,0 +1,40 @@
+{
+  "loading": "Loading the demo",
+  "auth": {
+    "registerTitle": "Create your dashboard account",
+    "registerIntro": "This is a demo: your account is saved only in your browser and is never sent to us.",
+    "loginTitle": "Log in to your dashboard",
+    "loginIntro": "Enter the name and password you used when you registered.",
+    "name": "Your name",
+    "password": "Password",
+    "businessName": "Business name (optional)",
+    "businessNameHint": "If you add it, it replaces the demo business name on the site and dashboard.",
+    "register": "Create account and open dashboard",
+    "login": "Log in",
+    "working": "One moment…",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "passwordTooShort": "The password needs at least 4 characters.",
+      "wrongCredentials": "The name or password is not correct."
+    }
+  },
+  "banner": {
+    "text": "Live demo: your changes are saved only in your browser.",
+    "openDashboard": "Open dashboard",
+    "whatsapp": "Talk to us on WhatsApp",
+    "whatsappMessage": "Hello, I tried the demo \"{template}\" and I would like to talk about my project.",
+    "reset": "Reset demo",
+    "dismiss": "Hide this bar"
+  },
+  "shell": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navigation": "Dashboard navigation",
+    "logout": "Log out",
+    "switchLanguage": "العربية"
+  },
+  "valueTip": {
+    "title": "Value tip",
+    "dismiss": "Dismiss this tip"
+  }
+}

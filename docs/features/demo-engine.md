@@ -1,6 +1,6 @@
 # Feature: Demo engine
 
-Status: planned
+Status: core built (storage, fake-auth, banner, dashboard-shell, palettes); editor and image-library are still planned
 
 The full description, diagrams, and parts list are in `docs/05-demo-engine.md`. Storage rules are in `.claude/rules/storage.md`.
 
@@ -36,10 +36,13 @@ so each template only adds its design, content, and business modules.
 
 ```
 src/features/demo-engine/
-  storage/          createTemplateStore(slug, version, seed, schema)
-  fake-auth/        register, login, guard, logout
-  dashboard-shell/  sidebar, header, layout
-  editor/           bilingual text, rich text, image picker, list editor
-  image-library/
-  banner/
+  types.ts          LocalizedText { ar, en }
+  messages.ts       getEngineT(locale) over messages/{ar,en}.json
+  storage/          createTemplateStore, restore (pure rules), daysFrom, HydrationGate, useHydrated, session flags
+  fake-auth/        account schema, register/login logic, RegisterForm, LoginForm, DashboardGuard
+  banner/           DemoBanner
+  dashboard-shell/  DashboardShell, ValueTipBox, pickValueTip
+  palettes/         Palette, applyPalette, findPalette
+  editor/           (planned) bilingual text, rich text, image picker, list editor
+  image-library/    (planned)
 ```
