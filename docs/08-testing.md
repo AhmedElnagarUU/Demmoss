@@ -117,3 +117,6 @@ sequenceDiagram
 - `tests/contracts/`: the contract checks above (written in phase 1, they grow with the project).
 - `.github/workflows/ci.yml`: install, `npm run check`, build, `npm run e2e`.
 - Branch protection on the main branch: CI must pass.
+
+Status: set up in phase 1. Where the MongoDB binary download is blocked (some sandboxes), integration tests and
+the tracking E2E cannot run locally; CI runs them. For local E2E you can point `E2E_MONGODB_URI` at your own MongoDB.

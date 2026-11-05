@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Neutral placeholder tokens until the brand is decided (.claude/rules/design.md). */
+@theme {
+  --color-bg: #ffffff;
+  --color-surface: #f5f6f8;
+  --color-text: #111827;
+  --color-muted: #4b5563;
+  --color-border: #d9dde3;
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+  --color-on-primary: #ffffff;
+  --color-whatsapp: #0f7a3f;
+  --color-whatsapp-hover: #0b6232;
+  --color-focus: #1d4ed8;
+
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", Tahoma, Arial, sans-serif;
+
+  --radius-control: 0.75rem;
+}
+
+html:lang(ar) body {
+  line-height: 1.8;
+}

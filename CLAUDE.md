@@ -34,7 +34,7 @@ Read `docs/01-vision.md` before writing any user-facing content.
 - Our own small i18n (`shared/i18n`: JSON messages + `t()`) for Arabic/English with full RTL support
 - Zustand (with `persist`) for demo state in localStorage only, never for server data
 - Public pages are statically generated (SEO, CDN); demos run in the browser; actions and admin need a small Node server
-- Hosting not decided (VPS or AWS, low cost): stay host-agnostic, no platform-only APIs
+- Hosting: small VPS + Cloudflare CDN; stay host-agnostic, no platform-only APIs
 
 ## Folder map
 
@@ -69,5 +69,5 @@ Details: `docs/03-architecture.md`. Testing strategy: `docs/08-testing.md`.
 
 ## Status
 
-Phase 0 (planning) is done. See `docs/07-roadmap.md` for the phases and what is still to be planned
-(first category: Restaurants & cafés, plan draft in `docs/features/template-restaurant.md`).
+Phase 0 (planning) and phase 1 (foundation: Next.js, i18n/RTL, env, db, tracking, tests, CI) are done.
+Next: phase 2 (marketing site) and phase 4 (demo engine). See `docs/07-roadmap.md`.

@@ -18,6 +18,7 @@ The data must answer the owner's marketing questions:
 
 - No raw IP addresses stored. Country comes from a host request header when available, otherwise `unknown`.
 - Never send demo content, demo account names, or passwords. Only event name, template slug, page, and small metadata.
+- Allowed `meta` keys: `kind`, `section`, `result`, `from`, `to`. Any other key or field is rejected by the schema.
 - Personal data is collected only where the visitor knowingly gives it: wizard (name, WhatsApp, optional email) and optional contact in feedback.
 
 ## Event list
@@ -28,7 +29,7 @@ Use these names exactly. Adding an event = update this table and `docs/04-data-a
 |---|---|---|
 | `page_view` | any page opened | no |
 | `wizard_started` | wizard step 1 shown | no |
-| `wizard_completed` | lead saved | yes (new lead) |
+| `wizard_completed` | lead saved | yes (new lead, created by the wizard service) |
 | `demo_opened` | template site opened | no |
 | `demo_registered` | fake register | yes |
 | `demo_login` | fake login | no |
@@ -37,7 +38,7 @@ Use these names exactly. Adding an event = update this table and `docs/04-data-a
 | `language_switched` | AR/EN toggle | no |
 | `demo_reset` | reset demo | no |
 | `whatsapp_clicked` | any WhatsApp button | yes |
-| `feedback_sent` | feedback saved | yes |
+| `feedback_sent` | feedback saved | yes (created by the feedback service) |
 | `guide_quiz_completed` | Software Guide quiz finished (`meta.result`: profile/functional/system/saas/tie) | no |
 
 ## Naming

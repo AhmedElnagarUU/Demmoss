@@ -1,0 +1,10 @@
+*.md
+docs/
+theme-sources/
+.next/
+node_modules/
+playwright-report/
+test-results/
+e2e/.tmp/
+package-lock.json
+next-env.d.ts

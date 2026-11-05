@@ -29,7 +29,7 @@ src/
     db/                         MongoDB connection, db error helpers
     ui/                         generic UI primitives (button, field, card, icon, logo)
     i18n/                       locale config, ar/en messages for shared UI
-    env.ts                      validated environment variables
+    env.ts, env.server.ts       validated environment variables (public / server-only)
 scripts/                        CLI entry points for the developer
 theme-sources/<name>/           original HTML/CSS templates (input for conversion, never imported by code)
 docs/                           vision, flows, architecture, feature flow docs, design references
@@ -74,7 +74,8 @@ The doc is updated in the same change whenever the flow changes. Use `docs/featu
 ## 6. Configuration
 
 - Anything that may change (brand name, WhatsApp number, default locale, site URL, secrets) comes from `.env`,
-  read only through `src/shared/env.ts`, which validates it with Zod.
+  validated with Zod and read only through `src/shared/env.ts` (public `NEXT_PUBLIC_` values, safe anywhere)
+  or `src/shared/env.server.ts` (secrets, server only, read on demand with `getServerEnv()`).
 - Public values use the `NEXT_PUBLIC_` prefix (visible in the browser). Secrets never use it.
 - Never hardcode those values in components.
 

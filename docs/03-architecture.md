@@ -15,7 +15,7 @@
 | Demo state | Zustand + persist (client components only) | localStorage save/load, version reset, selective re-render |
 | Charts (admin) | chosen in Phase 3, simple library | Admin statistics |
 | Rendering | Public pages statically generated; demos run in the browser; Node server for actions and admin | Good SEO, low cost (see below) |
-| Hosting | not decided (VPS or AWS, see below) | Code stays host-agnostic |
+| Hosting | small VPS + Cloudflare CDN (decided, see below) | Code stays host-agnostic |
 
 ## Server and client components (the one rule to remember)
 
@@ -155,7 +155,7 @@ and only the image URL is saved. The S3 implementation is **to be created** when
 
 ## Configuration (`.env`)
 
-See `.env.example`. Read only through `src/shared/env.ts` (validated with Zod).
+See `.env.example`. Public values are read through `src/shared/env.ts`, secrets through `src/shared/env.server.ts` (`getServerEnv()`, server only). Both validate with Zod.
 Variables starting with `NEXT_PUBLIC_` are public (sent to the browser). The others are server-only and never prefixed.
 
 | Variable | Purpose |
@@ -209,7 +209,7 @@ SEO rules:
 - `sitemap.ts` and `robots.ts` in `src/app/` cover the public pages.
 - Demos are indexable only on their home page if useful; template dashboards and the admin are `noindex`.
 
-## Hosting options (not decided)
+## Hosting (decided: Option A, VPS + Cloudflare)
 
 Target: about **$0–5/month** at the start.
 

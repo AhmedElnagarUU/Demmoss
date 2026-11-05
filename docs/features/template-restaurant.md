@@ -1,6 +1,6 @@
 # Template category: Restaurants & cafés
 
-Status: plan draft for discussion (not built). Design: from scratch until the owner adds HTML/CSS in `theme-sources/`.
+Status: plan agreed (not built). Design: from scratch until the owner adds HTML/CSS in `theme-sources/`.
 
 Two complete restaurant websites, each a different kind of restaurant with its own content and look,
 sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
@@ -378,8 +378,8 @@ src/features/template-restaurant/
 - Real payments, SMS/WhatsApp notifications to customers, printing kitchen tickets, item options (sizes/extras),
   table maps, loyalty points, delivery-driver app.
 
-## Open questions
+## Decisions
 
-1. **Default currency** in the seed (changeable in Settings): SAR, AED, EGP, or another?
-2. **Food photos:** free stock photos (commercial use allowed) for v1, or AI-generated, or your own later?
-3. **Modules:** are Event requests (Zaytouna) and Offers (Smash Lab) worth it in v1, or only the main loop first?
+1. Default currency in the seed: **SAR** (changeable in Settings).
+2. Food photos: **free stock photos** that allow commercial use, optimized into the image library.
+3. **Event requests** (Zaytouna) and **Offers** (Smash Lab) are in v1.

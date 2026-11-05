@@ -1,6 +1,6 @@
 # Feature: Tracking
 
-Status: planned
+Status: built (phase 1); admin stats queries come in phase 3
 
 ## Purpose
 
@@ -67,12 +67,15 @@ MongoDB `Visitor` and `Event`. No raw IP. No demo content or demo account data.
 
 ```
 src/features/tracking/
-  client/         track(), visitor id
+  client/         track(), visitor id, first-visit source
+  components/     page-view tracker, tracked WhatsApp button, tracked language switch
   model.ts        Visitor, Event
   repository.ts
-  actions.ts  recordEventAction
-  service.ts      recordEvent, stats queries for admin
-  types.ts        eventInputSchema, event names
+  actions.ts      recordEventAction
+  service.ts      recordEvent (+ stats queries for admin in phase 3)
+  notify.ts       which events notify the admin
+  request-info.ts device from user agent, country from header
+  types.ts        eventInputSchema, event names, allowed meta keys
 ```
 
 ## Out of scope

@@ -26,4 +26,4 @@
 ## Shared UI primitives (`src/shared/ui`)
 
 Only generic building blocks: button, link-button, field (input/textarea/select), card, badge, modal, table, icon, logo,
-language switch, whatsapp button. If a component knows about leads, templates, or bookings, it belongs in a feature.
+language switch, whatsapp button. Each primitive is created when a feature first needs it. If a component knows about leads, templates, or bookings, it belongs in a feature.
