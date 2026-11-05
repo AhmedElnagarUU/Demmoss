@@ -1,6 +1,6 @@
 import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Locale } from "@/shared/i18n/config";
-import { photoSrcSet, photoUrl } from "@/shared/ui/photo";
+import { Photo as EnginePhoto } from "@/features/demo-engine/photo/photo";
 
 // One entry of a variant's photo list (photos.ts). `src` is the plain CDN address; sizes are chosen per slot here.
 export type Photo = {
@@ -30,19 +30,15 @@ type Props = {
 
 // The frame (aspect ratio, background) belongs to the caller, so the layout holds even before the photo loads.
 export function SitePhoto({ photo, locale, sizes, priority = false, className = "" }: Props) {
-  if (!photo) return null;
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- the photo CDN already resizes and converts the image
-    <img
-      src={photoUrl(photo.src, 800)}
-      srcSet={photoSrcSet(photo.src, WIDTHS)}
+    <EnginePhoto
+      photo={photo}
+      locale={locale}
+      widths={WIDTHS}
       sizes={sizes}
-      width={photo.width}
-      height={photo.height}
-      alt={photo.alt[locale]}
-      loading={priority ? "eager" : "lazy"}
-      decoding="async"
-      className={`h-full w-full object-cover ${className}`}
+      priority={priority}
+      className={className}
+      fallback={false}
     />
   );
 }

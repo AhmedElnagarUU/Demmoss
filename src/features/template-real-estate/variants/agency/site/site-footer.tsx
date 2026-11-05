@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRealEstate } from "../../../context";
-import { businessNameOf } from "../../../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { getAgencyT } from "../messages";
 
 export function SiteFooter() {

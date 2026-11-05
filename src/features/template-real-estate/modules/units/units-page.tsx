@@ -13,9 +13,10 @@ import {
   StatusBadge,
   TextInput,
   inputClass,
-} from "../../dashboard/ui";
-import { trackEdit } from "../../dashboard/track-edit";
-import { formatNumber, formatPrice } from "../../format";
+} from "@/features/demo-engine/ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { formatNumber } from "@/features/demo-engine/format/format";
+import { formatPrice } from "../../format";
 import { getRealEstateT } from "../../messages";
 import { unitStatuses, type Property } from "../../types";
 import type { UnitsActions } from "./store-slice";

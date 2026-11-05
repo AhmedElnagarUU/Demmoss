@@ -2,8 +2,9 @@
 
 import { useState, type ReactNode } from "react";
 import type { Locale } from "@/shared/i18n/config";
-import { TextInput } from "../../dashboard/ui";
-import { formatNumber, formatPrice } from "../../format";
+import { TextInput } from "@/features/demo-engine/ui";
+import { formatNumber } from "../../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../../messages";
 import type { StorageEstimate } from "../../types";
 import { estimateStorage } from "./estimator";

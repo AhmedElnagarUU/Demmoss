@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildClients } from "./clients";
-import { businessNameOf } from "./business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { allowedQuoteStatuses, canMoveQuote, validateQuote } from "./quotes";
 import { afterHoursFacts, staleQuoteFacts } from "./value-tips";
 import type { Quote, Settings } from "./types";

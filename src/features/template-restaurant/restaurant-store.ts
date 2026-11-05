@@ -1,5 +1,5 @@
 import type { EngineActions } from "@/features/demo-engine/storage/create-template-store";
-import type { HydratableStore } from "@/features/demo-engine/storage/use-hydrated";
+import type { StoreOf } from "@/features/demo-engine/storage/use-hydrated";
 import type { SharedActions } from "./shared-slice";
 import type { RestaurantData } from "./types";
 
@@ -7,4 +7,4 @@ import type { RestaurantData } from "./types";
 // Any variant store (it has more data and actions) fits this type.
 export type RestaurantState = RestaurantData & SharedActions & EngineActions;
 
-export type RestaurantStore = HydratableStore & (<T>(selector: (state: RestaurantState) => T) => T);
+export type RestaurantStore = StoreOf<RestaurantState>;

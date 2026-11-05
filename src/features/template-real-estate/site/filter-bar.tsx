@@ -1,7 +1,7 @@
 "use client";
 
 import { useRealEstate } from "../context";
-import { SelectInput, TextInput } from "../dashboard/ui";
+import { SelectInput, TextInput } from "@/features/demo-engine/ui";
 import { sortIds, type FilterState } from "../listings";
 import { getRealEstateT } from "../messages";
 import { propertyTypes } from "../types";

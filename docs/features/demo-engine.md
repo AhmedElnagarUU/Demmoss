@@ -1,6 +1,6 @@
 # Feature: Demo engine
 
-Status: core built (storage, fake-auth, banner, dashboard-shell, palettes); editor and image-library are still planned
+Status: core built (storage, fake-auth, banner, dashboard-shell, palettes, ui, photo, format); editor and image-library are still planned
 
 The full description, diagrams, and parts list are in `docs/05-demo-engine.md`. Storage rules are in `.claude/rules/storage.md`.
 
@@ -21,6 +21,7 @@ so each template only adds its design, content, and business modules.
 | # | As a developer I want to… | So that… |
 |---|---|---|
 | E5 | create a new template store with key, version, and seed in a few lines | new templates are fast and consistent |
+| E6 | reuse the dashboard form pieces, photo, palette scope, formatters, and business-name rule instead of copying them | the three categories stay consistent and a fix lands once |
 
 ## Tests
 
@@ -28,6 +29,7 @@ so each template only adds its design, content, and business modules.
 |---|---|---|
 | Unit | store: old version → reset to seed keeping the account; invalid data → reset; reset demo keeps the account | E2, E3 |
 | Unit | sample dates are relative to "today" | E2 |
+| Unit | business name: register name replaces seed, Settings edit wins; dates keys; phone rules; contrast helper (WCAG) | E1, E2, E5 |
 | Unit | fake auth: register hashes the password; right password logs in; wrong one fails | E1 |
 | Contract | every template store uses `demo:<category>-<variant>` and has a version and a valid seed | E5 |
 | E2E | banner visible on site and dashboard; changes survive reload; two tabs stay in sync | E2, E4 |
@@ -39,10 +41,15 @@ src/features/demo-engine/
   types.ts          LocalizedText { ar, en }
   messages.ts       getEngineT(locale) over messages/{ar,en}.json
   storage/          createTemplateStore, restore (pure rules), daysFrom, HydrationGate, useHydrated, session flags
-  fake-auth/        account schema, register/login logic, RegisterForm, LoginForm, DashboardGuard
+  fake-auth/        account schema, register/login logic, businessNameOf, RegisterForm, LoginForm, DashboardGuard
   banner/           DemoBanner
-  dashboard-shell/  DashboardShell, ValueTipBox, pickValueTip
-  palettes/         Palette, applyPalette, findPalette
+  dashboard-shell/  DashboardShell, ValueTipBox, pickValueTip, createVariantContext (store + config + locale context), DashboardModule/OverviewCard/ActivityItem types
+  palettes/         Palette, applyPalette, findPalette, PaletteScope (palette + optional fonts), contrast (WCAG ratio for palette tests)
+  ui/               dashboard form pieces (TextInput, NumberInput, TextArea, SelectInput, BilingualField, Field, parseNumber) and page pieces (PageHeader, Panel, StatusBadge, ErrorSummary)
+  photo/            Photo (CDN srcset + fallback box), PhotoData
+  format/           formatPrice/Number/Date/DateTime/DateKey/Time, weekdayName, intlLocale · dates (date keys, minutesOf, timeKey) · phone (isValidPhone, phoneDigits, phoneWhatsAppUrl)
+  track-edit.ts     trackEdit (content_edited with the section name only)
+  storage/ also exports StoreOf<State>, the store type the shared dashboard parts select from
   editor/           (planned) bilingual text, rich text, image picker, list editor
   image-library/    (planned)
 ```

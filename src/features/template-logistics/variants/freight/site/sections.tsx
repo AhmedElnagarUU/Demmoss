@@ -4,8 +4,8 @@ import Link from "next/link";
 import { whatsappUrl } from "@/shared/ui/whatsapp";
 import type { Locale } from "@/shared/i18n/config";
 import { FaqAccordion } from "../../../components/faq-accordion";
-import { Photo, type SitePhoto } from "../../../components/photo";
-import { formatPrice } from "../../../format";
+import { Photo, type PhotoData } from "@/features/demo-engine/photo/photo";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../../../messages";
 import { getFreightT } from "../messages";
 import { freightPhotos } from "../photos";
@@ -22,7 +22,7 @@ const serviceCards = [
   { key: "road", photo: freightPhotos.roadFreight },
   { key: "rail", photo: freightPhotos.railFreight },
   { key: "customs", photo: freightPhotos.customs },
-] as const satisfies readonly { key: string; photo: SitePhoto }[];
+] as const satisfies readonly { key: string; photo: PhotoData }[];
 
 // The five services with their starting price per kg, read from the rates the owner edits.
 export function ServiceCards({ locale }: Props) {

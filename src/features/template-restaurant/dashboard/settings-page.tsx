@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { track } from "@/features/tracking/client/track";
 import { Button } from "@/shared/ui/button";
-import { businessNameOf } from "../business-name";
-import { minutesOf } from "../dates";
-import { weekdayName } from "../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { minutesOf } from "@/features/demo-engine/format/dates";
+import { weekdayName } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../messages";
 import type { Settings } from "../types";
 import { useRestaurant } from "./restaurant-context";
-import { trackEdit } from "./track-edit";
-import { BilingualField, PageHeader, Panel, SelectInput, TextInput } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, PageHeader, Panel, SelectInput, TextInput } from "@/features/demo-engine/ui";
 
 const currencies = ["SAR", "AED", "KWD", "QAR", "BHD", "OMR", "EGP", "JOD", "USD", "EUR"];
 

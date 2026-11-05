@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { propertyState, unitCounts } from "../availability";
 import { useRealEstate } from "../context";
-import { formatNumber, formatPrice } from "../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
+import { formatPrice } from "../format";
 import { getRealEstateT } from "../messages";
 import type { Property } from "../types";
 import { findPhoto, SitePhoto } from "./photo";

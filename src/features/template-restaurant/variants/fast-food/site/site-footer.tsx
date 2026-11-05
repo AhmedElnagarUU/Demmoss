@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { businessNameOf } from "../../../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
 import { displayFont } from "./styles";

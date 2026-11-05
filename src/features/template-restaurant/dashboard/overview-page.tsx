@@ -1,11 +1,11 @@
 "use client";
 
 import { ValueTipBox } from "@/features/demo-engine/dashboard-shell/value-tip-box";
-import { formatDateTime } from "../format";
+import { formatDateTime } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../messages";
 import { tipTexts } from "./tip-texts";
 import { useRestaurant } from "./restaurant-context";
-import { PageHeader, Panel } from "./ui";
+import { PageHeader, Panel } from "@/features/demo-engine/ui";
 
 const LATEST_ACTIVITY = 6;
 

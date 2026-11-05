@@ -1,7 +1,7 @@
 import type { ValueTipData } from "@/features/demo-engine/dashboard-shell/value-tip";
 import type { Locale } from "@/shared/i18n/config";
-import { timeKey } from "../dates";
-import { formatNumber, formatTime } from "../format";
+import { timeKey } from "@/features/demo-engine/format/dates";
+import { formatNumber, formatTime } from "@/features/demo-engine/format/format";
 import type { RestaurantTranslate } from "../messages";
 import type { TipFact } from "../value-tips";
 

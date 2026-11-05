@@ -1,4 +1,4 @@
-import { phoneDigits } from "./phone";
+import { phoneDigits } from "@/features/demo-engine/format/phone";
 
 // Customers are never stored: each variant lists the people behind its reservations, requests, or orders.
 export type CustomerEntry = { name: string; phone: string; date: string };

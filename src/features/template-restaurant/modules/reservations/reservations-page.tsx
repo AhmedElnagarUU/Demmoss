@@ -4,13 +4,18 @@ import { useState } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { businessNameOf } from "../../business-name";
-import { PageHeader, Panel, StatusBadge, TextInput } from "../../dashboard/ui";
-import { trackEdit } from "../../dashboard/track-edit";
-import { toDateKey } from "../../dates";
-import { formatDateKey, formatDateTime, formatNumber, formatTime } from "../../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { PageHeader, Panel, StatusBadge, TextInput } from "@/features/demo-engine/ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { toDateKey } from "@/features/demo-engine/format/dates";
+import {
+  formatDateKey,
+  formatDateTime,
+  formatNumber,
+  formatTime,
+} from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
-import { customerWhatsAppUrl } from "../../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import type { ReservationsStore } from "./reservations-store";
 import { allowedReservationStatuses } from "./status";
 import { reservationSettingsSchema, type Reservation, type ReservationSettings } from "./types";
@@ -130,7 +135,7 @@ function ReservationRow({ reservation, locale, businessName, onStatus }: RowProp
           </Button>
         ))}
         <a
-          href={customerWhatsAppUrl(reservation.phone, message)}
+          href={phoneWhatsAppUrl(reservation.phone, message)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${t("common.whatsappReply")}: ${reservation.name}`}

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRealEstate } from "../../context";
-import { formatNumber, formatPrice } from "../../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
+import { formatPrice } from "../../format";
 import { getRealEstateT } from "../../messages";
 import { calculateMortgage } from "./calc";
 

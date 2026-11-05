@@ -5,9 +5,10 @@ import { useState, type FormEvent } from "react";
 import { track } from "@/features/tracking/client/track";
 import { propertyState, unitCounts } from "../availability";
 import { useRealEstate } from "../context";
-import { ErrorSummary, SelectInput, TextArea, TextInput } from "../dashboard/ui";
-import { toDateKey } from "../dates";
-import { formatDateKey, formatPrice, formatTime } from "../format";
+import { ErrorSummary, SelectInput, TextArea, TextInput } from "@/features/demo-engine/ui";
+import { toDateKey } from "@/features/demo-engine/format/dates";
+import { formatDateKey, formatTime } from "@/features/demo-engine/format/format";
+import { formatPrice } from "../format";
 import { getRealEstateT } from "../messages";
 import {
   bookableDates,

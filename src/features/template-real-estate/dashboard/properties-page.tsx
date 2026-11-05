@@ -17,8 +17,16 @@ import {
   type PropertyType,
   type Purpose,
 } from "../types";
-import { trackEdit } from "./track-edit";
-import { BilingualField, ErrorSummary, PageHeader, Panel, SelectInput, StatusBadge, TextInput } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import {
+  BilingualField,
+  ErrorSummary,
+  PageHeader,
+  Panel,
+  SelectInput,
+  StatusBadge,
+  TextInput,
+} from "@/features/demo-engine/ui";
 
 // Dashboard: add, edit, and remove the properties shown on the site (listings for the agency, residences for the developer).
 export function PropertiesPage() {

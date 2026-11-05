@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { formatNumber, formatPrice } from "../../format";
+import { formatNumber, formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
 import type { OrderingStore } from "./orders-store";
 import { orderTotals } from "./totals";

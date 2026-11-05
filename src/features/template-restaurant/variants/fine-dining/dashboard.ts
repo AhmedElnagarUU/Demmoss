@@ -1,4 +1,5 @@
-import type { DashboardModule, RestaurantConfig } from "../../dashboard/restaurant-context";
+import type { DashboardModule } from "@/features/demo-engine/dashboard-shell/dashboard-context";
+import type { RestaurantConfig } from "../../dashboard/restaurant-context";
 import { fineDiningPalettes } from "./palettes";
 import { fineDiningPhotos } from "./photos";
 import { useCustomers, useOverview } from "./overview";

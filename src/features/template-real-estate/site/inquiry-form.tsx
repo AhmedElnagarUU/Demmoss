@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { track } from "@/features/tracking/client/track";
 import { useRealEstate } from "../context";
-import { ErrorSummary, SelectInput, TextArea, TextInput } from "../dashboard/ui";
+import { ErrorSummary, SelectInput, TextArea, TextInput } from "@/features/demo-engine/ui";
 import { formatPrice } from "../format";
 import { getRealEstateT } from "../messages";
 import { validateInquiry, type InquiryErrors } from "../modules/inquiries/validate";

@@ -1,21 +1,20 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
-import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Palette } from "@/features/demo-engine/palettes/palette";
+import {
+  createVariantContext,
+  type ActivityItem,
+  type DashboardModule,
+  type OverviewCard,
+} from "@/features/demo-engine/dashboard-shell/dashboard-context";
 import type { Locale } from "@/shared/i18n/config";
 import type { Customer } from "../customers";
 import type { LibraryPhoto } from "../images";
 import type { RestaurantStore } from "../restaurant-store";
 import type { TipFact } from "../value-tips";
 
-export type OverviewCard = { id: string; label: string; value: string };
-export type ActivityItem = { id: string; text: string; at: string };
-
 // What a variant shows on the Overview page, built from its own module data.
 export type Overview = { cards: OverviewCard[]; activity: ActivityItem[]; tips: TipFact[] };
-
-export type DashboardModule = { path: string; label: LocalizedText };
 
 // Everything the shared dashboard needs to know about a variant.
 export type RestaurantConfig = {
@@ -34,21 +33,7 @@ export type RestaurantConfig = {
   useCustomers: () => Customer[];
 };
 
-type RestaurantContextValue = { store: RestaurantStore; config: RestaurantConfig; locale: Locale };
-
-const RestaurantContext = createContext<RestaurantContextValue | null>(null);
-
-export function RestaurantProvider({
-  store,
-  config,
-  locale,
-  children,
-}: RestaurantContextValue & { children: ReactNode }) {
-  return <RestaurantContext value={{ store, config, locale }}>{children}</RestaurantContext>;
-}
-
-export function useRestaurant(): RestaurantContextValue {
-  const value = useContext(RestaurantContext);
-  if (!value) throw new Error("useRestaurant must be used inside RestaurantProvider");
-  return value;
-}
+export const { Provider: RestaurantProvider, useVariant: useRestaurant } = createVariantContext<
+  RestaurantStore,
+  RestaurantConfig
+>("Restaurant");

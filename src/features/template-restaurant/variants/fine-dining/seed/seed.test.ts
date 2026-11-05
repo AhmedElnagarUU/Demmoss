@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dateKeyFromNow } from "../../../dates";
+import { dateKeyFromNow } from "@/features/demo-engine/format/dates";
 import { afterHoursFacts } from "../../../value-tips";
 import { fineDiningSchema } from "../data";
 import { createFineDiningSeed } from ".";

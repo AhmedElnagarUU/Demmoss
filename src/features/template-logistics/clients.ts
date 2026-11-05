@@ -1,4 +1,4 @@
-import { phoneDigits } from "./phone";
+import { phoneDigits } from "@/features/demo-engine/format/phone";
 import type { Quote } from "./types";
 
 // Clients are never stored: they are the people behind the quotes, grouped by phone number.

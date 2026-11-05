@@ -4,9 +4,16 @@ import { useState } from "react";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { BilingualField, PageHeader, Panel, SelectInput, StatusBadge, TextInput } from "../../dashboard/ui";
-import { trackEdit } from "../../dashboard/track-edit";
-import { formatPrice } from "../../format";
+import {
+  BilingualField,
+  PageHeader,
+  Panel,
+  SelectInput,
+  StatusBadge,
+  TextInput,
+} from "@/features/demo-engine/ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import type { LibraryPhoto } from "../../images";
 import { getRestaurantT } from "../../messages";
 import type { OrderingStore } from "../orders/orders-store";

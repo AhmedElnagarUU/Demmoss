@@ -7,10 +7,10 @@ import { track } from "@/features/tracking/client/track";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { SelectInput, TextArea, TextInput } from "../../dashboard/ui";
-import { formatNumber, formatPrice, formatTime, weekdayName } from "../../format";
+import { SelectInput, TextArea, TextInput } from "@/features/demo-engine/ui";
+import { formatNumber, formatPrice, formatTime, weekdayName } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
-import { addDays } from "../../dates";
+import { addDays } from "@/features/demo-engine/format/dates";
 import { nextOpening } from "./opening";
 import type { OrderingStore } from "./orders-store";
 import {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { Photo } from "../../../components/photo";
+import { Photo } from "@/features/demo-engine/photo/photo";
 import { EstimatorWidget } from "../../../modules/storage-rates/estimator-widget";
 import { getWarehousingT } from "../messages";
 import { warehousingPhotos } from "../photos";

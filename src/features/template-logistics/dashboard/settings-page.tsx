@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { track } from "@/features/tracking/client/track";
 import { Button } from "@/shared/ui/button";
-import { businessNameOf } from "../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { timeSchema, type Settings } from "../types";
 import { getLogisticsT } from "../messages";
-import { trackEdit } from "../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import { useLogistics } from "./logistics-context";
-import { BilingualField, PageHeader, Panel, TextInput } from "./ui";
+import { BilingualField, PageHeader, Panel, TextInput } from "@/features/demo-engine/ui";
 
 export function SettingsPage() {
   const { store, config, locale } = useLogistics();

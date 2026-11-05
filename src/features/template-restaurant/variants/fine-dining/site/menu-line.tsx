@@ -1,5 +1,5 @@
 import type { Locale } from "@/shared/i18n/config";
-import { formatPrice } from "../../../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../../messages";
 import type { MenuItem } from "../../../types";
 import { getFineDiningT } from "../messages";

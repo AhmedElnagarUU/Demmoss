@@ -2,9 +2,9 @@
 
 import { Button } from "@/shared/ui/button";
 import { getLogisticsT } from "../messages";
-import { trackEdit } from "../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import { useLogistics } from "./logistics-context";
-import { PageHeader, StatusBadge } from "./ui";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
 
 export function TestimonialsPage() {
   const { store, config, locale } = useLogistics();

@@ -3,10 +3,10 @@
 import { useState, type FormEvent } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { PageHeader, Panel, SelectInput, StatusBadge, TextInput } from "../../dashboard/ui";
-import { formatDate, formatDateTime } from "../../format";
+import { PageHeader, Panel, SelectInput, StatusBadge, TextInput } from "@/features/demo-engine/ui";
+import { formatDate, formatDateTime } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../../messages";
-import { trackEdit } from "../../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import { transportModes, type TransportMode } from "../../types";
 import { currentStatus, nextStatuses } from "./status";
 import type { ShipmentsStore } from "./shipments-store";

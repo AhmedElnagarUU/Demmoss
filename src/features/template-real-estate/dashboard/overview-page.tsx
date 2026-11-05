@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { ValueTipBox } from "@/features/demo-engine/dashboard-shell/value-tip-box";
 import { useRealEstate } from "../context";
-import { toDateKey } from "../dates";
-import { formatDateTime, formatNumber } from "../format";
+import { toDateKey } from "@/features/demo-engine/format/dates";
+import { formatDateTime, formatNumber } from "@/features/demo-engine/format/format";
 import { getRealEstateT } from "../messages";
 import { allTipFacts } from "../value-tips";
 import { tipTexts } from "./tip-texts";
-import { PageHeader, Panel } from "./ui";
+import { PageHeader, Panel } from "@/features/demo-engine/ui";
 
 const LATEST_ACTIVITY = 6;
 

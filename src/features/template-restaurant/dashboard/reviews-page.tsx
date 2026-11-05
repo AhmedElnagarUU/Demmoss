@@ -3,8 +3,8 @@
 import { Button } from "@/shared/ui/button";
 import { getRestaurantT } from "../messages";
 import { useRestaurant } from "./restaurant-context";
-import { trackEdit } from "./track-edit";
-import { PageHeader, StatusBadge } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
 
 export function ReviewsPage() {
   const { store, config, locale } = useRestaurant();

@@ -1,5 +1,5 @@
 import { daysFrom } from "@/features/demo-engine/storage/days-from";
-import { dateKeyFromNow } from "../../../dates";
+import { dateKeyFromNow } from "@/features/demo-engine/format/dates";
 import type { EventRequest } from "../../../modules/event-requests/types";
 import type { Reservation, ReservationSettings } from "../../../modules/reservations/types";
 

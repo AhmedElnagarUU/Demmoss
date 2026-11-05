@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { formatDateTime, formatNumber, formatPrice } from "../../format";
+import { formatDateTime, formatNumber, formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
 import type { OrderingStore } from "./orders-store";
 import { statusSteps } from "./status";

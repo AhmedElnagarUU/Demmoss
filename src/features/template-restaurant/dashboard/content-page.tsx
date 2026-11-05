@@ -5,8 +5,8 @@ import { Button } from "@/shared/ui/button";
 import { getRestaurantT } from "../messages";
 import type { Content } from "../types";
 import { useRestaurant } from "./restaurant-context";
-import { trackEdit } from "./track-edit";
-import { BilingualField, PageHeader, Panel, SelectInput } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, PageHeader, Panel, SelectInput } from "@/features/demo-engine/ui";
 
 export function ContentPage() {
   const { store, locale } = useRestaurant();

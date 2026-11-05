@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { Photo } from "../../../components/photo";
+import { Photo } from "@/features/demo-engine/photo/photo";
 import { CalculatorWidget } from "../../../modules/rates/calculator-widget";
 import { Tracker } from "../../../modules/shipments/tracker";
 import { getFreightT } from "../messages";

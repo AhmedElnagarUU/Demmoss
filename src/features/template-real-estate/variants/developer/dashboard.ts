@@ -1,6 +1,7 @@
 import { unitCounts } from "../../availability";
-import type { DashboardModule, RealEstateConfig } from "../../context";
-import { formatNumber } from "../../format";
+import type { DashboardModule } from "@/features/demo-engine/dashboard-shell/dashboard-context";
+import type { RealEstateConfig } from "../../context";
+import { formatNumber } from "@/features/demo-engine/format/format";
 import { getRealEstateT } from "../../messages";
 import { developerAreas, developerPriceBands } from "./areas";
 import { developerPalettes } from "./palettes";

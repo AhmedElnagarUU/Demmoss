@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { businessNameOf } from "./business-name";
-import { seedSettings } from "./variants/fine-dining/seed/content";
 
+const seedSettings = { businessName: { ar: "زيتونة", en: "Zaytouna" }, nameEdited: false };
 const account = { name: "Sara", passwordHash: "a".repeat(64), businessName: "Dar Sara" };
 
-describe("R5: the business name given at register replaces the seed name", () => {
+describe("E1: the business name given at register replaces the seed name", () => {
   it("shows the seed name before any account exists", () => {
     const state = { account: null, settings: seedSettings };
     expect(businessNameOf(state, "en")).toBe("Zaytouna");
@@ -23,11 +23,7 @@ describe("R5: the business name given at register replaces the seed name", () =>
   });
 
   it("a name edited in Settings wins over the registered one", () => {
-    const settings = {
-      ...seedSettings,
-      nameEdited: true,
-      businessName: { ar: "دار سارة", en: "Sara House" },
-    };
+    const settings = { nameEdited: true, businessName: { ar: "دار سارة", en: "Sara House" } };
     expect(businessNameOf({ account, settings }, "en")).toBe("Sara House");
     expect(businessNameOf({ account, settings }, "ar")).toBe("دار سارة");
   });

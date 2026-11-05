@@ -10,14 +10,20 @@ only adds its design, content, and business modules. Templates import from it; i
 | `storage/` | Helper to create a template's Zustand persist store: key `demo:<slug>`, version, seed (with sample dates made relative to today), reset that keeps the account, Zod validation of loaded data, sync between tabs (browser `storage` event) |
 | `fake-auth/` | Register and login pages/components (name + password hashed in the browser + optional business name), a guard for dashboard routes, logout |
 | `dashboard-shell/` | Sidebar, header, language switch, RTL-ready layout, page title, empty states, value-tip box |
-| `palettes/` | Applies the selected palette (CSS variables) to a template's site and dashboard |
+| `palettes/` | `PaletteScope` applies the selected palette (CSS variables) and the variant's fonts to a template's site and dashboard; `contrast()` checks palettes in tests |
+| `ui/` | Dashboard form and page pieces with accessible labels and RTL-safe classes: `TextInput`, `NumberInput`, `TextArea`, `SelectInput`, `BilingualField`, `PageHeader`, `Panel`, `StatusBadge`, `ErrorSummary` |
+| `photo/` | `Photo`: CDN photo with srcset and a fallback box when it cannot load |
+| `format/` | Locale-aware price, number, date, and time formatters, date-key helpers, phone validation and WhatsApp link |
+| `dashboard-shell/dashboard-context` | `createVariantContext`: store + config + locale for a category's dashboard pages |
+| `fake-auth/business-name`, `track-edit` | `businessNameOf` (register name vs Settings) and `trackEdit` |
 | `editor/` | Bilingual field editors: text `{ar,en}`, rich text, image picker from the library, list editor (add/remove/reorder) |
 | `image-library/` | Bundled, optimized images grouped by topic |
 | `banner/` | "Live demo, saved only in your browser" bar with Dashboard, WhatsApp, and Reset buttons |
 | tracking | Calls `track()` for `demo_opened`, `demo_registered`, `demo_login`, `content_edited`, `demo_reset` |
 
 Business-specific modules (bookings, menu, appointments, listings) live in each template, not here.
-If two templates need the same module, it is copied first; it moves into the engine only when a third needs it (KISS).
+If two templates need the same generic piece (no business knowledge), it moves into the engine and the templates import it; the engine never imports a template.
+Business-specific pieces (a price format with a fixed currency, opening hours rules, value tips) stay in the category.
 
 ## Template store lifecycle
 

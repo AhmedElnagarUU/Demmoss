@@ -1,11 +1,11 @@
 "use client";
 
-import { formatDateKey, formatNumber } from "../format";
+import { formatDateKey, formatNumber } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../messages";
-import { customerWhatsAppUrl } from "../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import { buttonClasses } from "@/shared/ui/button-styles";
 import { useRestaurant } from "./restaurant-context";
-import { PageHeader } from "./ui";
+import { PageHeader } from "@/features/demo-engine/ui";
 
 export function CustomersPage() {
   const { config, locale } = useRestaurant();
@@ -52,7 +52,7 @@ export function CustomersPage() {
                   <td className="p-3">{formatDateKey(customer.lastDate, locale)}</td>
                   <td className="p-3">
                     <a
-                      href={customerWhatsAppUrl(customer.phone, "")}
+                      href={phoneWhatsAppUrl(customer.phone, "")}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${t("common.whatsappReply")}: ${customer.name}`}

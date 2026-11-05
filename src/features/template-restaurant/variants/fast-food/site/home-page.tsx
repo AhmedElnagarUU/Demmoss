@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { formatNumber, formatPrice, formatTime } from "../../../format";
+import { formatNumber, formatPrice, formatTime } from "@/features/demo-engine/format/format";
 import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
 import { FastFoodPhoto } from "./fast-food-photo";

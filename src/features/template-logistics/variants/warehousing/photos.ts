@@ -1,4 +1,4 @@
-import type { SitePhoto } from "../../components/photo";
+import type { PhotoData } from "@/features/demo-engine/photo/photo";
 
 // Every photo of the Makhzan 3PL site, from the Unsplash photos of the source design (Stackwell 3PL).
 // They are served by the photo CDN through photoUrl(); moving to self-hosted files later is a change in this list only.
@@ -35,4 +35,4 @@ export const warehousingPhotos = {
     height: 800,
     alt: { ar: "ملحق جبل علي من الداخل", en: "Inside the Jebel Ali Annex" },
   },
-} as const satisfies Record<string, SitePhoto>;
+} as const satisfies Record<string, PhotoData>;

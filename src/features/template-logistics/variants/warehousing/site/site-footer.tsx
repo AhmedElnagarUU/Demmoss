@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { businessNameOf } from "../../../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { getWarehousingT } from "../messages";
 import { WAREHOUSING_ROOT } from "../slug";
 import { useWarehousingStore } from "../store";

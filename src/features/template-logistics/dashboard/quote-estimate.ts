@@ -1,5 +1,6 @@
 import type { Locale } from "@/shared/i18n/config";
-import { formatNumber, formatPrice } from "../format";
+import { formatNumber } from "../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import type { LogisticsTranslate } from "../messages";
 import type { Estimate } from "../types";
 

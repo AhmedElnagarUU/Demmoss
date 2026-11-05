@@ -1,6 +1,6 @@
-import { addDays, minutesOf, timeKey, toDateKey } from "../../dates";
+import { addDays, minutesOf, timeKey, toDateKey } from "@/features/demo-engine/format/dates";
 import { openingOnDateKey } from "../../hours";
-import { isValidPhone } from "../../phone";
+import { isValidPhone } from "@/features/demo-engine/format/phone";
 import type { OpeningDay } from "../../types";
 import type { Reservation, ReservationSettings } from "./types";
 

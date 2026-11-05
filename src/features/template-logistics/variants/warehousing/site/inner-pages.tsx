@@ -3,8 +3,8 @@
 import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
 import { QuoteForm } from "../../../components/quote-form";
-import { Photo } from "../../../components/photo";
-import { formatPrice } from "../../../format";
+import { Photo } from "@/features/demo-engine/photo/photo";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../../../messages";
 import { EstimatorWidget } from "../../../modules/storage-rates/estimator-widget";
 import { getWarehousingT } from "../messages";
