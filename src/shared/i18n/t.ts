@@ -12,11 +12,18 @@ export type MessageKey = Leaves<Messages>;
 
 export type Translate = (key: MessageKey, values?: Record<string, string>) => string;
 
+export type TranslateFor<M> = (key: Leaves<M>, values?: Record<string, string>) => string;
+
 const messages: Record<Locale, Messages> = { ar, en };
 
 export function getT(locale: Locale): Translate {
+  return createTranslator(messages, locale);
+}
+
+// For a feature's own messages: src/features/<feature>/messages/{ar,en}.json
+export function createTranslator<M>(source: Record<Locale, M>, locale: Locale): TranslateFor<M> {
   return (key, values = {}) => {
-    const text = lookup(messages[locale], key);
+    const text = lookup(source[locale], key);
     return text.replace(/\{(\w+)\}/g, (match, name: string) => values[name] ?? match);
   };
 }

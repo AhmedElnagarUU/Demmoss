@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import ar from "@/shared/i18n/messages/ar.json";
-import en from "@/shared/i18n/messages/en.json";
+import { listFiles, readProjectFile } from "../helpers/files";
 
 type Entries = Map<string, string>;
 
@@ -16,9 +15,23 @@ function placeholders(text: string): string[] {
   return [...text.matchAll(/\{(\w+)\}/g)].map((match) => match[1] ?? "").sort();
 }
 
-// Every content source with { ar, en } versions is added here as it is created
-// (Software Guide content, template seeds).
-const sources = [{ name: "shared/i18n messages", ar: flatten(ar), en: flatten(en) }];
+// Every ar.json in src/ must have an en.json next to it (messages, guide content, seeds), and the reverse.
+const arabicFiles = listFiles("src", ["ar.json"]);
+const englishFiles = listFiles("src", ["en.json"]);
+
+const sources = arabicFiles.map((arFile) => {
+  const enFile = arFile.replace(/ar\.json$/, "en.json");
+  return {
+    name: arFile,
+    ar: flatten(JSON.parse(readProjectFile(arFile))),
+    en: flatten(englishFiles.includes(enFile) ? JSON.parse(readProjectFile(enFile)) : {}),
+  };
+});
+
+it("every en.json has an ar.json next to it", () => {
+  const missing = englishFiles.filter((file) => !arabicFiles.includes(file.replace(/en\.json$/, "ar.json")));
+  expect(missing).toEqual([]);
+});
 
 describe.each(sources)("Arabic and English stay complete: $name", ({ ar: arabic, en: english }) => {
   it("have exactly the same keys", () => {
