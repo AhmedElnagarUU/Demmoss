@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for the developer: four dark ones in the design's spirit and one light. Colors are tokens;
+// every palette is contrast-checked by palettes.test.ts (WCAG AA). --re-accent is used for small labels.
+export const developerPalettes: readonly Palette[] = [
+  {
+    id: "sand",
+    name: { ar: "رملي", en: "Sand" },
+    vars: {
+      "--color-bg": "#0b0b0b",
+      "--color-surface": "#151515",
+      "--color-text": "#f2efe9",
+      "--color-muted": "#a8a299",
+      "--color-border": "#3a3733",
+      "--color-primary": "#d9b99b",
+      "--color-primary-hover": "#e8cdb3",
+      "--color-on-primary": "#14110d",
+      "--color-focus": "#d9b99b",
+      "--re-accent": "#d9b99b",
+    },
+  },
+  {
+    id: "stone",
+    name: { ar: "حجري فاتح", en: "Light stone" },
+    vars: {
+      "--color-bg": "#f4f0e8",
+      "--color-surface": "#e9e2d5",
+      "--color-text": "#1a1713",
+      "--color-muted": "#5e574c",
+      "--color-border": "#cfc6b4",
+      "--color-primary": "#1a1713",
+      "--color-primary-hover": "#5a4630",
+      "--color-on-primary": "#f4f0e8",
+      "--color-focus": "#1a1713",
+      "--re-accent": "#7d5f3a",
+    },
+  },
+  {
+    id: "ocean",
+    name: { ar: "بحري", en: "Ocean" },
+    vars: {
+      "--color-bg": "#08111a",
+      "--color-surface": "#101c28",
+      "--color-text": "#eaf1f6",
+      "--color-muted": "#9fb0bf",
+      "--color-border": "#2c3e4f",
+      "--color-primary": "#8fc3e0",
+      "--color-primary-hover": "#aed6ec",
+      "--color-on-primary": "#08202e",
+      "--color-focus": "#8fc3e0",
+      "--re-accent": "#8fc3e0",
+    },
+  },
+  {
+    id: "forest",
+    name: { ar: "غابي", en: "Forest" },
+    vars: {
+      "--color-bg": "#0a120e",
+      "--color-surface": "#131f18",
+      "--color-text": "#eef2ec",
+      "--color-muted": "#a3b3a6",
+      "--color-border": "#2f4236",
+      "--color-primary": "#b7d3a3",
+      "--color-primary-hover": "#cbe2b9",
+      "--color-on-primary": "#10200f",
+      "--color-focus": "#b7d3a3",
+      "--re-accent": "#b7d3a3",
+    },
+  },
+  {
+    id: "clay",
+    name: { ar: "طيني", en: "Clay" },
+    vars: {
+      "--color-bg": "#140d0b",
+      "--color-surface": "#1f1512",
+      "--color-text": "#f5ece6",
+      "--color-muted": "#b8a79d",
+      "--color-border": "#45332c",
+      "--color-primary": "#e0a487",
+      "--color-primary-hover": "#ecb9a0",
+      "--color-on-primary": "#2a130a",
+      "--color-focus": "#e0a487",
+      "--re-accent": "#e0a487",
+    },
+  },
+];

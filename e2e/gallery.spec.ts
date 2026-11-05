@@ -8,12 +8,16 @@ const locales = [
 
 for (const { locale, dir, title } of locales) {
   test.describe(`/${locale}/demos`, () => {
-    test(`G1: renders in ${locale} with dir=${dir} and an empty state that leads to the wizard`, async ({
-      page,
-    }) => {
+    test(`G1: renders in ${locale} with dir=${dir} and lists the restaurant demos`, async ({ page }) => {
       await page.goto(`/${locale}/demos`);
       await expect(page.locator("html")).toHaveAttribute("dir", dir);
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
+      await expect(page.locator(`main a[href='/${locale}/demos/restaurant/fine-dining']`)).toBeVisible();
+      await expect(page.locator(`main a[href='/${locale}/demos/restaurant/fast-food']`)).toBeVisible();
+    });
+
+    test(`G2: a category without demos in ${locale} leads to the wizard and WhatsApp`, async ({ page }) => {
+      await page.goto(`/${locale}/demos?category=clinic`);
       await expect(page.locator("main").locator(`a[href='/${locale}/start']`)).toBeVisible();
       await expect(page.locator("main a[href*='wa.me']")).toBeVisible();
     });

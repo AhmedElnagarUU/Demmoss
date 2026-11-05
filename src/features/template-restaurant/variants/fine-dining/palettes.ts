@@ -4,19 +4,19 @@ import type { Palette } from "@/features/demo-engine/palettes/palette";
 // --fd-accent is Zaytouna's own accent (headings, rules, eyebrows).
 export const fineDiningPalettes: readonly Palette[] = [
   {
-    id: "olive",
-    name: { ar: "زيتوني", en: "Olive" },
+    id: "verdant",
+    name: { ar: "أخضر عميق", en: "Verdant" },
     vars: {
-      "--color-bg": "#faf6ec",
-      "--color-surface": "#f0ead8",
-      "--color-text": "#232a1c",
-      "--color-muted": "#55594a",
-      "--color-border": "#cfc7ad",
-      "--color-primary": "#4a5d23",
-      "--color-primary-hover": "#3b4a1c",
-      "--color-on-primary": "#ffffff",
-      "--color-focus": "#4a5d23",
-      "--fd-accent": "#7a5c1e",
+      "--color-bg": "#1d3b2f",
+      "--color-surface": "#23453a",
+      "--color-text": "#efe6d2",
+      "--color-muted": "#cbc3ad",
+      "--color-border": "#4f6f60",
+      "--color-primary": "#c8a46a",
+      "--color-primary-hover": "#d9b97f",
+      "--color-on-primary": "#14271f",
+      "--color-focus": "#c8a46a",
+      "--fd-accent": "#d3b277",
     },
   },
   {

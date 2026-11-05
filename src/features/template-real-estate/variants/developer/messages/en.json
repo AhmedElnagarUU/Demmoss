@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "residences": "Residences",
+    "process": "Process & studio",
+    "contact": "Contact"
+  },
+  "header": {
+    "book": "Book a viewing"
+  },
+  "hero": {
+    "explore": "Explore residences",
+    "hotspots": {
+      "glazing": "Floor-to-ceiling glazing",
+      "cedar": "Cedar cladding",
+      "terrace": "Heated terrace"
+    }
+  },
+  "stats": {
+    "delivered": {
+      "value": "120+",
+      "label": "Homes delivered"
+    },
+    "awards": {
+      "value": "14",
+      "label": "Design awards"
+    },
+    "referral": {
+      "value": "98%",
+      "label": "Clients who refer us"
+    }
+  },
+  "principles": {
+    "eyebrow": "Our philosophy",
+    "title": "Principles every home is built on",
+    "site": {
+      "title": "Site first",
+      "text": "Every design begins with the land: its light, slope, wind, and views. We shape the house around the site, so each home feels as if it always belonged there."
+    },
+    "materials": {
+      "title": "Honest materials",
+      "text": "Stone, cedar, glass, and raw concrete are left to age with dignity. A few exceptional materials, detailed with care."
+    },
+    "quiet": {
+      "title": "Quiet luxury",
+      "text": "True comfort is felt, not announced. Silence, proportion, daylight, and craft define our homes."
+    }
+  },
+  "types": {
+    "eyebrow": "Residence types",
+    "title": "Choose the way you want to live",
+    "villa": "Hillside retreats among the pines.",
+    "coastal": "Salt air, long horizons, deep terraces.",
+    "penthouse": "Sky-level living above the city.",
+    "count": "{count} residences open"
+  },
+  "available": {
+    "eyebrow": "The collection",
+    "title": "Residences available now",
+    "all": "All residences",
+    "none": "No residence of this type is open right now."
+  },
+  "team": {
+    "eyebrow": "The team",
+    "title": "The people who design and build"
+  },
+  "steps": {
+    "eyebrow": "How we work",
+    "title": "From first sketch to final key",
+    "consult": {
+      "title": "Consultation",
+      "text": "We listen, walk the site with you, and define the brief and timeline."
+    },
+    "design": {
+      "title": "Site & design",
+      "text": "Surveys, concepts, and detailed drawings refined together."
+    },
+    "build": {
+      "title": "Build",
+      "text": "Our own crews build with fixed milestones and weekly progress updates."
+    },
+    "handover": {
+      "title": "Handover",
+      "text": "A careful walkthrough, full documentation, and a decade of aftercare."
+    }
+  },
+  "stories": {
+    "eyebrow": "Client voices",
+    "title": "Owners tell the story"
+  },
+  "book": {
+    "eyebrow": "Private viewings",
+    "title": "Book a private viewing",
+    "text": "Choose a residence and a free time. Our sales team confirms and shows you the units available now."
+  },
+  "residences": {
+    "eyebrow": "Residences",
+    "title": "Only what is for sale, always up to date",
+    "intro": "Availability here is the same list our sales team works from.",
+    "results": "{count} residences found",
+    "none": "No residence matches these filters."
+  },
+  "residence": {
+    "notFound": "This residence was not found",
+    "back": "Back to residences",
+    "facts": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "size": "Size",
+      "from": "Starting price"
+    },
+    "unitsTitle": "Unit availability",
+    "availability": "Availability",
+    "requestUnit": "Available, choose unit {unit} for the request",
+    "soldOut": "All units are sold. Leave a question and we will tell you about the next release.",
+    "viewingTitle": "Request a private viewing",
+    "inquiryTitle": "Request the brochure or ask about a unit"
+  },
+  "process": {
+    "eyebrow": "Process & studio",
+    "credit": "Photos: Unsplash contributors.",
+    "detail": {
+      "consult": "We start with a site walk and a long conversation: how you live, who lives with you, and what budget and timeline are real.",
+      "design": "Concept studies become detailed drawings. You see models and materials, and nothing is fixed until it feels right.",
+      "build": "Our own crews build to a fixed schedule with milestone payments, and you can follow progress every week.",
+      "handover": "A careful walkthrough, complete documents, and ten years of aftercare for every residence."
+    }
+  },
+  "contact": {
+    "eyebrow": "Sales studio",
+    "viewingTitle": "Request a private viewing",
+    "inquiryTitle": "Request the brochure or ask a question",
+    "visitTitle": "Visit our studio"
+  },
+  "footer": {
+    "tagline": "Villas and architectural homes, designed and built with respect for the land.",
+    "explore": "Explore",
+    "visit": "Visit us",
+    "demoNote": "{name} is a demo website built to show what your business could have."
+  },
+  "meta": {
+    "home": {
+      "title": "Rawasi · Villas and penthouses in Jeddah",
+      "description": "Architectural homes in Obhur, Al Hada, and Al Shati, with live unit availability."
+    },
+    "residences": {
+      "title": "Residences · Rawasi",
+      "description": "See which units are available, reserved, or sold."
+    },
+    "residence": {
+      "title": "Residence · Rawasi",
+      "description": "Photos, features, the unit table, and a private viewing."
+    },
+    "process": {
+      "title": "Process & studio · Rawasi",
+      "description": "From first sketch to final key, and the team behind it."
+    },
+    "contact": {
+      "title": "Contact · Rawasi",
+      "description": "Book a private viewing or request the brochure."
+    },
+    "dashboard": {
+      "title": "Dashboard · Rawasi"
+    }
+  }
+}

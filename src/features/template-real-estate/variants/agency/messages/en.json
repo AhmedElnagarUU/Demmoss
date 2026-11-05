@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "listings": "Listings",
+    "about": "About & team",
+    "contact": "Contact"
+  },
+  "header": {
+    "schedule": "Schedule a viewing"
+  },
+  "hero": {
+    "eyebrow": "Residential brokerage in Riyadh",
+    "searchLabel": "Search homes",
+    "buy": "Buy",
+    "rent": "Rent",
+    "search": "Search"
+  },
+  "stats": {
+    "label": "Our numbers",
+    "sold": {
+      "value": "2,400+",
+      "label": "Homes sold"
+    },
+    "years": {
+      "value": "20",
+      "label": "Years in Riyadh"
+    },
+    "recommend": {
+      "value": "98%",
+      "label": "Clients who recommend us"
+    }
+  },
+  "featured": {
+    "eyebrow": "Featured properties",
+    "title": "Fresh homes, honest prices",
+    "all": "All listings"
+  },
+  "principles": {
+    "eyebrow": "Why Dar Al Manzil",
+    "title": "Three principles, one calm process",
+    "local": {
+      "title": "Local insight",
+      "text": "Our agents live in the districts they sell. We know the school runs, the quiet streets, and where the best bakery hides."
+    },
+    "pricing": {
+      "title": "Clear pricing",
+      "text": "Every valuation comes with its evidence. No hidden fees and no inflated estimates just to win a listing."
+    },
+    "fullService": {
+      "title": "One team for everything",
+      "text": "Photography, legal coordination, and mortgage introductions under one roof, so you only need one phone number."
+    }
+  },
+  "hoods": {
+    "eyebrow": "Neighbourhoods",
+    "title": "Where we work",
+    "count": "{count} open listings"
+  },
+  "mortgage": {
+    "eyebrow": "Mortgage calculator",
+    "title": "Know your monthly payment before you call",
+    "lead": "Move the sliders to see what your home could cost each month. Thinking of selling instead? We value your home for free.",
+    "valuation": "Request a free valuation"
+  },
+  "agents": {
+    "eyebrow": "Our agents",
+    "title": "Real people who answer"
+  },
+  "stories": {
+    "eyebrow": "Kind words",
+    "title": "Families who found their home with us"
+  },
+  "cta": {
+    "title": "Book a viewing in a minute",
+    "text": "Pick a free time and an agent confirms within hours.",
+    "button": "Schedule a viewing"
+  },
+  "listings": {
+    "eyebrow": "Listings",
+    "title": "Find it fast, see what is available",
+    "intro": "Filter by buy or rent, type, area, price, and bedrooms.",
+    "results": "{count} properties found",
+    "none": "No property matches these filters. Try widening your search."
+  },
+  "property": {
+    "notFound": "This property was not found",
+    "backToListings": "Back to listings",
+    "facts": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "size": "Size",
+      "type": "Type"
+    },
+    "description": "About this property",
+    "features": "Features",
+    "mortgage": "Monthly payment for this home",
+    "agent": "Your agent",
+    "unavailable": "This property is no longer available. Send us a question and we will suggest similar homes.",
+    "viewingTitle": "Schedule a viewing",
+    "inquiryTitle": "Ask about this property"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "credit": "Photos: Unsplash contributors."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "viewingTitle": "Book a viewing",
+    "inquiryTitle": "Ask a question or request a free valuation",
+    "visitTitle": "Visit our office"
+  },
+  "footer": {
+    "tagline": "Buy, rent, or sell with a team that knows north Riyadh.",
+    "explore": "Explore",
+    "buy": "Buy",
+    "rent": "Rent",
+    "visit": "Visit us",
+    "demoNote": "{name} is a demo website built to show what your business could have."
+  },
+  "meta": {
+    "home": {
+      "title": "Dar Al Manzil · Real estate in Riyadh",
+      "description": "Buy or rent homes in north Riyadh with an agency that answers."
+    },
+    "listings": {
+      "title": "Listings · Dar Al Manzil",
+      "description": "Search apartments, villas, and townhouses for sale and rent."
+    },
+    "property": {
+      "title": "Property · Dar Al Manzil",
+      "description": "Photos, facts, mortgage estimate, and a free time to view."
+    },
+    "about": {
+      "title": "About & team · Dar Al Manzil",
+      "description": "Meet the agents who know Riyadh street by street."
+    },
+    "contact": {
+      "title": "Contact · Dar Al Manzil",
+      "description": "Book a viewing or request a free valuation."
+    },
+    "dashboard": {
+      "title": "Dashboard · Dar Al Manzil"
+    }
+  }
+}

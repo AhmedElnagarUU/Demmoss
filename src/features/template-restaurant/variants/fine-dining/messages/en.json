@@ -46,7 +46,6 @@
     "signatureEyebrow": "Signature dishes",
     "signatureTitle": "Dishes people come back for",
     "viewMenu": "See the full menu",
-    "chefEyebrow": "The chef",
     "chefLink": "Read our story",
     "reviewsEyebrow": "Guests",
     "reviewsTitle": "What our guests say",
@@ -57,7 +56,32 @@
     "eventsCta": "Plan your event",
     "visitEyebrow": "Visit",
     "visitTitle": "Find us, call us, or message on WhatsApp",
-    "experienceEyebrow": "The experience"
+    "experienceEyebrow": "The experience",
+    "chefsTitle": "Chef Layla and her team",
+    "chefsText": "Cooking family recipes every day",
+    "promisesLabel": "Why guests choose us",
+    "promises": {
+      "reserve": {
+        "title": "Reserve in seconds",
+        "text": "Pick a day and time online, at any hour."
+      },
+      "charcoal": {
+        "title": "Real charcoal",
+        "text": "The grill is lit every evening, never a shortcut."
+      },
+      "fresh": {
+        "title": "Fresh every day",
+        "text": "Fish arrives daily and lamb comes from one local farm."
+      },
+      "occasion": {
+        "title": "Made for occasions",
+        "text": "A private room for 20 and live oud on Thursdays."
+      }
+    },
+    "storyEyebrow": "Our story",
+    "previewEyebrow": "The menu",
+    "previewTitle": "Cooked slowly, served generously",
+    "previewTabs": "Menu courses"
   },
   "menu": {
     "eyebrow": "The menu",
@@ -81,7 +105,8 @@
         "title": "Served with care",
         "text": "Our team knows the menu, your allergies, and when it is time to bring the coffee."
       }
-    }
+    },
+    "photoCredit": "Photos on this website are by Unsplash photographers, used under the Unsplash License."
   },
   "events": {
     "eyebrow": "Private events",
@@ -123,11 +148,14 @@
     "whatsapp": "Message us on WhatsApp",
     "whatsappMessage": "Hello, I would like to ask about {name}.",
     "mapLabel": "Map showing the location of the restaurant",
-    "closed": "Closed"
+    "closed": "Closed",
+    "findUs": "Find us"
   },
   "footer": {
     "rights": "A demo restaurant website",
-    "hours": "Opening hours"
+    "hours": "Opening hours",
+    "visit": "Visit",
+    "links": "Explore"
   },
   "overview": {
     "cardsToday": "Reservations today",

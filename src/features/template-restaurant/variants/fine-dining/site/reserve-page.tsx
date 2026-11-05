@@ -18,11 +18,12 @@ export function ReservePage({ locale }: { locale: Locale }) {
       <SectionHeading
         level={1}
         id="reserve-title"
+        locale={locale}
         eyebrow={t("reserve.eyebrow")}
         title={t("reserve.title")}
       />
-      <p className="mb-8 max-w-2xl text-lg text-muted">{t("reserve.intro")}</p>
-      <div className="max-w-3xl font-sans">
+      <p className="mx-auto mb-8 max-w-2xl text-center text-lg text-muted">{t("reserve.intro")}</p>
+      <div className="mx-auto max-w-3xl">
         <ReservationForm
           store={useFineDiningStore}
           slug={FINE_DINING_SLUG}

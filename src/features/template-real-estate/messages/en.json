@@ -1,0 +1,333 @@
+{
+  "common": {
+    "arabic": "Arabic",
+    "english": "English",
+    "save": "Save",
+    "saved": "Saved.",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "remove": "Remove",
+    "generalVisit": "General visit (no specific property)",
+    "perYear": "/ year"
+  },
+  "nav": {
+    "overview": "Overview",
+    "properties": "Properties",
+    "residences": "Residences",
+    "viewings": "Viewings",
+    "inquiries": "Inquiries",
+    "content": "Content",
+    "testimonials": "Testimonials",
+    "settings": "Settings"
+  },
+  "overview": {
+    "title": "Overview",
+    "intro": "Viewing requests and inquiries from your website, in one place.",
+    "newViewings": "New viewing requests",
+    "upcomingViewings": "Confirmed upcoming viewings",
+    "newInquiries": "New inquiries",
+    "activeListings": "Active listings",
+    "availableUnits": "Units available",
+    "activityTitle": "Latest activity",
+    "noActivity": "No activity yet. Requests from your website appear here.",
+    "activityViewing": "{name} asked to view {property}",
+    "activityInquiry": "{name} sent an inquiry about {property}"
+  },
+  "tips": {
+    "viewingWaiting": "{name} asked for a viewing more than a day ago and is still waiting. Replying fast is what wins the client.",
+    "inquiryWaiting": "The inquiry from {name} has had no reply for over a day. A late reply often means a lost client.",
+    "hotProperty": "“{name}” has {count} viewing requests: your most wanted property. Keep its photos and price fresh.",
+    "lastUnit": "Only one unit is left in “{name}”. Tell your waiting list now."
+  },
+  "type": {
+    "apartment": "Apartment",
+    "villa": "Villa",
+    "townhouse": "Townhouse",
+    "penthouse": "Penthouse",
+    "coastal": "Coastal home"
+  },
+  "purpose": {
+    "sale": "For sale",
+    "rent": "For rent"
+  },
+  "feature": {
+    "pool": "Pool",
+    "garden": "Garden",
+    "parking": "Parking",
+    "maid-room": "Maid's room",
+    "elevator": "Elevator",
+    "majlis": "Majlis",
+    "sea-view": "Sea view",
+    "smart-home": "Smart home",
+    "gym": "Gym",
+    "roof-terrace": "Roof terrace"
+  },
+  "propertyStatus": {
+    "available": "Available",
+    "reserved": "Under offer",
+    "closed": "Sold or rented"
+  },
+  "state": {
+    "available": "Available",
+    "reserved": "Reserved",
+    "sold_out": "Sold out",
+    "soldOut": "Sold out",
+    "sold": "Sold",
+    "rented": "Rented"
+  },
+  "unitStatus": {
+    "available": "Available",
+    "reserved": "Reserved",
+    "sold": "Sold"
+  },
+  "viewingStatus": {
+    "new": "New",
+    "confirmed": "Confirmed",
+    "done": "Done",
+    "cancelled": "Cancelled",
+    "no_show": "No show"
+  },
+  "inquiryStatus": {
+    "new": "New",
+    "replied": "Replied",
+    "closed": "Closed"
+  },
+  "inquiryKind": {
+    "question": "Question",
+    "valuation": "Free valuation",
+    "brochure": "Brochure"
+  },
+  "viewings": {
+    "title": "Viewings",
+    "intro": "Every viewing request from your website. Confirm it and the client knows the time is theirs.",
+    "empty": "No viewing requests yet.",
+    "action": {
+      "confirmed": "Confirm",
+      "done": "Mark as done",
+      "cancelled": "Cancel",
+      "no_show": "No show"
+    }
+  },
+  "inquiries": {
+    "title": "Inquiries",
+    "intro": "Questions, valuation requests, and brochure requests from your website.",
+    "empty": "No inquiries yet.",
+    "action": {
+      "replied": "Mark as replied",
+      "closed": "Close"
+    }
+  },
+  "properties": {
+    "title": "Properties",
+    "residencesTitle": "Residences",
+    "intro": "What your website shows. Changes appear on the site at once.",
+    "add": "Add a property",
+    "addResidence": "Add a residence",
+    "empty": "No properties yet."
+  },
+  "propertyForm": {
+    "editTitle": "Edit property",
+    "addTitle": "Add a property",
+    "errorSummary": "Please fix the highlighted fields.",
+    "errors": {
+      "title": "Enter a title in Arabic or English.",
+      "price": "Enter a whole price above zero.",
+      "size": "Enter the size above zero.",
+      "bedrooms": "Enter a number from 0 to 20.",
+      "bathrooms": "Enter a number from 0 to 20.",
+      "photos": "Choose at least one photo."
+    },
+    "name": "Title",
+    "description": "Description",
+    "purpose": "Purpose",
+    "type": "Type",
+    "area": "Area",
+    "price": "Price (SAR)",
+    "priceRent": "Yearly rent (SAR)",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "size": "Size (m²)",
+    "status": "Status",
+    "agent": "Agent",
+    "noAgent": "No agent",
+    "features": "Features",
+    "photos": "Photos",
+    "photosHint": "The first photo in the list is the cover.",
+    "featured": "Show on the home page",
+    "save": "Save property"
+  },
+  "content": {
+    "title": "Content",
+    "intro": "The main texts of your website, in both languages.",
+    "hero": "Home page header",
+    "heroTitle": "Headline",
+    "heroSubtitle": "Subtitle",
+    "about": "About",
+    "aboutTitle": "About title",
+    "aboutText": "About text",
+    "contact": "Contact",
+    "contactTitle": "Contact title",
+    "contactText": "Contact text"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "intro": "Client stories shown on your website. Hidden ones stay saved.",
+    "add": "Add a testimonial",
+    "shown": "Shown",
+    "hidden": "Hidden",
+    "hide": "Hide",
+    "show": "Show",
+    "editTitle": "Edit testimonial",
+    "addTitle": "Add a testimonial",
+    "error": "Enter a name and a text.",
+    "name": "Client name",
+    "context": "What they did (e.g. Bought in Al Malqa)",
+    "text": "Testimonial"
+  },
+  "settings": {
+    "title": "Settings",
+    "intro": "Business details, colors, and demo reset.",
+    "palette": "Color palette",
+    "paletteHint": "Pick the colors of your website and dashboard.",
+    "resetTitle": "Reset demo",
+    "resetText": "Restore the sample data. Your account stays.",
+    "resetButton": "Reset demo",
+    "resetDone": "The demo was reset.",
+    "business": "Business",
+    "businessName": "Business name",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp number (digits only, with country code)",
+    "address": "Address",
+    "hours": "Opening hours",
+    "mortgageRate": "Mortgage calculator starting rate (%)",
+    "rateError": "The rate must be between 0 and 30.",
+    "whatsappError": "Enter 8 to 15 digits for WhatsApp."
+  },
+  "agents": {
+    "title": "Agents",
+    "intro": "The agents shown on your website and on their properties.",
+    "add": "Add an agent",
+    "editTitle": "Edit agent",
+    "addTitle": "Add an agent",
+    "error": "Enter a name and a phone number.",
+    "name": "Name",
+    "role": "Role",
+    "phone": "Phone",
+    "photo": "Photo"
+  },
+  "units": {
+    "title": "Projects & units",
+    "intro": "Set each unit to available, reserved, or sold. The website shows it at once.",
+    "summary": "{available} available · {reserved} reserved · {sold} sold",
+    "empty": "No units yet.",
+    "floorSize": "Floor {floor} · {size} m²",
+    "priceOf": "Price of unit {unit} in {residence}",
+    "statusOf": "Status of unit {unit} in {residence}",
+    "removeUnit": "Remove unit {unit} from {residence}",
+    "addTitle": "Add a unit",
+    "error": "Enter a label, a floor, a size, and a price.",
+    "residence": "Residence",
+    "label": "Unit",
+    "floor": "Floor",
+    "size": "Size (m²)",
+    "price": "Price (SAR)",
+    "add": "Add unit"
+  },
+  "viewingForm": {
+    "doneTitle": "We received your viewing request",
+    "doneText": "Requested time: {day} at {time}. We will confirm shortly.",
+    "doneDashboard": "Open your dashboard to see it arrive",
+    "errorSummary": "Please fix the highlighted fields.",
+    "errors": {
+      "date": "Choose a date from the list.",
+      "time": "Choose one of the free times.",
+      "name": "Please enter your name.",
+      "phone": "Enter a valid phone number."
+    },
+    "property": "Property",
+    "unit": "Unit",
+    "anyUnit": "Any available unit ({count})",
+    "date": "Date",
+    "today": "Today",
+    "time": "Time",
+    "noTimes": "No free times on this day. Choose another date.",
+    "name": "Your name",
+    "phone": "Phone number",
+    "note": "Note (optional)",
+    "submit": "Request viewing"
+  },
+  "inquiryForm": {
+    "doneTitle": "We received your message",
+    "doneText": "A member of the team will contact you soon.",
+    "doneDashboard": "Open your dashboard to see it arrive",
+    "errorSummary": "Please fix the highlighted fields.",
+    "kind": "What do you need?",
+    "unit": "Unit",
+    "noUnit": "No specific unit",
+    "name": "Your name",
+    "phone": "Phone number",
+    "message": "Your message",
+    "messageOptional": "Message (optional)",
+    "submit": "Send",
+    "errors": {
+      "name": "Please enter your name.",
+      "phone": "Enter a valid phone number.",
+      "message": "Write a few words about your question."
+    }
+  },
+  "filters": {
+    "label": "Search properties",
+    "purpose": "Buy or rent",
+    "anyPurpose": "All",
+    "query": "Search",
+    "queryHint": "Villa, Al Malqa…",
+    "type": "Property type",
+    "anyType": "All types",
+    "area": "Area",
+    "anyArea": "Any area",
+    "price": "Price",
+    "anyPrice": "Any price",
+    "bedrooms": "Bedrooms",
+    "anyBedrooms": "Any",
+    "bedroomsOrMore": "{count}+",
+    "sort": "Sort by",
+    "availableOnly": "Show available only"
+  },
+  "sort": {
+    "featured": "Featured first",
+    "priceAsc": "Price: low to high",
+    "priceDesc": "Price: high to low"
+  },
+  "band": {
+    "sale-1": "Up to SAR 1.5M",
+    "sale-2": "SAR 1.5M – 3M",
+    "sale-3": "SAR 3M – 5M",
+    "sale-4": "SAR 5M and above",
+    "rent-1": "Up to SAR 60,000 / year",
+    "rent-2": "SAR 60,000 – 100,000 / year",
+    "rent-3": "Above SAR 100,000 / year",
+    "dev-1": "Up to SAR 3M",
+    "dev-2": "SAR 3M – 4M",
+    "dev-3": "SAR 4M and above"
+  },
+  "card": {
+    "from": "From",
+    "bedrooms": "{count} bd",
+    "bathrooms": "{count} ba",
+    "size": "{size} m²",
+    "unitsAvailable": "{available} of {total} units available"
+  },
+  "gallery": {
+    "show": "Show photo {number}"
+  },
+  "mortgage": {
+    "price": "Home price",
+    "downPayment": "Down payment",
+    "rate": "Annual rate",
+    "years": "Term",
+    "yearsValue": "{count} years",
+    "monthly": "Estimated monthly payment",
+    "split": "Financed amount {loan} · total interest {interest}",
+    "note": "An estimate only; the bank sets the final offer."
+  }
+}
