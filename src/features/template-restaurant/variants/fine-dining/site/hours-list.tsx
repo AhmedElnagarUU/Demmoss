@@ -10,10 +10,10 @@ export function HoursList({ locale }: { locale: Locale }) {
   const hours = useFineDiningStore((state) => state.settings.hours);
 
   return (
-    <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 font-sans">
+    <dl className="space-y-0">
       {hours.map((day) => (
-        <div key={day.day} className="contents">
-          <dt className="font-semibold">{weekdayName(day.day, locale)}</dt>
+        <div key={day.day} className="flex justify-between gap-6 border-b border-dashed border-border py-2">
+          <dt>{weekdayName(day.day, locale)}</dt>
           <dd className="text-muted">
             {day.closed
               ? t("contact.closed")

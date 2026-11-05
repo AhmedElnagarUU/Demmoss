@@ -6,9 +6,10 @@ import type { Menu, OpeningDay } from "./types";
 // no data, no tip, and no invented numbers. The dashboard turns facts into text (dashboard/tip-texts.ts).
 export type TipFact = {
   id: string;
-  key: "afterHours" | "noShow" | "eventWaiting" | "emptyCategory";
+  key: "afterHours" | "noShow" | "eventWaiting" | "emptyCategory" | "directOrders" | "orderTracking";
   label?: string | LocalizedText;
   at?: string;
+  count?: number;
 };
 
 type Timed = { id: string; name: string; createdAt: string };

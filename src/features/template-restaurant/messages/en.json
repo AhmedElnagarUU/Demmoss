@@ -38,7 +38,9 @@
     "afterHours": "{name}'s request came in at {time}, when the restaurant was closed. Without the website this would have been a missed call.",
     "noShow": "{name} did not show up. In a real project we can send automatic reminders to reduce no-shows.",
     "eventWaiting": "{name} asked about a private event. Events are your highest-value bookings: a fast reply wins them.",
-    "emptyCategory": "No dish in \"{name}\" is available, so guests see an empty section. Refill it or remove it."
+    "emptyCategory": "No dish in \"{name}\" is available, so guests see an empty section. Refill it or remove it.",
+    "directOrders": "{count} orders today came straight from your website. With a delivery app, each of them would carry the app's commission.",
+    "orderTracking": "Customers can follow order {name} live on their own status page, so nobody needs to call you to ask where it is."
   },
   "menu": {
     "title": "Menu",
@@ -77,11 +79,11 @@
   },
   "customers": {
     "title": "Customers",
-    "intro": "Built from your reservations and requests. Reach regulars in one click.",
+    "intro": "Built from your reservations, orders, and requests. Reach regulars in one click.",
     "name": "Name",
     "phone": "Phone",
-    "count": "Bookings",
-    "last": "Latest booking",
+    "count": "Visits",
+    "last": "Latest visit",
     "empty": "No customers yet."
   },
   "reviews": {
@@ -120,7 +122,11 @@
     "no_show": "No-show",
     "replied": "Replied",
     "booked": "Booked",
-    "closed": "Closed"
+    "closed": "Closed",
+    "preparing": "Preparing",
+    "ready": "Ready for pickup",
+    "out_for_delivery": "On the way",
+    "completed": "Completed"
   },
   "statusActions": {
     "confirmed": "Confirm",
@@ -129,7 +135,11 @@
     "no_show": "Mark as no-show",
     "replied": "Mark as replied",
     "booked": "Mark as booked",
-    "closed": "Close request"
+    "closed": "Close request",
+    "preparing": "Start preparing",
+    "ready": "Mark ready for pickup",
+    "out_for_delivery": "Out for delivery",
+    "completed": "Complete order"
   },
   "occasions": {
     "birthday": "Birthday",
@@ -227,5 +237,129 @@
     "doneText": "The events team will reply to {name} soon.",
     "doneDashboard": "Open your dashboard to see it arrive",
     "doneAnother": "Send another request"
+  },
+  "orderTypes": {
+    "pickup": "Pickup",
+    "delivery": "Delivery"
+  },
+  "payments": {
+    "cash": "Cash",
+    "card": "Card"
+  },
+  "orders": {
+    "title": "Orders",
+    "intro": "Every order from your website on one live board. Move an order forward and your customer's status page follows.",
+    "emptyColumn": "Nothing here.",
+    "columns": {
+      "new": "New",
+      "preparing": "Preparing",
+      "onTheWay": "Ready / on the way",
+      "finished": "Finished"
+    },
+    "cancelOrder": "Cancel order",
+    "note": "Note: {note}",
+    "received": "Received {when}",
+    "whatsappMessage": "Hello {name}, this is {business}. About your order {number}."
+  },
+  "offers": {
+    "title": "Offers",
+    "intro": "Create a deal and it appears on your home page and on top of the menu. Turn it off when you are done.",
+    "add": "Add an offer",
+    "newTitle": "New offer",
+    "empty": "No offers yet.",
+    "activeBadge": "On the website",
+    "inactiveBadge": "Off",
+    "turnOff": "Turn off",
+    "turnOn": "Turn on",
+    "titleLabel": "Offer name",
+    "descriptionLabel": "What is included",
+    "price": "Price",
+    "image": "Image",
+    "showOnSite": "Show on the website",
+    "error": "Write the offer name in at least one language."
+  },
+  "areas": {
+    "title": "Delivery areas",
+    "intro": "Each area has a delivery fee and a minimum order. The checkout applies them for you.",
+    "add": "Add an area",
+    "newTitle": "New delivery area",
+    "empty": "No delivery areas yet. Customers can still pick up.",
+    "name": "Area name",
+    "fee": "Delivery fee",
+    "minOrder": "Minimum order",
+    "summary": "Fee {fee} · minimum order {minimum}",
+    "error": "Write the area name in at least one language."
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty. Add a burger and it will wait for you here.",
+    "goMenu": "See the menu",
+    "decrease": "One less: {name}",
+    "increase": "One more: {name}",
+    "remove": "Remove: {name}",
+    "removeShort": "Remove",
+    "subtotal": "Subtotal",
+    "feeNote": "Delivery fee and minimum order are shown at checkout.",
+    "checkout": "Go to checkout",
+    "clear": "Empty the cart",
+    "close": "Close"
+  },
+  "checkout": {
+    "emptyCart": "Your cart is empty.",
+    "closedToday": "We are closed now. We will prepare your order when we open at {time}.",
+    "closedLater": "We are closed now. We will prepare your order when we open on {day} at {time}.",
+    "errorSummary": "Please check the highlighted fields.",
+    "typeLegend": "How do you want it?",
+    "area": "Delivery area",
+    "chooseArea": "Choose your area",
+    "areaOption": "{name} (delivery {fee})",
+    "address": "Address and directions",
+    "minOrder": "The minimum order for {area} is {minimum}. Add {missing} more to deliver there, or choose pickup.",
+    "name": "Your name",
+    "phone": "Phone number",
+    "payDelivery": "Pay on delivery",
+    "payPickup": "Pay on pickup",
+    "note": "Anything we should know? (optional)",
+    "summary": "Your order",
+    "subtotal": "Subtotal",
+    "deliveryFee": "Delivery fee",
+    "noFee": "No fee",
+    "total": "Total",
+    "submit": "Place my order",
+    "errors": {
+      "cart": "Your cart is empty.",
+      "area": "Choose a delivery area.",
+      "address": "Write your address.",
+      "name": "Please write your name.",
+      "phone": "Please write a valid phone number.",
+      "minOrder": "Your order is below the minimum for this area."
+    }
+  },
+  "orderStatus": {
+    "notFoundTitle": "We could not find this order",
+    "notFoundText": "It may have been placed in another browser, or the demo was reset.",
+    "title": "Order {number}",
+    "placed": "Placed {when} by {name}",
+    "stateTitle": "Order status",
+    "state": {
+      "new": "We received your order and will start soon.",
+      "preparing": "We are preparing your order.",
+      "ready": "Your order is ready for pickup.",
+      "out_for_delivery": "Your order is on its way.",
+      "completed": "Your order is complete. Enjoy!",
+      "cancelled": "This order was cancelled. Call us if you have questions."
+    },
+    "steps": {
+      "new": "Received",
+      "preparing": "Preparing",
+      "ready": "Ready for pickup",
+      "out_for_delivery": "On the way",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "detailsTitle": "Your items",
+    "liveHint": "This page updates by itself. Open the dashboard in another tab, move the order forward, and watch the status change here.",
+    "openDashboard": "Open the dashboard in a new tab",
+    "orderAgain": "Order something else"
   }
 }

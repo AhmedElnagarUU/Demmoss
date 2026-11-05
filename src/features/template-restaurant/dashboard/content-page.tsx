@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@/shared/ui/button";
-import { restaurantImages } from "../images";
 import { getRestaurantT } from "../messages";
 import type { Content } from "../types";
 import { useRestaurant } from "./restaurant-context";
@@ -41,10 +40,10 @@ function ImagePicker({
   value: string;
   onChange: (id: string) => void;
 }) {
-  const { locale } = useRestaurant();
+  const { config, locale } = useRestaurant();
   return (
     <SelectInput id={id} label={label} value={value} onChange={(event) => onChange(event.target.value)}>
-      {restaurantImages.map((image) => (
+      {config.photos.map((image) => (
         <option key={image.id} value={image.id}>
           {image.alt[locale]}
         </option>

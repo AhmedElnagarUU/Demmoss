@@ -21,4 +21,10 @@ export const templateRegistry: Record<string, () => Promise<TemplateParts>> = {
     const { useFineDiningStore } = await import("@/features/template-restaurant/variants/fine-dining/store");
     return { store: useFineDiningStore, schema: fineDiningSchema, createSeed: createFineDiningSeed };
   },
+  "restaurant-fast-food": async () => {
+    const { fastFoodSchema } = await import("@/features/template-restaurant/variants/fast-food/data");
+    const { createFastFoodSeed } = await import("@/features/template-restaurant/variants/fast-food/seed");
+    const { useFastFoodStore } = await import("@/features/template-restaurant/variants/fast-food/store");
+    return { store: useFastFoodStore, schema: fastFoodSchema, createSeed: createFastFoodSeed };
+  },
 };

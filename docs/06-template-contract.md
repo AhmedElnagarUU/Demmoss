@@ -54,7 +54,7 @@ sharing one dashboard. Variants below are proposals, confirmed in each category'
 
 | Category | Variant A (design) | Variant B (design) | Status |
 |---|---|---|---|
-| Restaurants | Zaytouna, fine dining (Verdant Table + Ironhorn) | Smash Lab, fast food ordering (Sole Trattoria) | in progress (`template-restaurant.md`) |
+| Restaurants | Zaytouna, fine dining (Verdant Table + Ironhorn) | Smash Lab, fast food ordering (Sole Trattoria) | built: both variants (`template-restaurant.md`); photos load from the CDN, check them in a real browser |
 | Cafés | Café & eatery: booking + pickup orders (Hearthbean) | Specialty coffee: orders + beans (Sage & Grain) | not planned; shares the restaurant feature and dashboard |
 | Real estate | Agency: buy/rent listings + viewings (Hartwell) | Developer: projects, units, viewings (Solenne) | planning |
 | Clinics | Specialist doctor: dental implants (Dr. Vale) | Medical centre: booking by doctor (derived from Dr. Vale) | not planned |

@@ -16,10 +16,11 @@ export function ContactPage({ locale }: { locale: Locale }) {
       <SectionHeading
         level={1}
         id="contact-title"
+        locale={locale}
         eyebrow={t("contact.eyebrow")}
         title={contact.title[locale]}
       />
-      <p className="mb-10 max-w-2xl text-lg text-muted">{contact.text[locale]}</p>
+      <p className="mx-auto mb-12 max-w-2xl text-center text-lg text-muted">{contact.text[locale]}</p>
       <VisitDetails locale={locale} />
     </Section>
   );
