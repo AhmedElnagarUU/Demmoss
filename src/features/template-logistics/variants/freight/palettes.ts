@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for Jisr Cargo. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// --lg-accent is the variant's own accent (eyebrows, small highlights).
+export const freightPalettes: readonly Palette[] = [
+  {
+    id: "graphite",
+    name: { ar: "جرافيت", en: "Graphite" },
+    vars: {
+      "--color-bg": "#f3f3f4",
+      "--color-surface": "#ffffff",
+      "--color-text": "#111111",
+      "--color-muted": "#55555c",
+      "--color-border": "#d4d4d9",
+      "--color-primary": "#111111",
+      "--color-primary-hover": "#2b2b2e",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#111111",
+      "--lg-accent": "#b3202a",
+    },
+  },
+  {
+    id: "meridian",
+    name: { ar: "أحمر وأزرق", en: "Red and blue" },
+    vars: {
+      "--color-bg": "#f4f1f1",
+      "--color-surface": "#ffffff",
+      "--color-text": "#1c1c1e",
+      "--color-muted": "#5a5a60",
+      "--color-border": "#d9d3d3",
+      "--color-primary": "#c0232b",
+      "--color-primary-hover": "#9f1c23",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#c0232b",
+      "--lg-accent": "#2c5aa8",
+    },
+  },
+  {
+    id: "ocean",
+    name: { ar: "أزرق بحري", en: "Ocean" },
+    vars: {
+      "--color-bg": "#eef2f7",
+      "--color-surface": "#ffffff",
+      "--color-text": "#0f1b2d",
+      "--color-muted": "#475467",
+      "--color-border": "#cbd5e1",
+      "--color-primary": "#1f4f9e",
+      "--color-primary-hover": "#183e7c",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#1f4f9e",
+      "--lg-accent": "#0b6377",
+    },
+  },
+  {
+    id: "emerald",
+    name: { ar: "زمردي", en: "Emerald" },
+    vars: {
+      "--color-bg": "#eff5f2",
+      "--color-surface": "#ffffff",
+      "--color-text": "#10201a",
+      "--color-muted": "#44574f",
+      "--color-border": "#c9d9d1",
+      "--color-primary": "#0f6b4f",
+      "--color-primary-hover": "#0b5640",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#0f6b4f",
+      "--lg-accent": "#8a5a00",
+    },
+  },
+  {
+    id: "night",
+    name: { ar: "ليلي", en: "Night" },
+    vars: {
+      "--color-bg": "#141416",
+      "--color-surface": "#1f1f23",
+      "--color-text": "#f1f1f3",
+      "--color-muted": "#b4b4bc",
+      "--color-border": "#3a3a40",
+      "--color-primary": "#e8e8ec",
+      "--color-primary-hover": "#ffffff",
+      "--color-on-primary": "#111111",
+      "--color-focus": "#e8e8ec",
+      "--lg-accent": "#ff8a8f",
+    },
+  },
+];
