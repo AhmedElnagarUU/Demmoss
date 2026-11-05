@@ -72,8 +72,14 @@ export function combinedSchedule(doctors: readonly Doctor[]): Schedule {
   return Array.from({ length: 7 }, (_, day) => {
     const open = doctors.flatMap((doctor) => doctor.schedule[day] ?? []);
     if (open.length === 0) return null;
-    const from = open.reduce((best, hours) => (minutesOf(hours.from) < minutesOf(best) ? hours.from : best), "23:59");
-    const to = open.reduce((best, hours) => (minutesOf(hours.to) > minutesOf(best) ? hours.to : best), "00:00");
+    const from = open.reduce(
+      (best, hours) => (minutesOf(hours.from) < minutesOf(best) ? hours.from : best),
+      "23:59",
+    );
+    const to = open.reduce(
+      (best, hours) => (minutesOf(hours.to) > minutesOf(best) ? hours.to : best),
+      "00:00",
+    );
     return { from, to };
   });
 }

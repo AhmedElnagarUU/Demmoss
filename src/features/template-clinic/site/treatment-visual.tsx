@@ -17,7 +17,12 @@ export function TreatmentVisual({
   const photo = findPhoto(photos, treatment.photo);
   if (photo) return <SitePhoto photo={photo} locale={locale} sizes={sizes} />;
   return (
-    <svg viewBox="0 0 300 370" aria-hidden="true" className="size-full bg-surface" preserveAspectRatio="xMidYMid slice">
+    <svg
+      viewBox="0 0 300 370"
+      aria-hidden="true"
+      className="size-full bg-surface"
+      preserveAspectRatio="xMidYMid slice"
+    >
       <ellipse cx="150" cy="300" rx="70" ry="10" fill="currentColor" opacity=".12" />
       <path d="M122 70h56l8 40h-72z" fill="#f4f4f0" stroke="#c9cdbf" strokeWidth="3" />
       <path d="M114 110h72l-4 36h-64z" fill="#e9ecdf" stroke="#c9cdbf" strokeWidth="3" />

@@ -60,7 +60,9 @@ export function HoursList({ schedule, locale }: { schedule: Schedule; locale: Lo
         <div key={day} className="flex justify-between gap-4 py-2">
           <dt className="text-text">{weekdayName(day, locale)}</dt>
           <dd className="text-muted">
-            {hours ? `${formatTime(hours.from, locale)} – ${formatTime(hours.to, locale)}` : t("site.hours.closed")}
+            {hours
+              ? `${formatTime(hours.from, locale)} – ${formatTime(hours.to, locale)}`
+              : t("site.hours.closed")}
           </dd>
         </div>
       ))}
@@ -105,7 +107,9 @@ export function TestimonialCards({
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <strong className="block text-4xl font-medium leading-none tracking-tight rtl:tracking-normal">{value}</strong>
+      <strong className="block text-4xl font-medium leading-none tracking-tight rtl:tracking-normal">
+        {value}
+      </strong>
       <small className="text-sm text-muted">{label}</small>
     </div>
   );
@@ -149,7 +153,10 @@ export function StickyCta({
       }`}
     >
       <p className="grow text-sm leading-tight">{text}</p>
-      <a href={href} className={`${primaryButton} min-h-11 whitespace-nowrap px-5 py-2.5 text-sm shadow-none`}>
+      <a
+        href={href}
+        className={`${primaryButton} min-h-11 whitespace-nowrap px-5 py-2.5 text-sm shadow-none`}
+      >
         {label}
       </a>
     </div>

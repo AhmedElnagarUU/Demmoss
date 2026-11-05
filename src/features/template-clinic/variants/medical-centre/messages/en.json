@@ -1,11 +1,29 @@
 {
   "meta": {
-    "home": { "title": "Noor Medical Centre · Family care in Jeddah", "description": "A multi-specialty medical centre in Jeddah. Choose your doctor and a free time online." },
-    "departments": { "title": "Departments · Noor Medical Centre", "description": "Our five departments, their doctors, and clear prices per service." },
-    "doctors": { "title": "Doctors · Noor Medical Centre", "description": "Meet the doctors and choose the one you trust." },
-    "doctor": { "title": "Doctor profile · Noor Medical Centre", "description": "A doctor's background, weekly schedule, and next free time." },
-    "book": { "title": "Book a visit · Noor Medical Centre", "description": "Book a doctor at a free time from their real schedule." },
-    "contact": { "title": "Contact · Noor Medical Centre", "description": "Address, phone, WhatsApp, centre hours, and common questions." },
+    "home": {
+      "title": "Noor Medical Centre · Family care in Jeddah",
+      "description": "A multi-specialty medical centre in Jeddah. Choose your doctor and a free time online."
+    },
+    "departments": {
+      "title": "Departments · Noor Medical Centre",
+      "description": "Our five departments, their doctors, and clear prices per service."
+    },
+    "doctors": {
+      "title": "Doctors · Noor Medical Centre",
+      "description": "Meet the doctors and choose the one you trust."
+    },
+    "doctor": {
+      "title": "Doctor profile · Noor Medical Centre",
+      "description": "A doctor's background, weekly schedule, and next free time."
+    },
+    "book": {
+      "title": "Book a visit · Noor Medical Centre",
+      "description": "Book a doctor at a free time from their real schedule."
+    },
+    "contact": {
+      "title": "Contact · Noor Medical Centre",
+      "description": "Address, phone, WhatsApp, centre hours, and common questions."
+    },
     "dashboard": { "title": "Dashboard · Noor Medical Centre" }
   },
   "nav": {
@@ -26,8 +44,18 @@
       "doctorsStat": "doctors",
       "departmentsStat": "departments"
     },
-    "departments": { "pill": "Departments", "title": "Find the right specialty", "intro": "Five departments under one roof, each with its own doctors and clear prices.", "view": "Doctors and prices" },
-    "doctors": { "pill": "Our doctors", "title": "Meet the doctors", "all": "All doctors", "profile": "View profile" },
+    "departments": {
+      "pill": "Departments",
+      "title": "Find the right specialty",
+      "intro": "Five departments under one roof, each with its own doctors and clear prices.",
+      "view": "Doctors and prices"
+    },
+    "doctors": {
+      "pill": "Our doctors",
+      "title": "Meet the doctors",
+      "all": "All doctors",
+      "profile": "View profile"
+    },
     "promises": {
       "pill": "What to expect",
       "title": "Care that respects your time",
@@ -38,9 +66,17 @@
       "p3Title": "One file for the family",
       "p3Text": "Your visits stay in one place, so every doctor knows your history."
     },
-    "results": { "pill": "Dental results", "title": "Results from our dental department", "intro": "Drag the slider to compare. These are illustrations, not real patients." },
+    "results": {
+      "pill": "Dental results",
+      "title": "Results from our dental department",
+      "intro": "Drag the slider to compare. These are illustrations, not real patients."
+    },
     "testimonials": { "pill": "Reviews", "title": "Families who stay with us" },
-    "band": { "title": "Ready to see a doctor?", "text": "Pick a doctor and a free time in under a minute.", "cta": "Book a visit" }
+    "band": {
+      "title": "Ready to see a doctor?",
+      "text": "Pick a doctor and a free time in under a minute.",
+      "cta": "Book a visit"
+    }
   },
   "departments": {
     "title": "Departments and prices",

@@ -70,7 +70,11 @@ export function TreatmentsPage() {
                 {item.priceNote[locale] ? ` · ${item.priceNote[locale]}` : ""}
               </p>
               <div className="flex flex-wrap gap-2">
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => setEditing(item)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${name}`}
+                  onClick={() => setEditing(item)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -134,7 +138,9 @@ function TreatmentForm({ treatment, onDone }: { treatment: Treatment | null; onD
     };
     if (treatment) {
       setTreatments(
-        treatments.map((item) => (item.id === treatment.id ? { ...values, id: item.id, steps: item.steps } : item)),
+        treatments.map((item) =>
+          item.id === treatment.id ? { ...values, id: item.id, steps: item.steps } : item,
+        ),
       );
     } else {
       setTreatments([...treatments, { ...values, id: crypto.randomUUID(), steps: [] }]);
@@ -147,7 +153,13 @@ function TreatmentForm({ treatment, onDone }: { treatment: Treatment | null; onD
     <form onSubmit={submit} noValidate>
       <Panel title={t(treatment ? "treatments.editTitle" : "treatments.addTitle")}>
         {error ? <ErrorSummary text={t("treatments.error")} /> : null}
-        <BilingualField id="treatment-name" label={t("treatments.name")} value={draft.name} onChange={(name) => setDraft({ ...draft, name })} t={t} />
+        <BilingualField
+          id="treatment-name"
+          label={t("treatments.name")}
+          value={draft.name}
+          onChange={(name) => setDraft({ ...draft, name })}
+          t={t}
+        />
         <BilingualField
           id="treatment-description"
           label={t("treatments.description")}

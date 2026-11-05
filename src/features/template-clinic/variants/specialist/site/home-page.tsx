@@ -11,7 +11,17 @@ import { BeforeAfter } from "../../../site/before-after";
 import { BookingForm } from "../../../site/booking-form";
 import { findPhoto, SitePhoto } from "../../../site/photo";
 import { FaqList, HoursList, PriceTable, Stat, StickyCta, TestimonialCards } from "../../../site/site-parts";
-import { Block, cardClasses, GlowDot, Pill, primaryButton, SectionHead, SectionTitle, softButton, wrap } from "../../../site/site-ui";
+import {
+  Block,
+  cardClasses,
+  GlowDot,
+  Pill,
+  primaryButton,
+  SectionHead,
+  SectionTitle,
+  softButton,
+  wrap,
+} from "../../../site/site-ui";
 import { TreatmentVisual } from "../../../site/treatment-visual";
 import { getSpecialistT } from "../messages";
 
@@ -54,25 +64,38 @@ export function HomePage() {
             </Link>
           </div>
           <div className="flex flex-wrap gap-10 pt-4">
-            {doctor ? <Stat value={formatNumber(doctor.years, locale)} label={st("home.hero.years")} /> : null}
+            {doctor ? (
+              <Stat value={formatNumber(doctor.years, locale)} label={st("home.hero.years")} />
+            ) : null}
             <Stat value={formatNumber(treatments.length, locale)} label={st("home.hero.treatments")} />
           </div>
         </div>
         <div className="relative">
           <div className="aspect-[4/5] overflow-hidden rounded-[30px] bg-surface">
-            <SitePhoto photo={findPhoto(config.photos, doctor?.photo)} locale={locale} priority sizes="(min-width: 1024px) 560px, 100vw" />
+            <SitePhoto
+              photo={findPhoto(config.photos, doctor?.photo)}
+              locale={locale}
+              priority
+              sizes="(min-width: 1024px) 560px, 100vw"
+            />
           </div>
           <div className="absolute bottom-4 start-4 end-4 rounded-3xl bg-text/90 p-4 text-bg backdrop-blur sm:end-auto sm:min-w-64">
             <p className="text-xs text-bg/80">{st("home.hero.nextFree")}</p>
             <p className="text-lg font-medium">
-              {next ? `${formatDateKey(next.dateKey, locale)} · ${formatTime(next.time, locale)}` : st("home.hero.nextFreeNone")}
+              {next
+                ? `${formatDateKey(next.dateKey, locale)} · ${formatTime(next.time, locale)}`
+                : st("home.hero.nextFreeNone")}
             </p>
           </div>
         </div>
       </section>
 
       <Block titleId="services-title" tone="soft">
-        <SectionHead pill={st("home.services.pill")} title={st("home.services.title")} titleId="services-title" />
+        <SectionHead
+          pill={st("home.services.pill")}
+          title={st("home.services.title")}
+          titleId="services-title"
+        />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {treatments.map((treatment) => (
             <li key={treatment.id}>
@@ -81,7 +104,12 @@ export function HomePage() {
                 className="group block overflow-hidden rounded-3xl bg-bg ring-1 ring-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
               >
                 <div className="aspect-[3/2] overflow-hidden">
-                  <TreatmentVisual treatment={treatment} photos={config.photos} locale={locale} sizes="(min-width: 1024px) 380px, 100vw" />
+                  <TreatmentVisual
+                    treatment={treatment}
+                    photos={config.photos}
+                    locale={locale}
+                    sizes="(min-width: 1024px) 380px, 100vw"
+                  />
                 </div>
                 <div className="flex items-center justify-between gap-3 p-5">
                   <div>
@@ -91,7 +119,9 @@ export function HomePage() {
                       {formatPrice(treatment.price, locale)}
                     </p>
                   </div>
-                  <span className="text-sm font-medium text-(--cl-accent)">{st("home.services.details")}</span>
+                  <span className="text-sm font-medium text-(--cl-accent)">
+                    {st("home.services.details")}
+                  </span>
                 </div>
               </Link>
             </li>
@@ -100,9 +130,17 @@ export function HomePage() {
       </Block>
 
       <Block titleId="tech-title">
-        <SectionHead pill={st("home.techniques.pill")} title={st("home.techniques.title")} titleId="tech-title" />
+        <SectionHead
+          pill={st("home.techniques.pill")}
+          title={st("home.techniques.title")}
+          titleId="tech-title"
+        />
         <div className="mx-auto max-w-3xl space-y-4">
-          <div role="group" aria-label={st("home.techniques.list")} className="flex flex-wrap justify-center gap-2">
+          <div
+            role="group"
+            aria-label={st("home.techniques.list")}
+            className="flex flex-wrap justify-center gap-2"
+          >
             {techniques.map((key) => (
               <button
                 key={key}
@@ -147,7 +185,11 @@ export function HomePage() {
 
       {results[0] ? (
         <Block titleId="results-title">
-          <SectionHead pill={st("home.results.pill")} title={st("home.results.title")} titleId="results-title" />
+          <SectionHead
+            pill={st("home.results.pill")}
+            title={st("home.results.title")}
+            titleId="results-title"
+          />
           <BeforeAfter result={results[0]} locale={locale} />
           <p className="mt-6 text-center">
             <Link href={`${root}/results`} className={softButton}>
@@ -160,7 +202,11 @@ export function HomePage() {
       <Block titleId="about-title" tone="soft">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="aspect-[3/2] overflow-hidden rounded-[30px] bg-bg">
-            <SitePhoto photo={findPhoto(config.photos, "bone-graft")} locale={locale} sizes="(min-width: 768px) 560px, 100vw" />
+            <SitePhoto
+              photo={findPhoto(config.photos, "bone-graft")}
+              locale={locale}
+              sizes="(min-width: 768px) 560px, 100vw"
+            />
           </div>
           <div className="space-y-4">
             <Pill>{st("home.about.pill")}</Pill>
@@ -181,7 +227,12 @@ export function HomePage() {
       </Block>
 
       <Block titleId="prices-title">
-        <SectionHead pill={st("home.prices.pill")} title={st("home.prices.title")} titleId="prices-title" intro={st("home.prices.intro")} />
+        <SectionHead
+          pill={st("home.prices.pill")}
+          title={st("home.prices.title")}
+          titleId="prices-title"
+          intro={st("home.prices.intro")}
+        />
         <PriceTable treatments={treatments} locale={locale} />
         <p className="mt-6 text-center">
           <Link href={`${root}/prices`} className={softButton}>
@@ -192,7 +243,11 @@ export function HomePage() {
 
       {testimonials.length > 0 ? (
         <Block titleId="reviews-title" tone="soft">
-          <SectionHead pill={st("home.testimonials.pill")} title={st("home.testimonials.title")} titleId="reviews-title" />
+          <SectionHead
+            pill={st("home.testimonials.pill")}
+            title={st("home.testimonials.title")}
+            titleId="reviews-title"
+          />
           <TestimonialCards testimonials={testimonials} locale={locale} />
         </Block>
       ) : null}
@@ -223,7 +278,13 @@ export function HomePage() {
         </div>
       </section>
 
-      <StickyCta text={st("home.sticky.text")} label={st("home.sticky.label")} href="#book" heroId="hero" bookId="book" />
+      <StickyCta
+        text={st("home.sticky.text")}
+        label={st("home.sticky.label")}
+        href="#book"
+        heroId="hero"
+        bookId="book"
+      />
     </>
   );
 }

@@ -22,7 +22,9 @@ export function AppointmentsPage() {
   const [doctorId, setDoctorFilter] = useState("");
 
   const shown = [...appointments]
-    .filter((item) => (status ? item.status === status : true) && (doctorId ? item.doctorId === doctorId : true))
+    .filter(
+      (item) => (status ? item.status === status : true) && (doctorId ? item.doctorId === doctorId : true),
+    )
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   return (

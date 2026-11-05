@@ -34,7 +34,12 @@ export function workingDateKey(doctor: Doctor, now: Date, dayOffset: number): st
 function createdAtOf(spec: AppointmentSpec, now: Date): string {
   if (spec.createdYesterdayAt) {
     const yesterday = addDays(now, -1);
-    yesterday.setHours(Math.floor(minutesOf(spec.createdYesterdayAt) / 60), minutesOf(spec.createdYesterdayAt) % 60, 0, 0);
+    yesterday.setHours(
+      Math.floor(minutesOf(spec.createdYesterdayAt) / 60),
+      minutesOf(spec.createdYesterdayAt) % 60,
+      0,
+      0,
+    );
     return yesterday.toISOString();
   }
   return new Date(now.getTime() - (spec.createdHoursAgo ?? 24) * 60 * 60 * 1000).toISOString();

@@ -51,4 +51,18 @@ export const templateRegistry: Record<string, () => Promise<TemplateParts>> = {
     const { useWarehousingStore } = await import("@/features/template-logistics/variants/warehousing/store");
     return { store: useWarehousingStore, schema: warehousingSchema, createSeed: createWarehousingSeed };
   },
+  "clinic-specialist": async () => {
+    const { clinicDataSchema } = await import("@/features/template-clinic/types");
+    const { createSpecialistSeed } = await import("@/features/template-clinic/variants/specialist/seed");
+    const { useSpecialistStore } = await import("@/features/template-clinic/variants/specialist/store");
+    return { store: useSpecialistStore, schema: clinicDataSchema, createSeed: createSpecialistSeed };
+  },
+  "clinic-medical-centre": async () => {
+    const { clinicDataSchema } = await import("@/features/template-clinic/types");
+    const { createMedicalCentreSeed } =
+      await import("@/features/template-clinic/variants/medical-centre/seed");
+    const { useMedicalCentreStore } =
+      await import("@/features/template-clinic/variants/medical-centre/store");
+    return { store: useMedicalCentreStore, schema: clinicDataSchema, createSeed: createMedicalCentreSeed };
+  },
 };

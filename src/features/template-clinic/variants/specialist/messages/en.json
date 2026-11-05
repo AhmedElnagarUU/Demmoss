@@ -1,10 +1,25 @@
 {
   "meta": {
-    "home": { "title": "Dr. Rayan Al Harthi · Dental implants in Riyadh", "description": "Dental implants and oral surgery in Riyadh. Clear prices, a 3D plan before surgery, and booking into truly free times." },
-    "treatments": { "title": "Treatments · Dr. Rayan Al Harthi", "description": "Who each treatment is for, the steps, how long it takes, and what it costs." },
-    "results": { "title": "Results · Dr. Rayan Al Harthi", "description": "Before and after smiles rebuilt with dental implants." },
-    "prices": { "title": "Prices & FAQ · Dr. Rayan Al Harthi", "description": "The full price list and the questions patients ask most." },
-    "book": { "title": "Book an appointment · Dr. Rayan Al Harthi", "description": "Choose a treatment, a day, and a free time." },
+    "home": {
+      "title": "Dr. Rayan Al Harthi · Dental implants in Riyadh",
+      "description": "Dental implants and oral surgery in Riyadh. Clear prices, a 3D plan before surgery, and booking into truly free times."
+    },
+    "treatments": {
+      "title": "Treatments · Dr. Rayan Al Harthi",
+      "description": "Who each treatment is for, the steps, how long it takes, and what it costs."
+    },
+    "results": {
+      "title": "Results · Dr. Rayan Al Harthi",
+      "description": "Before and after smiles rebuilt with dental implants."
+    },
+    "prices": {
+      "title": "Prices & FAQ · Dr. Rayan Al Harthi",
+      "description": "The full price list and the questions patients ask most."
+    },
+    "book": {
+      "title": "Book an appointment · Dr. Rayan Al Harthi",
+      "description": "Choose a treatment, a day, and a free time."
+    },
     "dashboard": { "title": "Dashboard · Dr. Rayan Al Harthi" }
   },
   "nav": {
@@ -27,15 +42,32 @@
       "nextFree": "Next free time",
       "nextFreeNone": "No free time in the next two weeks"
     },
-    "services": { "pill": "Treatments", "title": "Everything patients come to me with", "details": "Price and details", "all": "All treatments" },
+    "services": {
+      "pill": "Treatments",
+      "title": "Everything patients come to me with",
+      "details": "Price and details",
+      "all": "All treatments"
+    },
     "techniques": {
       "pill": "Techniques",
       "title": "An implant technique for every case",
       "list": "Implant techniques",
-      "immediate": { "name": "Immediate placement", "text": "The implant goes in right after the tooth is removed, saving months of waiting when the bone allows it." },
-      "guided": { "name": "Guided 3D surgery", "text": "A printed guide places each implant exactly where the plan on screen says, with the smallest possible opening." },
-      "allon4": { "name": "All-on-4", "text": "A whole jaw rests on four implants placed at angles, so a fixed bridge can be fitted within a day." },
-      "zygomatic": { "name": "Zygomatic implants", "text": "For very thin upper bone: long implants anchor in the cheekbone, often avoiding a bone graft." }
+      "immediate": {
+        "name": "Immediate placement",
+        "text": "The implant goes in right after the tooth is removed, saving months of waiting when the bone allows it."
+      },
+      "guided": {
+        "name": "Guided 3D surgery",
+        "text": "A printed guide places each implant exactly where the plan on screen says, with the smallest possible opening."
+      },
+      "allon4": {
+        "name": "All-on-4",
+        "text": "A whole jaw rests on four implants placed at angles, so a fixed bridge can be fitted within a day."
+      },
+      "zygomatic": {
+        "name": "Zygomatic implants",
+        "text": "For very thin upper bone: long implants anchor in the cheekbone, often avoiding a bone graft."
+      }
     },
     "best": {
       "pill": "Is this for you?",

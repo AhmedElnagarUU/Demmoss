@@ -27,7 +27,10 @@ export function PatientsPage() {
           {patients.map((patient) => (
             <li key={patient.key} className="space-y-2 rounded-control border border-border bg-bg p-4">
               <p className="text-lg font-bold text-text">
-                {patient.name} <span className="text-base font-normal text-muted" dir="ltr">{patient.phone}</span>
+                {patient.name}{" "}
+                <span className="text-base font-normal text-muted" dir="ltr">
+                  {patient.phone}
+                </span>
               </p>
               <dl className="grid gap-3 text-sm sm:grid-cols-5">
                 {[

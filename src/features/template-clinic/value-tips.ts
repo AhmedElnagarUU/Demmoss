@@ -63,7 +63,12 @@ export function popularTreatmentFacts(
     .sort((a, b) => b.count - a.count)[0];
   if (!best) return [];
   return [
-    { id: `popularTreatment:${best.treatment.id}`, key: "popularTreatment", label: best.treatment.name, count: best.count },
+    {
+      id: `popularTreatment:${best.treatment.id}`,
+      key: "popularTreatment",
+      label: best.treatment.name,
+      count: best.count,
+    },
   ];
 }
 

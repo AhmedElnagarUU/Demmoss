@@ -49,7 +49,11 @@ export function DoctorsPage() {
       />
 
       {editing ? (
-        <DoctorForm key={editing === "new" ? "new" : editing.id} doctor={editing === "new" ? null : editing} onDone={() => setEditing(null)} />
+        <DoctorForm
+          key={editing === "new" ? "new" : editing.id}
+          doctor={editing === "new" ? null : editing}
+          onDone={() => setEditing(null)}
+        />
       ) : null}
 
       <Panel title={t("doctors.doctorsTitle")}>
@@ -64,10 +68,15 @@ export function DoctorsPage() {
                   {department ? <StatusBadge label={department.name[locale]} /> : null}
                 </div>
                 <p className="text-muted">
-                  {doctor.title[locale]} · {t("common.minutes", { minutes: formatNumber(doctor.slotMinutes, locale) })}
+                  {doctor.title[locale]} ·{" "}
+                  {t("common.minutes", { minutes: formatNumber(doctor.slotMinutes, locale) })}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => setEditing(doctor)}>
+                  <Button
+                    variant="secondary"
+                    aria-label={`${t("common.edit")}: ${name}`}
+                    onClick={() => setEditing(doctor)}
+                  >
                     {t("common.edit")}
                   </Button>
                   <Button
@@ -103,7 +112,12 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
   const portraits = config.photos.filter((photo) => photo.portrait);
   const [draft, setDraft] = useState(
     doctor
-      ? { ...doctor, departmentId: doctor.departmentId ?? "", years: String(doctor.years), slotMinutes: String(doctor.slotMinutes) }
+      ? {
+          ...doctor,
+          departmentId: doctor.departmentId ?? "",
+          years: String(doctor.years),
+          slotMinutes: String(doctor.slotMinutes),
+        }
       : {
           id: "",
           name: emptyText,
@@ -123,7 +137,13 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
     event.preventDefault();
     const years = parseNumber(draft.years);
     const slotMinutes = parseNumber(draft.slotMinutes);
-    if (!hasText(draft.name) || !hasText(draft.title) || years === null || slotMinutes === null || slotMinutes < 10) {
+    if (
+      !hasText(draft.name) ||
+      !hasText(draft.title) ||
+      years === null ||
+      slotMinutes === null ||
+      slotMinutes < 10
+    ) {
       return setError(true);
     }
     const values: Doctor = {
@@ -138,7 +158,9 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
       slotMinutes: Math.min(120, Math.round(slotMinutes)),
       schedule: draft.schedule,
     };
-    setDoctors(doctor ? doctors.map((item) => (item.id === doctor.id ? values : item)) : [...doctors, values]);
+    setDoctors(
+      doctor ? doctors.map((item) => (item.id === doctor.id ? values : item)) : [...doctors, values],
+    );
     trackEdit("doctors", config.slug, locale);
     onDone();
   }
@@ -147,11 +169,35 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
     <form onSubmit={submit} noValidate>
       <Panel title={t(doctor ? "doctors.editTitle" : "doctors.addTitle")}>
         {error ? <ErrorSummary text={t("doctors.error")} /> : null}
-        <BilingualField id="doctor-name" label={t("doctors.name")} value={draft.name} onChange={(name) => setDraft({ ...draft, name })} t={t} />
-        <BilingualField id="doctor-title" label={t("doctors.role")} value={draft.title} onChange={(title) => setDraft({ ...draft, title })} t={t} />
-        <BilingualField id="doctor-bio" label={t("doctors.bio")} value={draft.bio} onChange={(bio) => setDraft({ ...draft, bio })} t={t} multiline />
+        <BilingualField
+          id="doctor-name"
+          label={t("doctors.name")}
+          value={draft.name}
+          onChange={(name) => setDraft({ ...draft, name })}
+          t={t}
+        />
+        <BilingualField
+          id="doctor-title"
+          label={t("doctors.role")}
+          value={draft.title}
+          onChange={(title) => setDraft({ ...draft, title })}
+          t={t}
+        />
+        <BilingualField
+          id="doctor-bio"
+          label={t("doctors.bio")}
+          value={draft.bio}
+          onChange={(bio) => setDraft({ ...draft, bio })}
+          t={t}
+          multiline
+        />
         <div className="grid gap-4 sm:grid-cols-2">
-          <SelectInput id="doctor-department" label={t("doctors.department")} value={draft.departmentId} onChange={(event) => setDraft({ ...draft, departmentId: event.target.value })}>
+          <SelectInput
+            id="doctor-department"
+            label={t("doctors.department")}
+            value={draft.departmentId}
+            onChange={(event) => setDraft({ ...draft, departmentId: event.target.value })}
+          >
             <option value="">{t("doctors.noDepartment")}</option>
             {departments.map((department) => (
               <option key={department.id} value={department.id}>
@@ -159,15 +205,33 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
               </option>
             ))}
           </SelectInput>
-          <SelectInput id="doctor-photo" label={t("doctors.photo")} value={draft.photo} onChange={(event) => setDraft({ ...draft, photo: event.target.value })}>
+          <SelectInput
+            id="doctor-photo"
+            label={t("doctors.photo")}
+            value={draft.photo}
+            onChange={(event) => setDraft({ ...draft, photo: event.target.value })}
+          >
             {portraits.map((photo) => (
               <option key={photo.id} value={photo.id}>
                 {photo.alt[locale]}
               </option>
             ))}
           </SelectInput>
-          <TextInput id="doctor-years" label={t("doctors.years")} type="number" dir="ltr" min={0} value={draft.years} onChange={(event) => setDraft({ ...draft, years: event.target.value })} />
-          <SelectInput id="doctor-slot" label={t("doctors.slotMinutes")} value={draft.slotMinutes} onChange={(event) => setDraft({ ...draft, slotMinutes: event.target.value })}>
+          <TextInput
+            id="doctor-years"
+            label={t("doctors.years")}
+            type="number"
+            dir="ltr"
+            min={0}
+            value={draft.years}
+            onChange={(event) => setDraft({ ...draft, years: event.target.value })}
+          />
+          <SelectInput
+            id="doctor-slot"
+            label={t("doctors.slotMinutes")}
+            value={draft.slotMinutes}
+            onChange={(event) => setDraft({ ...draft, slotMinutes: event.target.value })}
+          >
             {slotLengths.map((minutes) => (
               <option key={minutes} value={minutes}>
                 {t("common.minutes", { minutes: formatNumber(minutes, locale) })}
@@ -177,7 +241,12 @@ function DoctorForm({ doctor, onDone }: { doctor: Doctor | null; onDone: () => v
         </div>
         <fieldset className="space-y-2">
           <legend className="text-sm font-bold text-text">{t("doctors.schedule")}</legend>
-          <ScheduleEditor schedule={draft.schedule} locale={locale} idPrefix="doctor-schedule" onChange={(schedule) => setDraft({ ...draft, schedule })} />
+          <ScheduleEditor
+            schedule={draft.schedule}
+            locale={locale}
+            idPrefix="doctor-schedule"
+            onChange={(schedule) => setDraft({ ...draft, schedule })}
+          />
         </fieldset>
         <div className="flex flex-wrap gap-3">
           <Button type="submit">{t("common.save")}</Button>
@@ -229,10 +298,17 @@ function DepartmentsPanel() {
             doctors.some((doctor) => doctor.departmentId === department.id) ||
             treatments.some((treatment) => treatment.departmentId === department.id);
           return (
-            <li key={department.id} className="flex flex-wrap items-center justify-between gap-2 rounded-control border border-border p-4">
+            <li
+              key={department.id}
+              className="flex flex-wrap items-center justify-between gap-2 rounded-control border border-border p-4"
+            >
               <p className="font-bold text-text">{name}</p>
               <div className="flex flex-wrap gap-2">
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => open(department)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${name}`}
+                  onClick={() => open(department)}
+                >
                   {t("common.edit")}
                 </Button>
                 {inUse ? (
@@ -257,8 +333,21 @@ function DepartmentsPanel() {
       {editing ? (
         <form onSubmit={save} noValidate className="space-y-4">
           {error ? <ErrorSummary text={t("doctors.departmentError")} /> : null}
-          <BilingualField id="department-name" label={t("doctors.departmentName")} value={draft.name} onChange={(name) => setDraft({ ...draft, name })} t={t} />
-          <BilingualField id="department-description" label={t("doctors.departmentDescription")} value={draft.description} onChange={(description) => setDraft({ ...draft, description })} t={t} multiline />
+          <BilingualField
+            id="department-name"
+            label={t("doctors.departmentName")}
+            value={draft.name}
+            onChange={(name) => setDraft({ ...draft, name })}
+            t={t}
+          />
+          <BilingualField
+            id="department-description"
+            label={t("doctors.departmentDescription")}
+            value={draft.description}
+            onChange={(description) => setDraft({ ...draft, description })}
+            t={t}
+            multiline
+          />
           <div className="flex flex-wrap gap-3">
             <Button type="submit">{t("common.save")}</Button>
             <Button variant="secondary" onClick={() => setEditing(null)}>

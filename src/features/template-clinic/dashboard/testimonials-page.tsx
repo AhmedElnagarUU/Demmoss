@@ -9,7 +9,12 @@ import { getClinicT } from "../messages";
 import type { Testimonial } from "../types";
 import { fillText, hasText } from "./fill";
 
-const blank = { name: { ar: "", en: "" }, context: { ar: "", en: "" }, text: { ar: "", en: "" }, visible: true };
+const blank = {
+  name: { ar: "", en: "" },
+  context: { ar: "", en: "" },
+  text: { ar: "", en: "" },
+  visible: true,
+};
 
 // Dashboard: patient stories shown on the site. Hidden ones stay saved but are not public.
 export function TestimonialsPage() {
@@ -27,7 +32,11 @@ export function TestimonialsPage() {
         action={editing ? null : <Button onClick={() => setEditing("new")}>{t("testimonials.add")}</Button>}
       />
       {editing ? (
-        <TestimonialForm key={editing === "new" ? "new" : editing.id} testimonial={editing === "new" ? null : editing} onDone={() => setEditing(null)} />
+        <TestimonialForm
+          key={editing === "new" ? "new" : editing.id}
+          testimonial={editing === "new" ? null : editing}
+          onDone={() => setEditing(null)}
+        />
       ) : null}
       <ul className="space-y-3">
         {testimonials.map((item) => {
@@ -43,13 +52,21 @@ export function TestimonialsPage() {
                 <Button
                   variant="secondary"
                   onClick={() => {
-                    setTestimonials(testimonials.map((entry) => (entry.id === item.id ? { ...entry, visible: !entry.visible } : entry)));
+                    setTestimonials(
+                      testimonials.map((entry) =>
+                        entry.id === item.id ? { ...entry, visible: !entry.visible } : entry,
+                      ),
+                    );
                     trackEdit("testimonials", config.slug, locale);
                   }}
                 >
                   {t(item.visible ? "testimonials.hide" : "testimonials.show")}: {name}
                 </Button>
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${name}`} onClick={() => setEditing(item)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${name}`}
+                  onClick={() => setEditing(item)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -82,7 +99,12 @@ function TestimonialForm({ testimonial, onDone }: { testimonial: Testimonial | n
   function submit(event: FormEvent) {
     event.preventDefault();
     if (!hasText(draft.text) || !hasText(draft.name)) return setError(true);
-    const values = { name: fillText(draft.name), context: fillText(draft.context), text: fillText(draft.text), visible: draft.visible };
+    const values = {
+      name: fillText(draft.name),
+      context: fillText(draft.context),
+      text: fillText(draft.text),
+      visible: draft.visible,
+    };
     setTestimonials(
       testimonial
         ? testimonials.map((item) => (item.id === testimonial.id ? { ...values, id: item.id } : item))
@@ -96,9 +118,28 @@ function TestimonialForm({ testimonial, onDone }: { testimonial: Testimonial | n
     <form onSubmit={submit} noValidate>
       <Panel title={t(testimonial ? "testimonials.editTitle" : "testimonials.addTitle")}>
         {error ? <ErrorSummary text={t("testimonials.error")} /> : null}
-        <BilingualField id="testimonial-name" label={t("testimonials.name")} value={draft.name} onChange={(name) => setDraft({ ...draft, name })} t={t} />
-        <BilingualField id="testimonial-context" label={t("testimonials.context")} value={draft.context} onChange={(context) => setDraft({ ...draft, context })} t={t} />
-        <BilingualField id="testimonial-text" label={t("testimonials.text")} value={draft.text} onChange={(text) => setDraft({ ...draft, text })} t={t} multiline />
+        <BilingualField
+          id="testimonial-name"
+          label={t("testimonials.name")}
+          value={draft.name}
+          onChange={(name) => setDraft({ ...draft, name })}
+          t={t}
+        />
+        <BilingualField
+          id="testimonial-context"
+          label={t("testimonials.context")}
+          value={draft.context}
+          onChange={(context) => setDraft({ ...draft, context })}
+          t={t}
+        />
+        <BilingualField
+          id="testimonial-text"
+          label={t("testimonials.text")}
+          value={draft.text}
+          onChange={(text) => setDraft({ ...draft, text })}
+          t={t}
+          multiline
+        />
         <div className="flex flex-wrap gap-3">
           <Button type="submit">{t("common.save")}</Button>
           <Button variant="secondary" onClick={onDone}>

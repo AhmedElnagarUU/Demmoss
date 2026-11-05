@@ -25,7 +25,9 @@ export function ScheduleEditor({ schedule, onChange, locale, idPrefix }: Props) 
                 type="checkbox"
                 className="size-5"
                 checked={hours !== null}
-                onChange={(event) => setDay(day, event.target.checked ? { from: "09:00", to: "17:00" } : null)}
+                onChange={(event) =>
+                  setDay(day, event.target.checked ? { from: "09:00", to: "17:00" } : null)
+                }
               />
               {name}
               <span className="sr-only"> · {t("schedule.open")}</span>
@@ -41,7 +43,9 @@ export function ScheduleEditor({ schedule, onChange, locale, idPrefix }: Props) 
                   dir="ltr"
                   className={`${inputClass} w-auto`}
                   value={hours.from}
-                  onChange={(event) => event.target.value && setDay(day, { ...hours, from: event.target.value })}
+                  onChange={(event) =>
+                    event.target.value && setDay(day, { ...hours, from: event.target.value })
+                  }
                 />
                 <label htmlFor={`${idPrefix}-${day}-to`} className="sr-only">
                   {t("schedule.to", { day: name })}
@@ -52,7 +56,9 @@ export function ScheduleEditor({ schedule, onChange, locale, idPrefix }: Props) 
                   dir="ltr"
                   className={`${inputClass} w-auto`}
                   value={hours.to}
-                  onChange={(event) => event.target.value && setDay(day, { ...hours, to: event.target.value })}
+                  onChange={(event) =>
+                    event.target.value && setDay(day, { ...hours, to: event.target.value })
+                  }
                 />
               </>
             ) : null}

@@ -3,7 +3,14 @@
 import { useState, type FormEvent } from "react";
 import { trackEdit } from "@/features/demo-engine/track-edit";
 import { formatNumber } from "@/features/demo-engine/format/format";
-import { BilingualField, ErrorSummary, PageHeader, Panel, SelectInput, StatusBadge } from "@/features/demo-engine/ui";
+import {
+  BilingualField,
+  ErrorSummary,
+  PageHeader,
+  Panel,
+  SelectInput,
+  StatusBadge,
+} from "@/features/demo-engine/ui";
 import { Button } from "@/shared/ui/button";
 import { useClinic } from "../context";
 import { getClinicT } from "../messages";
@@ -28,7 +35,11 @@ export function ResultsPage() {
         action={editing ? null : <Button onClick={() => setEditing("new")}>{t("results.add")}</Button>}
       />
       {editing ? (
-        <ResultForm key={editing === "new" ? "new" : editing.id} result={editing === "new" ? null : editing} onDone={() => setEditing(null)} />
+        <ResultForm
+          key={editing === "new" ? "new" : editing.id}
+          result={editing === "new" ? null : editing}
+          onDone={() => setEditing(null)}
+        />
       ) : null}
       <ul className="space-y-3">
         {results.map((item) => {
@@ -44,13 +55,21 @@ export function ResultsPage() {
                 <Button
                   variant="secondary"
                   onClick={() => {
-                    setResults(results.map((entry) => (entry.id === item.id ? { ...entry, visible: !entry.visible } : entry)));
+                    setResults(
+                      results.map((entry) =>
+                        entry.id === item.id ? { ...entry, visible: !entry.visible } : entry,
+                      ),
+                    );
                     trackEdit("results", config.slug, locale);
                   }}
                 >
                   {t(item.visible ? "results.hide" : "results.show")}: {title}
                 </Button>
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${title}`} onClick={() => setEditing(item)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${title}`}
+                  onClick={() => setEditing(item)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -83,8 +102,17 @@ function ResultForm({ result, onDone }: { result: Result | null; onDone: () => v
   function submit(event: FormEvent) {
     event.preventDefault();
     if (!hasText(draft.title)) return setError(true);
-    const values = { title: fillText(draft.title), caption: fillText(draft.caption), look: draft.look, visible: draft.visible };
-    setResults(result ? results.map((item) => (item.id === result.id ? { ...values, id: item.id } : item)) : [...results, { ...values, id: crypto.randomUUID() }]);
+    const values = {
+      title: fillText(draft.title),
+      caption: fillText(draft.caption),
+      look: draft.look,
+      visible: draft.visible,
+    };
+    setResults(
+      result
+        ? results.map((item) => (item.id === result.id ? { ...values, id: item.id } : item))
+        : [...results, { ...values, id: crypto.randomUUID() }],
+    );
     trackEdit("results", config.slug, locale);
     onDone();
   }
@@ -93,9 +121,26 @@ function ResultForm({ result, onDone }: { result: Result | null; onDone: () => v
     <form onSubmit={submit} noValidate>
       <Panel title={t(result ? "results.editTitle" : "results.addTitle")}>
         {error ? <ErrorSummary text={t("results.error")} /> : null}
-        <BilingualField id="result-title" label={t("results.resultTitle")} value={draft.title} onChange={(title) => setDraft({ ...draft, title })} t={t} />
-        <BilingualField id="result-caption" label={t("results.caption")} value={draft.caption} onChange={(caption) => setDraft({ ...draft, caption })} t={t} />
-        <SelectInput id="result-look" label={t("results.look")} value={String(draft.look)} onChange={(event) => setDraft({ ...draft, look: Number(event.target.value) })}>
+        <BilingualField
+          id="result-title"
+          label={t("results.resultTitle")}
+          value={draft.title}
+          onChange={(title) => setDraft({ ...draft, title })}
+          t={t}
+        />
+        <BilingualField
+          id="result-caption"
+          label={t("results.caption")}
+          value={draft.caption}
+          onChange={(caption) => setDraft({ ...draft, caption })}
+          t={t}
+        />
+        <SelectInput
+          id="result-look"
+          label={t("results.look")}
+          value={String(draft.look)}
+          onChange={(event) => setDraft({ ...draft, look: Number(event.target.value) })}
+        >
           {[0, 1, 2].map((look) => (
             <option key={look} value={look}>
               {t("results.lookOption", { number: formatNumber(look + 1, locale) })}

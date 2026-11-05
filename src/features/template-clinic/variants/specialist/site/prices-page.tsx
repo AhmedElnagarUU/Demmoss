@@ -15,12 +15,23 @@ export function PricesPage() {
   return (
     <>
       <div className={`${wrap} pt-12`}>
-        <SectionHead level={1} pill={st("nav.prices")} title={st("prices.title")} titleId="prices-title" intro={st("prices.intro")} />
+        <SectionHead
+          level={1}
+          pill={st("nav.prices")}
+          title={st("prices.title")}
+          titleId="prices-title"
+          intro={st("prices.intro")}
+        />
         <PriceTable treatments={treatments} locale={locale} />
       </div>
       <div className="py-12">
         <Block titleId="payment-title" tone="soft">
-          <SectionHead pill={st("prices.paymentPill")} title={st("prices.paymentTitle")} titleId="payment-title" intro={st("prices.paymentText")} />
+          <SectionHead
+            pill={st("prices.paymentPill")}
+            title={st("prices.paymentTitle")}
+            titleId="payment-title"
+            intro={st("prices.paymentText")}
+          />
         </Block>
       </div>
       <Block titleId="faq-title">

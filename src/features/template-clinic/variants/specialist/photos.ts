@@ -13,7 +13,10 @@ export const specialistPhotos: readonly Photo[] = [
     src: unsplash("1612349317150-e413f6a5b16d"),
     ...portrait,
     portrait: true,
-    alt: { ar: "د. ريان الحارثي، جراح الفم والفكين", en: "Dr. Rayan Al Harthi, oral and maxillofacial surgeon" },
+    alt: {
+      ar: "د. ريان الحارثي، جراح الفم والفكين",
+      en: "Dr. Rayan Al Harthi, oral and maxillofacial surgeon",
+    },
   },
   {
     id: "extraction",
@@ -31,7 +34,10 @@ export const specialistPhotos: readonly Photo[] = [
     id: "bone-graft",
     src: unsplash("1631217868264-e5b90bb7e133"),
     ...landscape,
-    alt: { ar: "مراجعة مسح ثلاثي الأبعاد مع الفريق الجراحي", en: "Reviewing a 3D scan with the surgical team" },
+    alt: {
+      ar: "مراجعة مسح ثلاثي الأبعاد مع الفريق الجراحي",
+      en: "Reviewing a 3D scan with the surgical team",
+    },
   },
   {
     id: "sinus-lift",

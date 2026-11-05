@@ -231,7 +231,10 @@ export const seedFaqs: Faq[] = [
   },
   {
     id: "faq-candidate",
-    question: { ar: "هل أستطيع الزراعة إن كان عظمي ضعيفًا؟", en: "Can I have an implant if my bone is weak?" },
+    question: {
+      ar: "هل أستطيع الزراعة إن كان عظمي ضعيفًا؟",
+      en: "Can I have an implant if my bone is weak?",
+    },
     answer: {
       ar: "غالبًا نعم. تطعيم العظم أو رفع الجيب الأنفي يهيئان المكان للزرعة، ونقرر الأنسب لك بعد المسح ثلاثي الأبعاد.",
       en: "Usually yes. Bone grafting or a sinus lift prepares the site, and we decide what suits you after the 3D scan.",

@@ -44,6 +44,8 @@ export function createSharedActions(set: SetData<ClinicData>): SharedActions {
     setFaqs: (faqs) => set({ faqs }),
     setTestimonials: (testimonials) => set({ testimonials }),
     dismissTip: (id) =>
-      set((state) => (state.dismissedTips.includes(id) ? {} : { dismissedTips: [...state.dismissedTips, id] })),
+      set((state) =>
+        state.dismissedTips.includes(id) ? {} : { dismissedTips: [...state.dismissedTips, id] },
+      ),
   };
 }

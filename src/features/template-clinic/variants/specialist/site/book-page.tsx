@@ -26,7 +26,13 @@ function BookPageContent() {
 
   return (
     <div className={`${wrap} py-12`}>
-      <SectionHead level={1} pill={st("nav.book")} title={st("book.title")} titleId="book-title" intro={st("book.intro")} />
+      <SectionHead
+        level={1}
+        pill={st("nav.book")}
+        title={st("book.title")}
+        titleId="book-title"
+        intro={st("book.intro")}
+      />
       <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
         <BookingForm idPrefix="book-page" {...(treatmentId ? { initialTreatmentId: treatmentId } : {})} />
         <div className="space-y-6">

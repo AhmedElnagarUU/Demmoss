@@ -26,14 +26,26 @@ export function OverviewPage() {
   const today = toDateKey(now);
   const count = (value: number) => formatNumber(value, locale);
   const cards = [
-    { id: "new", label: t("overview.newRequests"), value: count(appointments.filter((item) => item.status === "new").length) },
+    {
+      id: "new",
+      label: t("overview.newRequests"),
+      value: count(appointments.filter((item) => item.status === "new").length),
+    },
     {
       id: "upcoming",
       label: t("overview.upcoming"),
       value: count(appointments.filter((item) => item.status === "confirmed" && item.date >= today).length),
     },
-    { id: "patients", label: t("overview.patients"), value: count(groupPatients(appointments, today).length) },
-    { id: "done", label: t("overview.completed"), value: count(appointments.filter((item) => item.status === "done").length) },
+    {
+      id: "patients",
+      label: t("overview.patients"),
+      value: count(groupPatients(appointments, today).length),
+    },
+    {
+      id: "done",
+      label: t("overview.completed"),
+      value: count(appointments.filter((item) => item.status === "done").length),
+    },
   ];
 
   const activity = [...appointments]
@@ -44,7 +56,9 @@ export function OverviewPage() {
       at: item.createdAt,
       text: t("overview.activity", {
         name: item.name,
-        treatment: treatments.find((treatment) => treatment.id === item.treatmentId)?.name[locale] ?? t("common.generalTreatment"),
+        treatment:
+          treatments.find((treatment) => treatment.id === item.treatmentId)?.name[locale] ??
+          t("common.generalTreatment"),
       }),
     }));
 
@@ -53,7 +67,12 @@ export function OverviewPage() {
   return (
     <div className="space-y-6">
       <PageHeader title={t("overview.title")} intro={t("overview.intro")} />
-      <ValueTipBox locale={locale} tips={tipTexts(facts, locale, t)} dismissedIds={dismissedTips} onDismiss={dismissTip} />
+      <ValueTipBox
+        locale={locale}
+        tips={tipTexts(facts, locale, t)}
+        dismissedIds={dismissedTips}
+        onDismiss={dismissTip}
+      />
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <li key={card.id} className="rounded-control border border-border bg-surface p-4">

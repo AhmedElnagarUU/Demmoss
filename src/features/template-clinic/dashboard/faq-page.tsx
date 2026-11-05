@@ -27,7 +27,11 @@ export function FaqPage() {
         action={editing ? null : <Button onClick={() => setEditing("new")}>{t("faq.add")}</Button>}
       />
       {editing ? (
-        <FaqForm key={editing === "new" ? "new" : editing.id} faq={editing === "new" ? null : editing} onDone={() => setEditing(null)} />
+        <FaqForm
+          key={editing === "new" ? "new" : editing.id}
+          faq={editing === "new" ? null : editing}
+          onDone={() => setEditing(null)}
+        />
       ) : null}
       <ul className="space-y-3">
         {faqs.map((item) => {
@@ -37,7 +41,11 @@ export function FaqPage() {
               <p className="text-lg font-bold text-text">{question}</p>
               <p className="text-muted">{item.answer[locale]}</p>
               <div className="flex flex-wrap gap-2">
-                <Button variant="secondary" aria-label={`${t("common.edit")}: ${question}`} onClick={() => setEditing(item)}>
+                <Button
+                  variant="secondary"
+                  aria-label={`${t("common.edit")}: ${question}`}
+                  onClick={() => setEditing(item)}
+                >
                   {t("common.edit")}
                 </Button>
                 <Button
@@ -71,7 +79,11 @@ function FaqForm({ faq, onDone }: { faq: Faq | null; onDone: () => void }) {
     event.preventDefault();
     if (!hasText(draft.question) || !hasText(draft.answer)) return setError(true);
     const values = { question: fillText(draft.question), answer: fillText(draft.answer) };
-    setFaqs(faq ? faqs.map((item) => (item.id === faq.id ? { ...values, id: item.id } : item)) : [...faqs, { ...values, id: crypto.randomUUID() }]);
+    setFaqs(
+      faq
+        ? faqs.map((item) => (item.id === faq.id ? { ...values, id: item.id } : item))
+        : [...faqs, { ...values, id: crypto.randomUUID() }],
+    );
     trackEdit("faq", config.slug, locale);
     onDone();
   }
@@ -80,8 +92,21 @@ function FaqForm({ faq, onDone }: { faq: Faq | null; onDone: () => void }) {
     <form onSubmit={submit} noValidate>
       <Panel title={t(faq ? "faq.editTitle" : "faq.addTitle")}>
         {error ? <ErrorSummary text={t("faq.error")} /> : null}
-        <BilingualField id="faq-question" label={t("faq.question")} value={draft.question} onChange={(question) => setDraft({ ...draft, question })} t={t} />
-        <BilingualField id="faq-answer" label={t("faq.answer")} value={draft.answer} onChange={(answer) => setDraft({ ...draft, answer })} t={t} multiline />
+        <BilingualField
+          id="faq-question"
+          label={t("faq.question")}
+          value={draft.question}
+          onChange={(question) => setDraft({ ...draft, question })}
+          t={t}
+        />
+        <BilingualField
+          id="faq-answer"
+          label={t("faq.answer")}
+          value={draft.answer}
+          onChange={(answer) => setDraft({ ...draft, answer })}
+          t={t}
+          multiline
+        />
         <div className="flex flex-wrap gap-3">
           <Button type="submit">{t("common.save")}</Button>
           <Button variant="secondary" onClick={onDone}>

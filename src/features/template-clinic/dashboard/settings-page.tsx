@@ -124,7 +124,9 @@ function SettingsForm({ settings, shownName, schedule }: FormProps) {
     });
     const newSchedule = draft.schedule;
     if (config.singleDoctor && newSchedule) {
-      setDoctors(doctors.map((doctor, index) => (index === 0 ? { ...doctor, schedule: newSchedule } : doctor)));
+      setDoctors(
+        doctors.map((doctor, index) => (index === 0 ? { ...doctor, schedule: newSchedule } : doctor)),
+      );
     }
     trackEdit("settings", config.slug, locale);
     setSaved(true);
@@ -140,18 +142,49 @@ function SettingsForm({ settings, shownName, schedule }: FormProps) {
       className="space-y-6"
     >
       <Panel title={t("settings.business")}>
-        <BilingualField id="business-name" label={t("settings.businessName")} value={draft.businessName} onChange={(businessName) => setDraft({ ...draft, businessName })} t={t} />
+        <BilingualField
+          id="business-name"
+          label={t("settings.businessName")}
+          value={draft.businessName}
+          onChange={(businessName) => setDraft({ ...draft, businessName })}
+          t={t}
+        />
         <div className="grid gap-4 sm:grid-cols-2">
-          <TextInput id="settings-phone" label={t("settings.phone")} inputMode="tel" dir="ltr" value={draft.phone} onChange={(event) => setDraft({ ...draft, phone: event.target.value })} />
-          <TextInput id="settings-whatsapp" label={t("settings.whatsapp")} inputMode="numeric" dir="ltr" value={draft.whatsapp} onChange={(event) => setDraft({ ...draft, whatsapp: event.target.value })} />
+          <TextInput
+            id="settings-phone"
+            label={t("settings.phone")}
+            inputMode="tel"
+            dir="ltr"
+            value={draft.phone}
+            onChange={(event) => setDraft({ ...draft, phone: event.target.value })}
+          />
+          <TextInput
+            id="settings-whatsapp"
+            label={t("settings.whatsapp")}
+            inputMode="numeric"
+            dir="ltr"
+            value={draft.whatsapp}
+            onChange={(event) => setDraft({ ...draft, whatsapp: event.target.value })}
+          />
         </div>
-        <BilingualField id="settings-address" label={t("settings.address")} value={draft.address} onChange={(address) => setDraft({ ...draft, address })} t={t} />
+        <BilingualField
+          id="settings-address"
+          label={t("settings.address")}
+          value={draft.address}
+          onChange={(address) => setDraft({ ...draft, address })}
+          t={t}
+        />
       </Panel>
 
       {draft.schedule ? (
         <Panel title={t("settings.hours")}>
           <p className="text-muted">{t("settings.hoursIntro")}</p>
-          <ScheduleEditor schedule={draft.schedule} locale={locale} idPrefix="settings-hours" onChange={(next) => setDraft({ ...draft, schedule: next })} />
+          <ScheduleEditor
+            schedule={draft.schedule}
+            locale={locale}
+            idPrefix="settings-hours"
+            onChange={(next) => setDraft({ ...draft, schedule: next })}
+          />
         </Panel>
       ) : null}
 

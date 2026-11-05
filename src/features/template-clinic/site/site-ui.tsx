@@ -89,5 +89,10 @@ export function Block({
 
 // A small dot with a soft glow: the design's list marker.
 export function GlowDot() {
-  return <span aria-hidden="true" className="mt-2 size-2.5 shrink-0 rounded-full bg-primary shadow-[0_0_10px] shadow-primary" />;
+  return (
+    <span
+      aria-hidden="true"
+      className="mt-2 size-2.5 shrink-0 rounded-full bg-primary shadow-[0_0_10px] shadow-primary"
+    />
+  );
 }

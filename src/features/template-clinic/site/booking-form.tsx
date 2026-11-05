@@ -42,7 +42,9 @@ export function BookingForm({ idPrefix, initialDoctorId, initialTreatmentId }: P
   const doctor = doctors.find((item) => item.id === doctorId) ?? doctors[0];
   const dates = doctor ? bookableDates(doctor, now) : [];
   const freeOn = (dateKey: string) => (doctor ? freeTimes({ doctor, dateKey, appointments, now }) : []);
-  const dateKey = dates.includes(pickedDate) ? pickedDate : (dates.find((key) => freeOn(key).length > 0) ?? dates[0] ?? "");
+  const dateKey = dates.includes(pickedDate)
+    ? pickedDate
+    : (dates.find((key) => freeOn(key).length > 0) ?? dates[0] ?? "");
   const times = freeOn(dateKey);
   const chosenTime = times.includes(time) ? time : "";
   const treatmentOptions = treatments.filter(
@@ -53,10 +55,7 @@ export function BookingForm({ idPrefix, initialDoctorId, initialTreatmentId }: P
 
   function submit(event: FormEvent) {
     event.preventDefault();
-    const found = validateBooking(
-      { doctor, dateKey, time: chosenTime, name, phone },
-      { appointments, now },
-    );
+    const found = validateBooking({ doctor, dateKey, time: chosenTime, name, phone }, { appointments, now });
     setErrors(found);
     if (Object.keys(found).length > 0 || !doctor) return;
 

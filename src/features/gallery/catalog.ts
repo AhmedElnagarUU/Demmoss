@@ -5,6 +5,8 @@ import { agencyMeta } from "@/features/template-real-estate/variants/agency/meta
 import { developerMeta } from "@/features/template-real-estate/variants/developer/meta";
 import { freightMeta } from "@/features/template-logistics/variants/freight/meta";
 import { warehousingMeta } from "@/features/template-logistics/variants/warehousing/meta";
+import { specialistMeta } from "@/features/template-clinic/variants/specialist/meta";
+import { medicalCentreMeta } from "@/features/template-clinic/variants/medical-centre/meta";
 import type { TemplateMeta } from "./types";
 
 // Each template variant adds its meta here when it is built.
@@ -15,6 +17,8 @@ const catalog: readonly TemplateMeta[] = [
   developerMeta,
   freightMeta,
   warehousingMeta,
+  specialistMeta,
+  medicalCentreMeta,
 ];
 
 export function getAllDemos(): readonly TemplateMeta[] {

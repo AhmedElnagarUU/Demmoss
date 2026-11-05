@@ -41,13 +41,20 @@ export function SmileIllustration({ stage, look, className }: Props) {
         </linearGradient>
       </defs>
       <rect width="1600" height="900" fill={`url(#${gradientId})`} />
-      <path d="M200 300 Q800 160 1400 300 L1400 470 Q800 380 200 470 Z" fill={after ? "#e58f9d" : "#c9707d"} />
-      <path d="M240 640 Q800 800 1360 640 L1360 760 Q800 900 240 760 Z" fill={after ? "#e58f9d" : "#c9707d"} />
+      <path
+        d="M200 300 Q800 160 1400 300 L1400 470 Q800 380 200 470 Z"
+        fill={after ? "#e58f9d" : "#c9707d"}
+      />
+      <path
+        d="M240 640 Q800 800 1360 640 L1360 760 Q800 900 240 760 Z"
+        fill={after ? "#e58f9d" : "#c9707d"}
+      />
       {Array.from({ length: TOOTH_COUNT }, (_, index) => {
         const { x, y } = toothPosition(index);
         const missing = !after && chosen.missing.includes(index);
         const replaced = after && chosen.missing.includes(index);
-        if (missing) return <ellipse key={index} cx={x + 42} cy={y + 60} rx="26" ry="14" fill="#a85a66" opacity=".6" />;
+        if (missing)
+          return <ellipse key={index} cx={x + 42} cy={y + 60} rx="26" ry="14" fill="#a85a66" opacity=".6" />;
         return (
           <rect
             key={index}
