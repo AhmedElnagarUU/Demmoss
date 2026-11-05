@@ -33,4 +33,5 @@ set `E2E_MONGODB_URI` to a local MongoDB for E2E. Details: [`docs/08-testing.md`
 - Template contract: [`docs/06-template-contract.md`](docs/06-template-contract.md)
 - Roadmap: [`docs/07-roadmap.md`](docs/07-roadmap.md)
 - Testing: [`docs/08-testing.md`](docs/08-testing.md)
+- Design sources (uploaded designs → site structure): [`docs/09-design-sources.md`](docs/09-design-sources.md)
 - Feature flow docs: [`docs/features/`](docs/features/)
