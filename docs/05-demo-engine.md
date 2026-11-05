@@ -7,9 +7,10 @@ only adds its design, content, and business modules. Templates import from it; i
 
 | Part | What it does |
 |---|---|
-| `storage/` | Helper to create a template's Zustand persist store: key `demo:<slug>`, version, seed, reset that keeps the account, Zod validation of loaded data |
-| `fake-auth/` | Register and login pages/components (name + password hashed in the browser), a guard for dashboard routes, logout |
-| `dashboard-shell/` | Sidebar, header, language switch, RTL-ready layout, page title, empty states |
+| `storage/` | Helper to create a template's Zustand persist store: key `demo:<slug>`, version, seed (with sample dates made relative to today), reset that keeps the account, Zod validation of loaded data, sync between tabs (browser `storage` event) |
+| `fake-auth/` | Register and login pages/components (name + password hashed in the browser + optional business name), a guard for dashboard routes, logout |
+| `dashboard-shell/` | Sidebar, header, language switch, RTL-ready layout, page title, empty states, value-tip box |
+| `palettes/` | Applies the selected palette (CSS variables) to a template's site and dashboard |
 | `editor/` | Bilingual field editors: text `{ar,en}`, rich text, image picker from the library, list editor (add/remove/reorder) |
 | `image-library/` | Bundled, optimized images grouped by topic |
 | `banner/` | "Live demo, saved only in your browser" bar with Dashboard, WhatsApp, and Reset buttons |

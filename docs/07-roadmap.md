@@ -14,12 +14,12 @@ flowchart LR
 | Phase | Scope | Status |
 |---|---|---|
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
-| **0b. Planning next** | Software Guide (decisions closed, content draft ready); category/variant model agreed; first category plan | in progress |
-| **1. Foundation** | TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
+| **0b. Planning next** | Software Guide (decisions closed, content draft ready); category/variant model agreed; Restaurants & cafés plan (draft) | in progress |
+| **1. Foundation** | Starts with a 1–2 day spike to confirm TanStack Start (prerender, one server function + MongoDB, `$locale` routes + RTL, one persisted demo store). Then: TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
 | **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
 | **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
 | **4. Demo engine** | Storage helper, fake auth, dashboard shell, editors, image library, banner | |
-| **5. First category** | 2 variants + shared dashboard, built against the contract | |
+| **5. First category** | Restaurants & cafés: 2 variants + shared dashboard, built against the contract | |
 | **6. More categories** | Next categories from `docs/06-template-contract.md`, designs from `theme-sources/`, order guided by admin stats | |
 
 ## Open decisions
@@ -31,6 +31,6 @@ flowchart LR
 | Image uploads | not decided; if enabled, create the AWS S3 upload implementation (owner's existing bucket) |
 | Admin dashboard language | proposal: English first, Arabic later if needed |
 | Wizard business list | = gallery category list + "other" (decided) |
-| First category | not chosen (candidates in `docs/06-template-contract.md`) |
+| First category | Restaurants & cafés (decided) |
 | Theme designs (HTML/CSS) | owner provides later in `theme-sources/`; plans are written without them |
-| Cross-template features | proposals, to confirm: optional business name at register shown on the site; brand color palettes in settings; small value tips in the dashboard; sample data so the dashboard is never empty |
+| Cross-template features | decided: optional business name, color palettes, value tips, relative sample data (`.claude/rules/templates.md`) |

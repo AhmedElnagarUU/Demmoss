@@ -53,14 +53,15 @@ sharing one dashboard. Variants below are proposals, confirmed in each category'
 
 | Category | Variant A (proposal) | Variant B (proposal) | Status |
 |---|---|---|---|
-| Restaurants & cafés | Fine dining: table reservations | Fast food / café: online orders | not planned |
+| Restaurants & cafés | Fine dining: table reservations | Fast food: online orders | **plan draft** (`docs/features/template-restaurant.md`) |
 | Clinics | Dental clinic: appointment booking | Medical center (several doctors): booking by doctor | not planned |
 | Real estate | Real estate agency: listings + viewing requests | Property developer: projects + unit inquiries | not planned |
 | Gyms & fitness | Gym: memberships + trial requests | Fitness studio: class schedule + class booking | not planned |
 | Training & education | Training center: course registration | Language / tutoring center: level test + enrollment | not planned |
 | Service companies | Maintenance company: service requests | Cleaning company: quote + booking | not planned |
+| Marketing agencies | Full-service agency: social media, branding, web development, media production, media buying, SEO, influencer marketing, advertising; proposal requests | Performance agency (proposal): ads, media buying, SEO; free audit requests | not planned |
 
-The first category is not chosen yet. Plan one category fully (both variants), build it, then repeat.
+First category: **Restaurants & cafés**. Plan one category fully (both variants), build it, then repeat.
 Designs come later from the owner's HTML/CSS in `theme-sources/`; plans are written without them.
 
 ```mermaid

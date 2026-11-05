@@ -36,6 +36,13 @@ what their final product could be and what value it brings. It is never a page o
 
 Rules 1–11 apply to **each variant**.
 
+## Every template also has (agreed)
+
+- **Business name at register (optional):** if given, it replaces the seed business name on the site and dashboard.
+- **Color palettes:** 5 palettes per variant in Settings, defined as tokens with checked contrast.
+- **Value tips:** small notes in the dashboard computed from the demo data (e.g. a booking that came while closed). Never invented numbers.
+- **Sample data:** the seed includes sample activity with dates relative to today, so the dashboard is never empty.
+
 ## Folder layout
 
 ```

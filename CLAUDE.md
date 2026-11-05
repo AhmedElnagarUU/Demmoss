@@ -69,4 +69,4 @@ Details: `docs/03-architecture.md`.
 ## Status
 
 Phase 0 (planning) is done. See `docs/07-roadmap.md` for the phases and what is still to be planned
-(first category to plan: 2 variants + shared dashboard).
+(first category: Restaurants & cafés, plan draft in `docs/features/template-restaurant.md`).
