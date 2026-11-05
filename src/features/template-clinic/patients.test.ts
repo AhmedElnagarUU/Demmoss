@@ -64,6 +64,14 @@ describe("C6: patients are built from appointments", () => {
     expect(patients[0]?.lastVisit).toBeNull();
   });
 
+  it("phones that only end the same are different patients", () => {
+    const patients = groupPatients(
+      [make({ id: "1", phone: "966501234567" }), make({ id: "2", phone: "966509994567" })],
+      "2026-11-04",
+    );
+    expect(patients).toHaveLength(2);
+  });
+
   it("no appointments, no patients", () => {
     expect(groupPatients([], "2026-11-04")).toEqual([]);
   });

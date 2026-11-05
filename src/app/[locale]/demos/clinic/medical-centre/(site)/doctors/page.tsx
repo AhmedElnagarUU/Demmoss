@@ -15,7 +15,9 @@ export async function generateMetadata({
   return isLocale(locale) ? siteMetadata(locale, "doctors") : {};
 }
 
-export default async function MedicalCentreDoctorsRoute({ params }: PageProps<"/[locale]/demos/clinic/medical-centre/doctors">) {
+export default async function MedicalCentreDoctorsRoute({
+  params,
+}: PageProps<"/[locale]/demos/clinic/medical-centre/doctors">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return <DoctorsPage />;
