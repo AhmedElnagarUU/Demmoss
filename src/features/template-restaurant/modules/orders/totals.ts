@@ -1,5 +1,5 @@
 import type { LocalizedText } from "@/features/demo-engine/types";
-import { isValidPhone } from "../../phone";
+import { isValidPhone } from "@/features/demo-engine/format/phone";
 import type { Menu } from "../../types";
 import type { Area } from "../areas/types";
 import type { Offer } from "../offers/types";

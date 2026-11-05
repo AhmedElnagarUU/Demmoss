@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contrast } from "../../contrast";
+import { contrast } from "@/features/demo-engine/palettes/contrast";
 import { fastFoodPalettes } from "./palettes";
 
 describe("R5: every Smash Lab palette keeps readable colors (WCAG AA)", () => {

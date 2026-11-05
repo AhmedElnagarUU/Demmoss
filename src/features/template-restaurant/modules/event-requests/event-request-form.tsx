@@ -6,8 +6,8 @@ import { track } from "@/features/tracking/client/track";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { SelectInput, TextArea, TextInput } from "../../dashboard/ui";
-import { addDays, toDateKey } from "../../dates";
+import { SelectInput, TextArea, TextInput } from "@/features/demo-engine/ui";
+import { addDays, toDateKey } from "@/features/demo-engine/format/dates";
 import { getRestaurantT } from "../../messages";
 import type { EventRequestsStore } from "./event-requests-store";
 import {

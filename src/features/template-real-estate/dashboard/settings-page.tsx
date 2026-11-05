@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { track } from "@/features/tracking/client/track";
 import { Button } from "@/shared/ui/button";
-import { businessNameOf } from "../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { useRealEstate } from "../context";
 import { getRealEstateT } from "../messages";
 import type { Settings } from "../types";
-import { trackEdit } from "./track-edit";
-import { BilingualField, ErrorSummary, PageHeader, Panel, TextInput } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, ErrorSummary, PageHeader, Panel, TextInput } from "@/features/demo-engine/ui";
 
 export function SettingsPage() {
   const { store, config, locale } = useRealEstate();

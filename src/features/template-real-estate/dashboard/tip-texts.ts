@@ -1,6 +1,6 @@
 import type { ValueTipData } from "@/features/demo-engine/dashboard-shell/value-tip";
 import type { Locale } from "@/shared/i18n/config";
-import { formatNumber } from "../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
 import type { RealEstateTranslate } from "../messages";
 import type { TipFact } from "../value-tips";
 

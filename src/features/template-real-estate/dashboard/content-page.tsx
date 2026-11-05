@@ -5,8 +5,8 @@ import { Button } from "@/shared/ui/button";
 import { useRealEstate } from "../context";
 import { getRealEstateT } from "../messages";
 import type { Content } from "../types";
-import { trackEdit } from "./track-edit";
-import { BilingualField, PageHeader, Panel } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, PageHeader, Panel } from "@/features/demo-engine/ui";
 
 // Dashboard: the main texts of the site, in Arabic and English.
 export function ContentPage() {

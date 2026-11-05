@@ -2,8 +2,8 @@
 
 import { Button } from "@/shared/ui/button";
 import { useRealEstate } from "../../context";
-import { PageHeader, StatusBadge } from "../../dashboard/ui";
-import { formatDateTime } from "../../format";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
+import { formatDateTime } from "@/features/demo-engine/format/format";
 import { getRealEstateT } from "../../messages";
 import { allowedInquiryStatuses } from "./status";
 

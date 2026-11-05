@@ -5,7 +5,7 @@ import { useState, type FormEvent } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { SelectInput, TextArea, TextInput } from "../dashboard/ui";
+import { SelectInput, TextArea, TextInput } from "@/features/demo-engine/ui";
 import type { LogisticsStore } from "../logistics-store";
 import { getLogisticsT } from "../messages";
 import { validateQuote, type QuoteErrors } from "../quotes";

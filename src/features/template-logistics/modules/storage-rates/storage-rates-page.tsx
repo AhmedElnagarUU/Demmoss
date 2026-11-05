@@ -3,9 +3,9 @@
 import { useState } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { NumberInput, PageHeader, Panel, parseNumber } from "../../dashboard/ui";
+import { NumberInput, PageHeader, Panel, parseNumber } from "@/features/demo-engine/ui";
 import { getLogisticsT } from "../../messages";
-import { trackEdit } from "../../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import type { StorageRatesStore } from "./storage-store";
 import type { StorageRates } from "./types";
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { propertyState } from "../../../availability";
 import { useRealEstate } from "../../../context";
-import { formatNumber } from "../../../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
 import { sortProperties } from "../../../listings";
 import { MortgageCalculator } from "../../../modules/mortgage/mortgage-calculator";
 import { findPhoto, SitePhoto } from "../../../site/photo";

@@ -182,7 +182,7 @@ Seeds (SAR, dates relative to today): A has 6 quotes, 6 shipments with timelines
 | Unit | `modules/shipments/status.test.ts`: forward-only status, skipping, final delivered, event time order, timeline, next tracking number | L5 |
 | Unit | `modules/shipments/tracking.test.ts`: lookup ignores case, spaces, dashes | L4 |
 | Unit | `quotes.test.ts`: status transitions, validation | L3, L2 |
-| Unit | `clients.test.ts`, `value-tips.test.ts`, `business-name.test.ts` | L3, L11 |
+| Unit | `clients.test.ts`, `value-tips.test.ts` (the business-name rule is tested in `demo-engine/fake-auth/business-name.test.ts`) | L3, L11 |
 | Unit | `variants/*/store.test.ts`: add quote, status, shipment move, rates, warehouses, reset keeps account | L2, L5, L6, L9 |
 | Unit | `variants/*/seed/seed.test.ts`: seed is valid, tracking numbers are unique, tips appear | seed rules |
 | Unit | `palettes.test.ts`: 5 palettes per variant, AA contrast | R5 (palettes) |
@@ -197,9 +197,12 @@ src/app/[locale]/demos/logistics/freight/        (site) home, services, calculat
 src/app/[locale]/demos/logistics/warehousing/    (site) home, services, warehouses, case-studies, quote · dashboard/...
 
 src/features/template-logistics/
-  types.ts shared-slice.ts quotes.ts clients.ts value-tips.ts business-name.ts hours.ts format.ts phone.ts messages.ts
-  components/       photo, faq-accordion, quote-form
-  dashboard/        frame, overview, quotes, clients, faq, testimonials, content, settings
+  types.ts shared-slice.ts quotes.ts clients.ts value-tips.ts hours.ts format.ts (formatNumber, 2 decimals) track.ts messages.ts
+  components/       faq-accordion, quote-form
+  dashboard/        frame, context, overview, quotes, clients, faq, testimonials, content, settings
+
+Shared API from the engine (not in this folder): Moved to the engine (see `docs/05-demo-engine.md`): dashboard UI pieces, photo, palette scope, contrast, dates, format, phone, business name, `trackEdit`, dashboard context.
+
   modules/          shipments, rates (A) · warehouses, storage-rates, case-studies (B)
   variants/freight/ and variants/warehousing/   site/ seed/ store.ts dashboard.ts meta.ts photos.ts palettes.ts messages/
 ```

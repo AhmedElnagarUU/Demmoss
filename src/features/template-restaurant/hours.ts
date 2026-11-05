@@ -1,4 +1,4 @@
-import { dateFromKey, minutesOf, timeKey } from "./dates";
+import { dateFromKey, minutesOf, timeKey } from "@/features/demo-engine/format/dates";
 import type { OpeningDay } from "./types";
 
 export function openingOn(hours: readonly OpeningDay[], date: Date): OpeningDay | undefined {

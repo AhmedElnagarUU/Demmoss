@@ -365,12 +365,10 @@ src/features/template-restaurant/
   types.ts                  shared Zod schemas (settings, content, menu, reviews) + restaurantDataSchema
   shared-slice.ts           createSharedActions(set): settings, content, menu CRUD, reviews, dismissTip
   restaurant-store.ts       RestaurantState / RestaurantStore types any variant store fits
-  business-name.ts          businessNameOf(state, locale)
-  value-tips.ts, customers.ts, phone.ts, hours.ts, dates.ts, format.ts   pure helpers
-  images.ts, restaurant-image.tsx   placeholder image library
+  value-tips.ts, customers.ts, hours.ts   pure helpers
+  images.ts, restaurant-photo.tsx   photo library type, picks a photo by id and renders the engine Photo
   messages.ts + messages/   dashboard, forms, modules text (ar/en)
-  palette-scope.tsx         applies the chosen palette to site or dashboard
-  dashboard/                RestaurantProvider, DashboardFrame, Overview, Menu, Content, Customers, Reviews, Settings
+  dashboard/                RestaurantProvider (createVariantContext), DashboardFrame, Overview, Menu, Content, Customers, Reviews, Settings
   modules/reservations/     types, slots (free slots, validation), status, store-slice, form, dashboard page, tips
   modules/event-requests/   types, validate, status, store-slice, form, dashboard page, tips
   variants/fine-dining/     slug, data (schema), store, seed/, palettes, dashboard (config), overview (hooks),
@@ -386,6 +384,7 @@ e2e/restaurant-fine-dining.spec.ts
 2. Store: `createTemplateStore({ slug, version, schema, createSeed, actions: (set) => ({ ...createSharedActions(set), ...yourActions(set) }) })`.
 3. Config (`RestaurantConfig`): `slug`, `templateName`, `basePath`, `palettes` (5, contrast-tested), `modules` (sidebar items),
    `useOverview(locale)` (cards, activity, tip facts), `useCustomers()`.
+Engine pieces to reuse, not copy: Moved to the engine (see `docs/05-demo-engine.md`): dashboard UI pieces, photo, palette scope, contrast, dates, format, phone, business name, `trackEdit`, dashboard context.
 4. Wrap the dashboard routes in `DashboardFrame` (see `variants/fine-dining/dashboard-pages.tsx`); the shared pages
    (`OverviewPage`, `MenuPage`, `ContentPage`, `CustomersPage`, `ReviewsPage`, `SettingsPage`) read the store from context.
 5. Variant module pages take a typed store prop (like `ReservationsStore`); add `useXStore` types per module.
@@ -417,7 +416,7 @@ src/features/template-restaurant/
 | Smash Lab | `06-sole-trattoria` (+ cart drawer behaviour from `01-hearthbean-cafe`) | cream / tomato / basil, pill buttons, big display headings, dashed ring around the hero plate, promise card, red info strip; hero + Order now, 4 promises, today's offers, best sellers, how it works, delivery areas, reviews, info strip; cart drawer | Bebas Neue + Poppins · Lalezar + IBM Plex Sans Arabic |
 
 Both variants keep their photos in one list (`variants/<variant>/photos.ts`, Unsplash URLs through `photoUrl`/`photoSrcSet`).
-`RestaurantPhoto` shows a neutral box with the alt text when a photo cannot load.
+The engine `Photo` (used by `RestaurantPhoto`) shows a neutral box with the alt text when a photo cannot load.
 Photo ids of Smash Lab burgers, fries, and shakes are well-known Unsplash photos that could not be opened from the build sandbox:
 open the gallery once in a real browser and replace any that do not show the right food.
 
@@ -475,7 +474,7 @@ Built with Smash Lab (phase 5, part 2):
 
 ```
 src/features/template-restaurant/
-  contrast.ts, images.ts, restaurant-photo.tsx   shared: palette contrast helper, photo type, photo with fallback
+  images.ts, restaurant-photo.tsx   shared: photo type, photo by id (fallback box comes from the engine Photo)
   modules/orders/    types, totals (cart, fees, minimum, validation), status, opening, tips, store-slice, orders-store,
                      use-cart, cart-view, checkout-form, order-status-view, orders-page (+ tests)
   modules/offers/    types, store-slice, offers-page

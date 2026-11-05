@@ -3,10 +3,10 @@
 import { useState } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { BilingualField, NumberInput, PageHeader, Panel, parseNumber } from "../../dashboard/ui";
+import { BilingualField, NumberInput, PageHeader, Panel, parseNumber } from "@/features/demo-engine/ui";
 import { formatNumber } from "../../format";
 import { getLogisticsT } from "../../messages";
-import { trackEdit } from "../../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import { freePallets, occupancyPercent } from "./availability";
 import type { WarehousesStore } from "./warehouses-store";
 import type { Warehouse } from "./types";

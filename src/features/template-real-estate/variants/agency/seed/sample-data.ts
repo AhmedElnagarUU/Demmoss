@@ -1,5 +1,5 @@
 import { daysFrom } from "@/features/demo-engine/storage/days-from";
-import { dateKeyFromNow } from "../../../dates";
+import { dateKeyFromNow } from "@/features/demo-engine/format/dates";
 import type { Inquiry, Viewing } from "../../../types";
 
 // Sample activity with dates relative to today, so the dashboard is never empty and never old.

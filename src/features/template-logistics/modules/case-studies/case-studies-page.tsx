@@ -4,9 +4,9 @@ import { useState } from "react";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { BilingualField, PageHeader, Panel, TextInput } from "../../dashboard/ui";
+import { BilingualField, PageHeader, Panel, TextInput } from "@/features/demo-engine/ui";
 import { getLogisticsT } from "../../messages";
-import { trackEdit } from "../../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import type { CaseStudiesStore } from "./case-studies-store";
 import type { CaseStudy } from "./types";
 

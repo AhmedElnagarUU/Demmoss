@@ -3,11 +3,11 @@
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { businessNameOf } from "../../business-name";
-import { PageHeader, StatusBadge } from "../../dashboard/ui";
-import { formatDateKey, formatDateTime, formatNumber } from "../../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
+import { formatDateKey, formatDateTime, formatNumber } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
-import { customerWhatsAppUrl } from "../../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import type { EventRequestsStore } from "./event-requests-store";
 import { allowedEventStatuses } from "./status";
 
@@ -72,7 +72,7 @@ export function EventRequestsPage({ store, locale }: Props) {
                   </Button>
                 ))}
                 <a
-                  href={customerWhatsAppUrl(request.phone, message)}
+                  href={phoneWhatsAppUrl(request.phone, message)}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t("common.whatsappReply")}: ${request.name}`}

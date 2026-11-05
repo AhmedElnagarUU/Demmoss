@@ -4,10 +4,10 @@ import { useState } from "react";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import { Button } from "@/shared/ui/button";
 import { getLogisticsT } from "../messages";
-import { trackEdit } from "../track";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import type { FaqItem } from "../types";
 import { useLogistics } from "./logistics-context";
-import { BilingualField, PageHeader, Panel } from "./ui";
+import { BilingualField, PageHeader, Panel } from "@/features/demo-engine/ui";
 
 const emptyText: LocalizedText = { ar: "", en: "" };
 

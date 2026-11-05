@@ -235,10 +235,11 @@ src/app/[locale]/demos/real-estate/developer/
   dashboard/ layout, page, properties, viewings, inquiries, projects, content, testimonials, settings
 
 src/features/template-real-estate/
-  types.ts  shared-slice.ts  listings.ts  value-tips.ts  business-name.ts  format.ts  dates.ts  messages/
-  dashboard/   frame, context, overview, properties, content, testimonials, settings, ui
+  types.ts  shared-slice.ts  listings.ts  value-tips.ts  format.ts (formatPrice, whole SAR)  phone.ts  messages/
+  context.tsx  dashboard/   frame, overview, properties, content, testimonials, settings
+  Shared API from the engine (not in this folder): Moved to the engine (see `docs/05-demo-engine.md`): dashboard UI pieces, photo, palette scope, contrast, dates, format, phone, business name, `trackEdit`, dashboard context.
   modules/     viewings/  inquiries/  mortgage/ (A)  agents/ (A)  units/ (B)
-  site/        photo, property-card, property-gallery, filter-bar, site-ui (shared building blocks)
+  site/        photo (SitePhoto: the engine Photo with this category's widths), property-card, property-gallery, filter-bar, site-ui (shared building blocks)
   variants/agency/    site/ seed/ photos.ts fonts.ts palettes.ts dashboard.ts store.ts meta.ts messages/
   variants/developer/ site/ seed/ photos.ts fonts.ts palettes.ts dashboard.ts store.ts meta.ts messages/
 ```

@@ -2,8 +2,8 @@
 
 import type { Locale } from "@/shared/i18n/config";
 import { whatsappUrl } from "@/shared/ui/whatsapp";
-import { businessNameOf } from "../../../business-name";
-import { formatTime, weekdayName } from "../../../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { formatTime, weekdayName } from "@/features/demo-engine/format/format";
 import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
 import { displayFont, pillOutline } from "./styles";

@@ -2,7 +2,7 @@ import type { Locale } from "@/shared/i18n/config";
 import { dateFromKey } from "./dates";
 
 // Gregorian calendar in both languages; Arabic digits follow the locale.
-function intlLocale(locale: Locale): string {
+export function intlLocale(locale: Locale): string {
   return locale === "ar" ? "ar-SA-u-ca-gregory" : "en-US";
 }
 
@@ -15,8 +15,8 @@ export function formatPrice(amount: number, currency: string, locale: Locale): s
   }).format(amount);
 }
 
-export function formatNumber(value: number, locale: Locale): string {
-  return new Intl.NumberFormat(intlLocale(locale)).format(value);
+export function formatNumber(value: number, locale: Locale, options?: Intl.NumberFormatOptions): string {
+  return new Intl.NumberFormat(intlLocale(locale), options).format(value);
 }
 
 export function formatDateKey(dateKey: string, locale: Locale): string {
@@ -39,6 +39,14 @@ export function formatDateTime(iso: string, locale: Locale): string {
     month: "short",
     hour: "numeric",
     minute: "2-digit",
+  }).format(new Date(iso));
+}
+
+export function formatDate(iso: string, locale: Locale): string {
+  return new Intl.DateTimeFormat(intlLocale(locale), {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   }).format(new Date(iso));
 }
 

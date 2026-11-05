@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fineDiningPalettes } from "./palettes";
-import { contrast } from "../../contrast";
+import { contrast } from "@/features/demo-engine/palettes/contrast";
 
 describe("R5: every palette keeps readable colors (WCAG AA)", () => {
   it("has five palettes with unique ids", () => {

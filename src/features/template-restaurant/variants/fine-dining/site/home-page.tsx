@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Locale } from "@/shared/i18n/config";
-import { formatPrice } from "../../../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getFineDiningT } from "../messages";
 import { useFineDiningStore } from "../store";
 import { FineDiningPhoto, Plate } from "./fine-dining-photo";

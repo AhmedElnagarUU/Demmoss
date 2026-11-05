@@ -1,5 +1,5 @@
 import type { EngineActions } from "@/features/demo-engine/storage/create-template-store";
-import type { HydratableStore } from "@/features/demo-engine/storage/use-hydrated";
+import type { StoreOf } from "@/features/demo-engine/storage/use-hydrated";
 import type { InquiriesActions } from "./modules/inquiries/store-slice";
 import type { ViewingsActions } from "./modules/viewings/store-slice";
 import type { SharedActions } from "./shared-slice";
@@ -13,4 +13,4 @@ export type RealEstateState = RealEstateData &
   InquiriesActions &
   EngineActions;
 
-export type RealEstateStore = HydratableStore & (<T>(selector: (state: RealEstateState) => T) => T);
+export type RealEstateStore = StoreOf<RealEstateState>;

@@ -5,8 +5,8 @@ import { Button } from "@/shared/ui/button";
 import { useRealEstate } from "../context";
 import { getRealEstateT } from "../messages";
 import type { Testimonial } from "../types";
-import { trackEdit } from "./track-edit";
-import { BilingualField, PageHeader, Panel, StatusBadge } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, PageHeader, Panel, StatusBadge } from "@/features/demo-engine/ui";
 
 const blank = {
   name: { ar: "", en: "" },

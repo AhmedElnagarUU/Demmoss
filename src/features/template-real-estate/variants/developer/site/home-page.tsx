@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { propertyState } from "../../../availability";
 import { useRealEstate } from "../../../context";
-import { formatNumber } from "../../../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
 import { getRealEstateT } from "../../../messages";
 import { findPhoto, SitePhoto } from "../../../site/photo";
 import { PropertyCard } from "../../../site/property-card";

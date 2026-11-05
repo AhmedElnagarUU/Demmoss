@@ -2,7 +2,7 @@
 
 import type { Locale } from "@/shared/i18n/config";
 import { whatsappUrl } from "@/shared/ui/whatsapp";
-import { businessNameOf } from "../../../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { getFineDiningT } from "../messages";
 import { useFineDiningStore } from "../store";
 import { HoursList } from "./hours-list";

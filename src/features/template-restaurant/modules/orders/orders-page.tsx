@@ -3,11 +3,11 @@
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { businessNameOf } from "../../business-name";
-import { PageHeader, StatusBadge } from "../../dashboard/ui";
-import { formatDateTime, formatNumber, formatPrice } from "../../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
+import { formatDateTime, formatNumber, formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../messages";
-import { customerWhatsAppUrl } from "../../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import type { OrderingStore } from "./orders-store";
 import { allowedOrderStatuses } from "./status";
 import { describeLines } from "./totals";
@@ -112,7 +112,7 @@ function OrderCard({ order, locale, currency, businessName, onStatus }: CardProp
           );
         })}
         <a
-          href={customerWhatsAppUrl(order.phone, message)}
+          href={phoneWhatsAppUrl(order.phone, message)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${t("common.whatsappReply")}: ${order.name}`}

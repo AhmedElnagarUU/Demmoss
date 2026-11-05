@@ -1,4 +1,4 @@
-// Dates are kept as local "YYYY-MM-DD" keys and "HH:MM" times, so a booking never shifts with time zones.
+// Dates are kept as local "YYYY-MM-DD" keys and "HH:MM" times, so a booking or viewing never shifts with time zones.
 
 export function toDateKey(date: Date): string {
   const month = String(date.getMonth() + 1).padStart(2, "0");

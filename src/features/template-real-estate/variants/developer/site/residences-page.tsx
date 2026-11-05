@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { useRealEstate } from "../../../context";
-import { formatNumber } from "../../../format";
+import { formatNumber } from "@/features/demo-engine/format/format";
 import {
   filterProperties,
   filterStateFromParams,

@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
 import { whatsappUrl } from "@/shared/ui/whatsapp";
 import { FaqAccordion } from "../../../components/faq-accordion";
-import { Photo } from "../../../components/photo";
+import { Photo } from "@/features/demo-engine/photo/photo";
 import { formatNumber } from "../../../format";
 import { freePallets, occupancyPercent } from "../../../modules/warehouses/availability";
 import { getWarehousingT } from "../messages";

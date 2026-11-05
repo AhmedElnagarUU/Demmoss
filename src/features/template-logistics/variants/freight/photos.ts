@@ -1,4 +1,4 @@
-import type { SitePhoto } from "../../components/photo";
+import type { PhotoData } from "@/features/demo-engine/photo/photo";
 
 // Every photo of the Jisr Cargo site, from the Unsplash photos of the source designs (Orbis Cargo and Meridian Route).
 // They are served by the photo CDN through photoUrl(); moving to self-hosted files later is a change in this list only.
@@ -65,4 +65,4 @@ export const freightPhotos = {
     height: 800,
     alt: { ar: "صناديق جاهزة للتخليص الجمركي", en: "Boxes ready for customs clearance" },
   },
-} as const satisfies Record<string, SitePhoto>;
+} as const satisfies Record<string, PhotoData>;

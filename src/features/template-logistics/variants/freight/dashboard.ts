@@ -1,4 +1,5 @@
-import type { DashboardModule, LogisticsConfig } from "../../dashboard/logistics-context";
+import type { DashboardModule } from "@/features/demo-engine/dashboard-shell/dashboard-context";
+import type { LogisticsConfig } from "../../dashboard/logistics-context";
 import { freightFontClassName, freightFontFamily } from "./fonts";
 import { useOverview } from "./overview";
 import { freightPalettes } from "./palettes";

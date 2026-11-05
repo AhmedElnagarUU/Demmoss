@@ -10,7 +10,7 @@ export function phoneDigits(phone: string): string {
   return phone.replace(/\D/g, "");
 }
 
-// A link that opens a WhatsApp chat with the customer.
-export function customerWhatsAppUrl(phone: string, message: string): string {
+// A link that opens a WhatsApp chat with a customer or client.
+export function phoneWhatsAppUrl(phone: string, message: string): string {
   return whatsappUrl(phoneDigits(phone), message);
 }

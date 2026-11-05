@@ -3,11 +3,12 @@
 import { useMemo } from "react";
 import { buttonClasses } from "@/shared/ui/button-styles";
 import { buildClients } from "../clients";
-import { formatDate, formatNumber } from "../format";
+import { formatDate } from "@/features/demo-engine/format/format";
+import { formatNumber } from "../format";
 import { getLogisticsT } from "../messages";
-import { clientWhatsAppUrl } from "../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import { useLogistics } from "./logistics-context";
-import { PageHeader } from "./ui";
+import { PageHeader } from "@/features/demo-engine/ui";
 
 export function ClientsPage() {
   const { store, locale } = useLogistics();
@@ -59,7 +60,7 @@ export function ClientsPage() {
                   <td className="p-3">{formatDate(client.lastAt, locale)}</td>
                   <td className="p-3">
                     <a
-                      href={clientWhatsAppUrl(client.phone, "")}
+                      href={phoneWhatsAppUrl(client.phone, "")}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${t("common.whatsappReply")}: ${client.name}`}

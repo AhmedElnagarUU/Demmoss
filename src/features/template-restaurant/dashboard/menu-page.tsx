@@ -3,12 +3,12 @@
 import { useState } from "react";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import { Button } from "@/shared/ui/button";
-import { formatPrice } from "../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT, type RestaurantTranslate } from "../messages";
 import { menuTags, type MenuCategory, type MenuItem } from "../types";
 import { useRestaurant } from "./restaurant-context";
-import { trackEdit } from "./track-edit";
-import { BilingualField, PageHeader, SelectInput, StatusBadge, TextInput } from "./ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
+import { BilingualField, PageHeader, SelectInput, StatusBadge, TextInput } from "@/features/demo-engine/ui";
 
 export function MenuPage() {
   const { store, config, locale } = useRestaurant();

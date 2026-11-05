@@ -2,14 +2,14 @@
 
 import { Button } from "@/shared/ui/button";
 import { buttonClasses } from "@/shared/ui/button-styles";
-import { businessNameOf } from "../business-name";
-import { formatDateTime } from "../format";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
+import { formatDateTime } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../messages";
-import { clientWhatsAppUrl } from "../phone";
+import { phoneWhatsAppUrl } from "@/features/demo-engine/format/phone";
 import { allowedQuoteStatuses } from "../quotes";
 import { useLogistics } from "./logistics-context";
 import { estimateText } from "./quote-estimate";
-import { PageHeader, StatusBadge } from "./ui";
+import { PageHeader, StatusBadge } from "@/features/demo-engine/ui";
 
 export function QuotesPage() {
   const { store, locale } = useLogistics();
@@ -60,7 +60,7 @@ export function QuotesPage() {
                 </Button>
               ))}
               <a
-                href={clientWhatsAppUrl(
+                href={phoneWhatsAppUrl(
                   quote.phone,
                   t("quotes.whatsappMessage", { name: quote.name, business: businessName }),
                 )}

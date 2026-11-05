@@ -1,4 +1,4 @@
-import { addDays, minutesOf, timeKey } from "../../dates";
+import { addDays, minutesOf, timeKey } from "@/features/demo-engine/format/dates";
 import { isOpenAt, openingOn } from "../../hours";
 import type { OpeningDay } from "../../types";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import type { Locale } from "@/shared/i18n/config";
-import { formatTime, weekdayName } from "../../../format";
+import { formatTime, weekdayName } from "@/features/demo-engine/format/format";
 import { getFineDiningT } from "../messages";
 import { useFineDiningStore } from "../store";
 

@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { useRealEstate } from "../../../context";
-import { SelectInput } from "../../../dashboard/ui";
+import { SelectInput } from "@/features/demo-engine/ui";
 import { getRealEstateT } from "../../../messages";
 import { pillClasses } from "../../../site/site-ui";
 import { propertyTypes, type Purpose } from "../../../types";

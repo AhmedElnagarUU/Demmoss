@@ -7,9 +7,9 @@ import { DashboardGuard } from "@/features/demo-engine/fake-auth/dashboard-guard
 import { getEngineT } from "@/features/demo-engine/messages";
 import { HydrationGate } from "@/features/demo-engine/storage/hydration-gate";
 import type { Locale } from "@/shared/i18n/config";
-import { businessNameOf } from "../business-name";
+import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { getRestaurantT } from "../messages";
-import { PaletteScope } from "../palette-scope";
+import { PaletteScope } from "@/features/demo-engine/palettes/palette-scope";
 import type { RestaurantStore } from "../restaurant-store";
 import { RestaurantProvider, useRestaurant, type RestaurantConfig } from "./restaurant-context";
 

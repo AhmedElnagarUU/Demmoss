@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import type { Locale } from "@/shared/i18n/config";
-import { formatPrice } from "../../../format";
+import { formatPrice } from "@/features/demo-engine/format/format";
 import { getRestaurantT } from "../../../messages";
 import type { Offer } from "../../../modules/offers/types";
 import type { MenuItem } from "../../../types";

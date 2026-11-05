@@ -1,5 +1,5 @@
-import { addDays, toDateKey } from "../../dates";
-import { isValidPhone } from "../../phone";
+import { addDays, toDateKey } from "@/features/demo-engine/format/dates";
+import { isValidPhone } from "@/features/demo-engine/format/phone";
 
 export const EVENT_MIN_GUESTS = 4;
 export const EVENT_MAX_GUESTS = 60;

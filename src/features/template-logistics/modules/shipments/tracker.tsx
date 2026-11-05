@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { Button } from "@/shared/ui/button";
-import { formatDate, formatDateTime } from "../../format";
+import { formatDate, formatDateTime } from "@/features/demo-engine/format/format";
 import { getLogisticsT } from "../../messages";
 import { trackAction } from "../../track";
 import { currentStatus, timelineOf } from "./status";

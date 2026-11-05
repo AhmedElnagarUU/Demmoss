@@ -1,4 +1,4 @@
-import { isValidPhone } from "./phone";
+import { isValidPhone } from "@/features/demo-engine/format/phone";
 import type { QuoteStatus } from "./types";
 
 // new → quoted → won or lost; a new quote can also be lost. Won and lost are final.

@@ -4,8 +4,15 @@ import { useState, type FormEvent } from "react";
 import type { HydratableStore } from "@/features/demo-engine/storage/use-hydrated";
 import { Button } from "@/shared/ui/button";
 import { useRealEstate } from "../../context";
-import { BilingualField, ErrorSummary, PageHeader, Panel, SelectInput, TextInput } from "../../dashboard/ui";
-import { trackEdit } from "../../dashboard/track-edit";
+import {
+  BilingualField,
+  ErrorSummary,
+  PageHeader,
+  Panel,
+  SelectInput,
+  TextInput,
+} from "@/features/demo-engine/ui";
+import { trackEdit } from "@/features/demo-engine/track-edit";
 import { getRealEstateT } from "../../messages";
 import type { AgentsActions } from "./store-slice";
 import type { Agent } from "./types";

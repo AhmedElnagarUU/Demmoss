@@ -1,17 +1,17 @@
 "use client";
 
-import { createContext, useContext, type ReactNode } from "react";
 import type { Palette } from "@/features/demo-engine/palettes/palette";
+import {
+  createVariantContext,
+  type DashboardModule,
+  type OverviewCard,
+} from "@/features/demo-engine/dashboard-shell/dashboard-context";
 import type { LocalizedText } from "@/features/demo-engine/types";
 import type { Locale } from "@/shared/i18n/config";
 import type { Area, PriceBand } from "./listings";
 import type { RealEstateStore } from "./real-estate-store";
 import type { Photo } from "./site/photo";
 import type { PropertyType, Purpose } from "./types";
-
-export type OverviewCard = { id: string; label: string; value: string };
-
-export type DashboardModule = { path: string; label: LocalizedText };
 
 // Everything the shared site parts and the shared dashboard need to know about a variant.
 export type RealEstateConfig = {
@@ -38,21 +38,7 @@ export type RealEstateConfig = {
   useAgentOptions: () => { id: string; name: LocalizedText }[];
 };
 
-type ContextValue = { store: RealEstateStore; config: RealEstateConfig; locale: Locale };
-
-const RealEstateContext = createContext<ContextValue | null>(null);
-
-export function RealEstateProvider({
-  store,
-  config,
-  locale,
-  children,
-}: ContextValue & { children: ReactNode }) {
-  return <RealEstateContext value={{ store, config, locale }}>{children}</RealEstateContext>;
-}
-
-export function useRealEstate(): ContextValue {
-  const value = useContext(RealEstateContext);
-  if (!value) throw new Error("useRealEstate must be used inside RealEstateProvider");
-  return value;
-}
+export const { Provider: RealEstateProvider, useVariant: useRealEstate } = createVariantContext<
+  RealEstateStore,
+  RealEstateConfig
+>("RealEstate");
