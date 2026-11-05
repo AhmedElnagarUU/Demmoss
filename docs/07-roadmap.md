@@ -28,7 +28,10 @@ flowchart LR
 |---|---|
 | Brand name, logo, colors, fonts | not decided; placeholders via `.env` and tokens |
 | Hosting | decided: small VPS running Next.js + Cloudflare free CDN; MongoDB Atlas free tier. See `docs/03-architecture.md` |
-| Image uploads | not in v1 (image library only); later, if wanted, the AWS S3 implementation |
+| Images | stock photos from Unsplash/Pexels CDN URLs (decided) |
+| Demo photo uploads | later: Cloudflare R2, uploads deleted after 10 hours (hourly cleanup + 1-day lifecycle rule) |
+| Categories from uploaded designs | decided: 7 categories × 2 variants, see `docs/09-design-sources.md` (Cafés, Logistics, Online stores added) |
+| Defaults taken | medical centre derived from Dr. Vale's style; Middle-East business names and content; Arabic fonts as proposed; order: Restaurants, Real estate, Clinics, Marketing, Logistics, Cafés, Online stores |
 | Admin dashboard language | decided: English first, Arabic later if needed |
 | Wizard business list | = gallery category list + "other" (decided) |
 | First category | Restaurants & cafés (decided) |

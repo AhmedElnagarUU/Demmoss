@@ -142,11 +142,36 @@ sequenceDiagram
 Admin pages read their data in Server Components through the services, after checking the session.
 Feedback is a floating button + modal on every page, not a separate route.
 
-## Image uploads (not decided)
+## Images and demo uploads
 
-Version 1 uses the built-in image library only. If uploads are enabled later, they go to the owner's existing
-**AWS S3 bucket**: a Server Action returns a short-lived upload URL, the browser uploads directly to S3,
-and only the image URL is saved. The S3 implementation is **to be created** when the decision is made.
+**Now:** stock photos are loaded from the photo host's CDN (Unsplash, Pexels) through `src/shared/ui/photo.ts`,
+sized per slot. Nothing is stored in the repo. Each template keeps its photo URLs in one list (easy switch to self-hosting later).
+
+**Planned: demo photo uploads on Cloudflare R2** (built when the owner decides; not in v1):
+
+```mermaid
+sequenceDiagram
+  participant B as Demo dashboard (browser)
+  participant A as uploadAction (Server Action)
+  participant R2 as Cloudflare R2 bucket
+  participant C as Cleanup job (hourly)
+  B->>B: resize to max 1600px WebP, check type and size (≤ 2MB)
+  B->>A: request upload (content type, size, visitorId)
+  A->>A: validate, per-visitor limit (e.g. 20 per day)
+  A-->>B: short-lived presigned PUT URL, key demo-uploads/<yyyy-mm-dd-hh>/<random>.webp
+  B->>R2: PUT image
+  B->>B: store the public URL in the template store (localStorage)
+  C->>R2: delete objects older than 10 hours
+```
+
+- **10-hour life:** R2 lifecycle rules work in whole days, so an **hourly cleanup job** (cron on the server, or a Cloudflare
+  Worker with a cron trigger) deletes uploads older than 10 hours; a **1-day lifecycle rule** is the safety net.
+  Keys start with the upload hour, so cleanup lists only old prefixes.
+- **Cost and abuse:** client-side resize, 2MB cap, image types only, per-visitor daily limit, random unguessable keys,
+  `noindex`, no bucket listing. R2 has no egress fees.
+- **Expired photos:** the demo shows the template's fallback photo when an uploaded image fails to load, and says
+  "uploaded photos are kept for 10 hours in the demo".
+- Credentials (`R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, `R2_PUBLIC_URL`) are server-only env vars.
 
 ## Admin authentication
 

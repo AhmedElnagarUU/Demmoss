@@ -1,6 +1,6 @@
 # 09 · Design sources: analysis and site structure
 
-Status: **proposal for discussion** (no code written from it yet).
+Status: **agreed** (categories, variants, fonts, Middle-East content, CDN photos). Each category gets its plan doc before building.
 
 The owner uploaded 15 single-file designs (HTML + CSS + a small script) to `theme-sources/`. They are **inspiration**:
 each one is a rich landing page. We use them as the **home page** of a variant, and design the other pages in the
@@ -142,9 +142,8 @@ Section names are short; each will get its business goal in the category plan do
   elegant serifs (Cormorant, Playfair, Caslon, DM Serif) → **Amiri** or **El Messiri** · modern sans (Montserrat, Inter,
   Manrope, Jakarta, Onest, Jost, Poppins, Nunito) → **IBM Plex Sans Arabic** or **Tajawal** · bold display (Bebas Neue) → **Lalezar** ·
   script accents (Caveat, Pinyon, Yellowtail) → **Aref Ruqaa** or no script in Arabic.
-- **Images:** the files hotlink Unsplash. We download, resize, and convert them to WebP inside the repo (`public/demos/<variant>/`),
-  through a script. This sandbox blocks `images.unsplash.com`, so either the host is allowed in the environment's network settings,
-  or the owner runs `scripts/fetch-images` locally once.
+- **Images:** decided: use the designs' Unsplash URLs (and Pexels if wanted) through `photoUrl()` / `photoSrcSet()`
+  (`src/shared/ui/photo.ts`), sized per slot. Uploads later via Cloudflare R2 with a 10-hour life (`docs/03-architecture.md`).
 - **Content:** the designs use Western names and places. Every variant gets its own Middle-East-ready business (names, Arabic copy,
   SAR prices, local areas), written as real Arabic, keeping the design's tone.
 - **Code reuse:** Restaurants and Cafés share one feature (`template-restaurant`) and dashboard; other categories are one feature each.

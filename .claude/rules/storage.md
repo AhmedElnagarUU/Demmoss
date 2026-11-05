@@ -40,9 +40,10 @@ Demo templates keep all their data in the visitor's browser. Nothing a demo user
 
 ## Images
 
-- Version 1: users pick images from a built-in image library (bundled, optimized files).
-- Uploads are **not decided**. If enabled, they go to the owner's existing AWS S3 bucket
-  (implementation to be created then, see `docs/03-architecture.md`). Never store uploaded images in localStorage (5MB limit).
+- Now: users pick images from the template's photo list (CDN URLs, see `design.md`). Only the chosen URL is stored.
+- Later (planned): demo users can upload their own photos to **Cloudflare R2**. Uploaded demo photos live **10 hours**,
+  then they are deleted (see `docs/03-architecture.md`). The demo shows a fallback photo when an upload has expired.
+- Never store image files in localStorage (5MB limit); store only the URL.
 
 ## Reading stored data
 

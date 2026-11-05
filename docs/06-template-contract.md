@@ -52,18 +52,19 @@ flowchart LR
 Each category has 2 variants: two different kinds of business, each with its own content and website design,
 sharing one dashboard. Variants below are proposals, confirmed in each category's plan doc.
 
-| Category | Variant A (proposal) | Variant B (proposal) | Status |
+| Category | Variant A (design) | Variant B (design) | Status |
 |---|---|---|---|
-| Restaurants & cafés | Fine dining: table reservations | Fast food: online orders | **in progress**: shared layer + fine dining built, fast food next (`docs/features/template-restaurant.md`) |
-| Clinics | Dental clinic: appointment booking | Medical center (several doctors): booking by doctor | not planned |
-| Real estate | Real estate agency: listings + viewing requests | Property developer: projects + unit inquiries | not planned |
-| Gyms & fitness | Gym: memberships + trial requests | Fitness studio: class schedule + class booking | not planned |
-| Training & education | Training center: course registration | Language / tutoring center: level test + enrollment | not planned |
-| Service companies | Maintenance company: service requests | Cleaning company: quote + booking | not planned |
-| Marketing agencies | Full-service agency: social media, branding, web development, media production, media buying, SEO, influencer marketing, advertising; proposal requests | Performance agency (proposal): ads, media buying, SEO; free audit requests | not planned |
+| Restaurants | Zaytouna, fine dining (Verdant Table + Ironhorn) | Smash Lab, fast food ordering (Sole Trattoria) | in progress (`template-restaurant.md`) |
+| Cafés | Café & eatery: booking + pickup orders (Hearthbean) | Specialty coffee: orders + beans (Sage & Grain) | not planned; shares the restaurant feature and dashboard |
+| Real estate | Agency: buy/rent listings + viewings (Hartwell) | Developer: projects, units, viewings (Solenne) | planning |
+| Clinics | Specialist doctor: dental implants (Dr. Vale) | Medical centre: booking by doctor (derived from Dr. Vale) | not planned |
+| Logistics | Freight forwarder: calculator, tracking, quotes (Orbis + Meridian) | Warehousing & 3PL: estimator, quotes (Stackwell) | planning |
+| Marketing & creative | Full-service marketing agency, 8 services (KZ Digital) | Brand & interior design studio (Olivine) | not planned |
+| Online stores | Home décor shop (Solène) | Coffee roaster shop + subscriptions (Ember & Oak) | not planned |
+| Gyms & fitness, Training & education, Service companies | — | — | no design yet; in the wizard only |
 
-First category: **Restaurants & cafés**. Plan one category fully (both variants), build it, then repeat.
-Designs come later from the owner's HTML/CSS in `theme-sources/`; plans are written without them.
+Designs: `theme-sources/`, analysed in `docs/09-design-sources.md`. Each design is the variant's home page;
+other pages follow its visual language. Plan a category fully (both variants), build it, then repeat.
 
 ```mermaid
 flowchart TD

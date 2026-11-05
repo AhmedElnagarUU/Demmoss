@@ -19,8 +19,10 @@
 - Clear hierarchy: one main message and one main action per section.
 - Consistent spacing scale; generous whitespace.
 - Accessible: color contrast AA, visible focus states, labels on every input, alt text on meaningful images.
-- Performance: images pre-optimized (WebP, sized for their slot) with `width`, `height`, and `loading="lazy"`;
-  no heavy animation libraries without a reason.
+- Images: stock photos come from an approved photo CDN (Unsplash, Pexels) through `photoUrl()` / `photoSrcSet()` in
+  `src/shared/ui/photo.ts`, sized for their slot; local files (WebP, sized) are also fine. Always `width`, `height`, `alt`,
+  and `loading="lazy"` below the fold. Each template keeps all its photo URLs in one list. Photo credit on the demo's About page.
+- Performance: no heavy animation libraries without a reason.
 - Works in both RTL and LTR (see `i18n-rtl.md`).
 
 ## Shared UI primitives (`src/shared/ui`)
