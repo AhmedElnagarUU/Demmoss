@@ -1,6 +1,6 @@
 # Feature: Software Guide
 
-Status: planned, decisions closed (draft content ready for review: `docs/content/software-guide.md`)
+Status: built (page at `/[locale]/guide`, statically generated); content from `docs/content/software-guide.md`
 
 ## Purpose
 
@@ -124,10 +124,15 @@ src/features/software-guide/
   content/
     en.json
     ar.json
-  components/     hero, facts, type-cards, comparison-table, rent-or-build, how-its-built,
-                  myths, quiz, glossary, guide-cta, section-menu
-  quiz.ts         pickRecommendation(answers) (pure function, tie rule)
+  components/     guide-page (composes all), guide-hero, guide-facts, type-cards, comparison-table,
+                  rent-or-build, how-its-built, myths, quiz (the only client component), glossary,
+                  guide-cta, section-menu, guide-section, quiz-link
+  guide-content.ts  parses both content files with the schema
+  quiz.ts         pickRecommendation(answers) (pure function, tie rule), fillPlaceholders
+  quiz.test.ts, guide-content.test.ts
   types.ts        guideContentSchema (Zod) + inferred types
+src/app/[locale]/guide/page.tsx   thin route (locale check, metadata, render)
+e2e/software-guide.spec.ts
 ```
 
 ## Decisions
