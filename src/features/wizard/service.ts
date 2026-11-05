@@ -1,7 +1,7 @@
 import "server-only";
 import { createNotification } from "@/features/notifications/service";
 import { findLeads, insertLead } from "./repository";
-import type { LeadInput } from "./types";
+import type { LeadInput, LeadStatus } from "./types";
 
 export async function createLead(input: LeadInput): Promise<{ id: string }> {
   const id = await insertLead(input);
@@ -13,6 +13,8 @@ export async function createLead(input: LeadInput): Promise<{ id: string }> {
   return { id };
 }
 
-export async function listLeads() {
-  return findLeads();
+export async function listLeads(status?: LeadStatus) {
+  return findLeads(status);
 }
+
+export { countLeadsByStatus, setLeadNotes, setLeadStatus } from "./repository";

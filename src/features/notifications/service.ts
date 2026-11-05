@@ -7,3 +7,4 @@ export async function createNotification(input: NotificationInput): Promise<void
 }
 
 export { listNotifications };
+export { countUnreadNotifications, markAllNotificationsRead, markNotificationRead } from "./repository";

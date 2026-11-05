@@ -6,6 +6,7 @@ export const leadTypes = ["business", "system", "saas", "other"] as const;
 export type LeadType = (typeof leadTypes)[number];
 
 export const leadStatuses = ["new", "contacted", "won", "lost"] as const;
+export type LeadStatus = (typeof leadStatuses)[number];
 
 export const fieldOther = "other";
 export const leadFields = [...categorySlugs, fieldOther] as const;

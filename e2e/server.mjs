@@ -1,8 +1,11 @@
 // Starts an in-memory MongoDB and the production Next.js server for E2E tests.
 // Run after `next build` (npm run e2e does both).
 import { spawn } from "node:child_process";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { MongoMemoryServer } from "mongodb-memory-server";
+
+// TEST admin for the E2E journeys (see e2e/helpers/admin.ts). Never real credentials.
+const admin = JSON.parse(readFileSync("e2e/helpers/admin-credentials.json", "utf8"));
 
 const port = process.argv[2] ?? "3100";
 // E2E_MONGODB_URI lets a developer use their own local MongoDB instead of the in-memory one.
@@ -14,7 +17,13 @@ writeFileSync("e2e/.tmp/mongo-uri", mongoUri);
 
 const next = spawn("npx", ["next", "start", "-p", port], {
   stdio: "inherit",
-  env: { ...process.env, MONGODB_URI: mongoUri },
+  env: {
+    ...process.env,
+    MONGODB_URI: mongoUri,
+    ADMIN_EMAIL: admin.email,
+    ADMIN_PASSWORD_HASH: admin.passwordHash,
+    SESSION_SECRET: admin.sessionSecret,
+  },
 });
 
 async function stop() {

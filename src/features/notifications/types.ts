@@ -8,6 +8,8 @@ export const notificationTypes = [
   "feedback",
 ] as const;
 
+export type NotificationType = (typeof notificationTypes)[number];
+
 export const notificationInputSchema = z.object({
   type: z.enum(notificationTypes),
   title: z.string().min(1).max(200),

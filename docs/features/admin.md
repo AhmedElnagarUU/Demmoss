@@ -1,6 +1,6 @@
 # Feature: Admin dashboard
 
-Status: planned
+Status: built (v1, English first; Arabic text is a first translation)
 
 ## Purpose
 
@@ -68,25 +68,41 @@ Writes: lead status/notes, feedback read flag, notification read flag. No admin 
 
 | Level | Test | Protects |
 |---|---|---|
-| Integration | every admin read and update refuses without a valid session | security |
-| Integration | metrics (visitors, wizard conversion, per-variant funnel) computed correctly from seeded events | dashboard questions |
-| E2E | admin pages redirect to login without a session; login works; wrong password fails | security |
-| E2E | lead from the wizard appears in Leads; status change saved | W6 |
+| Unit | session cookie: valid, tampered, expired, other secret, malformed (`auth/session.test.ts`) | C1 |
+| Unit | password: right/wrong, new salt each time, bad format, hash made by `scripts/hash-password.mjs` (`auth/password.test.ts`) | C1 |
+| Unit | conversion, funnel, windows, top lists, source labels, per-template stats (`metrics.test.ts`) | C2, C5, C7 |
+| Unit | notification grouping by day and type (`notifications/group.test.ts`), notification to admin page (`paths.test.ts`) | N1, N2 |
+| Unit | action inputs reject bad ids, statuses, types (`types.test.ts`) | C3 |
+| Integration | every admin read and update refuses without a valid session; a refused update changes nothing (`service.test.ts`) | C1 |
+| Integration | visitors per window, wizard conversion, WhatsApp clicks, devices, countries, sources, per-demo funnel, journey from seeded events | C2, C5, C7 |
+| Integration | leads newest first, status filter and change, notes; feedback mark read; notifications unread count, read one, mark all read | C3, C6, N1, N3 |
+| E2E | admin pages redirect to login without a session; wrong password and wrong email fail; pages are `noindex` | C1 |
+| E2E | login works; a wizard lead appears in Leads and its status change is saved; unread notification count is visible; sign out | C1, C3, N1 |
+
+E2E uses a TEST admin from `e2e/helpers/admin-credentials.json` (never real credentials).
 
 ## Files
 
 ```
 src/features/admin/
-  auth/           login, session check, logout
-  components/     layout, sidebar, stat cards, charts, tables
-  overview/
-  leads/
-  demos/
-  visitors/
-  activity/
-  actions.ts   loginAction, logoutAction, admin queries/updates (each checks the session)
+  auth/           password.ts (scrypt), session.ts (signed cookie), admin-session.ts (requireAdmin, login, logout)
+  components/     one page component per section + shell, sidebar, tables, bars
+  messages/       en.json, ar.json
+  actions.ts      loginAction, logoutAction, lead status/notes, feedback read, notifications read/open
+  service.ts      composes the owning features; every function calls requireAdmin() first
+  metrics.ts      pure calculations (rates, funnels, windows, top lists)
+  paths.ts        admin URLs, notification type to admin page
 ```
+
+## Decisions made while building
+
+- Times are shown in UTC; "today" starts at 00:00 UTC. Visitor counts per window use distinct visitors with any event.
+- Lists show the latest 100 visitors and events. Leads, feedback, and notifications (500) are not paged yet.
+- The unread count in the sidebar is read on each page load (no polling).
+- A notification opens its related page by type (`new_lead` to Leads, `feedback` to Feedback, demo events to Demos,
+  WhatsApp to Activity); the stored `link` is ignored, so it can never redirect elsewhere.
+- No login attempt limit yet (scrypt already slows guessing). Add one if the admin URL is attacked.
 
 ## Out of scope (v1)
 
-- Multiple admins, roles, exports. Admin UI language: English first (open decision).
+- Multiple admins, roles, exports, charts library, sources-to-leads table, filters by template in Activity.

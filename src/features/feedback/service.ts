@@ -13,3 +13,4 @@ export async function createFeedback(input: FeedbackInput): Promise<void> {
 }
 
 export { listFeedback };
+export { countFeedback, markFeedbackRead } from "./repository";
