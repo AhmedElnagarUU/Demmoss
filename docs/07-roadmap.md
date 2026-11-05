@@ -16,9 +16,9 @@ flowchart LR
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
 | **0b. Planning** | Software Guide (decisions closed, content draft ready); category/variant model agreed; Restaurants & cafés plan | done |
 | **1. Foundation** | Next.js (App Router) + TS strict, Tailwind tokens, own i18n AR/EN + RTL (`[locale]` + `proxy.ts`), `shared/ui` primitives, `shared/db`, `shared/env`, tracking Server Action, **test setup** (Vitest, in-memory MongoDB, Playwright, contract checks, GitHub Actions CI; see `docs/08-testing.md`) | built |
-| **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
+| **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | built except the gallery page; landing copy waits for owner review |
 | **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
-| **4. Demo engine** | Storage helper (with the Next.js hydration pattern), fake auth, dashboard shell, editors, image library, banner | |
+| **4. Demo engine** | (core built: storage, fake auth, banner, shell, palettes, value tips) Storage helper (with the Next.js hydration pattern), fake auth, dashboard shell, editors, image library, banner | |
 | **5. First category** | Restaurants & cafés: 2 variants + shared dashboard, built against the contract | |
 | **6. More categories** | Next categories from `docs/06-template-contract.md`, designs from `theme-sources/`, order guided by admin stats | |
 

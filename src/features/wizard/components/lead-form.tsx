@@ -43,7 +43,7 @@ const stepFields: Record<Step, LeadField[]> = {
 const inputClasses =
   "min-h-11 w-full rounded-control border border-border bg-bg px-3 py-2 text-base text-text " +
   "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus " +
-  "aria-[invalid=true]:border-red-700";
+  "aria-[invalid=true]:border-danger";
 
 function visitorIdOfBrowser(): string {
   try {
@@ -222,7 +222,7 @@ function LeadSteps({ locale }: { locale: Locale }) {
       {step === 3 && <ContactStep t={t} draft={draft} errors={errors} onChange={change} />}
 
       {serverError && (
-        <p role="alert" className="text-sm font-semibold text-red-700">
+        <p role="alert" className="text-sm font-semibold text-danger">
           {t("common.serverError")}
         </p>
       )}
@@ -420,7 +420,7 @@ function Field(props: { id: string; label: string; hint?: string; error?: string
 
 function FieldError({ id, children }: { id: string; children: ReactNode }) {
   return (
-    <p id={id} role="alert" className="text-sm font-semibold text-red-700">
+    <p id={id} role="alert" className="text-sm font-semibold text-danger">
       {children}
     </p>
   );
