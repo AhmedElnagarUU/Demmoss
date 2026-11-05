@@ -147,11 +147,14 @@ and only the image URL is saved. The S3 implementation is **to be created** when
 
 ## Admin authentication
 
-- A single admin. Email and bcrypt password hash in `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`).
+- A single admin. Email and password hash in `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`).
 - Login creates a signed, httpOnly session cookie (`SESSION_SECRET`), using Next.js `cookies()` and a small signing helper.
 - `admin/(protected)/layout.tsx` checks the session and redirects to login; every admin Server Action and
   service read checks it again (a layout check alone is not enough).
-- `scripts/hash-password` (first script) produces the hash.
+- The hash is Node `crypto` scrypt, stored as `scrypt$<saltHex>$<hashHex>` (no bcrypt, no dependency) and compared with `timingSafeEqual`.
+- `npm run hash-password -- "password"` (`scripts/hash-password.mjs`) prints the hash.
+- The cookie holds `{ email, expiresAt }` (8 hours) signed with HMAC-SHA256 using `SESSION_SECRET`; it is `httpOnly`, `sameSite=lax`, and `secure` in production.
+- `getAdminEnv()` reads the admin settings only when admin code runs, so the public site and the build need none of them.
 
 ## Configuration (`.env`)
 

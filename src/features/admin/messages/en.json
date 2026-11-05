@@ -1,0 +1,179 @@
+{
+  "common": {
+    "timesUtc": "Times are shown in UTC.",
+    "empty": "Nothing here yet.",
+    "unknown": "Unknown",
+    "direct": "Direct",
+    "save": "Save",
+    "all": "All",
+    "filter": "Filter",
+    "showing": "Showing the latest {count}."
+  },
+  "login": {
+    "title": "Admin sign in",
+    "intro": "Only the owner can see this area.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "invalidInput": "Enter your email and your password.",
+    "invalidCredentials": "Wrong email or password."
+  },
+  "nav": {
+    "label": "Admin sections",
+    "overview": "Overview",
+    "leads": "Leads",
+    "visitors": "Visitors",
+    "demos": "Demos",
+    "activity": "Activity",
+    "feedback": "Feedback",
+    "notifications": "Notifications",
+    "unread": "{count} unread",
+    "logout": "Sign out"
+  },
+  "overview": {
+    "title": "Overview",
+    "intro": "How the site performs: who comes, what they do, and where they stop.",
+    "visitorsToday": "Visitors today",
+    "visitors7d": "Visitors, last 7 days",
+    "visitors30d": "Visitors, last 30 days",
+    "visitorsTotal": "All visitors",
+    "wizardStarted": "Started the wizard",
+    "wizardCompleted": "Sent a request",
+    "wizardRate": "Conversion",
+    "whatsappClicks": "WhatsApp clicks",
+    "feedbackTotal": "Feedback messages",
+    "feedbackUnread": "{count} unread",
+    "leadsTitle": "Leads by status",
+    "devices": "Devices",
+    "countries": "Countries",
+    "languages": "Languages",
+    "sources": "Top sources",
+    "templates": "Demos",
+    "templatesIntro": "Visitors who opened a demo, created an account, and used it.",
+    "noRate": "No data yet"
+  },
+  "leads": {
+    "title": "Leads",
+    "intro": "Everyone who sent a request through the wizard, newest first.",
+    "filterLabel": "Status",
+    "caption": "Leads",
+    "date": "Date",
+    "contact": "Contact",
+    "request": "Request",
+    "status": "Status",
+    "details": "Details and notes",
+    "idea": "Idea",
+    "email": "Email",
+    "language": "Language",
+    "notesLabel": "Notes for {name}",
+    "statusLabel": "Status of {name}",
+    "update": "Update",
+    "whatsapp": "WhatsApp {name}",
+    "noField": "Not chosen"
+  },
+  "leadStatus": {
+    "new": "New",
+    "contacted": "Contacted",
+    "won": "Won",
+    "lost": "Lost"
+  },
+  "leadType": {
+    "business": "Website for a business",
+    "system": "Custom system",
+    "saas": "Software to rent out",
+    "other": "Something else"
+  },
+  "visitors": {
+    "title": "Visitors",
+    "intro": "Anonymous visitors, most recently active first. Open one to see their journey.",
+    "caption": "Visitors",
+    "visitor": "Visitor",
+    "country": "Country",
+    "device": "Device",
+    "language": "Language",
+    "source": "Source",
+    "firstSeen": "First seen",
+    "lastSeen": "Last seen",
+    "journeyTitle": "Visitor journey",
+    "journeyIntro": "Key actions of this visitor in the order they happened.",
+    "back": "All visitors",
+    "notFound": "This visitor was not found.",
+    "journeyCaption": "Journey"
+  },
+  "demos": {
+    "title": "Demos",
+    "intro": "For each demo: how many visitors opened it, created an account, and used it.",
+    "caption": "Demos",
+    "template": "Demo",
+    "opened": "Opened",
+    "registered": "Registered",
+    "actions": "Used it",
+    "edits": "Content edits",
+    "resets": "Resets",
+    "ofPrevious": "{percent} of the step before"
+  },
+  "activity": {
+    "title": "Activity",
+    "intro": "The latest key actions on the site and in the demos.",
+    "caption": "Latest events",
+    "eventLabel": "Event",
+    "anyEvent": "Any event",
+    "when": "When",
+    "event": "Event",
+    "template": "Demo",
+    "page": "Page",
+    "visitor": "Visitor"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "intro": "What visitors wrote to you, newest first.",
+    "unread": "Unread",
+    "read": "Read",
+    "markRead": "Mark as read",
+    "markReadFor": "Mark the message from {date} as read",
+    "contact": "Contact",
+    "noContact": "No contact left",
+    "page": "Sent from"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "intro": "What happened on the site, grouped by day and type.",
+    "markAllRead": "Mark all as read",
+    "unreadCount": "{count} unread",
+    "allRead": "Everything is read.",
+    "group": "{type} ({count})",
+    "unreadItem": "Unread",
+    "openItem": "Open: {title}"
+  },
+  "events": {
+    "page_view": "Page viewed",
+    "wizard_started": "Wizard started",
+    "wizard_completed": "Wizard completed",
+    "demo_opened": "Demo opened",
+    "demo_registered": "Demo account created",
+    "demo_login": "Demo login",
+    "demo_action": "Demo action",
+    "content_edited": "Content edited",
+    "language_switched": "Language switched",
+    "demo_reset": "Demo reset",
+    "whatsapp_clicked": "WhatsApp clicked",
+    "feedback_sent": "Feedback sent",
+    "guide_quiz_completed": "Guide quiz completed"
+  },
+  "notificationTypes": {
+    "new_lead": "New leads",
+    "demo_registered": "New demo accounts",
+    "demo_action": "Demo actions",
+    "whatsapp_clicked": "WhatsApp clicks",
+    "feedback": "New feedback"
+  },
+  "devices": {
+    "mobile": "Mobile",
+    "tablet": "Tablet",
+    "desktop": "Desktop"
+  },
+  "languages": {
+    "ar": "Arabic",
+    "en": "English"
+  }
+}

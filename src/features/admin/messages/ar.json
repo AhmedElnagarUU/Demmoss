@@ -1,0 +1,179 @@
+{
+  "common": {
+    "timesUtc": "الأوقات المعروضة بالتوقيت العالمي (UTC).",
+    "empty": "لا يوجد شيء هنا بعد.",
+    "unknown": "غير معروف",
+    "direct": "مباشر",
+    "save": "حفظ",
+    "all": "الكل",
+    "filter": "تصفية",
+    "showing": "عرض آخر {count}."
+  },
+  "login": {
+    "title": "دخول الإدارة",
+    "intro": "هذه المنطقة للمالك فقط.",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "submit": "دخول",
+    "invalidInput": "أدخل بريدك الإلكتروني وكلمة المرور.",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+  },
+  "nav": {
+    "label": "أقسام الإدارة",
+    "overview": "نظرة عامة",
+    "leads": "العملاء المحتملون",
+    "visitors": "الزوار",
+    "demos": "النماذج التجريبية",
+    "activity": "النشاط",
+    "feedback": "الملاحظات",
+    "notifications": "الإشعارات",
+    "unread": "{count} غير مقروء",
+    "logout": "تسجيل الخروج"
+  },
+  "overview": {
+    "title": "نظرة عامة",
+    "intro": "أداء الموقع: من يزورنا، ماذا يفعل، وأين يتوقف.",
+    "visitorsToday": "زوار اليوم",
+    "visitors7d": "الزوار خلال 7 أيام",
+    "visitors30d": "الزوار خلال 30 يومًا",
+    "visitorsTotal": "كل الزوار",
+    "wizardStarted": "بدأوا المعالج",
+    "wizardCompleted": "أرسلوا طلبًا",
+    "wizardRate": "نسبة التحويل",
+    "whatsappClicks": "نقرات واتساب",
+    "feedbackTotal": "رسائل الملاحظات",
+    "feedbackUnread": "{count} غير مقروء",
+    "leadsTitle": "العملاء المحتملون حسب الحالة",
+    "devices": "الأجهزة",
+    "countries": "الدول",
+    "languages": "اللغات",
+    "sources": "أهم المصادر",
+    "templates": "النماذج التجريبية",
+    "templatesIntro": "الزوار الذين فتحوا نموذجًا، وأنشأوا حسابًا، واستخدموه.",
+    "noRate": "لا توجد بيانات بعد"
+  },
+  "leads": {
+    "title": "العملاء المحتملون",
+    "intro": "كل من أرسل طلبًا عبر المعالج، الأحدث أولًا.",
+    "filterLabel": "الحالة",
+    "caption": "العملاء المحتملون",
+    "date": "التاريخ",
+    "contact": "التواصل",
+    "request": "الطلب",
+    "status": "الحالة",
+    "details": "التفاصيل والملاحظات",
+    "idea": "الفكرة",
+    "email": "البريد الإلكتروني",
+    "language": "اللغة",
+    "notesLabel": "ملاحظات عن {name}",
+    "statusLabel": "حالة {name}",
+    "update": "تحديث",
+    "whatsapp": "واتساب {name}",
+    "noField": "لم يُحدَّد"
+  },
+  "leadStatus": {
+    "new": "جديد",
+    "contacted": "تم التواصل",
+    "won": "تم الاتفاق",
+    "lost": "لم يتم"
+  },
+  "leadType": {
+    "business": "موقع لنشاط تجاري",
+    "system": "نظام مخصص",
+    "saas": "برنامج للتأجير",
+    "other": "شيء آخر"
+  },
+  "visitors": {
+    "title": "الزوار",
+    "intro": "زوار مجهولون، الأكثر نشاطًا مؤخرًا أولًا. افتح زائرًا لترى رحلته.",
+    "caption": "الزوار",
+    "visitor": "الزائر",
+    "country": "الدولة",
+    "device": "الجهاز",
+    "language": "اللغة",
+    "source": "المصدر",
+    "firstSeen": "أول زيارة",
+    "lastSeen": "آخر زيارة",
+    "journeyTitle": "رحلة الزائر",
+    "journeyIntro": "أهم تصرفات هذا الزائر بالترتيب الذي حدثت به.",
+    "back": "كل الزوار",
+    "notFound": "لم يُعثر على هذا الزائر.",
+    "journeyCaption": "الرحلة"
+  },
+  "demos": {
+    "title": "النماذج التجريبية",
+    "intro": "لكل نموذج: كم زائرًا فتحه، وأنشأ حسابًا، واستخدمه.",
+    "caption": "النماذج التجريبية",
+    "template": "النموذج",
+    "opened": "فتحوه",
+    "registered": "سجّلوا",
+    "actions": "استخدموه",
+    "edits": "تعديلات المحتوى",
+    "resets": "إعادة الضبط",
+    "ofPrevious": "{percent} من الخطوة السابقة"
+  },
+  "activity": {
+    "title": "النشاط",
+    "intro": "آخر الإجراءات المهمة في الموقع والنماذج.",
+    "caption": "آخر الأحداث",
+    "eventLabel": "الحدث",
+    "anyEvent": "أي حدث",
+    "when": "الوقت",
+    "event": "الحدث",
+    "template": "النموذج",
+    "page": "الصفحة",
+    "visitor": "الزائر"
+  },
+  "feedback": {
+    "title": "الملاحظات",
+    "intro": "ما كتبه الزوار لك، الأحدث أولًا.",
+    "unread": "غير مقروءة",
+    "read": "مقروءة",
+    "markRead": "تحديد كمقروءة",
+    "markReadFor": "تحديد رسالة {date} كمقروءة",
+    "contact": "التواصل",
+    "noContact": "لم يترك وسيلة تواصل",
+    "page": "أُرسلت من"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "intro": "ما حدث في الموقع، مجمّعًا حسب اليوم والنوع.",
+    "markAllRead": "تحديد الكل كمقروء",
+    "unreadCount": "{count} غير مقروء",
+    "allRead": "كل شيء مقروء.",
+    "group": "{type} ({count})",
+    "unreadItem": "غير مقروء",
+    "openItem": "فتح: {title}"
+  },
+  "events": {
+    "page_view": "عرض صفحة",
+    "wizard_started": "بدء المعالج",
+    "wizard_completed": "إكمال المعالج",
+    "demo_opened": "فتح نموذج",
+    "demo_registered": "إنشاء حساب تجريبي",
+    "demo_login": "دخول تجريبي",
+    "demo_action": "إجراء في نموذج",
+    "content_edited": "تعديل محتوى",
+    "language_switched": "تغيير اللغة",
+    "demo_reset": "إعادة ضبط نموذج",
+    "whatsapp_clicked": "نقرة واتساب",
+    "feedback_sent": "إرسال ملاحظة",
+    "guide_quiz_completed": "إكمال اختبار الدليل"
+  },
+  "notificationTypes": {
+    "new_lead": "عملاء محتملون جدد",
+    "demo_registered": "حسابات تجريبية جديدة",
+    "demo_action": "إجراءات في النماذج",
+    "whatsapp_clicked": "نقرات واتساب",
+    "feedback": "ملاحظات جديدة"
+  },
+  "devices": {
+    "mobile": "هاتف",
+    "tablet": "لوح",
+    "desktop": "حاسوب"
+  },
+  "languages": {
+    "ar": "العربية",
+    "en": "الإنجليزية"
+  }
+}

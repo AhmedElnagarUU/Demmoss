@@ -33,4 +33,14 @@ export async function recordEvent(event: EventInput, context: RequestContext): P
   if (notification) await createNotification(notification);
 }
 
-export { countVisitors, findVisitor, listEventsOfVisitor } from "./repository";
+export {
+  countActiveVisitors,
+  countEvents,
+  countVisitors,
+  countVisitorsBy,
+  countVisitorsBySource,
+  findVisitor,
+  listEventsOfVisitor,
+  listRecentEvents,
+  listVisitors,
+} from "./repository";
