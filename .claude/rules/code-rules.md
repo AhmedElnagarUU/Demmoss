@@ -55,6 +55,7 @@ Before a feature is built it must have `docs/features/<feature>.md` with:
 3. **User stories**: "As a … I want … so that …".
 4. **Mermaid diagrams**: a `flowchart`; add a `sequenceDiagram` when the browser talks to the server.
 5. **Data**: what is stored, where (MongoDB or localStorage), and its shape.
+6. **Tests**: the unit, integration, and E2E tests that protect it, each linked to a user story or rule.
 
 The doc is updated in the same change whenever the flow changes. Use `docs/features/_template.md`.
 
@@ -85,3 +86,10 @@ The doc is updated in the same change whenever the flow changes. Use `docs/featu
 ## 8. Dependencies
 
 - Add a package only when writing it ourselves would be clearly worse. Prefer the platform (fetch, Intl, crypto.subtle).
+
+## 9. Tests
+
+- Every change ships with the tests listed in `.claude/rules/testing.md` (section 4), in the same commit.
+- Tests protect user stories, business rules, and project contracts only. No fake, framework, snapshot, or coverage tests.
+- Never delete, skip, or weaken a test to make a change pass. A bug fix starts with a failing test.
+- `npm run check` must pass before every commit; related E2E journeys before every push.

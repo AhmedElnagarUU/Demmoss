@@ -13,4 +13,5 @@ Status: planning done; build not started.
 - Demo engine: [`docs/05-demo-engine.md`](docs/05-demo-engine.md)
 - Template contract: [`docs/06-template-contract.md`](docs/06-template-contract.md)
 - Roadmap: [`docs/07-roadmap.md`](docs/07-roadmap.md)
+- Testing: [`docs/08-testing.md`](docs/08-testing.md)
 - Feature flow docs: [`docs/features/`](docs/features/)

@@ -341,6 +341,20 @@ flowchart TD
   dashboard/  (overview) · orders · offers · areas · menu · content · customers · reviews · settings
 ```
 
+## 12b. Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Unit | free slots: hide full slots, closed days, past times; guests 1–12 | R1 |
+| Unit | reservation, event request, and order status paths: only allowed transitions | R2, R3 |
+| Unit | order totals, delivery fee, minimum order per area; order keeps its name/price snapshot after a menu edit | R1, R4 |
+| Unit | value tips: shown only when data justifies them (outside hours, direct orders count) | R6 |
+| Unit | business name at register replaces the seed name in both languages; palettes apply | R5 |
+| Contract | both variants pass the template contract checks | rules |
+| E2E | fine dining: reserve → register → see it in Reservations → confirm | R1, R2 |
+| E2E | fast food: order → status page → dashboard changes status → status page updates | R1–R3 |
+| E2E | edit a dish in ar/en → visible on the site; reset restores the seed | R4 |
+
 ## 13. Files
 
 ```

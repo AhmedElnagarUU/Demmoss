@@ -64,6 +64,15 @@ flowchart TD
 Reads from `wizard` (leads), `tracking` (visitors, events), `feedback`, `notifications`, and `gallery` (template names).
 Writes: lead status/notes, feedback read flag, notification read flag. No admin model; credentials in `.env`.
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Integration | every admin read and update refuses without a valid session | security |
+| Integration | metrics (visitors, wizard conversion, per-variant funnel) computed correctly from seeded events | dashboard questions |
+| E2E | admin pages redirect to login without a session; login works; wrong password fails | security |
+| E2E | lead from the wizard appears in Leads; status change saved | W6 |
+
 ## Files
 
 ```

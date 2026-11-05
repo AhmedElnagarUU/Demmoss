@@ -30,6 +30,7 @@ shared dashboard and **both variants**. For each variant:
 - [ ] Key actions tracked
 - [ ] `meta.ts` catalog entry and screenshot; visible in the gallery
 - [ ] Mobile-first, accessible, images optimized
+- [ ] Template contract checks pass; unit tests for its rules; E2E of each closed loop in ar and en
 
 ## Template pipeline
 

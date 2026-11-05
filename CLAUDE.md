@@ -48,7 +48,7 @@ theme-sources/<name>/     original HTML/CSS templates to convert, never imported
 docs/                     vision, flows, architecture, feature flow docs
 ```
 
-Details: `docs/03-architecture.md`.
+Details: `docs/03-architecture.md`. Testing strategy: `docs/08-testing.md`.
 
 ## Golden rules
 
@@ -60,6 +60,7 @@ Details: `docs/03-architecture.md`.
 6. **Demo data stays in the browser.** Templates write to the server only through `track()`. See `.claude/rules/storage.md`.
 7. **Track key actions only, anonymously.** See `.claude/rules/analytics.md`.
 8. **Changeable settings live in `.env`** (brand name, WhatsApp number, default locale, secrets). See `.env.example`.
+9. **Every change is tested, honestly.** Valuable tests only, never weakened to pass; `npm run check` before commit. See `.claude/rules/testing.md`.
 
 ## Skills
 

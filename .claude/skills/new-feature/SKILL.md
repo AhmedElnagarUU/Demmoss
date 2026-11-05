@@ -16,7 +16,7 @@ Follow these steps in order. Do not write code before step 2 is agreed.
 
 - Copy `docs/features/_template.md` to `docs/features/<feature>.md`.
 - Fill: purpose (business value), flow in plain words, user stories, Mermaid `flowchart`,
-  `sequenceDiagram` if the browser talks to the server, data (where and what shape), files, out of scope.
+  `sequenceDiagram` if the browser talks to the server, data (where and what shape), **tests**, files, out of scope.
 - If it adds tracking events, update `.claude/rules/analytics.md` and `docs/04-data-and-tracking.md`.
 - Show the doc to the user and get agreement.
 
@@ -44,11 +44,17 @@ src/features/<feature>/
 - Imports from other features: types, schemas, public functions only, one direction, no cycles.
 - Generic, domain-free pieces go to `src/shared/`; everything else stays in the feature.
 
-## 4. Check
+## 4. Test
+
+- Read `.claude/rules/testing.md`. Write the tests listed in the flow doc, next to the code (`*.test.ts`) and in `e2e/`.
+- For each new test, break the code once and see it fail.
+- Run `npm run check`, then the related E2E journeys. Fix the code, never weaken a test.
+
+## 5. Check
 
 - [ ] Code is boring and obvious (KISS); no unneeded abstraction
 - [ ] Works in `ar` and `en`, RTL correct
 - [ ] Inputs validated; types inferred from Zod
 - [ ] Key actions tracked (only the listed ones)
 - [ ] Flow doc matches what was built; status updated
-- [ ] Type check and lint pass
+- [ ] Tests from the flow doc written; `npm run check` and related E2E pass; no test skipped or weakened

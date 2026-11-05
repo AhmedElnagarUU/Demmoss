@@ -53,6 +53,16 @@ See `docs/04-data-and-tracking.md`.
 
 MongoDB `Visitor` and `Event`. No raw IP. No demo content or demo account data.
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Unit | visitor id created once and reused; UTM/referrer sent only with the first event | T1 |
+| Unit | `track()` never throws when the server fails | T4 |
+| Integration | `recordEvent` upserts the visitor once and saves the event | T1, T2 |
+| Integration | notification created only for events in the notify list | T3 |
+| Integration | unknown event names and personal/demo-content meta are rejected | T4 |
+
 ## Files
 
 ```

@@ -109,6 +109,14 @@ flowchart TD
 
 No database. Content in `content/en.json` and `content/ar.json`. Tracking: `page_view`, `guide_quiz_completed`.
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Contract | `en.json` and `ar.json` parse with the schema and have the same keys and ids | SG7, SG8 |
+| Unit | `pickRecommendation`: most answers wins; tie → simpler type; maps to the wizard type | SG5 |
+| E2E | quiz → result → wizard opens with the type prefilled | SG5, SG6 |
+
 ## Files
 
 ```

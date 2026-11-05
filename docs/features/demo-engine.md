@@ -22,6 +22,16 @@ so each template only adds its design, content, and business modules.
 |---|---|---|
 | E5 | create a new template store with key, version, and seed in a few lines | new templates are fast and consistent |
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Unit | store: old version → reset to seed keeping the account; invalid data → reset; reset demo keeps the account | E2, E3 |
+| Unit | sample dates are relative to "today" | E2 |
+| Unit | fake auth: register hashes the password; right password logs in; wrong one fails | E1 |
+| Contract | every template store uses `demo:<category>-<variant>` and has a version and a valid seed | E5 |
+| E2E | banner visible on site and dashboard; changes survive reload; two tabs stay in sync | E2, E4 |
+
 ## Files
 
 ```

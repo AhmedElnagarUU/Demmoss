@@ -44,6 +44,14 @@ flowchart TD
 
 MongoDB `Notification` (see `docs/04-data-and-tracking.md`).
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Integration | grouping by day and type returns the right counts; unread count | N1 |
+| Integration | mark all as read | N3 |
+| E2E | opening a notification goes to the related item | N2 |
+
 ## Files
 
 ```

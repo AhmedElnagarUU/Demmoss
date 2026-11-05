@@ -52,6 +52,13 @@ flowchart TD
 
 None stored. `page_view` and `whatsapp_clicked` are tracked. Text in message files (ar/en). Highlighted demos come from the gallery catalog.
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| E2E | ar and en render, `dir` correct, CTAs reach wizard, guide, demos, WhatsApp | L1–L4 |
+| E2E | axe: no serious accessibility issues; title, description, hreflang present | quality, SEO |
+
 ## Files
 
 ```

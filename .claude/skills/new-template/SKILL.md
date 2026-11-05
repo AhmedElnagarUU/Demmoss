@@ -23,6 +23,7 @@ Create `docs/features/template-<category>.md` from `docs/features/_template.md` 
 6. **Data schema** (Zod outline) and **seed content** outline in ar/en.
 7. **Source**: scratch, or `theme-sources/<name>/`.
 8. Mermaid diagrams and user stories.
+9. **Tests**: unit tests for the variant's business rules and E2E for each closed loop (the generic template contract tests run automatically).
 
 Get the user's agreement on the plan.
 
@@ -52,7 +53,13 @@ src/app/[locale]/demos/<category>/<variant>/...   thin route files only
 - Track `demo_action` for each closed-loop action.
 - Add `meta` to the gallery catalog.
 
-## 4. Accept
+## 4. Test
+
+- Unit tests for business rules (totals, slots, status paths, value tips) and store actions.
+- E2E per closed loop, in ar and en, desktop and phone (`e2e/<category>-<variant>.spec.ts`).
+- `npm run check` (includes the template contract checks) and the template's E2E must pass.
+
+## 5. Accept
 
 Run the checklist in `docs/06-template-contract.md`, check both languages on mobile and desktop,
 then update the template's status in `docs/06-template-contract.md` and its plan doc.

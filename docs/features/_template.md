@@ -41,6 +41,16 @@ sequenceDiagram
 
 What is stored, where (MongoDB / localStorage), and its shape.
 
+## Tests
+
+Each test is linked to a user story or rule (see `.claude/rules/testing.md`).
+
+| Level | Test | Protects |
+|---|---|---|
+| Unit | … | X1 |
+| Integration | … | X1 |
+| E2E | … | X1 |
+
 ## Files
 
 ```

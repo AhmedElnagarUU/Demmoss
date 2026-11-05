@@ -43,6 +43,14 @@ No database. Two static lists:
 - `catalog.ts`: every variant's `meta.ts` (slug, category, variant, name ar/en, pitch ar/en, screenshot).
 Adding a variant = adding its `meta` to the catalog. A category with no variants yet is hidden in the gallery.
 
+## Tests
+
+| Level | Test | Protects |
+|---|---|---|
+| Contract | every catalog entry valid; categories without variants hidden | G1, G3 |
+| Unit | `getDemosByCategory` returns both variants of a category | G2 |
+| E2E | filter by category; card opens the site and the dashboard | G1–G3 |
+
 ## Files
 
 ```
