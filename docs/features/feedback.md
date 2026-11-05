@@ -44,7 +44,7 @@ flowchart TD
 ```mermaid
 sequenceDiagram
   participant B as Browser
-  participant R as createFeedbackFn
+  participant R as createFeedbackAction
   participant S as feedback service
   participant N as notifications service
   B->>R: { message, contact?, page, template?, visitorId }
@@ -65,7 +65,7 @@ src/features/feedback/
   components/     feedback-button, feedback-form
   model.ts
   repository.ts
-  server-functions.ts  createFeedbackFn
+  actions.ts  createFeedbackAction
   service.ts      createFeedback, listFeedback, markRead
   types.ts
 ```

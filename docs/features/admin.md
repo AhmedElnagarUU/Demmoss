@@ -20,8 +20,8 @@ feedback, and notifications, to follow up with people and decide what to build n
 
 ## Flow in plain words
 
-1. The owner opens `/$locale/admin/login` and signs in with the email and password configured in `.env`.
-2. A signed, httpOnly session cookie is created. All admin pages and admin server functions check it; without it → login.
+1. The owner opens `/[locale]/admin/login` and signs in with the email and password configured in `.env`.
+2. A signed, httpOnly session cookie is created. All admin pages and admin Server Actions check it; without it → login.
 3. Pages:
    - **Overview**: visitors (day/week/month), wizard conversion, registrations, WhatsApp clicks, top templates,
      sources, countries, devices, languages.
@@ -75,7 +75,7 @@ src/features/admin/
   demos/
   visitors/
   activity/
-  server-functions.ts   loginFn, logoutFn, admin queries/updates (each checks the session)
+  actions.ts   loginAction, logoutAction, admin queries/updates (each checks the session)
 ```
 
 ## Out of scope (v1)

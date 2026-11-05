@@ -8,6 +8,14 @@ Demo templates keep all their data in the visitor's browser. Nothing a demo user
 - Components select only the slice they need, so only they re-render when it changes.
 - Zustand is for demo state only. Server data (admin, leads) never goes in a Zustand store.
 
+## Next.js: client only, hydrate safely
+
+- Stores and every component that reads them are client components (`"use client"`).
+- The server cannot read localStorage, so the store is created with `skipHydration` and loaded in the browser
+  by the demo-engine helper. Until it is loaded, demo pages show a light skeleton (never seed text that then jumps),
+  which avoids hydration mismatches.
+- This pattern lives once in `demo-engine/storage`; templates do not repeat it.
+
 ## Keys
 
 - One key per template: `demo:<template-slug>`. Templates never read or write another template's key.

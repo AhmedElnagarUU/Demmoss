@@ -43,7 +43,7 @@ Folder layout: `.claude/rules/templates.md`. Short version:
 src/features/template-<category>/
   dashboard/ modules/ types.ts           shared by both variants
   variants/<variant>/site/ seed/ dashboard.ts store.ts meta.ts
-src/routes/$locale/demos/<category>/<variant>/...   thin route files only
+src/app/[locale]/demos/<category>/<variant>/...   thin route files only
 ```
 
 - `store.ts`: `createTemplateStore("<category>-<variant>", version, seed, schema)` from demo-engine.

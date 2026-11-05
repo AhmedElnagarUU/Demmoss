@@ -27,20 +27,20 @@ Read `docs/01-vision.md` before writing any user-facing content.
 
 ## Stack
 
-- TanStack Start (React + Vite) + TypeScript (strict); TanStack Router file-based routes; server functions for server logic
+- Next.js (App Router) + TypeScript (strict); Server Components for reads, Server Actions (`actions.ts`) for writes; no API routes
 - Tailwind CSS only, no component library; our own UI primitives in `src/shared/ui`
 - MongoDB + Mongoose, one `model.ts` per feature that stores data
 - Zod for all validation; types are inferred from Zod schemas
 - Our own small i18n (`shared/i18n`: JSON messages + `t()`) for Arabic/English with full RTL support
 - Zustand (with `persist`) for demo state in localStorage only, never for server data
-- Public pages are prerendered (SEO, CDN); demos run in the browser; only server functions need a small Node server
+- Public pages are statically generated (SEO, CDN); demos run in the browser; actions and admin need a small Node server
 - Hosting not decided (VPS or AWS, low cost): stay host-agnostic, no platform-only APIs
 
 ## Folder map
 
 ```
 src/
-  routes/                 TanStack Router route files only (thin)
+  app/                    Next.js App Router route files only (thin)
   features/<feature>/     everything a feature needs
   shared/                 generic, domain-free code (db, ui, i18n, env)
 scripts/                  CLI tools for the developer (added only when needed)
@@ -53,7 +53,7 @@ Details: `docs/03-architecture.md`.
 ## Golden rules
 
 1. **KISS.** Boring, readable code. See `.claude/rules/code-rules.md`.
-2. **Feature-based structure.** Never organize by file type. Routes and server functions contain no business logic.
+2. **Feature-based structure.** Never organize by file type. Route files and Server Actions contain no business logic.
 3. **Flow doc first.** No feature is built without `docs/features/<feature>.md` (human flow, user stories, Mermaid).
 4. **Bilingual and RTL always.** No hardcoded UI text; logical CSS only. See `.claude/rules/i18n-rtl.md`.
 5. **Value, not filler.** Every section of every template serves a business goal. See `.claude/rules/templates.md`.

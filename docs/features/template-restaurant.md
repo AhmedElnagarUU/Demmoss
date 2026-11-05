@@ -333,10 +333,10 @@ flowchart TD
 ## 12. Routes
 
 ```
-/$locale/demos/restaurant/fine-dining/                 home
+/[locale]/demos/restaurant/fine-dining/                 home
   menu · about · events · reserve · contact · register · login
   dashboard/  (overview) · reservations · events · menu · content · customers · reviews · settings
-/$locale/demos/restaurant/fast-food/                   home
+/[locale]/demos/restaurant/fast-food/                   home
   menu · cart · checkout · order/$id · contact · register · login
   dashboard/  (overview) · orders · offers · areas · menu · content · customers · reviews · settings
 ```

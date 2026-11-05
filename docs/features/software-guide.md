@@ -19,14 +19,14 @@ The owner must be able to change the text without touching components.
   No code change.
 - A Zod schema (`types.ts`) validates both files at build time. A missing field, a typo in a key,
   or an `ar` file that doesn't match `en` fails the build with a clear message, so a broken page is never published.
-- The page is prerendered, so after editing a content file the site is rebuilt and redeployed (one command).
+- The page is statically generated, so after editing a content file the site is rebuilt and redeployed (one command).
 
 ```mermaid
 flowchart LR
   E[Owner edits en.json / ar.json] --> V{Build: Zod check}
   V -->|error| M[Clear message: which field, which file]
   M --> E
-  V -->|ok| P[Prerendered pages /en/guide and /ar/guide]
+  V -->|ok| P[Static pages /en/guide and /ar/guide]
   P --> D[Deploy]
 ```
 

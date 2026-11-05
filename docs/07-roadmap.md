@@ -15,7 +15,7 @@ flowchart LR
 |---|---|---|
 | **0. Planning** | Vision, flows, architecture, data, demo engine, template contract, rules, skills | done |
 | **0b. Planning next** | Software Guide (decisions closed, content draft ready); category/variant model agreed; Restaurants & cafés plan (draft) | in progress |
-| **1. Foundation** | Starts with a 1–2 day spike to confirm TanStack Start (prerender, one server function + MongoDB, `$locale` routes + RTL, one persisted demo store). Then: TanStack Start + TS strict, Tailwind tokens, own i18n AR/EN + RTL, `shared/ui` primitives, `shared/db`, `shared/env`, tracking server function | |
+| **1. Foundation** | Next.js (App Router) + TS strict, Tailwind tokens, own i18n AR/EN + RTL (`[locale]` + `proxy.ts`), `shared/ui` primitives, `shared/db`, `shared/env`, tracking Server Action, demo store hydration pattern | |
 | **2. Marketing site** | Landing, Software Guide, wizard + result, gallery, feedback, WhatsApp buttons | |
 | **3. Admin dashboard** | Login, overview, leads, demos, visitors + journeys, activity, feedback, notifications | |
 | **4. Demo engine** | Storage helper, fake auth, dashboard shell, editors, image library, banner | |

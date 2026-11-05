@@ -11,7 +11,7 @@
 ## Tokens
 
 - Colors, fonts, radii, and spacing are defined once in the Tailwind theme (CSS variables). No random hex values in components.
-- Brand identity is not decided yet: use neutral placeholder tokens; brand name comes from `VITE_BRAND_NAME`.
+- Brand identity is not decided yet: use neutral placeholder tokens; brand name comes from `NEXT_PUBLIC_BRAND_NAME`.
 - Templates may define their own tokens inside their feature; they do not change the main site tokens.
 
 ## Quality bar

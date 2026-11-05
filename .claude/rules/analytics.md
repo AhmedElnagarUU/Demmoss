@@ -11,7 +11,7 @@ The data must answer the owner's marketing questions:
 ## How
 
 - Client code calls one function: `track(event, data)` from `src/features/tracking`.
-- It calls the `recordEventFn` server function with the anonymous visitor id (`demo:visitor-id` in localStorage).
+- It calls the `recordEventAction` Server Action with the anonymous visitor id (`demo:visitor-id` in localStorage).
 - The server stores the event and creates a notification when the event is in the notify list.
 
 ## Privacy

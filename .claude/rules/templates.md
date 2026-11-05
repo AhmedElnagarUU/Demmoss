@@ -15,7 +15,7 @@ what their final product could be and what value it brings. It is never a page o
   (e.g. reservations for fine dining, orders for fast food).
 - Each category is one feature: `src/features/template-<category>/`.
 - Each variant has its own slug `<category>-<variant>` (used for the storage key, tracking, and the gallery)
-  and its own thin route folder: `src/routes/$locale/demos/<category>/<variant>/...`.
+  and its own thin route folder: `src/app/[locale]/demos/<category>/<variant>/...`.
 
 ## Every template must have
 

@@ -76,7 +76,7 @@ The list and the "notifies admin" flag are in `.claude/rules/analytics.md` (sing
 sequenceDiagram
   participant C as Component
   participant T as track() client
-  participant A as recordEventFn
+  participant A as recordEventAction
   participant S as tracking service
   participant N as notifications service
   C->>T: track("demo_registered", { template })

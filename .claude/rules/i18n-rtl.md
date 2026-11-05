@@ -5,9 +5,9 @@ every template site, every template dashboard.
 
 ## Locale
 
-- Routes are prefixed: `/ar/...` and `/en/...` (the `$locale` route param, validated in `src/routes/$locale/route.tsx`).
+- Routes are prefixed: `/ar/...` and `/en/...` (the `[locale]` segment, validated in `src/app/[locale]/layout.tsx`; unknown locale → `notFound()`). `src/proxy.ts` redirects paths without a locale.
 - Translation is our own small module in `src/shared/i18n`: `ar.json` / `en.json` messages and a typed `t()` helper. No i18n library.
-- First visit: follow the browser language; fall back to `VITE_DEFAULT_LOCALE` (Arabic).
+- First visit: follow the browser language; fall back to `NEXT_PUBLIC_DEFAULT_LOCALE` (Arabic).
 - The visitor's choice is remembered. The language icon is visible on every page, including template sites and dashboards.
 - `<html lang dir>` is set from the locale: `ar` → `dir="rtl"`, `en` → `dir="ltr"`.
 
@@ -27,7 +27,7 @@ every template site, every template dashboard.
 
 ## Fonts
 
-- One Arabic font and one Latin font, chosen in the design phase, self-hosted (font files bundled with the app, no external font requests).
+- One Arabic font and one Latin font, chosen in the design phase, self-hosted with `next/font/local` (no external font requests).
 - Check line height and font size for Arabic separately; Arabic usually needs more line height.
 
 ## Review checklist

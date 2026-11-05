@@ -66,7 +66,7 @@ flowchart TD
 ```mermaid
 sequenceDiagram
   participant B as Browser
-  participant R as createLeadFn
+  participant R as createLeadAction
   participant S as wizard service
   participant Rep as lead repository
   participant N as notifications service
@@ -92,7 +92,7 @@ src/features/wizard/
   components/     steps, progress, result
   model.ts        Lead
   repository.ts
-  server-functions.ts  createLeadFn
+  actions.ts  createLeadAction
   service.ts      createLead, listLeads, updateLeadStatus
   types.ts        leadInputSchema, Lead types
 ```
