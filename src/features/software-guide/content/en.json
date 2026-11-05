@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "title": "Which software does your business need? A simple guide",
+    "description": "Profile website, website with dashboard, custom system or SaaS: understand the difference in plain words and find out which one fits your business."
+  },
+  "menu": {
+    "label": "Guide sections",
+    "items": [
+      { "id": "types", "label": "The four types" },
+      { "id": "compare", "label": "Comparison" },
+      { "id": "rent-or-build", "label": "Rent or build" },
+      { "id": "how-built", "label": "How it's built" },
+      { "id": "myths", "label": "Myths" },
+      { "id": "quiz", "label": "Find what fits me" },
+      { "id": "glossary", "label": "Glossary" }
+    ]
+  },
+  "quizLink": "Not sure which one fits you? Take the 1-minute quiz",
+  "hero": {
+    "title": "Know what you need before you pay for it",
+    "subtitle": "Website, dashboard, system, SaaS… they sound alike but they solve different problems. In a few minutes you'll know the difference and which one fits your business.",
+    "findCta": "Find what fits me",
+    "demosCta": "See live demos"
+  },
+  "facts": {
+    "title": "Why this matters",
+    "items": [
+      {
+        "id": "search-first",
+        "text": "Most customers look a business up online before they call, visit, or buy."
+      },
+      {
+        "id": "trust",
+        "text": "People judge how serious a business is by its website. No website, or a weak one, makes them doubt."
+      },
+      {
+        "id": "mobile",
+        "text": "Most visits now come from phones, so the site must work perfectly on a small screen."
+      },
+      {
+        "id": "after-hours",
+        "text": "Many customers want to book or order at night or on weekends, when nobody answers the phone. A website takes their request anytime."
+      },
+      {
+        "id": "whatsapp",
+        "text": "In our region almost everyone uses WhatsApp. A website that connects to WhatsApp meets customers where they already are."
+      }
+    ]
+  },
+  "types": {
+    "title": "The four types of software, explained with a shop",
+    "intro": "Think of your business as a shop. Each type of software is a different part of it.",
+    "labels": {
+      "analogy": "In shop terms",
+      "whatItDoes": "What it does",
+      "examples": "Examples",
+      "goodFor": "Good for",
+      "youManage": "You manage",
+      "effort": "Effort and time"
+    },
+    "items": [
+      {
+        "id": "profile",
+        "name": "Profile website",
+        "shortName": "a profile website",
+        "oneLine": "Your business's front window on the internet.",
+        "analogy": "The sign and the brochure of your shop, open 24 hours a day.",
+        "whatItDoes": "Shows who you are, your services, your work, and how to reach you (call, WhatsApp, map).",
+        "examples": "A company website, a clinic's information site, a portfolio for a designer or a lawyer.",
+        "goodFor": "Being found on Google, building trust, turning visitors into calls and WhatsApp messages.",
+        "youManage": "Little. Text and photos change sometimes.",
+        "effort": "Low · fastest to launch"
+      },
+      {
+        "id": "functional",
+        "name": "Functional website + dashboard",
+        "shortName": "a functional website",
+        "oneLine": "A website that does work for you, plus a dashboard where you manage it.",
+        "analogy": "A shop with a reception desk that takes bookings and orders even when you're closed, and an office where you see everything.",
+        "whatItDoes": "Customers book, order, or send requests on the site. You see and manage them in your dashboard, and you edit the site's content yourself.",
+        "examples": "A restaurant with table booking, a clinic with appointments, a company that receives quote requests, a small online store.",
+        "goodFor": "Saving time on calls, not missing customers at night, keeping every request organized in one place.",
+        "youManage": "Daily: bookings, orders, requests, content.",
+        "effort": "Medium"
+      },
+      {
+        "id": "system",
+        "name": "Custom business system",
+        "shortName": "a custom system",
+        "oneLine": "Software for your team, built around the way you work.",
+        "analogy": "The back office and stockroom of your shop, organized exactly your way.",
+        "whatItDoes": "Organizes internal work: customers, stock, staff, tasks, invoices, reports. Mainly used by your team, not the public.",
+        "examples": "A system to follow customers and sales (CRM), inventory for a store, job tracking for a maintenance company, a school's student management.",
+        "goodFor": "Replacing paper, Excel sheets, and scattered WhatsApp groups. Fewer mistakes, clear reports.",
+        "youManage": "Your team uses it every day, with accounts and permissions.",
+        "effort": "Medium to high, depending on how much it does"
+      },
+      {
+        "id": "saas",
+        "name": "SaaS product",
+        "shortName": "a SaaS product",
+        "oneLine": "Software that you sell to many businesses for a monthly subscription.",
+        "analogy": "Instead of running one shop, you build a ready \"shop system\" and rent it to hundreds of shop owners.",
+        "whatItDoes": "Many companies sign up, each with its own account, data, and team, and pay you a subscription.",
+        "examples": "A booking platform for all clinics in a city, an accounting app for small shops, a delivery-management tool for restaurants.",
+        "goodFor": "Building a software business with recurring income.",
+        "youManage": "Customers' accounts, subscriptions and payments, support, and continuous improvement.",
+        "effort": "High. It's a product and a company, not a single project.",
+        "note": "Important: if the software is only for your own business, you don't need a SaaS. You need a custom business system."
+      }
+    ]
+  },
+  "comparison": {
+    "title": "The four types side by side",
+    "caption": "Comparison of the four types of software",
+    "rowHeader": "What to compare",
+    "columns": [
+      { "id": "profile", "name": "Profile website" },
+      { "id": "functional", "name": "Functional website + dashboard" },
+      { "id": "system", "name": "Custom business system" },
+      { "id": "saas", "name": "SaaS product" }
+    ],
+    "rows": [
+      {
+        "id": "goal",
+        "label": "Main goal",
+        "values": [
+          "Be found and trusted",
+          "Receive bookings, orders, and requests and manage them",
+          "Organize your internal work",
+          "Sell software to many businesses"
+        ]
+      },
+      {
+        "id": "users",
+        "label": "Who uses it",
+        "values": [
+          "Your customers (they read)",
+          "Your customers (they act) and you",
+          "Your team",
+          "Many companies and their teams"
+        ]
+      },
+      {
+        "id": "daily",
+        "label": "Your daily work in it",
+        "values": ["Rarely", "Every day", "Every day, with your team", "Running a software business"]
+      },
+      {
+        "id": "accounts",
+        "label": "Accounts",
+        "values": [
+          "None",
+          "You (sometimes customers too)",
+          "Staff with permissions",
+          "Every subscribing company and its users"
+        ]
+      },
+      {
+        "id": "effort",
+        "label": "Effort and budget",
+        "values": ["Low", "Medium", "Medium to high", "High"]
+      },
+      {
+        "id": "care",
+        "label": "Ongoing care",
+        "values": ["Light", "Regular", "Regular", "Continuous"]
+      }
+    ]
+  },
+  "rentOrBuild": {
+    "title": "Ready-made tool or your own?",
+    "text": "For many needs there are ready-made online tools you rent monthly. They're quick to start. Your own (custom) software costs more at the start, but it fits your exact way of working, carries your brand, and belongs to you.",
+    "rent": {
+      "label": "Rent when",
+      "text": "your need is common, you want to start this week, and the monthly cost stays small."
+    },
+    "build": {
+      "label": "Build when",
+      "text": "the tools force you into workarounds, you pay for many subscriptions that don't talk to each other, your way of working is what makes you different, or the subscriptions over a few years would cost more than building."
+    },
+    "mix": {
+      "label": "Smart mix",
+      "text": "Many businesses rent tools for common tasks and build only the part that makes them special."
+    }
+  },
+  "howBuilt": {
+    "title": "How software is built, in shop terms",
+    "items": [
+      {
+        "id": "front",
+        "title": "The front (what customers see)",
+        "text": "Pages, buttons, forms. Like the shop floor and window."
+      },
+      {
+        "id": "dashboard",
+        "title": "The dashboard (what you see)",
+        "text": "Where you read requests and change content. Like your office."
+      },
+      {
+        "id": "server",
+        "title": "The server (the brain)",
+        "text": "Receives each request, checks it, and decides what to do. Like the staff behind the counter."
+      },
+      {
+        "id": "database",
+        "title": "The database (the memory)",
+        "text": "Where customers, bookings, and orders are stored safely. Like a well-organized filing cabinet."
+      },
+      {
+        "id": "domain-hosting",
+        "title": "Domain and hosting",
+        "text": "The domain is your address (yourname.com); hosting is the land the shop stands on. Both are renewed yearly or monthly."
+      },
+      {
+        "id": "care",
+        "title": "Ongoing care",
+        "text": "Updates, security, backups, and improvements. Like servicing a car so it keeps running."
+      }
+    ]
+  },
+  "myths": {
+    "title": "Myths and the truth",
+    "mythLabel": "Myth",
+    "truthLabel": "Truth",
+    "items": [
+      {
+        "id": "one-time-cost",
+        "myth": "A website is paid once and that's it.",
+        "truth": "Building is paid once, but the domain, hosting, updates, and security continue. Plan a small yearly budget."
+      },
+      {
+        "id": "launch-is-finish",
+        "myth": "Once it's launched, the work is done.",
+        "truth": "Launch is the start. You learn from visitors, improve, and add what brings more customers."
+      },
+      {
+        "id": "social-is-enough",
+        "myth": "My Instagram/Facebook page is enough.",
+        "truth": "You don't own your social page, and its reach can change overnight. Your website is yours, builds trust, and works with your social pages and WhatsApp."
+      },
+      {
+        "id": "more-features",
+        "myth": "More features means a better website.",
+        "truth": "Every feature should bring value. Start with what brings customers or saves time, then grow."
+      },
+      {
+        "id": "need-saas",
+        "myth": "I need a SaaS for my business.",
+        "truth": "SaaS is software you sell to other businesses. For your own work you usually need a functional website or a custom system."
+      },
+      {
+        "id": "cheapest",
+        "myth": "The cheapest offer is the best deal.",
+        "truth": "The real cost includes the customers you lose if the site is slow, confusing, or not trusted. Compare value, not only price."
+      },
+      {
+        "id": "they-will-come",
+        "myth": "If I build it, customers will come.",
+        "truth": "A website needs to be shared, found on Google, and linked from your social pages and WhatsApp."
+      },
+      {
+        "id": "my-customers",
+        "myth": "My customers don't look online.",
+        "truth": "Most customers check online before they call or visit, even for local businesses."
+      }
+    ]
+  },
+  "quiz": {
+    "title": "Which one fits me?",
+    "intro": "Five quick questions. Nothing is saved; the answers stay in your browser.",
+    "questionCount": "Question {number} of {total}",
+    "submit": "Show my result",
+    "incomplete": "Answer all the questions to see your result.",
+    "restart": "Start over",
+    "resultLabel": "Our recommendation",
+    "startProject": "Start your project",
+    "seeDemos": "See matching demos",
+    "whatsapp": "Talk on WhatsApp",
+    "whatsappMessage": "Hi, I took the software guide quiz and I'm between {a} and {b}. Can we talk?",
+    "questions": [
+      {
+        "id": "goal",
+        "text": "What's your main goal?",
+        "options": [
+          { "id": "a", "type": "profile", "text": "Be known and trusted by customers" },
+          { "id": "b", "type": "functional", "text": "Receive bookings, orders, or requests online" },
+          { "id": "c", "type": "system", "text": "Organize my team's daily work" },
+          { "id": "d", "type": "saas", "text": "Sell software to other businesses" }
+        ]
+      },
+      {
+        "id": "users",
+        "text": "Who will use it most?",
+        "options": [
+          { "id": "a", "type": "profile", "text": "Customers who want to learn about me" },
+          { "id": "b", "type": "functional", "text": "Customers who take an action, and me managing it" },
+          { "id": "c", "type": "system", "text": "My employees" },
+          { "id": "d", "type": "saas", "text": "Many companies, each with its own team" }
+        ]
+      },
+      {
+        "id": "daily",
+        "text": "What will you do in it every day?",
+        "options": [
+          { "id": "a", "type": "profile", "text": "Almost nothing. Just update information sometimes" },
+          { "id": "b", "type": "functional", "text": "Follow up on bookings and customer requests" },
+          { "id": "c", "type": "system", "text": "Manage stock, tasks, invoices, or staff" },
+          { "id": "d", "type": "saas", "text": "Manage subscribers, payments, and support" }
+        ]
+      },
+      {
+        "id": "accounts",
+        "text": "Who needs an account to log in?",
+        "options": [
+          { "id": "a", "type": "profile", "text": "Nobody" },
+          { "id": "b", "type": "functional", "text": "Only me (and maybe my customers)" },
+          { "id": "c", "type": "system", "text": "My staff, with different permissions" },
+          { "id": "d", "type": "saas", "text": "Every subscribing company and its users" }
+        ]
+      },
+      {
+        "id": "start",
+        "text": "How do you want to start?",
+        "options": [
+          { "id": "a", "type": "profile", "text": "Quickly and simply, then grow" },
+          { "id": "b", "type": "functional", "text": "With something that starts saving me time right away" },
+          { "id": "c", "type": "system", "text": "Replace my paperwork and Excel sheets with one system" },
+          { "id": "d", "type": "saas", "text": "Build a product and a business around it" }
+        ]
+      }
+    ],
+    "results": {
+      "profile": {
+        "title": "A profile website fits you.",
+        "why": "You need customers to find you, trust you, and contact you. Start here; you can add bookings later."
+      },
+      "functional": {
+        "title": "A functional website with a dashboard fits you.",
+        "why": "Let the site take bookings and requests day and night while you manage everything from one place."
+      },
+      "system": {
+        "title": "A custom business system fits you.",
+        "why": "Bring your team's work into one organized system built around how you work."
+      },
+      "saas": {
+        "title": "A SaaS product fits you.",
+        "why": "You're building software as a business. Let's plan the first version that proves the idea."
+      },
+      "tie": {
+        "title": "You're between {a} and {b}.",
+        "why": "A short chat will show which one brings you more value."
+      }
+    }
+  },
+  "glossary": {
+    "title": "Words you will hear, in plain language",
+    "items": [
+      { "id": "domain", "term": "Domain", "definition": "Your website's address, like yourname.com." },
+      {
+        "id": "hosting",
+        "term": "Hosting",
+        "definition": "The computer on the internet where your website lives, always on."
+      },
+      {
+        "id": "responsive",
+        "term": "Responsive",
+        "definition": "The site adjusts itself to phones, tablets, and computers."
+      },
+      {
+        "id": "seo",
+        "term": "SEO",
+        "definition": "Work that helps your site appear in Google results."
+      },
+      {
+        "id": "https",
+        "term": "HTTPS / SSL",
+        "definition": "The lock icon in the browser; it protects the data your customers send."
+      },
+      {
+        "id": "dashboard",
+        "term": "Dashboard",
+        "definition": "The private page where you manage your site and your requests."
+      },
+      {
+        "id": "cms",
+        "term": "Content management",
+        "definition": "Editing your site's text and photos yourself, without a developer."
+      },
+      {
+        "id": "mvp",
+        "term": "First version (MVP)",
+        "definition": "The smallest version that delivers real value, launched fast and improved later."
+      },
+      {
+        "id": "backup",
+        "term": "Backup",
+        "definition": "A saved copy of your site and data, in case something goes wrong."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Now you know what you need. Let's build it.",
+    "text": "Tell us about your project in one minute, or try a live demo and see how it works for a business like yours.",
+    "startProject": "Start your project",
+    "seeDemos": "See live demos",
+    "whatsapp": "Talk on WhatsApp",
+    "whatsappMessage": "Hi, I read the software guide and I'd like to talk about my project."
+  }
+}
