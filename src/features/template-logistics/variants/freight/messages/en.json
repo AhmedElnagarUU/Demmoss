@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "home": {
+      "title": "Jisr Cargo: freight from China and Asia to Saudi Arabia and the Gulf",
+      "description": "Air, sea, road and rail freight with customs cleared, a price calculator and live shipment tracking."
+    },
+    "services": {
+      "title": "Freight services: air, sea, road, rail and customs",
+      "description": "Choose how your cargo travels from Asia, with starting prices per kilogram."
+    },
+    "calculator": {
+      "title": "Shipping calculator: price and transit time in seconds",
+      "description": "Estimate the cost of your shipment by mode, route, weight and volume, then ask for an exact quote."
+    },
+    "track": {
+      "title": "Track your shipment",
+      "description": "Enter your tracking number to see where your cargo is and what happens next."
+    },
+    "quote": {
+      "title": "Get a freight quote",
+      "description": "Tell us about your cargo and a manager will reply within one working hour."
+    },
+    "dashboard": { "title": "Freight dashboard" }
+  },
+  "nav": {
+    "label": "Main menu",
+    "home": "Home",
+    "services": "Services",
+    "calculator": "Calculator",
+    "track": "Track shipment",
+    "quote": "Get a quote"
+  },
+  "header": { "cta": "Get a quote" },
+  "hero": {
+    "eyebrow": "Freight from China and Asia",
+    "calculate": "Calculate shipping",
+    "track": "Track a shipment",
+    "insured": "Cargo insured at every stage",
+    "fast": "Delivery from 4 days by air",
+    "customs": "Customs fully handled",
+    "manager": "A personal manager for your account"
+  },
+  "stats": {
+    "years": { "value": "12", "label": "years of experience" },
+    "clients": { "value": "3,400+", "label": "importers served" },
+    "countries": { "value": "6", "label": "destination countries" },
+    "ontime": { "value": "97%", "label": "deliveries on time" }
+  },
+  "about": { "eyebrow": "About us", "link": "See all our services" },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "Solutions for every shipment",
+    "all": "All services",
+    "from": "From {price} per kg",
+    "minimum": "Minimum charge {price}",
+    "contact": "Priced per declaration",
+    "quote": "Get a quote",
+    "air": { "b1": "Fastest option: from 4 days", "b2": "Ideal for urgent and high-value cargo" },
+    "sea": { "b1": "Lowest cost for large shipments", "b2": "Full and shared containers" },
+    "road": { "b1": "A balance of price and speed", "b2": "Door-to-door across the Gulf" },
+    "rail": { "b1": "Faster than sea, cheaper than air", "b2": "Regular departures from inland China" },
+    "customs": { "b1": "Declarations and certificates handled for you", "b2": "Duties calculated before the cargo lands" },
+    "pageTitle": "Freight services",
+    "pageIntro": "Five ways we move your business forward. Prices start from the rates below and your exact quote follows your cargo."
+  },
+  "calculatorSection": {
+    "eyebrow": "Shipping calculator",
+    "title": "Estimate your cost in seconds",
+    "text": "Pick a mode, enter your cargo and route. You see a price range and the transit time right away.",
+    "open": "Open the full calculator"
+  },
+  "calculatorPage": {
+    "title": "Shipping calculator",
+    "intro": "Estimate first, then send the request with your numbers attached. Nothing to retype."
+  },
+  "steps": {
+    "eyebrow": "How it works",
+    "title": "Five steps from request to your door",
+    "s1": { "title": "Request", "text": "Send your cargo details and get a quote within an hour." },
+    "s2": { "title": "Supplier check", "text": "We verify the factory, the goods and the documents in China." },
+    "s3": { "title": "Consolidation", "text": "Goods are gathered, packed and labelled at our hub." },
+    "s4": { "title": "Shipping", "text": "Transport by the mode you chose, tracked from end to end." },
+    "s5": { "title": "Delivery", "text": "Customs cleared and cargo handed over at your door." }
+  },
+  "routes": {
+    "eyebrow": "Popular routes",
+    "title": "Routes we run every week",
+    "text": "Regular departures mean predictable dates for your stock.",
+    "r1": { "title": "Shanghai to Jeddah", "detail": "Sea freight · 28 to 40 days" },
+    "r2": { "title": "Shenzhen to Dammam", "detail": "Sea freight · 30 to 42 days" },
+    "r3": { "title": "Guangzhou to Jebel Ali, Dubai", "detail": "Sea freight · 24 to 36 days" },
+    "r4": { "title": "Yiwu to Riyadh", "detail": "Rail freight · 17 to 23 days" },
+    "r5": { "title": "Shenzhen to Riyadh", "detail": "Air freight · 7 to 10 days" },
+    "r6": { "title": "Guangzhou to Kuwait", "detail": "Road freight · 22 to 29 days" }
+  },
+  "trackerSection": {
+    "eyebrow": "Tracking",
+    "title": "Where is your shipment?",
+    "text": "Enter your tracking number and see every step. No phone call needed.",
+    "pageTitle": "Track your shipment",
+    "pageIntro": "Your tracking number starts with JC and is in the booking confirmation we sent you."
+  },
+  "pricing": {
+    "eyebrow": "Service plans",
+    "title": "A plan for every volume",
+    "text": "Clear service tiers. The freight itself is priced per shipment with the calculator.",
+    "perShipment": "per shipment",
+    "custom": "Custom",
+    "popular": "Most popular",
+    "start": {
+      "name": "Start",
+      "text": "For first-time importers and small parcels.",
+      "f1": "Cargo up to 300 kg",
+      "f2": "Basic insurance",
+      "f3": "Online tracking",
+      "f4": "Email support",
+      "cta": "Choose Start"
+    },
+    "business": {
+      "name": "Business",
+      "text": "For regular importers and growing brands.",
+      "f1": "Cargo up to 5 tonnes",
+      "f2": "Full insurance",
+      "f3": "Customs clearance included",
+      "f4": "Supplier check and a personal manager",
+      "cta": "Choose Business"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "text": "For large volumes and contract logistics.",
+      "f1": "Full containers and fixed yearly rates",
+      "f2": "Bonded warehousing",
+      "f3": "A dedicated team, 24/7",
+      "f4": "Monthly reporting",
+      "cta": "Talk to sales"
+    }
+  },
+  "testimonials": { "eyebrow": "Testimonials", "title": "Trusted by importers across the Kingdom" },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions we hear often",
+    "text": "Cannot find your answer? Our managers reply within one working hour."
+  },
+  "quoteBand": {
+    "cta": "Get a quote",
+    "whatsapp": "Message us on WhatsApp"
+  },
+  "quotePage": {
+    "title": "Get a freight quote",
+    "intro": "Tell us about your cargo. A manager replies within one working hour.",
+    "contact": "Contact",
+    "phone": "Phone",
+    "address": "Office",
+    "hours": "Office hours",
+    "hoursText": "Sunday to Thursday, {open} to {close}"
+  },
+  "footer": {
+    "tagline": "Freight from Asia, door to door. Air, sea, road and rail with customs handled.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "© 2026 {name}. All rights reserved.",
+    "credit": "Photos: Unsplash"
+  },
+  "overview": {
+    "cardsNew": "New quotes",
+    "cardsQuoted": "Waiting for the client",
+    "cardsOnTheWay": "Shipments on the way",
+    "cardsDelivered": "Delivered"
+  }
+}

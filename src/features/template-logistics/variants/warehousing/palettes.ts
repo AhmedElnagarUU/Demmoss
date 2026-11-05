@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for Makhzan 3PL. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// --lg-accent is the variant's own accent (eyebrows, highlights).
+export const warehousingPalettes: readonly Palette[] = [
+  {
+    id: "red",
+    name: { ar: "أحمر", en: "Red" },
+    vars: {
+      "--color-bg": "#ffffff",
+      "--color-surface": "#f5f5f6",
+      "--color-text": "#111111",
+      "--color-muted": "#5a5a63",
+      "--color-border": "#dcdce0",
+      "--color-primary": "#d4202a",
+      "--color-primary-hover": "#b01820",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#d4202a",
+      "--lg-accent": "#c81e23",
+    },
+  },
+  {
+    id: "black",
+    name: { ar: "أسود", en: "Black" },
+    vars: {
+      "--color-bg": "#ffffff",
+      "--color-surface": "#f4f4f5",
+      "--color-text": "#141414",
+      "--color-muted": "#595962",
+      "--color-border": "#dcdce0",
+      "--color-primary": "#141414",
+      "--color-primary-hover": "#33333a",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#141414",
+      "--lg-accent": "#b01820",
+    },
+  },
+  {
+    id: "blue",
+    name: { ar: "أزرق", en: "Blue" },
+    vars: {
+      "--color-bg": "#ffffff",
+      "--color-surface": "#f1f5fb",
+      "--color-text": "#0e1a2b",
+      "--color-muted": "#4a5568",
+      "--color-border": "#d3dcea",
+      "--color-primary": "#1e56b8",
+      "--color-primary-hover": "#17458f",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#1e56b8",
+      "--lg-accent": "#1e56b8",
+    },
+  },
+  {
+    id: "green",
+    name: { ar: "أخضر", en: "Green" },
+    vars: {
+      "--color-bg": "#ffffff",
+      "--color-surface": "#f1f7f3",
+      "--color-text": "#0f1f17",
+      "--color-muted": "#47594f",
+      "--color-border": "#d0ded5",
+      "--color-primary": "#0f7a4a",
+      "--color-primary-hover": "#0b5f39",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#0f7a4a",
+      "--lg-accent": "#0f7a4a",
+    },
+  },
+  {
+    id: "midnight",
+    name: { ar: "منتصف الليل", en: "Midnight" },
+    vars: {
+      "--color-bg": "#111114",
+      "--color-surface": "#1c1c21",
+      "--color-text": "#f3f3f5",
+      "--color-muted": "#b5b5bd",
+      "--color-border": "#3a3a42",
+      "--color-primary": "#ff5a5f",
+      "--color-primary-hover": "#ff7479",
+      "--color-on-primary": "#111114",
+      "--color-focus": "#ff5a5f",
+      "--lg-accent": "#ff7479",
+    },
+  },
+];
