@@ -19,7 +19,7 @@ test.describe("Arabic / English routing and RTL", () => {
       await page.goto("/");
       await expect(page).toHaveURL(/\/ar$/);
       await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText("مواقع وأنظمة تجلب لنشاطك عملاء أكثر");
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText("موقع يجلب لك العملاء حتى وأنت نائم");
     });
 
     test("switching language changes the page and the choice is remembered", async ({ page }) => {
@@ -28,7 +28,7 @@ test.describe("Arabic / English routing and RTL", () => {
       await expect(page).toHaveURL(/\/en$/);
       await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        "Websites and systems that bring your business more customers",
+        "A website that brings you customers, even while you sleep",
       );
 
       await page.goto("/");

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { FeedbackButton } from "@/features/feedback/components/feedback-button";
+import { SiteFooter } from "@/features/site-shell/components/site-footer";
+import { SiteHeader } from "@/features/site-shell/components/site-header";
 import { PageViewTracker } from "@/features/tracking/components/page-view-tracker";
 import { publicEnv } from "@/shared/env";
 import { directionOf, isLocale, locales } from "@/shared/i18n/config";
@@ -31,7 +34,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} dir={directionOf(locale)}>
       <body className="min-h-screen bg-bg font-sans text-text antialiased">
+        <SiteHeader locale={locale} />
         {children}
+        <SiteFooter locale={locale} />
+        <FeedbackButton locale={locale} />
         <PageViewTracker locale={locale} />
       </body>
     </html>

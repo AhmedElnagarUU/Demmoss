@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "title": "A website that brings you customers, even while you sleep",
+    "subtitle": "We build websites, dashboards, and custom systems that take bookings and orders around the clock, build trust with every visitor, and give your team its time back.",
+    "start": "Start your project",
+    "demos": "See live demos"
+  },
+  "value": {
+    "title": "What the right software changes in your business",
+    "customers": {
+      "title": "Customers reach you at any hour",
+      "text": "They book, order, or ask a question at 2am without calling. You wake up to new requests instead of missed opportunities."
+    },
+    "time": {
+      "title": "Your time comes back",
+      "text": "Bookings, orders, and messages land in one dashboard, so your team stops answering the same questions all day."
+    },
+    "trust": {
+      "title": "Trust at first sight",
+      "text": "A clear, professional site on the phones your customers use makes them choose you over a competitor."
+    },
+    "languages": {
+      "title": "Customers in their own language",
+      "text": "Arabic and English, fully right-to-left where it matters, so every customer feels the business speaks to them."
+    }
+  },
+  "deliver": {
+    "title": "What we deliver",
+    "intro": "Three kinds of products. Each one solves a different problem, and we help you pick the one you actually need.",
+    "website": {
+      "title": "Business website",
+      "value": "Be found and be trusted",
+      "text": "A fast, polished website that shows who you are, what you offer, and how to reach you. Best when customers mostly need to know you and contact you."
+    },
+    "system": {
+      "title": "Website with a dashboard",
+      "value": "Take bookings and orders online",
+      "text": "Customers book, order, or send requests on your site, and you manage everything from a dashboard on your phone. Best when you want the website to do the work."
+    },
+    "saas": {
+      "title": "Custom system or SaaS",
+      "value": "Run your business your way",
+      "text": "Software built around how you really work, or a product you offer to many customers, each with their own account. Best when ready-made tools no longer fit."
+    }
+  },
+  "guide": {
+    "title": "Not sure what you need?",
+    "text": "Many owners ask for a website and need a system, or the other way around. Answer a few simple questions and see which type fits your business.",
+    "cta": "Open the Software Guide"
+  },
+  "demos": {
+    "title": "See it working before you decide",
+    "text": "Open a complete business website, make a booking or an order, then open its dashboard and watch it appear. Everything you do stays in your browser.",
+    "cta": "Browse live demos"
+  },
+  "how": {
+    "title": "How we work",
+    "step1": {
+      "title": "You tell us about your project",
+      "text": "Answer a few short questions in the wizard, or message us on WhatsApp."
+    },
+    "step2": {
+      "title": "We recommend what fits",
+      "text": "We tell you which type of product suits your business and show you a working example close to your idea."
+    },
+    "step3": {
+      "title": "We design and build with you",
+      "text": "You review the work as it grows, so the result never comes as a surprise."
+    },
+    "step4": {
+      "title": "We launch and stay close",
+      "text": "We put it online and support you after launch."
+    }
+  },
+  "cta": {
+    "title": "Ready to turn visitors into customers?",
+    "text": "Tell us about your business and we will suggest the next step.",
+    "start": "Tell us about your project"
+  }
+}

@@ -1,6 +1,6 @@
 # Feature: Feedback
 
-Status: planned
+Status: built (admin reading and mark-as-read come with the admin feature)
 
 ## Purpose
 
@@ -70,7 +70,8 @@ MongoDB `Feedback` (see `docs/04-data-and-tracking.md`).
 
 ```
 src/features/feedback/
-  components/     feedback-button, feedback-form
+  components/     feedback-button (native dialog), feedback-form
+  messages/       ar.json, en.json
   model.ts
   repository.ts
   actions.ts  createFeedbackAction

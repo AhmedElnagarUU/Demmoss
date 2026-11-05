@@ -1,6 +1,6 @@
 # Feature: Landing
 
-Status: planned (content to be written with the brand)
+Status: built (copy is a first version; the live demo cards arrive with the gallery)
 
 ## Purpose
 
@@ -63,7 +63,10 @@ None stored. `page_view` and `whatsapp_clicked` are tracked. Text in message fil
 
 ```
 src/features/landing/
-  components/      hero, value, deliver, guide-teaser, demo-highlights, how-we-work, final-cta
+  components/      landing-page, hero, value, deliver, guide-teaser, demo-highlights, how-we-work, final-cta, section
+  messages/        ar.json, en.json
+
+src/features/site-shell/   header (nav, mobile menu, language switch), footer (WhatsApp), skip link
 ```
 
 ## Out of scope
