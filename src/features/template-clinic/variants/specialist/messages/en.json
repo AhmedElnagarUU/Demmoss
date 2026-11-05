@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "home": {
+      "title": "Dr. Rayan Al Harthi · Dental implants in Riyadh",
+      "description": "Dental implants and oral surgery in Riyadh. Clear prices, a 3D plan before surgery, and booking into truly free times."
+    },
+    "treatments": {
+      "title": "Treatments · Dr. Rayan Al Harthi",
+      "description": "Who each treatment is for, the steps, how long it takes, and what it costs."
+    },
+    "results": {
+      "title": "Results · Dr. Rayan Al Harthi",
+      "description": "Before and after smiles rebuilt with dental implants."
+    },
+    "prices": {
+      "title": "Prices & FAQ · Dr. Rayan Al Harthi",
+      "description": "The full price list and the questions patients ask most."
+    },
+    "book": {
+      "title": "Book an appointment · Dr. Rayan Al Harthi",
+      "description": "Choose a treatment, a day, and a free time."
+    },
+    "dashboard": { "title": "Dashboard · Dr. Rayan Al Harthi" }
+  },
+  "nav": {
+    "label": "Main",
+    "home": "Home",
+    "treatments": "Treatments",
+    "results": "Results",
+    "prices": "Prices & FAQ",
+    "book": "Book"
+  },
+  "header": { "book": "Book now" },
+  "tagline": "Dental implants and oral surgery in Riyadh.",
+  "home": {
+    "hero": {
+      "pill": "Oral & maxillofacial surgeon",
+      "book": "Book a consultation",
+      "prices": "See prices",
+      "years": "years of experience",
+      "treatments": "treatments offered",
+      "nextFree": "Next free time",
+      "nextFreeNone": "No free time in the next two weeks"
+    },
+    "services": {
+      "pill": "Treatments",
+      "title": "Everything patients come to me with",
+      "details": "Price and details",
+      "all": "All treatments"
+    },
+    "techniques": {
+      "pill": "Techniques",
+      "title": "An implant technique for every case",
+      "list": "Implant techniques",
+      "immediate": {
+        "name": "Immediate placement",
+        "text": "The implant goes in right after the tooth is removed, saving months of waiting when the bone allows it."
+      },
+      "guided": {
+        "name": "Guided 3D surgery",
+        "text": "A printed guide places each implant exactly where the plan on screen says, with the smallest possible opening."
+      },
+      "allon4": {
+        "name": "All-on-4",
+        "text": "A whole jaw rests on four implants placed at angles, so a fixed bridge can be fitted within a day."
+      },
+      "zygomatic": {
+        "name": "Zygomatic implants",
+        "text": "For very thin upper bone: long implants anchor in the cheekbone, often avoiding a bone graft."
+      }
+    },
+    "best": {
+      "pill": "Is this for you?",
+      "title": "When a full restoration is the best solution",
+      "p1": "Most of your teeth are missing, loose, or failing.",
+      "p2": "Your denture slips, hurts, or limits what you can eat.",
+      "p3": "You want one fixed solution instead of many separate repairs.",
+      "p4": "Your jaw bone has shrunk and other clinics said no.",
+      "cta": "Book a consultation to find out"
+    },
+    "results": { "pill": "Results", "title": "A real smile, rebuilt", "all": "See all results" },
+    "about": { "pill": "About" },
+    "prices": {
+      "pill": "Prices",
+      "title": "Transparent pricing",
+      "intro": "The price list comes straight from the clinic. After your 3D scan you get a fixed written price.",
+      "all": "Full price list and FAQ"
+    },
+    "testimonials": { "pill": "Reviews", "title": "Patients in their words" },
+    "faq": { "pill": "FAQ", "title": "The questions I hear most" },
+    "book": {
+      "pill": "Book",
+      "title": "Choose a free time",
+      "intro": "Only times that are really free are shown. The clinic confirms your request shortly.",
+      "hours": "Opening hours",
+      "address": "Find us"
+    },
+    "sticky": { "text": "Find out if an implant is right for you", "label": "Book" }
+  },
+  "treatments": {
+    "title": "What happens, how long, how much",
+    "intro": "Each treatment in plain words: who it is for, the steps, the time, and the price.",
+    "forWhom": "Who it is for",
+    "steps": "The steps",
+    "duration": "Duration",
+    "price": "Price",
+    "book": "Book this treatment"
+  },
+  "results": {
+    "title": "Smiles rebuilt",
+    "intro": "Drag the slider to compare. These are illustrations, not real patients.",
+    "empty": "New results will appear here soon."
+  },
+  "prices": {
+    "title": "No surprises",
+    "intro": "Every price below is the starting point. You get a fixed written price after your exam and scan.",
+    "paymentPill": "Payment",
+    "paymentTitle": "How payment works",
+    "paymentText": "You pay per stage of treatment, not all at once. Cash, bank transfer, and cards are accepted at the clinic.",
+    "faqPill": "FAQ",
+    "faqTitle": "Questions before you book"
+  },
+  "book": {
+    "title": "Pick a treatment, a day, and a time",
+    "intro": "Choose what you need and a free time. If you are not sure yet, start with a consultation.",
+    "hours": "Opening hours",
+    "address": "Find us"
+  }
+}
