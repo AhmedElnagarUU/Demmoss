@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "home": {
+      "title": "Makhzan 3PL: warehousing and fulfilment in Riyadh and Jebel Ali",
+      "description": "Pallet storage and e-commerce fulfilment with clear monthly pricing, a cost estimator and free space you can see."
+    },
+    "services": {
+      "title": "Storage and fulfilment services",
+      "description": "Racked pallet storage, inventory control, picking, packing, delivery and returns, with starting prices."
+    },
+    "warehouses": {
+      "title": "Our warehouses in Riyadh and Jebel Ali",
+      "description": "Specifications, addresses and free pallet spots of both warehouses."
+    },
+    "caseStudies": {
+      "title": "Case studies: results for brands like yours",
+      "description": "How storage and fulfilment cut pick times, write-offs and peak-season costs."
+    },
+    "quote": {
+      "title": "Get a storage quote",
+      "description": "Estimate your monthly cost, then send the request with your numbers attached."
+    },
+    "dashboard": { "title": "Warehousing dashboard" }
+  },
+  "nav": {
+    "label": "Main menu",
+    "home": "Home",
+    "services": "Services",
+    "warehouses": "Warehouses",
+    "caseStudies": "Case studies",
+    "quote": "Get a quote"
+  },
+  "header": { "cta": "Get a quote" },
+  "hero": {
+    "cta": "Get a quote",
+    "estimate": "Estimate my cost",
+    "sites": "2 warehouses",
+    "sitesText": "Riyadh and Jebel Ali",
+    "years": "20+",
+    "yearsText": "years in the market"
+  },
+  "standards": {
+    "title": "We work by standards",
+    "list": "ISO 9001 · ISO 14001 · HACCP · SFDA licensed"
+  },
+  "storage": {
+    "eyebrow": "Storage",
+    "title": "Smart storage for your business",
+    "p1": "Storage on racks and in mezzanine systems",
+    "p2": "Inventory tracking and stock control",
+    "p3": "Custom reporting for your team",
+    "p4": "Flexible accounting: FIFO, LIFO, by batch or expiry date",
+    "appointment": "Receiving and shipping by appointment",
+    "extras": "Additional services",
+    "extra1": "Labelling",
+    "extra2": "Document handling",
+    "extra3": "Packaging",
+    "extra4": "Kitting",
+    "extra5": "Returns"
+  },
+  "process": {
+    "eyebrow": "3PL fulfilment",
+    "title": "Comprehensive 3PL logistics",
+    "intro": "From the moment your goods arrive to the moment your customer signs for them.",
+    "s1": { "title": "Receiving", "text": "Inspection, counting and putaway on the day of arrival." },
+    "s2": { "title": "Storage", "text": "Inventory managed on racks with live stock visibility." },
+    "s3": { "title": "Picking and packing", "text": "Orders picked, packed and labelled for dispatch." },
+    "s4": { "title": "Delivery", "text": "Handoff to the carrier or our own fleet, with tracking." }
+  },
+  "stats": {
+    "accuracy": { "value": "99.8%", "label": "order accuracy" },
+    "support": { "value": "24/7", "label": "support and control" },
+    "space": { "value": "5,000 m²", "label": "total warehouse space" },
+    "clients": { "value": "100+", "label": "satisfied clients" }
+  },
+  "estimatorSection": {
+    "eyebrow": "Cost estimator",
+    "title": "Estimate your storage cost",
+    "text": "Move the sliders and see the monthly cost, line by line.",
+    "open": "Get an exact quote"
+  },
+  "warehousesSection": {
+    "eyebrow": "Our warehouses",
+    "title": "Two sites, space available now",
+    "all": "See both warehouses",
+    "area": "Floor area",
+    "rack": "Rack height",
+    "docks": "Dock doors",
+    "capacity": "Capacity",
+    "pallets": "{count} pallets",
+    "meters": "{count} m",
+    "squareMeters": "{count} m²",
+    "free": "{count} pallet spots free",
+    "full": "Almost full: book early",
+    "pageTitle": "Our warehouses",
+    "pageIntro": "Both sites are racked, monitored and open by appointment. The free spots below update as stock moves."
+  },
+  "services": {
+    "pageTitle": "Storage and fulfilment services",
+    "pageIntro": "Pick only what you need: pallets in a rack, or the whole chain from receiving to your customer.",
+    "storageTitle": "Pallet storage",
+    "storageText": "Racked storage with inventory control. Pay per pallet per month.",
+    "fulfilmentTitle": "E-commerce fulfilment",
+    "fulfilmentText": "We pick, pack and ship your orders from the same racks.",
+    "palletFrom": "From {price} per pallet per month",
+    "pickingFrom": "Picking from {price} per order",
+    "minimum": "Minimum monthly charge {price}",
+    "f1": "Same-day dispatch for orders received by 14:00",
+    "f2": "Returns inspected, graded and restocked",
+    "f3": "Kitting and gift packaging on request",
+    "f4": "Delivery by your carrier or our fleet",
+    "quote": "Get a quote"
+  },
+  "caseStudiesSection": {
+    "eyebrow": "Case studies",
+    "title": "Results for brands like yours",
+    "pageTitle": "Case studies",
+    "pageIntro": "Real problems, measured results.",
+    "all": "All case studies"
+  },
+  "testimonials": { "eyebrow": "Testimonials", "title": "Brands that trust us with their stock" },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "text": "Cannot find your answer? Send us a message and a manager replies within one working day."
+  },
+  "quoteBand": {
+    "cta": "Get a quote",
+    "whatsapp": "Message us on WhatsApp"
+  },
+  "quotePage": {
+    "title": "Get a storage quote",
+    "intro": "Estimate your monthly cost first. Your numbers go with the request, so the first call is short.",
+    "formTitle": "Send your request",
+    "contact": "Contact",
+    "phone": "Phone",
+    "address": "Head office",
+    "hours": "Office hours",
+    "hoursText": "Sunday to Thursday, {open} to {close}"
+  },
+  "footer": {
+    "tagline": "Warehousing and 3PL fulfilment built around clear pricing and on-time delivery.",
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "rights": "© 2026 {name}. All rights reserved.",
+    "credit": "Photos: Unsplash"
+  },
+  "overview": {
+    "cardsNew": "New quotes",
+    "cardsQuoted": "Waiting for the client",
+    "cardsPallets": "Pallets in use",
+    "cardsWon": "Quotes won",
+    "palletsValue": "{occupied} of {capacity}"
+  }
+}

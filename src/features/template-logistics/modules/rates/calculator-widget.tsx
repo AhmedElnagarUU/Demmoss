@@ -121,7 +121,10 @@ export function CalculatorWidget({ store, locale, renderAction }: Props) {
           </div>
         </div>
 
-        <section aria-labelledby="calc-result" className="space-y-3 rounded-[22px] bg-primary p-5 text-on-primary sm:p-6">
+        <section
+          aria-labelledby="calc-result"
+          className="space-y-3 rounded-[22px] bg-primary p-5 text-on-primary sm:p-6"
+        >
           <h3 id="calc-result" className="text-sm font-semibold">
             {t("calculator.resultTitle")}
           </h3>
@@ -134,7 +137,12 @@ export function CalculatorWidget({ store, locale, renderAction }: Props) {
                     max: formatPrice(quote.maxCost, currency, locale),
                   })}
                 </p>
-                <p>{t("calculator.transit", { min: formatNumber(quote.daysMin, locale), max: formatNumber(quote.daysMax, locale) })}</p>
+                <p>
+                  {t("calculator.transit", {
+                    min: formatNumber(quote.daysMin, locale),
+                    max: formatNumber(quote.daysMax, locale),
+                  })}
+                </p>
                 <p>{t("calculator.chargeable", { kg: formatNumber(quote.chargeableKg, locale) })}</p>
                 {quote.minimumApplied ? <p className="font-semibold">{t("calculator.minimumNote")}</p> : null}
               </>

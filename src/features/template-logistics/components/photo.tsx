@@ -16,7 +16,14 @@ type Props = {
 };
 
 // Photos come from the CDN already resized; they are never needed to read the page, so the page works without them.
-export function Photo({ photo, locale, widths = [480, 800, 1200], sizes = "100vw", priority = false, className = "" }: Props) {
+export function Photo({
+  photo,
+  locale,
+  widths = [480, 800, 1200],
+  sizes = "100vw",
+  priority = false,
+  className = "",
+}: Props) {
   return (
     // eslint-disable-next-line @next/next/no-img-element -- the photo CDN resizes the image (srcSet), so next/image is not needed
     <img

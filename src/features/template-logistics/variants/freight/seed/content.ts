@@ -42,7 +42,10 @@ export const seedContent: Content = {
 export const seedFaq: FaqItem[] = [
   {
     id: "faq-time",
-    question: { ar: "كم تستغرق الشحنة من الصين إلى السعودية؟", en: "How long does a shipment from China to Saudi Arabia take?" },
+    question: {
+      ar: "كم تستغرق الشحنة من الصين إلى السعودية؟",
+      en: "How long does a shipment from China to Saudi Arabia take?",
+    },
     answer: {
       ar: "الشحن الجوي من 4 إلى 7 أيام، والقطار من 14 إلى 20 يومًا، والبري من 18 إلى 25 يومًا، والبحري من 28 إلى 40 يومًا حسب الميناء والموسم.",
       en: "Air freight takes 4 to 7 days, rail 14 to 20, road 18 to 25 and sea 28 to 40 days, depending on the port and the season.",
@@ -143,7 +146,12 @@ export const seedRates: Rates = {
   ],
   destinations: [
     { id: "jeddah", name: { ar: "جدة، السعودية", en: "Jeddah, Saudi Arabia" }, factor: 1, extraDays: 0 },
-    { id: "dammam", name: { ar: "الدمام، السعودية", en: "Dammam, Saudi Arabia" }, factor: 1.05, extraDays: 2 },
+    {
+      id: "dammam",
+      name: { ar: "الدمام، السعودية", en: "Dammam, Saudi Arabia" },
+      factor: 1.05,
+      extraDays: 2,
+    },
     { id: "riyadh", name: { ar: "الرياض، السعودية", en: "Riyadh, Saudi Arabia" }, factor: 1.1, extraDays: 3 },
     { id: "dubai", name: { ar: "جبل علي، دبي", en: "Jebel Ali, Dubai" }, factor: 0.95, extraDays: 1 },
     { id: "kuwait", name: { ar: "الكويت", en: "Kuwait City" }, factor: 1.15, extraDays: 4 },

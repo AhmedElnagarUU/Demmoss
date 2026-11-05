@@ -30,5 +30,7 @@ export function buildClients(quotes: readonly Quote[]): Client[] {
       byPhone.set(key, { ...known, count: known.count + 1 });
     }
   }
-  return [...byPhone.values()].sort((a, b) => b.lastAt.localeCompare(a.lastAt) || a.name.localeCompare(b.name));
+  return [...byPhone.values()].sort(
+    (a, b) => b.lastAt.localeCompare(a.lastAt) || a.name.localeCompare(b.name),
+  );
 }

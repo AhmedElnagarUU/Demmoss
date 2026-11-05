@@ -23,7 +23,12 @@ export function afterHoursFacts(
   return [...quotes]
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .filter((quote) => !isOfficeOpenAt(new Date(quote.createdAt), settings.officeOpen, settings.officeClose))
-    .map((quote) => ({ id: `afterHours:${quote.id}`, key: "afterHours", label: quote.name, at: quote.createdAt }));
+    .map((quote) => ({
+      id: `afterHours:${quote.id}`,
+      key: "afterHours",
+      label: quote.name,
+      at: quote.createdAt,
+    }));
 }
 
 // A new quote nobody answered for a day or more. Oldest first: it is the most urgent.

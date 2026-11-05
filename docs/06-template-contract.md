@@ -58,7 +58,7 @@ sharing one dashboard. Variants below are proposals, confirmed in each category'
 | Cafés | Café & eatery: booking + pickup orders (Hearthbean) | Specialty coffee: orders + beans (Sage & Grain) | not planned; shares the restaurant feature and dashboard |
 | Real estate | Agency: buy/rent listings + viewings (Hartwell) | Developer: projects, units, viewings (Solenne) | built (`template-real-estate.md`) |
 | Clinics | Specialist doctor: dental implants (Dr. Vale) | Medical centre: booking by doctor (derived from Dr. Vale) | not planned |
-| Logistics | Freight forwarder: calculator, tracking, quotes (Orbis + Meridian) | Warehousing & 3PL: estimator, quotes (Stackwell) | planning |
+| Logistics | Freight forwarder: calculator, tracking, quotes (Orbis + Meridian) | Warehousing & 3PL: estimator, quotes (Stackwell) | built (`template-logistics.md`) |
 | Marketing & creative | Full-service marketing agency, 8 services (KZ Digital) | Brand & interior design studio (Olivine) | not planned |
 | Online stores | Home décor shop (Solène) | Coffee roaster shop + subscriptions (Ember & Oak) | not planned |
 | Gyms & fitness, Training & education, Service companies | — | — | no design yet; in the wizard only |

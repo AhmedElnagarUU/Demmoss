@@ -77,7 +77,10 @@ export function Tracker({ store, slug, locale }: Props) {
           </p>
         ) : null}
         {shipment ? (
-          <section aria-labelledby="tracked-number" className="space-y-4 rounded-control border border-border bg-surface p-5">
+          <section
+            aria-labelledby="tracked-number"
+            className="space-y-4 rounded-control border border-border bg-surface p-5"
+          >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 id="tracked-number" dir="ltr" className="text-2xl font-bold text-text">
                 {shipment.trackingNumber}

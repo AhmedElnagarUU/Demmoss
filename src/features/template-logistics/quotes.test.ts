@@ -51,7 +51,13 @@ describe("clients", () => {
   it("groups quotes by phone number; name and company come from the latest quote", () => {
     const clients = buildClients([
       quote({ id: "a", name: "Old Name", company: "Old Co", createdAt: "2026-11-01T09:00:00.000Z" }),
-      quote({ id: "b", name: "New Name", company: "New Co", phone: "966500000001", createdAt: "2026-11-05T09:00:00.000Z" }),
+      quote({
+        id: "b",
+        name: "New Name",
+        company: "New Co",
+        phone: "966500000001",
+        createdAt: "2026-11-05T09:00:00.000Z",
+      }),
       quote({ id: "c", name: "Other", phone: "+966 55 999 8888", createdAt: "2026-11-03T09:00:00.000Z" }),
     ]);
     expect(clients).toHaveLength(2);
@@ -61,7 +67,10 @@ describe("clients", () => {
 });
 
 describe("L11: quote value tips", () => {
-  const settings: Pick<Settings, "officeOpen" | "officeClose"> = { officeOpen: "08:00", officeClose: "17:00" };
+  const settings: Pick<Settings, "officeOpen" | "officeClose"> = {
+    officeOpen: "08:00",
+    officeClose: "17:00",
+  };
 
   it("a quote that arrived on a Friday or after 17:00 is an after-hours fact; one during office hours is not", () => {
     // 2026-11-06 is a Friday, 2026-11-08 is a Sunday
@@ -99,7 +108,9 @@ describe("business name at register", () => {
   });
 
   it("the seed name stays when no business name was given, and Settings wins after an edit", () => {
-    expect(businessNameOf({ account: { ...account, businessName: undefined }, settings }, "ar")).toBe("جسر كارجو");
+    expect(businessNameOf({ account: { ...account, businessName: undefined }, settings }, "ar")).toBe(
+      "جسر كارجو",
+    );
     expect(businessNameOf({ account, settings: { ...settings, nameEdited: true } }, "en")).toBe("Jisr Cargo");
   });
 });

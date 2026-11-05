@@ -86,7 +86,13 @@ function WarehouseForm({ warehouse, store, slug, locale, saved, onSaved, onEdite
         {t("warehouses.free", { count: formatNumber(freePallets(warehouse), locale) })} ·{" "}
         {t("warehouses.occupancy", { percent: formatNumber(occupancyPercent(warehouse), locale) })}
       </p>
-      <BilingualField id={`${idBase}-name`} label={t("warehouses.name")} value={name} onChange={(v) => edited(() => setName(v))()} t={t} />
+      <BilingualField
+        id={`${idBase}-name`}
+        label={t("warehouses.name")}
+        value={name}
+        onChange={(v) => edited(() => setName(v))()}
+        t={t}
+      />
       <BilingualField
         id={`${idBase}-address`}
         label={t("warehouses.address")}

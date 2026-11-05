@@ -39,4 +39,16 @@ export const templateRegistry: Record<string, () => Promise<TemplateParts>> = {
     const { useDeveloperStore } = await import("@/features/template-real-estate/variants/developer/store");
     return { store: useDeveloperStore, schema: realEstateDataSchema, createSeed: createDeveloperSeed };
   },
+  "logistics-freight": async () => {
+    const { freightSchema } = await import("@/features/template-logistics/variants/freight/data");
+    const { createFreightSeed } = await import("@/features/template-logistics/variants/freight/seed");
+    const { useFreightStore } = await import("@/features/template-logistics/variants/freight/store");
+    return { store: useFreightStore, schema: freightSchema, createSeed: createFreightSeed };
+  },
+  "logistics-warehousing": async () => {
+    const { warehousingSchema } = await import("@/features/template-logistics/variants/warehousing/data");
+    const { createWarehousingSeed } = await import("@/features/template-logistics/variants/warehousing/seed");
+    const { useWarehousingStore } = await import("@/features/template-logistics/variants/warehousing/store");
+    return { store: useWarehousingStore, schema: warehousingSchema, createSeed: createWarehousingSeed };
+  },
 };

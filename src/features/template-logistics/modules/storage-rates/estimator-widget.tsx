@@ -16,7 +16,8 @@ type Props = {
   renderAction: (estimate: StorageEstimate | null) => ReactNode;
 };
 
-const rangeClass = "h-11 w-full cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-focus";
+const rangeClass =
+  "h-11 w-full cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-focus";
 
 // The storage estimator: pallets, months, picking and insurance in, a monthly cost with its breakdown out.
 export function EstimatorWidget({ store, locale, renderAction }: Props) {
@@ -96,7 +97,10 @@ export function EstimatorWidget({ store, locale, renderAction }: Props) {
           </label>
         </div>
 
-        <section aria-labelledby="est-result" className="space-y-3 rounded-2xl bg-primary p-5 text-on-primary sm:p-6">
+        <section
+          aria-labelledby="est-result"
+          className="space-y-3 rounded-2xl bg-primary p-5 text-on-primary sm:p-6"
+        >
           <h3 id="est-result" className="text-sm font-semibold">
             {t("estimator.resultTitle")}
           </h3>

@@ -57,7 +57,9 @@ describe("L1: freight calculator", () => {
 
   it("gives no estimate without weight and volume, or for an unknown route", () => {
     expect(calculateFreight(rates, { ...cargo, mode: "air", weightKg: 0, volumeCbm: 0 })).toBeNull();
-    expect(calculateFreight(rates, { ...cargo, mode: "air", weightKg: Number.NaN, volumeCbm: -2 })).toBeNull();
+    expect(
+      calculateFreight(rates, { ...cargo, mode: "air", weightKg: Number.NaN, volumeCbm: -2 }),
+    ).toBeNull();
     expect(calculateFreight(rates, { ...cargo, mode: "air", originId: "nowhere" })).toBeNull();
   });
 

@@ -113,7 +113,11 @@ export function createSampleShipments(now: Date): Shipment[] {
       eta: daysFrom(now, 10, "12:00"),
       events: [
         { status: "booked", at: daysFrom(now, -22, "10:00") },
-        { status: "picked_up", at: daysFrom(now, -20, "14:30"), note: "Collected from the factory in Shenzhen" },
+        {
+          status: "picked_up",
+          at: daysFrom(now, -20, "14:30"),
+          note: "Collected from the factory in Shenzhen",
+        },
         { status: "in_transit", at: daysFrom(now, -17, "06:15"), note: "Vessel left Yantian port" },
       ],
     },
@@ -130,7 +134,11 @@ export function createSampleShipments(now: Date): Shipment[] {
         { status: "booked", at: daysFrom(now, -30, "09:00") },
         { status: "picked_up", at: daysFrom(now, -28, "13:00") },
         { status: "in_transit", at: daysFrom(now, -25, "05:40") },
-        { status: "customs", at: daysFrom(now, -3, "10:20"), note: "Waiting for the customs inspection slot" },
+        {
+          status: "customs",
+          at: daysFrom(now, -3, "10:20"),
+          note: "Waiting for the customs inspection slot",
+        },
       ],
     },
     {
@@ -158,7 +166,11 @@ export function createSampleShipments(now: Date): Shipment[] {
         { status: "picked_up", at: daysFrom(now, -6, "16:00") },
         { status: "in_transit", at: daysFrom(now, -5, "02:10") },
         { status: "customs", at: daysFrom(now, -2, "09:00") },
-        { status: "out_for_delivery", at: daysFrom(now, -1, "16:45"), note: "The truck left the Jeddah depot" },
+        {
+          status: "out_for_delivery",
+          at: daysFrom(now, -1, "16:45"),
+          note: "The truck left the Jeddah depot",
+        },
       ],
     },
     {

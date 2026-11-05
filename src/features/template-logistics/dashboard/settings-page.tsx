@@ -137,7 +137,13 @@ function SettingsForm({ settings, shownName, saved, onSaved, onEdited }: FormPro
     >
       <Panel title={t("settings.business")}>
         <BilingualField id="business-name" label={t("settings.name")} value={name} onChange={setName} t={t} />
-        <BilingualField id="address" label={t("settings.address")} value={address} onChange={setAddress} t={t} />
+        <BilingualField
+          id="address"
+          label={t("settings.address")}
+          value={address}
+          onChange={setAddress}
+          t={t}
+        />
         <div className="grid gap-4 sm:grid-cols-2">
           <TextInput
             id="phone"

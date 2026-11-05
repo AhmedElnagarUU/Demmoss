@@ -77,7 +77,8 @@ export function QuoteForm({ store, slug, locale, dashboardHref, services, defaul
     );
   }
 
-  const errorText = (field: keyof QuoteErrors) => (errors[field] ? t(`quoteForm.errors.${field}`) : undefined);
+  const errorText = (field: keyof QuoteErrors) =>
+    errors[field] ? t(`quoteForm.errors.${field}`) : undefined;
 
   return (
     <form onSubmit={submit} noValidate className="space-y-5">

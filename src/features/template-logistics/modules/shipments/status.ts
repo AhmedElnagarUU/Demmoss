@@ -49,7 +49,12 @@ export function timelineOf(shipment: Shipment): TimelineStep[] {
   return shipmentStatuses.map((status, index) => {
     const event = shipment.events.find((item) => item.status === status);
     const state = index < current ? "done" : index === current ? "current" : "upcoming";
-    return { status, state, ...(event ? { at: event.at } : {}), ...(event?.note ? { note: event.note } : {}) };
+    return {
+      status,
+      state,
+      ...(event ? { at: event.at } : {}),
+      ...(event?.note ? { note: event.note } : {}),
+    };
   });
 }
 

@@ -40,13 +40,7 @@ export function CaseStudiesPage({ store, slug, locale }: Props) {
         {caseStudies.map((item) => (
           // the form restarts from the saved case study after a save or a reset
           <li key={`${item.id}:${JSON.stringify(item)}`}>
-            <CaseStudyForm
-              id={item.id}
-              initial={item}
-              store={store}
-              slug={slug}
-              locale={locale}
-            />
+            <CaseStudyForm id={item.id} initial={item} store={store} slug={slug} locale={locale} />
           </li>
         ))}
       </ul>
@@ -69,9 +63,28 @@ function CaseStudyForm({ id, initial, store, slug, locale }: FormProps) {
 
   return (
     <Panel title={id ? undefined : t("caseStudies.addTitle")}>
-      <BilingualField id={`${prefix}-sector`} label={t("caseStudies.sector")} value={draft.sector} onChange={(sector) => patch({ sector })} t={t} />
-      <BilingualField id={`${prefix}-title`} label={t("caseStudies.heading")} value={draft.title} onChange={(title) => patch({ title })} t={t} />
-      <BilingualField id={`${prefix}-text`} label={t("caseStudies.text")} value={draft.text} onChange={(text) => patch({ text })} t={t} multiline />
+      <BilingualField
+        id={`${prefix}-sector`}
+        label={t("caseStudies.sector")}
+        value={draft.sector}
+        onChange={(sector) => patch({ sector })}
+        t={t}
+      />
+      <BilingualField
+        id={`${prefix}-title`}
+        label={t("caseStudies.heading")}
+        value={draft.title}
+        onChange={(title) => patch({ title })}
+        t={t}
+      />
+      <BilingualField
+        id={`${prefix}-text`}
+        label={t("caseStudies.text")}
+        value={draft.text}
+        onChange={(text) => patch({ text })}
+        t={t}
+        multiline
+      />
       <div className="grid gap-4 sm:grid-cols-2">
         <TextInput
           id={`${prefix}-metric`}

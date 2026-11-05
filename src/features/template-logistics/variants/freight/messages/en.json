@@ -59,7 +59,10 @@
     "sea": { "b1": "Lowest cost for large shipments", "b2": "Full and shared containers" },
     "road": { "b1": "A balance of price and speed", "b2": "Door-to-door across the Gulf" },
     "rail": { "b1": "Faster than sea, cheaper than air", "b2": "Regular departures from inland China" },
-    "customs": { "b1": "Declarations and certificates handled for you", "b2": "Duties calculated before the cargo lands" },
+    "customs": {
+      "b1": "Declarations and certificates handled for you",
+      "b2": "Duties calculated before the cargo lands"
+    },
     "pageTitle": "Freight services",
     "pageIntro": "Five ways we move your business forward. Prices start from the rates below and your exact quote follows your cargo."
   },
@@ -77,7 +80,10 @@
     "eyebrow": "How it works",
     "title": "Five steps from request to your door",
     "s1": { "title": "Request", "text": "Send your cargo details and get a quote within an hour." },
-    "s2": { "title": "Supplier check", "text": "We verify the factory, the goods and the documents in China." },
+    "s2": {
+      "title": "Supplier check",
+      "text": "We verify the factory, the goods and the documents in China."
+    },
     "s3": { "title": "Consolidation", "text": "Goods are gathered, packed and labelled at our hub." },
     "s4": { "title": "Shipping", "text": "Transport by the mode you chose, tracked from end to end." },
     "s5": { "title": "Delivery", "text": "Customs cleared and cargo handed over at your door." }

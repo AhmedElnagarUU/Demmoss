@@ -4,7 +4,12 @@ import type { LogisticsTranslate } from "../messages";
 import type { Estimate } from "../types";
 
 // One readable line for the estimate that came with a quote request.
-export function estimateText(estimate: Estimate, locale: Locale, currency: string, t: LogisticsTranslate): string {
+export function estimateText(
+  estimate: Estimate,
+  locale: Locale,
+  currency: string,
+  t: LogisticsTranslate,
+): string {
   if (estimate.kind === "freight") {
     return t("quotes.estimateFreight", {
       mode: t(`modes.${estimate.mode}`),

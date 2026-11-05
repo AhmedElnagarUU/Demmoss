@@ -144,7 +144,7 @@ Shared: `account`, `settings` (`businessName {ar,en}`, `nameEdited`, `palette`, 
 - **B storageRates:** `palletPerMonth, discount6Months, discount12Months, handlingPerMonth, pickingPerOrder, insurancePercent, minimumMonthly`.
 - **B caseStudies:** `id, sector, title, text, metricValue, metricLabel, visible`.
 
-Seeds (SAR, dates relative to today): A has 5 quotes, 6 shipments with timelines (one stuck in customs), 4 modes, 6 origins, 6 destinations. B has 5 quotes, 2 warehouses (one 92% full), 3 case studies, 4 testimonials, 5 FAQ. Store version `1`.
+Seeds (SAR, dates relative to today): A has 6 quotes, 6 shipments with timelines (one stuck in customs), 4 modes, 6 origins, 6 destinations. B has 5 quotes, 2 warehouses (one 92% full), 3 case studies, 4 testimonials, 5 FAQ. Store version `1`.
 
 ## 6. Rules
 

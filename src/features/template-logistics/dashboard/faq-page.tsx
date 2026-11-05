@@ -42,7 +42,13 @@ function FaqEditor({ item }: { item: FaqItem }) {
   return (
     <li>
       <Panel>
-        <BilingualField id={`q-${item.id}`} label={t("faq.question")} value={question} onChange={setQuestion} t={t} />
+        <BilingualField
+          id={`q-${item.id}`}
+          label={t("faq.question")}
+          value={question}
+          onChange={setQuestion}
+          t={t}
+        />
         <BilingualField
           id={`a-${item.id}`}
           label={t("faq.answer")}
@@ -82,12 +88,23 @@ function AddFaq() {
   const addFaq = store((state) => state.addFaq);
   const [question, setQuestion] = useState(emptyText);
   const [answer, setAnswer] = useState(emptyText);
-  const canAdd = question.ar.trim() !== "" && question.en.trim() !== "" && answer.ar.trim() !== "" && answer.en.trim() !== "";
+  const canAdd =
+    question.ar.trim() !== "" &&
+    question.en.trim() !== "" &&
+    answer.ar.trim() !== "" &&
+    answer.en.trim() !== "";
 
   return (
     <Panel title={t("faq.addTitle")}>
       <BilingualField id="new-q" label={t("faq.question")} value={question} onChange={setQuestion} t={t} />
-      <BilingualField id="new-a" label={t("faq.answer")} value={answer} onChange={setAnswer} t={t} multiline />
+      <BilingualField
+        id="new-a"
+        label={t("faq.answer")}
+        value={answer}
+        onChange={setAnswer}
+        t={t}
+        multiline
+      />
       <Button
         disabled={!canAdd}
         onClick={() => {

@@ -155,10 +155,16 @@
   },
   "shipmentSteps": {
     "booked": { "title": "Booked", "hint": "The booking was accepted." },
-    "picked_up": { "title": "Picked up", "hint": "The cargo was collected and consolidated at the origin warehouse." },
+    "picked_up": {
+      "title": "Picked up",
+      "hint": "The cargo was collected and consolidated at the origin warehouse."
+    },
     "in_transit": { "title": "In transit", "hint": "The cargo left the origin and is on its way." },
     "customs": { "title": "Customs clearance", "hint": "Documents are being processed by customs." },
-    "out_for_delivery": { "title": "Out for delivery", "hint": "The last truck is on its way to the address." },
+    "out_for_delivery": {
+      "title": "Out for delivery",
+      "hint": "The last truck is on its way to the address."
+    },
     "delivered": { "title": "Delivered", "hint": "The cargo was handed over." }
   },
   "shipments": {

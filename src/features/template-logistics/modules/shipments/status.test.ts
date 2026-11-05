@@ -31,7 +31,12 @@ describe("L5: shipment status", () => {
   });
 
   it("moves forward with a new event, skipping steps when needed", () => {
-    const moved = moveShipment(shipment, "customs", new Date("2026-11-10T09:30:00.000Z"), "  Documents sent  ");
+    const moved = moveShipment(
+      shipment,
+      "customs",
+      new Date("2026-11-10T09:30:00.000Z"),
+      "  Documents sent  ",
+    );
     expect(moved && currentStatus(moved)).toBe("customs");
     expect(moved?.events.at(-1)).toEqual({
       status: "customs",
@@ -67,7 +72,9 @@ describe("L5: shipment status", () => {
   });
 
   it("the next tracking number is the highest one plus one", () => {
-    expect(nextTrackingNumber([shipment, { ...shipment, id: "s2", trackingNumber: "JC-48250" }])).toBe("JC-48251");
+    expect(nextTrackingNumber([shipment, { ...shipment, id: "s2", trackingNumber: "JC-48250" }])).toBe(
+      "JC-48251",
+    );
     expect(nextTrackingNumber([])).toBe("JC-48001");
   });
 });

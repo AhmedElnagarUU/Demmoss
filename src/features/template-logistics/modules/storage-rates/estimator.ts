@@ -43,7 +43,8 @@ export function estimateStorage(rates: StorageRates, input: StorageInput): Stora
     { key: "handling", amount: cents(rates.handlingPerMonth) },
   ];
   if (orders > 0) lines.push({ key: "picking", amount: cents(orders * rates.pickingPerOrder) });
-  if (input.insurance) lines.push({ key: "insurance", amount: cents((storage * rates.insurancePercent) / 100) });
+  if (input.insurance)
+    lines.push({ key: "insurance", amount: cents((storage * rates.insurancePercent) / 100) });
 
   const subtotal = cents(lines.reduce((sum, line) => sum + line.amount, 0));
   if (subtotal < rates.minimumMonthly) {

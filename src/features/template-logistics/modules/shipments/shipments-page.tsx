@@ -46,7 +46,10 @@ function ShipmentCard({ shipment, store, slug, locale }: { shipment: Shipment } 
   const idBase = `ship-${shipment.id}`;
 
   return (
-    <article aria-labelledby={`${idBase}-title`} className="space-y-3 rounded-control border border-border bg-bg p-4">
+    <article
+      aria-labelledby={`${idBase}-title`}
+      className="space-y-3 rounded-control border border-border bg-bg p-4"
+    >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 id={`${idBase}-title`} className="text-lg font-bold text-text" dir="ltr">
           {shipment.trackingNumber}

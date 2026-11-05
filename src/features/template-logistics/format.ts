@@ -28,7 +28,9 @@ export function formatDateTime(iso: string, locale: Locale): string {
 }
 
 export function formatDate(iso: string, locale: Locale): string {
-  return new Intl.DateTimeFormat(intlLocale(locale), { day: "numeric", month: "short", year: "numeric" }).format(
-    new Date(iso),
-  );
+  return new Intl.DateTimeFormat(intlLocale(locale), {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(iso));
 }
