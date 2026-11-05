@@ -1,6 +1,6 @@
 # Feature: Gallery
 
-Status: planned
+Status: built (page, filter, grouping). Restaurant demos are added to the catalog later.
 
 ## Purpose
 
@@ -55,11 +55,20 @@ Adding a variant = adding its `meta` to the catalog. A category with no variants
 
 ```
 src/features/gallery/
-  components/     demo-card, category-filter, gallery-grid
+  components/     gallery-page, gallery-filter (client), demo-card
+  messages/       ar.json, en.json
   categories.ts   category list (slug, ar, en)
   catalog.ts      list of variant metas; getDemosByCategory(category)
+  grouping.ts     groupDemosByCategory, filterByCategory (pure, take the catalog as a parameter)
   types.ts        templateMetaSchema
 ```
+
+## Decision: filter
+
+`/ar/demos` and `/en/demos` stay statically generated and render every category. A small client component
+(`gallery-filter`) reads `?category=slug` with `useSearchParams` and narrows the list in the browser; the chips are
+plain links. Without JavaScript the chips still load the page but show all categories. Chosen over a `searchParams`
+page, which would make the whole route dynamic. An unknown or empty category shows the empty state (start the wizard + WhatsApp).
 
 ## Out of scope
 
