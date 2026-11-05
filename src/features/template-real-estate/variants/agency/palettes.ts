@@ -1,0 +1,86 @@
+import type { Palette } from "@/features/demo-engine/palettes/palette";
+
+// Five palettes for the agency. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// --re-accent is the design's accent for small text (labels, eyebrows).
+export const agencyPalettes: readonly Palette[] = [
+  {
+    id: "bronze",
+    name: { ar: "برونزي", en: "Bronze" },
+    vars: {
+      "--color-bg": "#f4f1ec",
+      "--color-surface": "#ebe6de",
+      "--color-text": "#111111",
+      "--color-muted": "#5f5a52",
+      "--color-border": "#cfc8bc",
+      "--color-primary": "#111111",
+      "--color-primary-hover": "#7a5a37",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#111111",
+      "--re-accent": "#7d5f3a",
+    },
+  },
+  {
+    id: "sage",
+    name: { ar: "أخضر مريمي", en: "Sage" },
+    vars: {
+      "--color-bg": "#f2f4ef",
+      "--color-surface": "#e4e9de",
+      "--color-text": "#14201a",
+      "--color-muted": "#55605a",
+      "--color-border": "#c6cfc0",
+      "--color-primary": "#2f4a3a",
+      "--color-primary-hover": "#223a2c",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#2f4a3a",
+      "--re-accent": "#4a6a3d",
+    },
+  },
+  {
+    id: "navy",
+    name: { ar: "كحلي", en: "Navy" },
+    vars: {
+      "--color-bg": "#f3f4f7",
+      "--color-surface": "#e5e8ef",
+      "--color-text": "#0f1724",
+      "--color-muted": "#535c6b",
+      "--color-border": "#c9cfda",
+      "--color-primary": "#1f3358",
+      "--color-primary-hover": "#162645",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#1f3358",
+      "--re-accent": "#3b5a96",
+    },
+  },
+  {
+    id: "terracotta",
+    name: { ar: "طيني", en: "Terracotta" },
+    vars: {
+      "--color-bg": "#f7f1ec",
+      "--color-surface": "#efe3d9",
+      "--color-text": "#23150f",
+      "--color-muted": "#66544a",
+      "--color-border": "#dccabb",
+      "--color-primary": "#8c3f24",
+      "--color-primary-hover": "#70311b",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#8c3f24",
+      "--re-accent": "#a14b2a",
+    },
+  },
+  {
+    id: "graphite",
+    name: { ar: "رصاصي", en: "Graphite" },
+    vars: {
+      "--color-bg": "#f5f5f4",
+      "--color-surface": "#e8e8e6",
+      "--color-text": "#121212",
+      "--color-muted": "#595959",
+      "--color-border": "#cfcfcc",
+      "--color-primary": "#3a3a3a",
+      "--color-primary-hover": "#1f1f1f",
+      "--color-on-primary": "#ffffff",
+      "--color-focus": "#3a3a3a",
+      "--re-accent": "#5a5a5a",
+    },
+  },
+];
