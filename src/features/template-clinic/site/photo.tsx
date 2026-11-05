@@ -9,6 +9,8 @@ export type Photo = {
   width: number;
   height: number;
   alt: LocalizedText;
+  // a portrait of a person: doctors pick their photo from these
+  portrait?: boolean;
 };
 
 const WIDTHS = [400, 800, 1200] as const;
