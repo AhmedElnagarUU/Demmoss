@@ -35,4 +35,5 @@ set `E2E_MONGODB_URI` to a local MongoDB for E2E. Details: [`docs/08-testing.md`
 - Testing: [`docs/08-testing.md`](docs/08-testing.md)
 - Design sources (uploaded designs → site structure): [`docs/09-design-sources.md`](docs/09-design-sources.md)
 - Theme system (skins): [`docs/10-theme-system.md`](docs/10-theme-system.md)
+- Production readiness: [`docs/11-production.md`](docs/11-production.md)
 - Feature flow docs: [`docs/features/`](docs/features/)
