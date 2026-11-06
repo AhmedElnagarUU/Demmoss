@@ -11,6 +11,7 @@ complete business websites, each with its own dashboard, that behave like real p
 It is not a store and visitors have no real accounts. The only real login is the admin (the owner).
 
 Read `docs/01-vision.md` before writing any user-facing content.
+Continuing the work? Read `docs/HANDOFF.md` (status, next steps, how to work).
 
 ## Main parts
 
