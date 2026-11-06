@@ -64,6 +64,7 @@ MongoDB `Feedback` (see `docs/04-data-and-tracking.md`).
 |---|---|---|
 | Unit | feedback schema: message required, contact optional | F1, F2 |
 | Integration | `createFeedback` saves and creates a notification; mark read works | F3 |
+| Integration | `submitFeedback` limits one client to five messages per hour; the 6th is not saved (`service.test.ts`) | F3 |
 | E2E | send feedback from a page without leaving it; admin sees it | F1, F3 |
 
 ## Files

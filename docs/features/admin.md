@@ -76,6 +76,7 @@ Writes: lead status/notes, feedback read flag, notification read flag. No admin 
 | Integration | every admin read and update refuses without a valid session; a refused update changes nothing (`service.test.ts`) | C1 |
 | Integration | visitors per window, wizard conversion, WhatsApp clicks, devices, countries, sources, per-demo funnel, journey from seeded events | C2, C5, C7 |
 | Integration | leads newest first, status filter and change, notes; feedback mark read; notifications unread count, read one, mark all read | C3, C6, N1, N3 |
+| Integration | login lockout: five wrong passwords block the correct one for 15 minutes, another client key is not blocked (`auth/admin-session.test.ts`) | C1 |
 | E2E | admin pages redirect to login without a session; wrong password and wrong email fail; pages are `noindex` | C1 |
 | E2E | login works; a wizard lead appears in Leads and its status change is saved; unread notification count is visible; sign out | C1, C3, N1 |
 
@@ -101,7 +102,8 @@ src/features/admin/
 - The unread count in the sidebar is read on each page load (no polling).
 - A notification opens its related page by type (`new_lead` to Leads, `feedback` to Feedback, demo events to Demos,
   WhatsApp to Activity); the stored `link` is ignored, so it can never redirect elsewhere.
-- No login attempt limit yet (scrypt already slows guessing). Add one if the admin URL is attacked.
+- Login is locked for 15 minutes after five wrong passwords from the same hashed ip + email
+  (`src/shared/rate-limit.ts`); a correct password is refused while blocked.
 
 ## Out of scope (v1)
 

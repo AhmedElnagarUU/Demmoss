@@ -21,6 +21,7 @@ export async function LoginPage({ locale }: { locale: Locale }) {
           submit: t("login.submit"),
           invalidInput: t("login.invalidInput"),
           invalidCredentials: t("login.invalidCredentials"),
+          tooManyAttempts: (minutes) => t("login.tooManyAttempts", { minutes: String(minutes) }),
         }}
       />
     </main>

@@ -1,8 +1,12 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { listNotifications } from "@/features/notifications/service";
 import { setupTestDatabase } from "../../../tests/helpers/db";
 import { createLeadAction } from "./actions";
-import { listLeads } from "./service";
+import { listLeads, submitLead } from "./service";
+import type { LeadInput } from "./types";
+
+// Next.js request headers exist only inside a request; with no ip header the limiter stays off.
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
 setupTestDatabase();
 
@@ -64,8 +68,29 @@ describe("wizard with a real database", () => {
     });
 
     expect(result).toMatchObject({ ok: false });
-    if (!result.ok) expect(Object.keys(result.errors).sort()).toEqual(["idea", "name", "whatsapp"]);
+    if (!result.ok && "errors" in result) {
+      expect(Object.keys(result.errors).sort()).toEqual(["idea", "name", "whatsapp"]);
+    }
     expect(await listLeads()).toHaveLength(0);
     expect(await listNotifications()).toHaveLength(0);
+  });
+
+  it("limits one client to five leads per hour and saves only those", async () => {
+    const input: LeadInput = {
+      type: "system",
+      idea: "A booking tool for yoga teachers",
+      name: "Omar",
+      whatsapp: "966511111111",
+      locale: "en",
+      visitorId,
+    };
+    const request = { clientKey: "lead-test:limit", now: 1_770_000_000_000 };
+
+    for (let i = 0; i < 5; i += 1) {
+      expect(await submitLead(input, request)).toMatchObject({ ok: true });
+    }
+
+    expect(await submitLead(input, request)).toEqual({ ok: false, reason: "rate_limited" });
+    expect(await listLeads()).toHaveLength(5);
   });
 });

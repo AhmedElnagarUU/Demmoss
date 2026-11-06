@@ -23,4 +23,7 @@ export const feedbackInputSchema = z
 
 export type FeedbackInput = z.infer<typeof feedbackInputSchema>;
 
-export type FeedbackResult = { ok: true } | { ok: false; errors: Record<string, string[] | undefined> };
+export type FeedbackResult =
+  | { ok: true }
+  | { ok: false; errors: Record<string, string[] | undefined> }
+  | { ok: false; rateLimited: true };

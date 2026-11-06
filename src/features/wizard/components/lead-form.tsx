@@ -109,6 +109,7 @@ function LeadSteps({ locale }: { locale: Locale }) {
   const [errors, setErrors] = useState<LeadFieldErrors>({});
   const [sending, setSending] = useState(false);
   const [serverError, setServerError] = useState(false);
+  const [rateLimited, setRateLimited] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const firstRender = useRef(true);
 
@@ -160,9 +161,14 @@ function LeadSteps({ locale }: { locale: Locale }) {
     const input = inputOf(draft, locale, visitorIdOfBrowser());
     setSending(true);
     setServerError(false);
+    setRateLimited(false);
     try {
       const result = await createLeadAction(input);
       if (!result.ok) {
+        if ("rateLimited" in result) {
+          setRateLimited(true);
+          return;
+        }
         setErrors(result.errors);
         setStep(firstStepWithError(result.errors));
         return;
@@ -224,6 +230,12 @@ function LeadSteps({ locale }: { locale: Locale }) {
       {serverError && (
         <p role="alert" className="text-sm font-semibold text-danger">
           {t("common.serverError")}
+        </p>
+      )}
+
+      {rateLimited && (
+        <p role="alert" className="text-sm font-semibold text-danger">
+          {t("common.rateLimited")}
         </p>
       )}
 

@@ -12,7 +12,10 @@ export const loginInputSchema = z.object({
   locale,
 });
 
-export type LoginResult = { error: "invalid_input" | "invalid_credentials" } | null;
+export type LoginResult =
+  | { error: "invalid_input" | "invalid_credentials" }
+  | { error: "too_many_attempts"; retryAfterMinutes: number }
+  | null;
 
 export const localeInputSchema = z.object({ locale });
 

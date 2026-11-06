@@ -11,7 +11,8 @@
     "submit": "Send my request",
     "sending": "Sending…",
     "optional": "optional",
-    "serverError": "Something went wrong. Please try again, or talk to us on WhatsApp."
+    "serverError": "Something went wrong. Please try again, or talk to us on WhatsApp.",
+    "rateLimited": "You have sent several requests in a short time. Please try again in an hour."
   },
   "type": {
     "title": "What do you want to build?",

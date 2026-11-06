@@ -14,12 +14,18 @@ type Props = {
     submit: string;
     invalidInput: string;
     invalidCredentials: string;
+    tooManyAttempts: (minutes: number) => string;
   };
 };
 
 export function LoginForm({ locale, labels }: Props) {
   const [result, formAction, pending] = useActionState<LoginResult, FormData>(loginAction, null);
-  const error = result?.error === "invalid_input" ? labels.invalidInput : labels.invalidCredentials;
+  const error =
+    result?.error === "invalid_input"
+      ? labels.invalidInput
+      : result?.error === "too_many_attempts"
+        ? labels.tooManyAttempts(result.retryAfterMinutes)
+        : labels.invalidCredentials;
 
   return (
     <form action={formAction} className="flex flex-col gap-4">

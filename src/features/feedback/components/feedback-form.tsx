@@ -28,6 +28,7 @@ export function FeedbackForm({ locale, onClose }: Props) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string[] | undefined>>({});
   const [failed, setFailed] = useState(false);
+  const [rateLimited, setRateLimited] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -35,6 +36,7 @@ export function FeedbackForm({ locale, onClose }: Props) {
     setStatus("sending");
     setErrors({});
     setFailed(false);
+    setRateLimited(false);
 
     let result: FeedbackResult;
     try {
@@ -54,6 +56,11 @@ export function FeedbackForm({ locale, onClose }: Props) {
     if (result.ok) {
       track("feedback_sent", { locale });
       setStatus("sent");
+      return;
+    }
+    if ("rateLimited" in result) {
+      setRateLimited(true);
+      setStatus("idle");
       return;
     }
     setErrors(result.errors);
@@ -120,6 +127,11 @@ export function FeedbackForm({ locale, onClose }: Props) {
       {failed && (
         <p role="alert" className="text-sm text-danger">
           {t("errors.generic")}
+        </p>
+      )}
+      {rateLimited && (
+        <p role="alert" className="text-sm text-danger">
+          {t("errors.rateLimited")}
         </p>
       )}
       <div className="flex flex-wrap gap-3">

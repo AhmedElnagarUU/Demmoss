@@ -78,7 +78,8 @@ export function fieldErrorsOf(error: z.ZodError): LeadFieldErrors {
   return errors;
 }
 
-export type CreateLeadResult = { ok: true; id: string } | { ok: false; errors: LeadFieldErrors };
+export type CreateLeadResult =
+  { ok: true; id: string } | { ok: false; errors: LeadFieldErrors } | { ok: false; rateLimited: true };
 
 export function isLeadType(value: string | undefined | null): value is LeadType {
   return leadTypes.some((type) => type === value);

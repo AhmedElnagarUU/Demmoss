@@ -1,8 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { listNotifications } from "@/features/notifications/service";
 import { setupTestDatabase } from "../../../tests/helpers/db";
-import { createFeedback, listFeedback } from "./service";
+import { createFeedback, listFeedback, submitFeedback } from "./service";
 import type { FeedbackInput } from "./types";
+
+// Next.js request headers exist only inside a request; with no ip header the limiter stays off.
+vi.mock("next/headers", () => ({ headers: async () => new Headers() }));
 
 setupTestDatabase();
 
@@ -40,5 +43,16 @@ describe("feedback service with a real database", () => {
 
     const [saved] = await listFeedback();
     expect(saved?.contact).toBeUndefined();
+  });
+
+  it("limits one client to five messages per hour and saves only those", async () => {
+    const request = { clientKey: "feedback-test:limit", now: 1_770_000_000_000 };
+
+    for (let i = 0; i < 5; i += 1) {
+      expect(await submitFeedback(feedback, request)).toEqual({ ok: true });
+    }
+
+    expect(await submitFeedback(feedback, request)).toEqual({ ok: false, reason: "rate_limited" });
+    expect(await listFeedback()).toHaveLength(5);
   });
 });

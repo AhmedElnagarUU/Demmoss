@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { credentialsAreValid, endAdminSession, startAdminSession } from "./auth/admin-session";
+import { getClientKey } from "@/shared/rate-limit";
+import { attemptAdminLogin, endAdminSession, startAdminSession } from "./auth/admin-session";
 import { adminPath, adminPathForNotification } from "./paths";
 import {
   changeLeadStatus,
@@ -28,7 +29,19 @@ function fields(formData: FormData): Record<string, FormDataEntryValue> {
 export async function loginAction(_previous: LoginResult, formData: FormData): Promise<LoginResult> {
   const parsed = loginInputSchema.safeParse(fields(formData));
   if (!parsed.success) return { error: "invalid_input" };
-  if (!credentialsAreValid(parsed.data.email, parsed.data.password)) return { error: "invalid_credentials" };
+  const clientKey = await getClientKey();
+  const result = attemptAdminLogin({
+    email: parsed.data.email,
+    password: parsed.data.password,
+    clientKey,
+    now: Date.now(),
+  });
+  if (!result.ok) {
+    if (result.error === "too_many_attempts") {
+      return { error: "too_many_attempts", retryAfterMinutes: result.retryAfterMinutes };
+    }
+    return { error: "invalid_credentials" };
+  }
   await startAdminSession();
   redirect(adminPath(parsed.data.locale));
 }

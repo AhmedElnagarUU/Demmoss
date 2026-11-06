@@ -92,6 +92,7 @@ so the wizard and gallery always agree. Suggested demos come from the gallery ca
 | Unit | lead schema: business needs a category; system/saas/other need an idea; WhatsApp format | W1–W3 |
 | Unit | WhatsApp prefilled message contains type, category/idea, name | W5 |
 | Integration | `createLead` saves the lead and creates a `new_lead` notification | W6 |
+| Integration | `submitLead` limits one client to five leads per hour; the 6th is not saved (`service.test.ts`) | W6 |
 | E2E | each type path to the result page; back/forward keeps answers; errors next to fields; result shows category demos or all demos | W1–W5 |
 
 ## Decisions made while building

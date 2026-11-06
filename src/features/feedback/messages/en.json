@@ -12,6 +12,7 @@
   "errors": {
     "message": "Please write between 3 and 1000 characters.",
     "contact": "Your contact is too long. Please shorten it.",
-    "generic": "We could not send your message. Please try again."
+    "generic": "We could not send your message. Please try again.",
+    "rateLimited": "You have sent several requests in a short time. Please try again in an hour."
   }
 }

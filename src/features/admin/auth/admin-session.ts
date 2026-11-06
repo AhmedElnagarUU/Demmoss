@@ -1,6 +1,7 @@
 import "server-only";
 import { cookies } from "next/headers";
 import { getAdminEnv } from "@/shared/env.server";
+import { isRateLimited, recordRateLimitHit } from "@/shared/rate-limit";
 import { verifyPassword } from "./password";
 import {
   SESSION_COOKIE,
@@ -35,6 +36,35 @@ export function credentialsAreValid(email: string, password: string): boolean {
   // The password is always checked, so a wrong email and a wrong password take the same time.
   const passwordMatches = verifyPassword(password, env.ADMIN_PASSWORD_HASH);
   return passwordMatches && email.trim().toLowerCase() === env.ADMIN_EMAIL.toLowerCase();
+}
+
+const loginRateLimit = { limit: 5, windowMs: 15 * 60 * 1000 };
+
+export type AdminLoginAttempt = { email: string; password: string; clientKey: string | null; now: number };
+
+export type AdminLoginAttemptResult =
+  | { ok: true }
+  | { ok: false; error: "invalid_credentials" }
+  | { ok: false; error: "too_many_attempts"; retryAfterMinutes: number };
+
+export function attemptAdminLogin({
+  email,
+  password,
+  clientKey,
+  now,
+}: AdminLoginAttempt): AdminLoginAttemptResult {
+  const key = clientKey ? `login:${clientKey}:${email.trim().toLowerCase()}` : null;
+  if (key) {
+    const { allowed, retryAfterMs } = isRateLimited(key, { ...loginRateLimit, now });
+    if (!allowed) {
+      return { ok: false, error: "too_many_attempts", retryAfterMinutes: Math.ceil(retryAfterMs / 60_000) };
+    }
+  }
+  if (!credentialsAreValid(email, password)) {
+    if (key) recordRateLimitHit(key, { ...loginRateLimit, now });
+    return { ok: false, error: "invalid_credentials" };
+  }
+  return { ok: true };
 }
 
 export async function startAdminSession(): Promise<void> {

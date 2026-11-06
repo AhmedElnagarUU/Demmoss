@@ -1,15 +1,31 @@
 import "server-only";
 import { createNotification } from "@/features/notifications/service";
+import { checkRateLimit } from "@/shared/rate-limit";
 import { notificationForEvent } from "./notify";
 import { insertEvent, upsertVisitor } from "./repository";
 import { countryFromHeader, deviceFromUserAgent } from "./request-info";
 import type { EventInput } from "./types";
+
+const eventRateLimit = { limit: 120, windowMs: 60 * 1000 };
 
 export type RequestContext = {
   countryHeader: string | null;
   userAgent: string | null;
   now: Date;
 };
+
+export async function submitEvent(
+  event: EventInput,
+  context: RequestContext & { clientKey: string | null },
+): Promise<void> {
+  if (
+    context.clientKey &&
+    !checkRateLimit(`event:${context.clientKey}`, { ...eventRateLimit, now: context.now.getTime() }).allowed
+  ) {
+    return;
+  }
+  await recordEvent(event, context);
+}
 
 export async function recordEvent(event: EventInput, context: RequestContext): Promise<void> {
   await upsertVisitor({

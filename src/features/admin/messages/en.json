@@ -16,7 +16,8 @@
     "password": "Password",
     "submit": "Sign in",
     "invalidInput": "Enter your email and your password.",
-    "invalidCredentials": "Wrong email or password."
+    "invalidCredentials": "Wrong email or password.",
+    "tooManyAttempts": "Too many attempts. Try again in {minutes} minutes."
   },
   "nav": {
     "label": "Admin sections",
