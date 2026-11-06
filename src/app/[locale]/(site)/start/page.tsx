@@ -21,7 +21,7 @@ export default async function StartPage({ params }: PageProps<"/[locale]/start">
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <WizardShell locale={locale}>
+    <WizardShell>
       <LeadForm locale={locale} />
     </WizardShell>
   );

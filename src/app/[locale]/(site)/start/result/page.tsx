@@ -30,7 +30,7 @@ export default async function StartResultPage({ params, searchParams }: PageProp
   const type = single(query.type);
   if (!isLeadType(type)) redirect(`/${locale}/start`);
   return (
-    <WizardShell locale={locale}>
+    <WizardShell>
       <ResultView locale={locale} type={type} field={single(query.field)} />
     </WizardShell>
   );

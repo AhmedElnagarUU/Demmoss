@@ -1,7 +1,4 @@
-import { TrackedLanguageSwitch } from "@/features/tracking/components/tracked-language-switch";
 import type { Locale } from "@/shared/i18n/config";
-import { getT } from "@/shared/i18n/t";
-import { Logo } from "@/shared/ui/logo";
 import { getGuideContent } from "../guide-content";
 import type { GuideType } from "../types";
 import { ComparisonTable } from "./comparison-table";
@@ -17,7 +14,6 @@ import { SectionMenu } from "./section-menu";
 import { TypeCards } from "./type-cards";
 
 export function GuidePage({ locale }: { locale: Locale }) {
-  const t = getT(locale);
   const content = getGuideContent(locale);
   const typeNames = Object.fromEntries(
     content.types.items.map((type) => [type.id, type.shortName]),
@@ -25,13 +21,6 @@ export function GuidePage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4">
-        {t("common.skipToContent")}
-      </a>
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Logo href={`/${locale}`} />
-        <TrackedLanguageSwitch locale={locale} label={t("common.switchLanguage")} />
-      </header>
       <SectionMenu content={content.menu} />
       <main id="main">
         <GuideHero locale={locale} content={content.hero} />

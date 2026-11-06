@@ -58,6 +58,12 @@ for (const { locale, dir, title } of locales) {
   });
 }
 
+test("regression: guide shows a single site header", async ({ page }) => {
+  await page.goto("/en/guide");
+  await expect(page.getByRole("banner")).toHaveCount(1);
+  await expect(page.getByRole("link", { name: "Skip to content" })).toHaveCount(1);
+});
+
 test("the guide announces both languages for search engines", async ({ page }) => {
   await page.goto("/en/guide");
   await expect(page.locator('link[rel="alternate"][hreflang="ar"]')).toHaveAttribute("href", /\/ar\/guide$/);

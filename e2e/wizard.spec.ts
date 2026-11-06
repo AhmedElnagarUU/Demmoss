@@ -139,6 +139,14 @@ test("W4: a business category without demos shows the fallback with a link to al
   await expect(page.getByRole("link", { name: "Continue on WhatsApp" })).toBeVisible();
 });
 
+test("regression: wizard shows a single site header", async ({ page }) => {
+  for (const path of ["/en/start", "/en/start/result?type=saas"]) {
+    await page.goto(path);
+    await expect(page.getByRole("banner")).toHaveCount(1);
+    await expect(page.getByRole("link", { name: "Skip to content" })).toHaveCount(1);
+  }
+});
+
 test("the wizard page is laid out right-to-left in Arabic and has no serious accessibility issues", async ({
   page,
 }) => {
