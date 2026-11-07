@@ -7,7 +7,7 @@ import { FINE_DINING_SLUG } from "./slug";
 import { createFineDiningSeed } from "./seed";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const FINE_DINING_VERSION = 1;
+export const FINE_DINING_VERSION = 2;
 
 export const useFineDiningStore = createTemplateStore({
   slug: FINE_DINING_SLUG,

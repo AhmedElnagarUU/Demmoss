@@ -1,0 +1,15 @@
+/* The Verdant Table menu fade, imported once by the site frame. Reduced motion turns it off like the source. */
+@keyframes fd-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.fd-anim-fade {
+  animation: fd-fade 0.5s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fd-anim-fade {
+    animation: none;
+  }
+}

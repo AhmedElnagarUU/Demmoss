@@ -8,7 +8,7 @@ import type { Reservation, ReservationSettings } from "../../../modules/reservat
 
 export const seedReservationSettings: ReservationSettings = {
   slotMinutes: 90,
-  slots: ["13:00", "14:30", "18:00", "19:30", "21:00", "22:30"],
+  slots: ["11:00", "12:30", "14:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"],
   maxGuestsPerSlot: 30,
 };
 

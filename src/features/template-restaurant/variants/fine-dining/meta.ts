@@ -6,10 +6,10 @@ export const fineDiningMeta = {
   slug: FINE_DINING_SLUG,
   category: "restaurant",
   variant: "fine-dining",
-  name: { ar: "زيتونة · مطعم شامي راقٍ", en: "Zaytouna · Fine dining" },
+  name: { ar: "فيردانت تيبل · مطعم متوسطي راقٍ", en: "Verdant Table · Fine dining" },
   pitch: {
-    ar: "احجز طاولتك في ثوانٍ: حجوزات ليلًا ونهارًا دون مكالمات فائتة، وطلبات مناسبات خاصة تصل إلى لوحة التحكم.",
-    en: "Fill your tables: reservations day and night with no missed calls, and private event requests that land in your dashboard.",
+    ar: "احجز طاولتك في ثوانٍ: حجوزات ليلًا ونهارًا دون مكالمات فائتة، وطلبات عشاءات خاصة تصل إلى لوحة التحكم.",
+    en: "Fill your tables: reservations day and night with no missed calls, and private dinner requests that land in your dashboard.",
   },
   screenshot: "/demos/restaurant-fine-dining.svg",
 } as const;

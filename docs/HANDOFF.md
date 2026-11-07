@@ -17,7 +17,7 @@ data in the visitor's browser), feedback, anonymous tracking, owner admin.
 | Tracking + notifications | features `tracking`, `notifications` | privacy rules in `.claude/rules/analytics.md` |
 | Admin (English only, decided) | `src/app/[locale]/admin`, feature `admin` | scrypt + HMAC cookie, no new deps |
 | Demo engine | `src/features/demo-engine` | storage, fake auth, banner, dashboard shell, ui/, photo/, palettes/, format/ |
-| Restaurants | `template-restaurant`: Zaytouna (fine dining), Smash Lab (fast food) | plan `docs/features/template-restaurant.md` |
+| Restaurants | `template-restaurant`: Verdant Table (fine dining), Sole Trattoria (pizza & pasta ordering); each home mirrors its `theme-sources` design exactly | plan `docs/features/template-restaurant.md` |
 | Real estate | `template-real-estate`: Dar Al Manzil (agency), Rawasi (developer) | plan `docs/features/template-real-estate.md` |
 | Logistics | `template-logistics`: Jisr Cargo (freight), Makhzan 3PL (warehousing) | plan `docs/features/template-logistics.md` |
 | Clinics | `template-clinic`: Dr. Rayan Al Harthi (specialist), Noor (medical centre) | plan `docs/features/template-clinic.md` |
@@ -66,4 +66,4 @@ npx next build && E2E_MONGODB_URI="mongodb://127.0.0.1:1/none" npx playwright te
 ## Open owner decisions
 
 Brand name/logo/domain · privacy text review · data retention (proposed events 1 year, notifications 6 months) ·
-native Arabic review · checking photos in a real browser (Smash Lab food, clinic doctors) · new skin reference (parked).
+native Arabic review · checking photos in a real browser (Sole Trattoria food, clinic doctors) · new skin reference (parked).

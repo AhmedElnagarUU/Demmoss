@@ -72,25 +72,25 @@ describe("R2: event requests", () => {
 
 describe("R4: the owner edits the menu", () => {
   it("changing a dish in Arabic and English is kept", () => {
-    actions().updateMenuItem("hummus", {
-      name: { ar: "حمّص بيروتي", en: "Beirut hummus" },
+    actions().updateMenuItem("whipped-feta", {
+      name: { ar: "فيتا بالعسل", en: "Honey feta" },
       price: 35,
     });
-    expect(data().menu.items.find((item) => item.id === "hummus")).toMatchObject({
-      name: { ar: "حمّص بيروتي", en: "Beirut hummus" },
+    expect(data().menu.items.find((item) => item.id === "whipped-feta")).toMatchObject({
+      name: { ar: "فيتا بالعسل", en: "Honey feta" },
       price: 35,
     });
   });
 
   it("an unavailable dish stays in the menu but is marked unavailable", () => {
-    actions().updateMenuItem("ouzi", { available: false });
-    expect(data().menu.items.find((item) => item.id === "ouzi")?.available).toBe(false);
+    actions().updateMenuItem("fire-roasted-lamb", { available: false });
+    expect(data().menu.items.find((item) => item.id === "fire-roasted-lamb")?.available).toBe(false);
   });
 
   it("deleting a category deletes its dishes", () => {
-    actions().removeMenuCategory("drinks");
-    expect(data().menu.categories.some((category) => category.id === "drinks")).toBe(false);
-    expect(data().menu.items.some((item) => item.categoryId === "drinks")).toBe(false);
+    actions().removeMenuCategory("desserts");
+    expect(data().menu.categories.some((category) => category.id === "desserts")).toBe(false);
+    expect(data().menu.items.some((item) => item.categoryId === "desserts")).toBe(false);
   });
 
   it("a new dish gets its own id", () => {
@@ -99,7 +99,7 @@ describe("R4: the owner edits the menu", () => {
       name: { ar: "طبق", en: "Dish" },
       description: { ar: "", en: "" },
       price: 10,
-      image: "dish-grill",
+      image: "dish-lamb",
       tags: [],
       available: true,
       featured: false,
@@ -132,11 +132,11 @@ describe("E3: reset demo keeps the account", () => {
   it("restores the seed data and keeps the registered account", () => {
     actions().setAccount(account);
     actions().addReservation(request);
-    actions().updateMenuItem("hummus", { price: 1 });
+    actions().updateMenuItem("whipped-feta", { price: 1 });
     actions().resetDemo();
     expect(data().account).toEqual(account);
     expect(data().reservations).toHaveLength(8);
-    expect(data().menu.items.find((item) => item.id === "hummus")?.price).toBe(32);
+    expect(data().menu.items.find((item) => item.id === "whipped-feta")?.price).toBe(42);
   });
 });
 

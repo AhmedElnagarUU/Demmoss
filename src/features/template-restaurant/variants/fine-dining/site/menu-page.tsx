@@ -15,16 +15,8 @@ export function MenuPage({ locale }: { locale: Locale }) {
 
   return (
     <Section id="menu-title">
-      <SectionHeading
-        level={1}
-        id="menu-title"
-        locale={locale}
-        eyebrow={t("menu.eyebrow")}
-        title={t("menu.title")}
-      />
-      <p className="mx-auto mb-14 max-w-2xl text-center text-lg text-muted">{t("menu.intro")}</p>
-
-      <div className="space-y-14">
+      <SectionHeading level={1} id="menu-title" title={t("menu.title")} intro={t("menu.intro")} />
+      <div className="mx-auto max-w-[960px] space-y-14">
         {menu.categories.map((category) => {
           const items = menu.items.filter((item) => item.categoryId === category.id);
           if (items.length === 0) return null;
@@ -32,11 +24,11 @@ export function MenuPage({ locale }: { locale: Locale }) {
             <section key={category.id} aria-labelledby={`menu-${category.id}`}>
               <h2
                 id={`menu-${category.id}`}
-                className={`${displayFont} mb-4 border-b border-(--fd-accent) pb-2 text-3xl font-semibold text-(--fd-accent)`}
+                className={`${displayFont} mb-2 border-b border-primary pb-2 text-[30px] text-(--fd-accent)`}
               >
                 {category.name[locale]}
               </h2>
-              <div className="grid gap-x-14 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-x-[60px] min-[641px]:grid-cols-2">
                 {items.map((item) => (
                   <MenuLine key={item.id} item={item} currency={currency} locale={locale} />
                 ))}

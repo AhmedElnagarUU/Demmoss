@@ -10,7 +10,7 @@ import { afterHoursFacts, emptyCategoryFacts } from "../../value-tips";
 import { getFineDiningT } from "./messages";
 import { useFineDiningStore } from "./store";
 
-// Overview cards, activity, and value tips of Zaytouna, computed from its reservations and event requests.
+// Overview cards, activity, and value tips of Verdant Table, computed from its reservations and event requests.
 export function useOverview(locale: Locale): Overview {
   const reservations = useFineDiningStore((state) => state.reservations);
   const eventRequests = useFineDiningStore((state) => state.eventRequests);

@@ -1,7 +1,9 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
-// Five palettes for Zaytouna. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
-// --fd-accent is Zaytouna's own accent (headings, rules, eyebrows).
+// Five palettes for Verdant Table. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// "Verdant" is the source design palette: #1d3b2f page, #23453a sections, cream text, gold #c8a46a.
+// --fd-accent is the gold as TEXT (script headings, prices, rules). --fd-band is the third green of the source (the
+// gallery band and the hero glow). --fd-deep is the footer and the dark panels.
 export const fineDiningPalettes: readonly Palette[] = [
   {
     id: "verdant",
@@ -14,9 +16,11 @@ export const fineDiningPalettes: readonly Palette[] = [
       "--color-border": "#4f6f60",
       "--color-primary": "#c8a46a",
       "--color-primary-hover": "#d9b97f",
-      "--color-on-primary": "#14271f",
+      "--color-on-primary": "#1d3b2f",
       "--color-focus": "#c8a46a",
-      "--fd-accent": "#d3b277",
+      "--fd-accent": "#c8a46a",
+      "--fd-band": "#2b5244",
+      "--fd-deep": "#142c22",
     },
   },
   {
@@ -33,6 +37,8 @@ export const fineDiningPalettes: readonly Palette[] = [
       "--color-on-primary": "#ffffff",
       "--color-focus": "#7a1f35",
       "--fd-accent": "#8a5a1a",
+      "--fd-band": "#ecdcd6",
+      "--fd-deep": "#f0e2dd",
     },
   },
   {
@@ -49,6 +55,8 @@ export const fineDiningPalettes: readonly Palette[] = [
       "--color-on-primary": "#1c1c1e",
       "--color-focus": "#d4af6a",
       "--fd-accent": "#d4af6a",
+      "--fd-band": "#333337",
+      "--fd-deep": "#131315",
     },
   },
   {
@@ -65,6 +73,8 @@ export const fineDiningPalettes: readonly Palette[] = [
       "--color-on-primary": "#ffffff",
       "--color-focus": "#8a5a2b",
       "--fd-accent": "#8a5a2b",
+      "--fd-band": "#eee3cf",
+      "--fd-deep": "#efe4d0",
     },
   },
   {
@@ -81,6 +91,8 @@ export const fineDiningPalettes: readonly Palette[] = [
       "--color-on-primary": "#ffffff",
       "--color-focus": "#1f3a68",
       "--fd-accent": "#7a5c14",
+      "--fd-band": "#dde5f0",
+      "--fd-deep": "#e2e9f2",
     },
   },
 ];

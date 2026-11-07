@@ -13,7 +13,7 @@ export const fineDiningModules: readonly DashboardModule[] = [
 
 export const fineDiningConfig: RestaurantConfig = {
   slug: FINE_DINING_SLUG,
-  templateName: "Zaytouna",
+  templateName: "Verdant Table",
   basePath: "/demos/restaurant/fine-dining",
   palettes: fineDiningPalettes,
   photos: fineDiningPhotos,

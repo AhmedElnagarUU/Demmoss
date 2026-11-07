@@ -1,83 +1,89 @@
 import type { Content, OpeningDay, Review, Settings } from "../../../types";
 
-// Zaytouna: a Levantine fine-dining restaurant. All visible text is { ar, en }.
+// Verdant Table: a farm-to-table modern Mediterranean restaurant (theme-sources/03-verdant-table.html).
+// All visible text is { ar, en }. In a hero title, the word between *stars* is the gold italic accent word.
 
-const openEveryDay: OpeningDay[] = [0, 1, 2, 3, 4, 5, 6].map((day) => ({
-  day,
-  closed: false,
-  open: "13:00",
-  close: "23:30",
-}));
+// Source opening hours: Tuesday to Thursday 17:00-22:00, Friday and Saturday 17:00-23:30, Sunday brunch 11:00-15:00,
+// Monday closed. day: 0 = Sunday ... 6 = Saturday.
+const hours: OpeningDay[] = [
+  { day: 0, closed: false, open: "11:00", close: "15:00" },
+  { day: 1, closed: true, open: "17:00", close: "22:00" },
+  { day: 2, closed: false, open: "17:00", close: "22:00" },
+  { day: 3, closed: false, open: "17:00", close: "22:00" },
+  { day: 4, closed: false, open: "17:00", close: "22:00" },
+  { day: 5, closed: false, open: "17:00", close: "23:30" },
+  { day: 6, closed: false, open: "17:00", close: "23:30" },
+];
 
 export const seedSettings: Settings = {
-  businessName: { ar: "زيتونة", en: "Zaytouna" },
+  businessName: { ar: "فيردانت تيبل", en: "Verdant Table" },
   nameEdited: false,
   palette: "verdant",
-  phone: "+966 11 555 0142",
+  phone: "(555) 010-0142",
   whatsapp: "966115550142",
   address: {
-    ar: "طريق الأمير محمد بن سلمان، حي الياسمين، الرياض",
-    en: "Prince Mohammed bin Salman Road, Al Yasmin District, Riyadh",
+    ar: "12 طريق البستان، غرينفيلد",
+    en: "12 Orchard Lane, Greenfield",
   },
   currency: "SAR",
-  hours: openEveryDay,
+  hours,
 };
 
 export const seedContent: Content = {
   hero: {
     title: {
-      ar: "نكهات شامية أصيلة لأجمل أمسياتك",
-      en: "Levantine flavors, served for your best evenings",
+      ar: "مواسم تُقدَّم *ببساطة* على المائدة",
+      en: "Seasons, set *simply* on the table",
     },
     subtitle: {
-      ar: "وصفات عائلية وأطباق مشوية على الفحم وقاعة هادئة تليق بالعشاءات الطويلة. احجز طاولتك في ثوانٍ.",
-      en: "Family recipes, fire-grilled dishes, and a calm room made for long dinners. Reserve your table in seconds.",
+      ar: "فيردانت تيبل مطبخ متوسطي حديث يطبخ من الأرض إلى الطبق. كل طبق يبدأ بمزرعة صغيرة، وحصاد صباحي ناضج، ونار هادئة.",
+      en: "Verdant Table is a modern Mediterranean kitchen cooking from the ground up. Every plate begins with a small farm, a ripe morning harvest and a slow fire.",
     },
     image: "hero-table",
   },
   about: {
-    title: { ar: "حكاية الشيف ليلى حدّاد", en: "The story of Chef Layla Haddad" },
+    title: { ar: "قصتنا", en: "Our Story" },
     text: {
-      ar: "بدأت زيتونة في مطبخ بيت في دمشق، حيث تعلّمت الشيف ليلى حدّاد الطبخ إلى جانب جدّتها. كل وصفة في قائمتنا خرجت من تلك المائدة: تُطهى على مهل، وتُقدَّم بسخاء، وتُتبَّل باليد.\n\nاليوم نطبخ الطعام نفسه بأجود أنواع الضأن المحلي، وسمك يصلنا كل يوم، وزيت زيتون تعصره مزرعة عائلية في الأردن. نؤمن أن العشاء يجب أن يشبه دعوة إلى البيت.",
-      en: "Zaytouna started in a home kitchen in Damascus, where Chef Layla Haddad learned to cook beside her grandmother. Every recipe on our menu comes from that table: slow-cooked, generous, and seasoned by hand.\n\nToday we cook the same food with the best local lamb, fish delivered daily, and olive oil pressed by a family farm in Jordan. We believe a dinner should feel like being invited home.",
+      ar: "بدأ فيردانت تيبل بشجرة زيتون واحدة، وفرن حطب، وإيمان بأن الطعام الجيد يجب أن يحمل طعم الأرض التي نبت فيها. نطبخ مما تهديه إلينا المزارع المجاورة كل صباح، ونزيّن أطباقنا بالأعشاب والحمضيات وزيت الزيتون الجيد. لا استعجال، ولا شيء مخفي.",
+      en: "Verdant Table began with a single olive tree, a wood oven and a belief that good food should taste of where it grew. We cook with what the neighbouring farms hand us each morning, finishing plates with herbs, citrus and good oil. Nothing hurried, nothing hidden.",
     },
-    image: "chef",
+    image: "dish-plate",
   },
   experience: {
-    title: { ar: "أكثر من وجبة: أمسية كاملة", en: "More than a meal: an evening" },
+    title: { ar: "نطبخ من الأرض إلى الطبق", en: "Cooking from the ground up" },
     intro: {
-      ar: "كل شيء في زيتونة مصمّم ليبقى مجلسك مكانًا للحديث والاحتفال والجلوس وقتًا أطول.",
-      en: "Everything at Zaytouna is designed so your table stays a place to talk, celebrate, and stay a little longer.",
+      ar: "كل طبق يبدأ بمزرعة صغيرة، وحصاد صباحي ناضج، ونار هادئة.",
+      en: "Every plate begins with a small farm, a ripe morning harvest and a slow fire.",
     },
     points: [
       {
-        title: { ar: "قاعة خاصة تتسع لـ 20 ضيفًا", en: "A private room for 20" },
+        title: { ar: "مزرعة صغيرة", en: "A small farm" },
         text: {
-          ar: "أعياد ميلاد وخطوبة وعشاءات عمل في قاعة لك وحدك مع مضيف مخصص.",
-          en: "Birthdays, engagements, and business dinners in a room of your own, with a dedicated host.",
+          ar: "نطبخ مما تهديه إلينا المزارع المجاورة كل صباح.",
+          en: "We cook with what the neighbouring farms hand us each morning.",
         },
       },
       {
-        title: { ar: "عود حيّ كل خميس", en: "Live oud on Thursdays" },
+        title: { ar: "حصاد صباحي ناضج", en: "A ripe morning harvest" },
         text: {
-          ar: "عازف عود من الثامنة مساءً كل خميس، بصوت هادئ لا يمنع الحديث.",
-          en: "A live oud player from 8 pm every Thursday, soft enough for conversation.",
+          ar: "نُنهي الأطباق بالأعشاب والحمضيات وزيت الزيتون الجيد. لا استعجال ولا شيء مخفي.",
+          en: "Plates are finished with herbs, citrus and good oil. Nothing hurried, nothing hidden.",
         },
       },
       {
-        title: { ar: "وصفات العائلة", en: "Family recipes" },
+        title: { ar: "نار هادئة", en: "A slow fire" },
         text: {
-          ar: "مرق يُطهى ببطء وكبّة تُشكَّل باليد وحلويات تُحضَّر كل صباح.",
-          en: "Slow-cooked stocks, hand-rolled kibbeh, and desserts made each morning.",
+          ar: "فرن حطب، وإيمان بأن الطعام الجيد يجب أن يحمل طعم أرضه.",
+          en: "A wood oven and a belief that good food should taste of where it grew.",
         },
       },
     ],
   },
   contact: {
-    title: { ar: "زرنا أو اتصل بنا أو راسلنا", en: "Find us, call us, or message us" },
+    title: { ar: "زورونا", en: "Find us" },
     text: {
-      ar: "موقف مجاني وخدمة صف السيارات أمام المطعم. راسلنا عبر واتساب للأسئلة السريعة.",
-      en: "Free parking and valet in front of the restaurant. Message us on WhatsApp for quick questions.",
+      ar: "انضموا إلينا على العشاء. سنتصل بكم لتأكيد الحجز.",
+      en: "Join us for dinner. We will confirm by phone.",
     },
   },
 };
@@ -88,8 +94,8 @@ export const seedReviews: Review[] = [
     author: { ar: "نورة العتيبي", en: "Noura Al-Otaibi" },
     rating: 5,
     text: {
-      ar: "احتفلنا بعيد ميلاد والدتي في القاعة الخاصة. الأوزي كان رائعًا والفريق انتبه لكل تفصيل.",
-      en: "We celebrated my mother's birthday in the private room. The ouzi was perfect and the team remembered every detail.",
+      ar: "سلطة الحديقة كأنها قُطفت قبل ساعة. جلسنا حتى الحلوى دون أن ننظر إلى الساعة.",
+      en: "The garden salad tasted like it was picked an hour before. We stayed through dessert without checking the time.",
     },
     visible: true,
   },
@@ -98,8 +104,8 @@ export const seedReviews: Review[] = [
     author: { ar: "عمر الخطيب", en: "Omar Al-Khatib" },
     rating: 5,
     text: {
-      ar: "حجزت عبر الموقع بعد منتصف الليل وجاءني التأكيد صباحًا. المشاوي المشكّلة هي الأفضل في المدينة.",
-      en: "I booked online after midnight and had my confirmation by morning. The mixed grill is the best in town.",
+      ar: "حجزت عبر الموقع بعد منتصف الليل واتصلوا بي صباحًا للتأكيد. لحم الضأن المشوي على النار هو الأفضل هذا العام.",
+      en: "I booked online after midnight and got the confirmation call by morning. The fire-roasted lamb is the best I have had this year.",
     },
     visible: true,
   },
@@ -108,8 +114,8 @@ export const seedReviews: Review[] = [
     author: { ar: "سارة المنصور", en: "Sara Al-Mansour" },
     rating: 5,
     text: {
-      ar: "هادئ ودافئ والكنافة لا تُنسى. مثالي للعشاء العائلي.",
-      en: "Quiet, warm, and the kunafa is unforgettable. Perfect for a family dinner.",
+      ar: "هادئ ودافئ وكعكة زيت الزيتون لا تُنسى. مثالي للعشاء العائلي.",
+      en: "Quiet, warm, and the olive oil cake is unforgettable. Perfect for a family dinner.",
     },
     visible: true,
   },
@@ -118,8 +124,8 @@ export const seedReviews: Review[] = [
     author: { ar: "فيصل الحربي", en: "Faisal Al-Harbi" },
     rating: 4,
     text: {
-      ar: "استضفنا عشاء عمل لاثني عشر شخصًا. كانت الخدمة سلسة والقائمة الخاصة مدروسة.",
-      en: "We hosted a business dinner for twelve. Service was smooth and the private menu was well planned.",
+      ar: "استضفنا عشاءً لاثني عشر شخصًا. صمّم المطبخ قائمة ثابتة حول الحصاد وكانت الخدمة سلسة.",
+      en: "We hosted a dinner for twelve. The kitchen planned a set menu around the harvest and service was smooth.",
     },
     visible: true,
   },
@@ -128,8 +134,8 @@ export const seedReviews: Review[] = [
     author: { ar: "دينا الرفاعي", en: "Dina Al-Rifai" },
     rating: 5,
     text: {
-      ar: "عزف العود يوم الخميس جعل ذكرى زواجنا مميزة.",
-      en: "The live oud on Thursday made our anniversary special.",
+      ar: "برانش الأحد جعل ذكرى زواجنا مميزة.",
+      en: "The Sunday brunch made our anniversary special.",
     },
     visible: true,
   },

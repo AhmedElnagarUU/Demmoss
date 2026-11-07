@@ -7,31 +7,29 @@ import { displayFont } from "./styles";
 
 type Props = { item: MenuItem; currency: string; locale: Locale };
 
-// One dish as a menu line: name, dotted leader, price, then the description and tags.
+// One dish as the source menu line (.item): name, dotted leader, gold price, then the description and tags.
 export function MenuLine({ item, currency, locale }: Props) {
   const t = getRestaurantT(locale);
   const site = getFineDiningT(locale);
 
   return (
-    <article className="border-b border-dashed border-border py-4">
-      <div className="flex items-baseline gap-3">
-        <h3 className={`${displayFont} text-2xl font-semibold`}>{item.name[locale]}</h3>
-        <span aria-hidden="true" className="grow translate-y-[-4px] border-b border-dotted border-border" />
-        <p className={`${displayFont} text-xl font-semibold text-(--fd-accent)`}>
+    <article className="border-b border-dashed border-text/35 py-4">
+      <div className="flex items-baseline gap-2.5">
+        <h3 className={`${displayFont} text-[23px]`}>{item.name[locale]}</h3>
+        <span aria-hidden="true" className="-translate-y-1 grow border-b border-dotted border-text/35" />
+        <p className={`${displayFont} text-[22px] text-(--fd-accent)`}>
           {formatPrice(item.price, currency, locale)}
         </p>
       </div>
-      <p className="mt-1 text-muted">{item.description[locale]}</p>
-      <ul className="mt-2 flex flex-wrap gap-2 text-sm empty:hidden">
+      <p className="text-sm leading-[1.5] opacity-70">{item.description[locale]}</p>
+      <ul className="mt-2 flex flex-wrap gap-2 text-xs empty:hidden">
         {item.tags.map((tag) => (
-          <li key={tag} className="border border-border px-2 py-0.5 text-muted">
+          <li key={tag} className="border border-text/35 px-2 py-0.5">
             {t(`tags.${tag}`)}
           </li>
         ))}
         {!item.available ? (
-          <li className="border border-text px-2 py-0.5 font-semibold text-text">
-            {site("menu.unavailable")}
-          </li>
+          <li className="border border-text px-2 py-0.5 font-normal">{site("menu.unavailable")}</li>
         ) : null}
       </ul>
     </article>

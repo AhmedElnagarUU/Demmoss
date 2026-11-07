@@ -9,7 +9,7 @@ import { fineDiningConfig } from "./dashboard";
 import { FINE_DINING_SLUG } from "./slug";
 import { useFineDiningStore } from "./store";
 
-// Binds the shared dashboard and the variant modules to the Zaytouna store.
+// Binds the shared dashboard and the variant modules to the Verdant Table store.
 
 export function FineDiningDashboard({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (

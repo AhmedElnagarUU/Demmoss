@@ -1,161 +1,124 @@
 {
   "meta": {
     "home": {
-      "title": "Zaytouna · Levantine fine dining in Riyadh",
-      "description": "Reserve a table at Zaytouna in seconds. Family recipes, fire-grilled dishes, and a private room for your occasions."
+      "title": "Verdant Table | Farm-to-Table Mediterranean",
+      "description": "Verdant Table, a farm-to-table modern Mediterranean restaurant. Reserve a table in seconds."
     },
     "menu": {
-      "title": "Menu · Zaytouna",
-      "description": "Cold and hot mezze, grilled mains, desserts, and drinks. Know what you will enjoy before you arrive."
+      "title": "The Menu · Verdant Table",
+      "description": "Small plates, mains, dishes from the garden, and desserts, written daily around the harvest."
     },
     "about": {
-      "title": "Our story · Zaytouna",
-      "description": "Chef Layla Haddad and the family recipes behind Zaytouna."
+      "title": "Our Story · Verdant Table",
+      "description": "A single olive tree, a wood oven, and a belief that good food should taste of where it grew."
     },
     "events": {
-      "title": "Private events · Zaytouna",
-      "description": "Birthdays, business dinners, engagements, and family gatherings in a private room for up to 20 guests."
+      "title": "Private dinners · Verdant Table",
+      "description": "Birthdays, business dinners, engagements, and family gatherings at the Verdant Table."
     },
     "reserve": {
-      "title": "Reserve a table · Zaytouna",
+      "title": "Reserve a Table · Verdant Table",
       "description": "Choose a day, a time, and the number of guests. We confirm your table quickly."
     },
     "contact": {
-      "title": "Contact · Zaytouna",
-      "description": "Address, opening hours, phone, and WhatsApp for Zaytouna."
+      "title": "Visit · Verdant Table",
+      "description": "Address, opening hours, phone, and WhatsApp for Verdant Table."
     },
     "dashboard": {
-      "title": "Dashboard · Zaytouna demo"
+      "title": "Dashboard · Verdant Table demo"
     }
   },
   "nav": {
     "label": "Restaurant pages",
-    "home": "Home",
+    "about": "Story",
+    "signature": "Signature",
     "menu": "Menu",
-    "about": "Our story",
-    "events": "Private events",
-    "reserve": "Reserve",
-    "contact": "Contact"
-  },
-  "header": {
-    "reserve": "Reserve a table"
+    "events": "Events",
+    "contact": "Visit",
+    "reserve": "Reserve"
   },
   "home": {
-    "heroCta": "Reserve a table",
-    "heroMenu": "View the menu",
-    "signatureEyebrow": "Signature dishes",
-    "signatureTitle": "Dishes people come back for",
-    "viewMenu": "See the full menu",
-    "chefLink": "Read our story",
-    "reviewsEyebrow": "Guests",
-    "reviewsTitle": "What our guests say",
-    "rating": "Rated {rating} out of 5",
-    "eventsEyebrow": "Private events",
-    "eventsTitle": "Celebrate with us: private dining for your occasion",
-    "eventsText": "Birthdays, business dinners, engagements, and family gatherings in a private room for up to 20 guests, with a dedicated host and a menu planned with you.",
-    "eventsCta": "Plan your event",
-    "visitEyebrow": "Visit",
-    "visitTitle": "Find us, call us, or message on WhatsApp",
-    "experienceEyebrow": "The experience",
-    "chefsTitle": "Chef Layla and her team",
-    "chefsText": "Cooking family recipes every day",
-    "promisesLabel": "Why guests choose us",
-    "promises": {
-      "reserve": {
-        "title": "Reserve in seconds",
-        "text": "Pick a day and time online, at any hour."
-      },
-      "charcoal": {
-        "title": "Real charcoal",
-        "text": "The grill is lit every evening, never a shortcut."
-      },
-      "fresh": {
-        "title": "Fresh every day",
-        "text": "Fish arrives daily and lamb comes from one local farm."
-      },
-      "occasion": {
-        "title": "Made for occasions",
-        "text": "A private room for 20 and live oud on Thursdays."
-      }
+    "heroCta": "Book a table",
+    "chefsTitle": "Our two chefs",
+    "chefsText": "Cooking from the garden daily",
+    "signatureTitle": "Signature dishes",
+    "signatureText": "Three plates our regulars order first.",
+    "galleryLabel": "Gallery",
+    "gallery": {
+      "first": { "title": "Slow Tomato Tagliatelle", "text": "Basil, aged pecorino, chilli" },
+      "second": { "title": "Cream, Carrot & Thyme", "text": "Roasted heritage carrots, white bean purée" }
     },
-    "storyEyebrow": "Our story",
-    "previewEyebrow": "The menu",
-    "previewTitle": "Cooked slowly, served generously",
-    "previewTabs": "Menu courses"
+    "menuTitle": "The Menu",
+    "menuText": "Written daily around the harvest. Ask us about allergens.",
+    "menuTabs": "Menu courses",
+    "reserveTitle": "Reserve a Table",
+    "reserveText": "Join us for dinner. We will confirm by phone.",
+    "bookTitle": "Book your evening"
   },
   "menu": {
-    "eyebrow": "The menu",
-    "title": "Know what you will enjoy before you arrive",
-    "intro": "Everything is prepared fresh each day. Tell us about any allergy when you book and the kitchen will take care of it.",
+    "title": "The Menu",
+    "intro": "Written daily around the harvest. Ask us about allergens.",
     "unavailable": "Not available today"
   },
   "about": {
-    "eyebrow": "Our story",
-    "promisesTitle": "Three promises from our kitchen",
-    "promises": {
-      "first": {
-        "title": "Fresh, never frozen",
-        "text": "Fish arrives daily and lamb comes from one local farm we know by name."
-      },
-      "second": {
-        "title": "Cooked slowly",
-        "text": "Stocks simmer for hours and every kibbeh is shaped by hand before service."
-      },
-      "third": {
-        "title": "Served with care",
-        "text": "Our team knows the menu, your allergies, and when it is time to bring the coffee."
-      }
-    },
+    "reviewsTitle": "What our guests say",
+    "rating": "Rated {rating} out of 5",
     "photoCredit": "Photos on this website are by Unsplash photographers, used under the Unsplash License."
   },
   "events": {
-    "eyebrow": "Private events",
-    "title": "Birthdays, business dinners, and family gatherings",
-    "intro": "Tell us about your occasion. The events team replies with a proposed menu, the room setup, and a price.",
+    "title": "Gather around our table",
+    "intro": "Tell us about your occasion. We will reply with a proposed menu built around the harvest, the table setup, and a price.",
     "typesTitle": "What we host",
     "types": {
       "birthday": {
         "title": "Birthdays",
-        "text": "A private room, a cake table, and a menu your guests will remember."
+        "text": "A long table, a cake, and a menu your guests will remember."
       },
       "business": {
         "title": "Business dinners",
-        "text": "A quiet room for up to 20, set menus, and a screen for short presentations."
+        "text": "Set menus for up to twenty, cooked from the weekly harvest."
       },
       "engagement": {
         "title": "Engagement dinners",
-        "text": "Flowers, a dessert table, and a host who keeps the evening running."
+        "text": "Flowers from the garden, a dessert table, and a host for the evening."
       },
       "family": {
         "title": "Family gatherings",
-        "text": "Shared mezze and grills served to the table for every age."
+        "text": "Shared plates from the garden and the wood oven, for every age."
       }
     },
     "formTitle": "Request your event"
   },
   "reserve": {
-    "eyebrow": "Reservations",
     "title": "Reserve your table",
     "intro": "Choose a day, a time, and the number of guests. We confirm quickly.",
     "largeParty": "Planning something bigger than 12 guests?",
-    "largePartyLink": "Send a private event request"
+    "largePartyLink": "Send a private dinner request"
   },
   "contact": {
-    "eyebrow": "Contact",
-    "address": "Address",
     "phone": "Phone",
     "hours": "Opening hours",
     "whatsapp": "Message us on WhatsApp",
     "whatsappMessage": "Hello, I would like to ask about {name}.",
     "mapLabel": "Map showing the location of the restaurant",
     "closed": "Closed",
-    "findUs": "Find us"
+    "findUs": "Find us",
+    "daysTo": "{from} to {to}",
+    "daysAnd": "{from} and {to}",
+    "brunch": "{day} brunch"
   },
   "footer": {
-    "rights": "A demo restaurant website",
-    "hours": "Opening hours",
-    "visit": "Visit",
-    "links": "Explore"
+    "tagline": "Farm-to-table modern Mediterranean.",
+    "contact": "Contact",
+    "email": "hello@verdanttable.example",
+    "hours": "Hours",
+    "hoursLine": "Tue–Sun, from 17:00",
+    "bowlFirst": "Come hungry.",
+    "bowlSecond": "Leave rooted.",
+    "rights": "© {year} {name}. All rights reserved.",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "x": "X"
   },
   "overview": {
     "cardsToday": "Reservations today",
@@ -163,6 +126,6 @@
     "cardsGuests": "Guests expected today",
     "cardsEvents": "Event requests waiting",
     "activityReservation": "{name} reserved for {count} guests on {day}",
-    "activityEvent": "{name} asked about a private event"
+    "activityEvent": "{name} asked about a private dinner"
   }
 }

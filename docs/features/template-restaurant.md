@@ -1,6 +1,6 @@
 # Template category: Restaurants & cafés
 
-Status: shared layer + **both variants built**: Zaytouna (restyled to the Verdant Table look) and Sole Trattoria (pizza & pasta, orders two-way loop).
+Status: shared layer + **both variants built**: Verdant Table (the fine-dining demo mirrors `theme-sources/03-verdant-table.html`: business, content and look) and Sole Trattoria (pizza & pasta, orders two-way loop).
 Design: inspired by `theme-sources/` (see "Design mapping" below).
 
 Two complete restaurant websites, each a different kind of restaurant with its own content and look,
@@ -9,7 +9,7 @@ sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
 | | Variant A: Fine dining | Variant B: Fast food |
 |---|---|---|
 | Slug | `restaurant-fine-dining` | `restaurant-fast-food` |
-| Business (seed) | **Zaytouna** · **زيتونة**: Levantine fine-dining restaurant | **Sole Trattoria** · **سولي تراتوريا**: wood-fired pizza, fresh pasta, pickup and delivery |
+| Business (seed) | **Verdant Table** · **فيردانت تيبل**: farm-to-table modern Mediterranean restaurant | **Sole Trattoria** · **سولي تراتوريا**: wood-fired pizza, fresh pasta, pickup and delivery |
 | Main value | Fill tables: reservations day and night, no missed calls | Sell directly: online orders without delivery-app commission |
 | Main closed loop | Reservation on the site → Reservations in the dashboard | Order on the site → live Orders board → customer sees status |
 | Second loop | Private event request → Event requests | Owner creates an offer → it appears on the site |
@@ -18,9 +18,9 @@ sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
 
 ## 1. Business profiles
 
-### A. Zaytouna (fine dining)
+### A. Verdant Table (fine dining)
 
-- **Who it is:** a Levantine restaurant for dinners, families, and occasions. Signature dishes, a chef with a story, a calm atmosphere.
+- **Who it is:** a farm-to-table modern Mediterranean restaurant for dinners, families, and occasions. Signature dishes, two chefs cooking from the garden, a calm atmosphere.
 - **Customers:** couples, families, companies booking dinners, people celebrating birthdays and anniversaries.
 - **What the owner wants:** a full room on weekends, fewer phone calls, more private events (high revenue),
   a premium image that justifies the prices.
@@ -41,19 +41,18 @@ sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
 
 Every section has a business goal. Sections without one are not built.
 
-### A. Zaytouna site
+### A. Verdant Table site
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
-| Home | Hero + "Reserve a table" | bookings | Reserve your table in seconds, any time |
-| Home | Signature dishes (from Menu, `featured`) | desire, sales | Dishes people come back for |
-| Home | The experience (atmosphere, 3 points) | justify premium | More than a meal: an evening |
-| Home | Chef's story teaser | trust | Recipes from our family, done with care |
-| Home | Reviews (visible ones) | trust | What our guests say |
-| Home | Private events teaser | high-value leads | Celebrate with us: private dining for your occasion |
-| Home | Hours, location, contact | remove friction | Find us, call us, or message on WhatsApp |
+| Home | Hero + "Book a table" (two chefs) | bookings, trust | Seasons, set simply on the table |
+| Home | Our Story | trust | Cooking from the ground up |
+| Home | Signature dishes (from Menu, `featured`) | desire, sales | Three plates our regulars order first |
+| Home | Gallery band (two plates) | desire | Slow Tomato Tagliatelle, Cream, Carrot & Thyme |
+| Home | Menu tabs (4 courses) | decide before coming | Written daily around the harvest |
+| Home | Reserve a Table: booking form + hours + map | bookings, remove friction | Join us for dinner. We will confirm by phone. |
 | Menu | Menu by course, prices, tags | decide before coming | Know what you'll enjoy before you arrive |
-| About | Chef & story, values, photos | trust, premium image | |
+| About | Story, "cooking from the ground up" (3 points), guest reviews, photo credit | trust, premium image | |
 | Private events | What we offer + request form | high-value leads | Birthdays, business dinners, family gatherings |
 | Reserve | Reservation form | bookings | Choose day, time, and guests; we confirm fast |
 | Contact | Map image, hours, phone, WhatsApp | remove friction | |
@@ -186,11 +185,11 @@ and at the top of the menu. Adding an offer to the cart adds it as one line.
 
 Uses `demo-engine` fake auth (see `docs/05-demo-engine.md`).
 
-- Register: name, password, and an **optional business name**. If given, it replaces "Zaytouna" / "Sole Trattoria"
+- Register: name, password, and an **optional business name**. If given, it replaces "Verdant Table" / "Sole Trattoria"
   in the site header, footer, and titles, in both languages (same text for ar and en until the user edits it).
-- Settings → **colors**: 5 palettes made for each variant (e.g. Zaytouna: olive, wine, charcoal, sand, navy).
+- Settings → **colors**: 5 palettes made for each variant (e.g. Verdant Table: verdant, wine, charcoal, sand, navy).
   The site and dashboard update immediately. Palettes are tokens, so contrast is always checked.
-- The account is per variant: registering in Zaytouna does not register in Sole Trattoria.
+- The account is per variant: registering in Verdant Table does not register in Sole Trattoria.
 
 ---
 
@@ -199,7 +198,7 @@ Uses `demo-engine` fake auth (see `docs/05-demo-engine.md`).
 So the dashboard is never empty, the seed includes sample activity **with dates relative to today**
 (created when the store is first seeded or reset):
 
-- Zaytouna: 8 reservations (yesterday to next weekend, mixed statuses, two with occasions), 2 event requests, 6 reviews.
+- Verdant Table: 8 reservations (yesterday to next weekend, mixed statuses, two with occasions), 2 event requests, 6 reviews.
 - Sole Trattoria: 10 orders today and yesterday (mixed pickup/delivery and statuses), 3 offers (2 active), 4 delivery areas, 3 reviews.
 - Customers are computed from reservations/orders, not stored separately.
 
@@ -212,21 +211,21 @@ The visitor's own actions are added on top. Reset restores the seed with fresh r
 Prices use the currency in Settings and are formatted with `Intl`. Full copy (ar + en) is written in
 `variants/<variant>/seed/` during the build; Arabic is written as real Arabic.
 
-### Zaytouna · زيتونة
+### Verdant Table · فيردانت تيبل
 
-- Tagline: "Levantine flavors, served for your best evenings" · "نكهات شامية أصيلة لأجمل أمسياتك"
-- Menu courses and sample items:
+- Hero: "Seasons, set *simply* on the table" · "مواسم تُقدَّم *ببساطة* على المائدة" (the starred word is the gold italic accent).
+- Opening hours (source): Tuesday to Thursday 17:00–22:00, Friday and Saturday 17:00–23:30, Sunday brunch 11:00–15:00, Monday closed.
+- Menu (SAR = source dollar price x3.75; three `featured` signature dishes):
 
 | Course | Items (EN · AR) |
 |---|---|
-| Cold mezze · مقبلات باردة | Hummus with pine nuts · حمّص بالصنوبر; Muhammara · محمّرة; Fattoush · فتّوش; Tabbouleh · تبّولة |
-| Hot mezze · مقبلات ساخنة | Cheese rakakat · رقاقات بالجبن; Kibbeh with yogurt · كبّة لبنيّة; Grilled halloumi · حلّوم مشوي |
-| Mains · الأطباق الرئيسية | Lamb ouzi · أوزي لحم; Mixed grill · مشاوي مشكّلة; Sayadieh fish · صيادية سمك; Chicken shish tawook · شيش طاووق |
-| Desserts · الحلويات | Kunafa · كنافة; Mouhalabieh with pistachio · مهلّبية بالفستق |
-| Drinks · المشروبات | Fresh lemon mint · ليمون بالنعناع; Arabic coffee · قهوة عربية; Jallab · جلّاب |
+| Small plates · أطباق صغيرة | Whipped Feta · جبنة فيتا مخفوقة; Grilled Octopus · أخطبوط مشوي; Marinated Olives · زيتون متبّل; Burrata & Peach · بوراتا بالخوخ |
+| Mains · الأطباق الرئيسية | Fire-Roasted Lamb · ضأن مشوي على النار; Saffron Tagliolini · تاليوليني بالزعفران; Sea Bream · سمك الدنيس; Wood-Oven Chicken · دجاج بفرن الحطب |
+| From the garden · من الحديقة | Garden Harvest Salad · سلطة حصاد الحديقة; Charred Cauliflower · قرنبيط محمّر; Herb Grain Bowl · وعاء الحبوب بالأعشاب; Roasted Carrots · جزر مشوي |
+| Desserts · الحلويات | Olive Oil Cake · كعكة زيت الزيتون; Honey Panna Cotta · بانا كوتا بالعسل; Dark Chocolate Pot · كأس الشوكولاتة الداكنة; Seasonal Sorbet · سوربيه الموسم |
 
-- Experience: private room for 20, live oud on Thursdays, family recipes.
-- Private events: birthdays, business dinners, engagement dinners, family gatherings.
+- "Experience" block (About page): a small farm, a ripe morning harvest, a slow fire (taken from the source hero and story text).
+- Private dinners: birthdays, business dinners, engagement dinners, family gatherings (page and form kept from the loop; copy in the source voice).
 
 ### Sole Trattoria · سولي تراتوريا
 
@@ -293,7 +292,7 @@ Status changes in the dashboard are not tracked (noise).
 
 ## 10. Flow in plain words (visitor journey)
 
-1. From the gallery or the wizard result, the visitor opens Zaytouna or Sole Trattoria.
+1. From the gallery or the wizard result, the visitor opens Verdant Table or Sole Trattoria.
 2. The demo banner says it is a live demo saved in their browser.
 3. They browse the site like a real customer and make a reservation or an order.
 4. The confirmation invites them to open the dashboard. They register (name, password, optional business name).
@@ -305,7 +304,7 @@ Status changes in the dashboard are not tracked (noise).
 ```mermaid
 flowchart TD
   G[Gallery / wizard result] --> V{Variant}
-  V -->|Zaytouna| SA[Fine dining site]
+  V -->|Verdant Table| SA[Fine dining site]
   V -->|Sole Trattoria| SB[Fast food site]
   SA --> RA[Reserve / event request]
   SB --> OB[Order → status page]
@@ -416,7 +415,7 @@ src/features/template-restaurant/
 
 | Variant | Source design | What was kept | Fonts (self-hosted by next/font/google, applied inside the template only) |
 |---|---|---|---|
-| Zaytouna | `03-verdant-table` (+ promise strip and footer ideas from `02-ironhorn-steakhouse`) | deep green / cream / gold as the default palette "Verdant"; round plates; script accent; hero, 4-point promise strip, story, signature dishes panel, experience band (3 round plates), menu preview tabs, reviews, events teaser, reserve band with hours, map, phone | Cormorant Garamond + Jost + Pinyon Script (English only) · Amiri + IBM Plex Sans Arabic |
+| Verdant Table | `03-verdant-table`, mirrored exactly (spec: `docs/design-specs/03-verdant-table.md`) | business, copy, menu, hours, sections in source order (hero, story, signature, gallery band, menu tabs, reserve + hours + map, footer), green/cream/gold "Verdant" palette, round plates, torn paper edges, leaf and dot decorations, reveal on scroll | Cormorant Garamond + Jost + Pinyon Script · Amiri + IBM Plex Sans Arabic + Aref Ruqaa |
 | Sole Trattoria | `06-sole-trattoria` (+ cart drawer behaviour from `01-hearthbean-cafe`) | cream / tomato / basil, Bebas hero, Lora headings, Yellowtail script accents, pill buttons, dashed ring around the hero plate, promise card, red info strip; hero + View menu / Reserve now, 4 promises, Chef's Specials, menu preview, about, reviews, delivery areas, info strip; cart drawer | Bebas Neue + Lora + Poppins + Yellowtail · Lalezar + IBM Plex Sans Arabic + Aref Ruqaa |
 
 Both variants keep their photos in one list (`variants/<variant>/photos.ts`, Unsplash URLs through `photoUrl`/`photoSrcSet`).
@@ -431,7 +430,7 @@ open the gallery once in a real browser and replace any that do not show the rig
 
 ## Decisions
 
-Built with Zaytouna (phase 5, part 1):
+Built with Verdant Table (phase 5, part 1):
 
 4. **Images are placeholders.** Downloads were not possible, so the image library (`images.ts`) points to small local SVG
    illustrations in `public/demos/restaurant/`. To use real photos, replace the files (same names, optimized WebP 800x600)
@@ -447,13 +446,13 @@ Built with Zaytouna (phase 5, part 1):
    dashboard. The seed contains one reservation created at 23:50 (closed), so the first tip is visible from the start.
 10. **Confirmation screens** link to the dashboard; the WhatsApp button of the banner is already visible on the same page,
     so it is not repeated.
-11. **Language switch:** Zaytouna's site header has its own (the demo area has no agency header).
+11. **Language switch:** The Verdant Table site header has its own (the demo area has no agency header).
 12. **Routes:** the site pages live in the `(site)` route group, the dashboard under `dashboard/`, so the dashboard
     has no site header. Register/login is `DashboardGuard` inside the dashboard layout (no separate pages).
 
 1. Default currency in the seed: **SAR** (changeable in Settings).
 2. Food photos: **free stock photos** that allow commercial use, optimized into the image library.
-3. **Event requests** (Zaytouna) and **Offers** (Sole Trattoria) are in v1.
+3. **Event requests** (Verdant Table) and **Offers** (Sole Trattoria) are in v1.
 
 Built with Sole Trattoria (phase 5, part 2):
 

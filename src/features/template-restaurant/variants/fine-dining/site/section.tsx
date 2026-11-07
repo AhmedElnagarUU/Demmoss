@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
-import type { Locale } from "@/shared/i18n/config";
-import { displayFont, scriptAccent } from "./styles";
+import { Reveal } from "./reveal";
+import { container, scriptFont } from "./styles";
 
+// A full-width section band on inner pages: plain = page color, soft = the second green of the source.
 export function Section({
   id,
   tone = "plain",
@@ -12,34 +13,31 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className={tone === "soft" ? "bg-surface" : ""}>
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">{children}</div>
+    <section aria-labelledby={id} className={`relative ${tone === "soft" ? "bg-surface" : ""}`}>
+      <div className={`${container} py-[90px] max-[640px]:py-16`}>{children}</div>
     </section>
   );
 }
 
-// A centered heading: a script accent (the eyebrow), the title, and a thin gold rule.
+// The source section head (.sec-head): a centered gold script title and a short line under it.
 export function SectionHeading({
   id,
-  locale,
-  eyebrow,
   title,
+  intro,
   level = 2,
 }: {
   id: string;
-  locale: Locale;
-  eyebrow: string;
   title: string;
+  intro?: string;
   level?: 1 | 2;
 }) {
   const Heading = level === 1 ? "h1" : "h2";
   return (
-    <div className="mx-auto mb-10 max-w-2xl space-y-2 text-center">
-      <p className={scriptAccent(locale)}>{eyebrow}</p>
-      <Heading id={id} className={`${displayFont} text-3xl font-semibold leading-tight sm:text-5xl`}>
+    <Reveal className="mb-10 text-center">
+      <Heading id={id} className={`${scriptFont} text-[clamp(44px,6vw,64px)]`}>
         {title}
       </Heading>
-      <div aria-hidden="true" className="mx-auto h-px w-16 bg-(--fd-accent)" />
-    </div>
+      {intro ? <p className="mx-auto mt-2 max-w-[520px] opacity-75">{intro}</p> : null}
+    </Reveal>
   );
 }

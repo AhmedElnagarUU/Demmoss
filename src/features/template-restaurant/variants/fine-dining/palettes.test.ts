@@ -21,6 +21,14 @@ describe("R5: every palette keeps readable colors (WCAG AA)", () => {
         }
       });
 
+      it("text on the gallery band, and text and gold on the footer, are readable", () => {
+        expect(contrast(get("--color-text"), get("--fd-band"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--color-muted"), get("--fd-band"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--color-text"), get("--fd-deep"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--color-muted"), get("--fd-deep"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--fd-accent"), get("--fd-deep"))).toBeGreaterThanOrEqual(4.5);
+      });
+
       it("button text is readable on the button, and the button and focus ring stand out from the page", () => {
         expect(contrast(get("--color-on-primary"), get("--color-primary"))).toBeGreaterThanOrEqual(4.5);
         expect(contrast(get("--color-on-primary"), get("--color-primary-hover"))).toBeGreaterThanOrEqual(4.5);

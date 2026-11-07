@@ -8,7 +8,7 @@ const arabicLetters = /[؀-ۿ]/;
 const morning = new Date(2026, 10, 4, 0, 30);
 const evening = new Date(2026, 10, 4, 23, 59);
 
-describe("Zaytouna seed", () => {
+describe("Verdant Table seed", () => {
   it("is valid for the store schema, at any time of the day", () => {
     expect(fineDiningSchema.safeParse(createFineDiningSeed(morning)).success).toBe(true);
     expect(fineDiningSchema.safeParse(createFineDiningSeed(evening)).success).toBe(true);
@@ -45,19 +45,13 @@ describe("Zaytouna seed", () => {
   it("every reservation slot is inside the opening hours", () => {
     const seed = createFineDiningSeed(morning);
     for (const slot of seed.reservationSettings.slots) {
-      expect(slot >= "13:00" && slot < "23:30").toBe(true);
+      expect(slot >= "11:00" && slot < "23:30").toBe(true);
     }
   });
 
   it("R4: the menu has the planned courses, each dish in real Arabic and English", () => {
     const { menu } = createFineDiningSeed(morning);
-    expect(menu.categories.map((category) => category.id)).toEqual([
-      "cold",
-      "hot",
-      "mains",
-      "desserts",
-      "drinks",
-    ]);
+    expect(menu.categories.map((category) => category.id)).toEqual(["small", "mains", "garden", "desserts"]);
     for (const category of menu.categories) {
       expect(menu.items.some((item) => item.categoryId === category.id)).toBe(true);
     }
@@ -77,6 +71,16 @@ describe("Zaytouna seed", () => {
     expect(content.hero.title.ar).toMatch(arabicLetters);
     expect(content.hero.title.en).not.toMatch(arabicLetters);
     expect(content.experience.points).toHaveLength(3);
-    expect(settings.businessName).toEqual({ ar: "زيتونة", en: "Zaytouna" });
+    expect(settings.businessName).toEqual({ ar: "فيردانت تيبل", en: "Verdant Table" });
+  });
+
+  it("R4: the three signature dishes are the featured ones of the source design", () => {
+    const { menu } = createFineDiningSeed(morning);
+    expect(
+      menu.items
+        .filter((item) => item.featured)
+        .map((item) => item.id)
+        .sort(),
+    ).toEqual(["fire-roasted-lamb", "garden-harvest-salad", "saffron-tagliolini"]);
   });
 });

@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Zaytouna (restaurant-fine-dining). Demo data lives in the browser, so these journeys need no database.
+// Verdant Table (restaurant-fine-dining). Demo data lives in the browser, so these journeys need no database.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/restaurant/fine-dining${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
@@ -39,7 +39,7 @@ test("R1, R2, R5: reserve on the site, register with a business name, see and co
 
   await page.goto(site("en"));
   await expect(page.getByRole("link", { name: "Dar Rania" }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "Zaytouna" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Verdant Table" })).toHaveCount(0);
 
   await page.goto(site("ar"));
   await expect(page.getByRole("link", { name: "Dar Rania" }).first()).toBeVisible();
@@ -68,16 +68,16 @@ test("R4, E3: edit a dish in Arabic and English, then reset restores the seed an
   await page.goto(dashboard("en", "/menu"));
   await register(page);
 
-  await page.getByRole("button", { name: "Edit dish: Hummus with pine nuts" }).click();
-  await page.getByLabel("Dish name (English)").fill("Beirut hummus");
-  await page.getByLabel("Dish name (Arabic)").fill("حمّص بيروتي");
+  await page.getByRole("button", { name: "Edit dish: Whipped Feta" }).click();
+  await page.getByLabel("Dish name (English)").fill("Honey feta");
+  await page.getByLabel("Dish name (Arabic)").fill("فيتا بالعسل");
   await page.getByRole("button", { name: "Save changes" }).click();
-  await expect(page.getByText("Beirut hummus").first()).toBeVisible();
+  await expect(page.getByText("Honey feta").first()).toBeVisible();
 
   await page.goto(site("en", "/menu"));
-  await expect(page.getByRole("heading", { name: "Beirut hummus" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Honey feta" })).toBeVisible();
   await page.goto(site("ar", "/menu"));
-  await expect(page.getByRole("heading", { name: "حمّص بيروتي" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "فيتا بالعسل" })).toBeVisible();
 
   await page.goto(dashboard("en", "/settings"));
   await page.getByRole("main").getByRole("button", { name: "Reset demo" }).click();
@@ -85,8 +85,8 @@ test("R4, E3: edit a dish in Arabic and English, then reset restores the seed an
   await expect(page.getByRole("button", { name: "Log out" })).toBeVisible();
 
   await page.goto(site("en", "/menu"));
-  await expect(page.getByRole("heading", { name: "Hummus with pine nuts" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Beirut hummus" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Whipped Feta" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Honey feta" })).toHaveCount(0);
 });
 
 test("R5: choosing a palette changes the site", async ({ page }) => {
@@ -115,15 +115,15 @@ test.describe("direction", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("نكهات شامية أصيلة لأجمل أمسياتك");
-    const brand = await page.getByRole("link", { name: "زيتونة" }).first().boundingBox();
-    const contact = await page.getByRole("link", { name: "تواصل معنا" }).first().boundingBox();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("مواسم تُقدَّم ببساطة على المائدة");
+    const brand = await page.getByRole("link", { name: "فيردانت تيبل" }).first().boundingBox();
+    const contact = await page.getByRole("link", { name: "زيارتنا" }).first().boundingBox();
     expect(brand && contact && brand.x > contact.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    const enBrand = await page.getByRole("link", { name: "Zaytouna" }).first().boundingBox();
-    const enContact = await page.getByRole("link", { name: "Contact" }).first().boundingBox();
+    const enBrand = await page.getByRole("link", { name: "Verdant Table" }).first().boundingBox();
+    const enContact = await page.getByRole("link", { name: "Visit" }).first().boundingBox();
     expect(enBrand && enContact && enBrand.x < enContact.x).toBe(true);
 
     await page.goto(dashboard("ar"));
