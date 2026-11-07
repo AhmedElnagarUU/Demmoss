@@ -1,6 +1,6 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
-// Five palettes for Smash Lab. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// Five palettes for Sole Trattoria. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
 // Each palette carries the Sole Trattoria design's extra tokens: --sl-accent (the green role: add buttons, badges,
 // script accents, avatars), --sl-on-accent (text on that accent), --sl-band (the tinted reviews section), and
 // --sl-primary-text (the primary hue darkened just enough to read as TEXT at 4.5:1 or better on --color-bg,

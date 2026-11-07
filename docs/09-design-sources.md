@@ -36,7 +36,7 @@ The designs cover **7 business categories**. Two of them are new (logistics, onl
 
 | Category | Variant A (inspiration) | Variant B (inspiration) | Notes |
 |---|---|---|---|
-| Restaurants | **Zaytouna**, fine dining (Verdant Table + Ironhorn) | **Smash Lab**, fast food ordering (Sole Trattoria + Hearthbean order drawer) | Zaytouna is already built with a placeholder look: restyle only |
+| Restaurants | **Zaytouna**, fine dining (Verdant Table + Ironhorn) | **Sole Trattoria**, pizza & pasta ordering (Sole Trattoria + Hearthbean order drawer) | Zaytouna is already built with a placeholder look: restyle only |
 | Cafés | **Café & eatery**: table booking + pickup orders (Hearthbean) | **Specialty coffee**: order for pickup/delivery + beans (Sage & Grain) | Same dashboard as Restaurants (menu, orders, reservations) |
 | Real estate | **Agency**: buy/rent listings (Hartwell) | **Developer**: projects and units (Solenne) | Matches the agreed variants exactly |
 | Clinics | **Specialist doctor**: dental implants (Dr. Vale) | **Medical centre**: several doctors (derived from Dr. Vale's design language) | No design for B yet |
@@ -59,8 +59,8 @@ Section names are short; each will get its business goal in the category plan do
 - Home: hero + Reserve · 4-point promise strip · story · signature dishes · gallery band · menu preview (tabs) · reviews · private events teaser · reserve band (hours, map, phone)
 - Restyle only: Verdant Table look (green/cream/gold, serif + script accents), Ironhorn signature grid and footer.
 
-**B · Smash Lab (fast food)** · pages: Home, Menu (order), Checkout, Order status, Contact
-- Home: bold hero + Order now · 4 promises · today's offers · best sellers · how it works · delivery areas · reviews · info strip
+**B · Sole Trattoria (fast food)** · pages: Home, Menu (order), Checkout, Order status, Contact
+- Home: script "Fresh from the oven" + PIZZA & PASTA · 4 promises · Chef's Specials + today's offers · menu preview · about (Since 1998) · reviews · delivery areas · info strip + map
 - Menu: category tabs, add to cart, cart drawer · Checkout: pickup/delivery, area, address, payment on delivery · Order status: live steps
 
 ### Cafés (shared dashboard with Restaurants)
@@ -99,7 +99,7 @@ Section names are short; each will get its business goal in the category plan do
 
 **A · Freight forwarder** · pages: Home, Services, Calculator, Track shipment, Get a quote
 - Home (Orbis + Meridian): hero + Calculate · about panel · services (air, sea, road, rail, customs) · cost calculator · stats · 5 steps · popular routes · pricing plans · testimonials · FAQ · quote form
-- Track shipment: tracking number → status timeline · Loops: quote request → Quotes; **shipment status updated in the dashboard → shown on the tracker** (two-way, like Smash Lab)
+- Track shipment: tracking number → status timeline · Loops: quote request → Quotes; **shipment status updated in the dashboard → shown on the tracker** (two-way, like Sole Trattoria)
 
 **B · Warehousing & 3PL** · pages: Home, Services (storage, fulfilment), Warehouses, Case studies, Get a quote
 - Home (Stackwell): hero with standards · partners · smart storage · 3PL process · stats · storage cost estimator · warehouses · case studies · FAQ · quote
@@ -129,7 +129,7 @@ Section names are short; each will get its business goal in the category plan do
 
 | Category | Shared modules | Variant A modules | Variant B modules |
 |---|---|---|---|
-| Restaurants & cafés | Overview, Menu, Content, Customers, Reviews, Settings | Reservations, Event requests (Zaytouna) · Orders, Offers, Delivery areas (Smash Lab) · Café A: Reservations + Orders · Café B: Orders + Beans | |
+| Restaurants & cafés | Overview, Menu, Content, Customers, Reviews, Settings | Reservations, Event requests (Zaytouna) · Orders, Offers, Delivery areas (Sole Trattoria) · Café A: Reservations + Orders · Café B: Orders + Beans | |
 | Real estate | Overview, Properties, Viewings, Inquiries, Content, Testimonials, Settings | Agents | Projects & unit availability |
 | Clinics | Overview, Appointments, Treatments & prices, Patients, Results gallery, FAQ, Content, Settings | — | Doctors & departments, schedules |
 | Logistics | Overview, Quotes, Clients, FAQ, Testimonials, Content, Settings | Shipments & tracking, Rates for calculator | Warehouses, Storage rates for estimator, Case studies |
@@ -147,4 +147,4 @@ Section names are short; each will get its business goal in the category plan do
 - **Content:** the designs use Western names and places. Every variant gets its own Middle-East-ready business (names, Arabic copy,
   SAR prices, local areas), written as real Arabic, keeping the design's tone.
 - **Code reuse:** Restaurants and Cafés share one feature (`template-restaurant`) and dashboard; other categories are one feature each.
-- **Order of work:** finish Restaurants (restyle Zaytouna, build Smash Lab), then one category at a time, each with its plan doc first.
+- **Order of work:** finish Restaurants (restyle Zaytouna, build Sole Trattoria), then one category at a time, each with its plan doc first.

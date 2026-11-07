@@ -14,7 +14,7 @@ export const fastFoodModules: readonly DashboardModule[] = [
 
 export const fastFoodConfig: RestaurantConfig = {
   slug: FAST_FOOD_SLUG,
-  templateName: "Smash Lab",
+  templateName: "Sole Trattoria",
   basePath: "/demos/restaurant/fast-food",
   palettes: fastFoodPalettes,
   photos: fastFoodPhotos,

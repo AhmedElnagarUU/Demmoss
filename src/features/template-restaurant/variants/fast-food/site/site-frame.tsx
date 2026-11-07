@@ -27,7 +27,7 @@ import "./animations.css";
 
 type Props = { locale: Locale; children: ReactNode };
 
-// Fonts + palette + loaded demo data + banner + header (with the cart) and footer around every public page of Smash Lab.
+// Fonts + palette + loaded demo data + banner + header (with the cart) and footer around every public page of Sole Trattoria.
 export function SiteFrame({ locale, children }: Props) {
   return (
     <div className={fastFoodFonts.className} style={fastFoodFonts.style}>
@@ -77,11 +77,11 @@ function Chrome({ locale, children }: Props) {
     "aria-[current=page]:text-(--sl-primary-text) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
 
   return (
-    <div className="bg-bg font-(family-name:--sl-body) text-text">
+    <div className="overflow-x-clip bg-bg font-(family-name:--sl-body) text-text">
       <DemoBanner
         store={useFastFoodStore}
         slug={FAST_FOOD_SLUG}
-        templateName="Smash Lab"
+        templateName="Sole Trattoria"
         locale={locale}
         dashboardHref={`${root}/dashboard`}
       />

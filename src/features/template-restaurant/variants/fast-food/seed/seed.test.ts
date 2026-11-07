@@ -10,7 +10,7 @@ const arabicLetters = /[؀-ۿ]/;
 const morning = new Date(2026, 10, 4, 0, 30);
 const evening = new Date(2026, 10, 4, 23, 59);
 
-describe("Smash Lab seed", () => {
+describe("Sole Trattoria seed", () => {
   it("is valid for the store schema, at any time of the day", () => {
     expect(fastFoodSchema.safeParse(createFastFoodSeed(morning)).success).toBe(true);
     expect(fastFoodSchema.safeParse(createFastFoodSeed(evening)).success).toBe(true);
@@ -23,7 +23,7 @@ describe("Smash Lab seed", () => {
     expect(seed.offers).toHaveLength(3);
     expect(seed.offers.filter((offer) => offer.active)).toHaveLength(2);
     expect(seed.areas).toHaveLength(4);
-    expect(seed.reviews).toHaveLength(6);
+    expect(seed.reviews).toHaveLength(3);
     expect(seed.cart).toEqual([]);
     expect(seed.account).toBeNull();
   });
@@ -59,7 +59,13 @@ describe("Smash Lab seed", () => {
 
   it("R4: the menu has the planned categories, each dish in real Arabic and English, with a listed photo", () => {
     const { menu } = createFastFoodSeed(morning);
-    expect(menu.categories.map((category) => category.id)).toEqual(["burgers", "sides", "shakes", "kids"]);
+    expect(menu.categories.map((category) => category.id)).toEqual([
+      "pizza",
+      "pasta",
+      "antipasti",
+      "dolci",
+      "drinks",
+    ]);
     const photoIds = new Set(fastFoodPhotos.map((photo) => photo.id));
     for (const item of menu.items) {
       expect(menu.categories.some((category) => category.id === item.categoryId)).toBe(true);
@@ -67,9 +73,10 @@ describe("Smash Lab seed", () => {
       expect(item.description.ar).toMatch(arabicLetters);
       expect(item.description.en).not.toMatch(arabicLetters);
       expect(item.price).toBeGreaterThan(0);
+      expect(Number.isInteger(item.price)).toBe(true);
       expect(photoIds.has(item.image)).toBe(true);
     }
-    expect(menu.items.filter((item) => item.featured).length).toBeGreaterThanOrEqual(3);
+    expect(menu.items.filter((item) => item.featured)).toHaveLength(3);
   });
 
   it("offers and content use listed photos and are written in both languages", () => {
@@ -82,7 +89,7 @@ describe("Smash Lab seed", () => {
     expect(photoIds.has(seed.content.hero.image)).toBe(true);
     expect(photoIds.has(seed.content.about.image)).toBe(true);
     expect(seed.content.experience.points).toHaveLength(3);
-    expect(seed.settings.businessName).toEqual({ ar: "سماش لاب", en: "Smash Lab" });
+    expect(seed.settings.businessName).toEqual({ ar: "سولي تراتوريا", en: "Sole Trattoria" });
     expect(seed.settings.currency).toBe("SAR");
   });
 });

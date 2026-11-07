@@ -1,26 +1,26 @@
 {
   "meta": {
     "home": {
-      "title": "Smash Lab · Smash burgers, pickup and delivery in Riyadh",
-      "description": "Order fresh smash burgers online in two minutes. Pickup or delivery, and follow your order live."
+      "title": "Sole Trattoria · Wood-fired pizza and fresh pasta in Riyadh",
+      "description": "Hand-stretched dough, slow tomato sauce and pasta rolled every morning. Order pizza and pasta for pickup or delivery."
     },
     "menu": {
-      "title": "Menu and order · Smash Lab",
-      "description": "Burgers, sides, shakes, and today's offers. Add to your cart and order."
+      "title": "Menu and order · Sole Trattoria",
+      "description": "Pizza, pasta, antipasti, dolci, drinks, and today's offers. Add to your cart and order."
     },
     "checkout": {
-      "title": "Checkout · Smash Lab",
+      "title": "Checkout · Sole Trattoria",
       "description": "Choose pickup or delivery and place your order."
     },
     "order": {
-      "title": "Your order · Smash Lab",
-      "description": "Follow your Smash Lab order live."
+      "title": "Your order · Sole Trattoria",
+      "description": "Follow your Sole Trattoria order live."
     },
     "contact": {
-      "title": "Contact · Smash Lab",
-      "description": "Address, opening hours, phone, and WhatsApp for Smash Lab."
+      "title": "Contact · Sole Trattoria",
+      "description": "Address, opening hours, phone, and WhatsApp for Sole Trattoria."
     },
-    "dashboard": { "title": "Dashboard · Smash Lab demo" }
+    "dashboard": { "title": "Dashboard · Sole Trattoria demo" }
   },
   "nav": { "label": "Restaurant pages", "home": "Home", "menu": "Menu", "contact": "Contact" },
   "header": { "cart": "Cart, {count} items", "order": "Order now" },
@@ -31,50 +31,50 @@
     "rights": "© {name}. All rights reserved."
   },
   "home": {
-    "heroAccent": "Straight off the grill",
-    "heroCta": "Order now",
-    "heroVisit": "Visit us",
-    "promisesLabel": "Why customers order from us",
+    "heroAccent": "Fresh from the oven",
+    "heroCta": "View menu",
+    "heroVisit": "Reserve now",
+    "promisesLabel": "Why guests choose us",
     "promises": {
-      "smashed": {
-        "title": "Smashed to order",
-        "text": "Every patty is pressed on the grill after you order."
+      "oven": {
+        "title": "WOOD-FIRED OVEN",
+        "text": "Baked at 450°C for a blistered, airy crust."
       },
-      "fresh": { "title": "Fresh, never frozen", "text": "Fresh beef, and brioche baked every morning." },
-      "delivery": { "title": "Pickup or delivery", "text": "Pick it up, or we bring it to your door." },
-      "live": { "title": "Track it live", "text": "Your order has its own page that updates as we cook." }
+      "pasta": { "title": "FRESH PASTA DAILY", "text": "Rolled and cut by hand each morning." },
+      "produce": { "title": "LOCAL PRODUCE", "text": "Tomatoes and herbs from farms nearby." },
+      "recipes": { "title": "FAMILY RECIPES", "text": "Nonna's secrets, served with love." }
     },
     "bestEyebrow": "Popular dishes",
-    "bestTitle": "Our most ordered",
+    "bestTitle": "Chef's Specials",
     "viewMenu": "See the full menu",
     "aboutEyebrow": "About us",
-    "aboutCta": "Full menu",
-    "signature": "The Smash Lab crew",
-    "badgeBig": "Since 2019",
-    "badgeLabel": "LOCALLY OWNED",
-    "deliveryScript": "Hot to your door",
+    "aboutCta": "Learn more",
+    "signature": "Sole & Famiglia",
+    "badgeBig": "Since 1998",
+    "badgeLabel": "FAMILY OWNED",
+    "deliveryScript": "Hot from the oven",
     "areasTitle": "We deliver to your area",
     "areasIntro": "Choose your area to see the delivery fee and the minimum order, then start your order right away.",
     "areaLabel": "Delivery area",
     "areaSummary": "Delivery to {area} costs {fee}, and orders start from {minimum}.",
     "startOrder": "Start your order",
     "mapPin": "● {name}, {address}",
-    "customerLabel": "Smash Lab customer",
-    "reviewsEyebrow": "Customers",
-    "reviewsTitle": "What our customers say",
+    "customerLabel": "Sole Trattoria guest",
+    "reviewsEyebrow": "Happy guests",
+    "reviewsTitle": "What People Say",
     "rating": "Rated {rating} out of 5",
     "info": {
       "label": "Find and reach us",
-      "location": "Location",
-      "hours": "Today's hours",
+      "location": "Our location",
+      "hours": "Opening hours",
       "call": "Call us",
-      "delivery": "Delivery",
+      "delivery": "Fast delivery",
       "deliveryText": "{count} areas, pay on delivery"
     }
   },
   "menu": {
-    "eyebrow": "The menu",
-    "title": "Choose, add, order",
+    "eyebrow": "Our menu",
+    "title": "Taste of Italy",
     "offersTitle": "Today's offers",
     "categories": "Menu categories",
     "favorite": "Favourite",

@@ -11,7 +11,7 @@ import { fastFoodPhotos } from "./photos";
 import { FAST_FOOD_SLUG } from "./slug";
 import { useFastFoodStore } from "./store";
 
-// Binds the shared dashboard and the variant modules to the Smash Lab store.
+// Binds the shared dashboard and the variant modules to the Sole Trattoria store.
 
 export function FastFoodDashboard({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (

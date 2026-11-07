@@ -11,7 +11,7 @@ export function Section({ id, tone = "plain", children }: { id?: string; tone?: 
     tone === "white" ? "bg-surface" : tone === "soft" || tone === "band" ? "bg-(--sl-band)" : "";
   return (
     <section aria-labelledby={id} className={background}>
-      <div className={`${container} py-20 max-sm:py-14`}>{children}</div>
+      <div className={`${container} py-20 max-[760px]:py-14`}>{children}</div>
     </section>
   );
 }

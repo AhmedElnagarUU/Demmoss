@@ -3,7 +3,7 @@ import { createTranslator, type TranslateFor } from "@/shared/i18n/t";
 import ar from "./messages/ar.json";
 import en from "./messages/en.json";
 
-// Text of the Smash Lab site and its overview cards. Everything else is in ../../messages.
+// Text of the Sole Trattoria site and its overview cards. Everything else is in ../../messages.
 export type FastFoodMessages = typeof en;
 export type FastFoodTranslate = TranslateFor<FastFoodMessages>;
 

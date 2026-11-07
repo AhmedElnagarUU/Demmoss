@@ -15,11 +15,11 @@ import { Reveal } from "./reveal";
 import { Eyebrow, Section, SectionHeading } from "./section";
 import { container, displayFont, pillOutline, pillSolid, scriptFont, serifFont } from "./styles";
 
-const promises: { key: "smashed" | "fresh" | "delivery" | "live"; icon: IconName }[] = [
-  { key: "smashed", icon: "flame" },
-  { key: "fresh", icon: "leaf" },
-  { key: "delivery", icon: "bike" },
-  { key: "live", icon: "clock" },
+const promises: { key: "oven" | "pasta" | "produce" | "recipes"; icon: IconName }[] = [
+  { key: "oven", icon: "oven" },
+  { key: "pasta", icon: "pasta" },
+  { key: "produce", icon: "produce" },
+  { key: "recipes", icon: "heart" },
 ];
 
 const trackable = "rtl:normal-case rtl:tracking-normal";
@@ -67,7 +67,8 @@ function Hero({ locale, root }: { locale: Locale; root: string }) {
           >
             {accent ? (
               <>
-                {title.slice(0, breakAt)} <span className="text-(--sl-primary-text)">{accent}</span>
+                {title.slice(0, breakAt)} <br />
+                <span className="text-(--sl-primary-text)">{accent}</span>
               </>
             ) : (
               title
@@ -139,7 +140,7 @@ function Promises({ locale }: { locale: Locale }) {
                 <Icon name={promise.icon} className="size-[26px]" />
               </span>
               <div>
-                <h4 className={`mb-1 text-[13px] font-bold uppercase tracking-[0.07em] ${trackable}`}>
+                <h4 className={`mb-1 text-[13px] font-bold tracking-[0.07em] ${trackable}`}>
                   {t(`home.promises.${promise.key}.title`)}
                 </h4>
                 <p className="text-[13px] leading-normal text-muted">
@@ -234,7 +235,7 @@ function MenuPreview({ locale, root }: { locale: Locale; root: string }) {
                   aria-hidden="true"
                   className="-translate-y-1 flex-1 border-b-2 border-dotted border-[#d8c9b3]"
                 />
-                <b className="font-bold text-(--sl-primary-text)">
+                <b className="text-[17px] font-bold text-(--sl-primary-text)">
                   {formatPrice(item.price, currency, locale)}
                 </b>
               </div>
@@ -282,7 +283,7 @@ function About({ locale, root }: { locale: Locale; root: string }) {
             </p>
           ))}
           <div className="flex flex-wrap items-center gap-[26px]">
-            <Link href={`${root}/menu`} className={pillSolid}>
+            <Link href={`${root}/contact`} className={pillSolid}>
               {t("home.aboutCta")}
               <Icon name="arrow" className="size-4 rtl:rotate-180" />
             </Link>
@@ -317,12 +318,12 @@ function Reviews({ locale }: { locale: Locale }) {
                 <p
                   role="img"
                   aria-label={t("home.rating", { rating: String(review.rating) })}
-                  className="text-[13px] tracking-[2px] text-[#e9a21b]"
+                  className="mt-[2px] mb-[10px] text-[13px] tracking-[2px] text-[#e9a21b]"
                 >
                   {"★".repeat(review.rating)}
                   {"☆".repeat(5 - review.rating)}
                 </p>
-                <blockquote className="my-[10px] text-[14px] text-[#444444]">
+                <blockquote className="mt-[10px] mb-[18px] text-[14px] leading-[1.6] text-[#444444]">
                   {review.text[locale]}
                 </blockquote>
                 <figcaption className="flex items-center gap-3">
@@ -331,7 +332,9 @@ function Reviews({ locale }: { locale: Locale }) {
                   </span>
                   <span>
                     <b className="text-base font-bold">{review.author[locale]}</b>
-                    <small className="block text-xs text-muted">{t("home.customerLabel")}</small>
+                    <small className="block text-xs text-muted">
+                      {review.role?.[locale] ?? t("home.customerLabel")}
+                    </small>
                   </span>
                 </figcaption>
               </figure>
@@ -447,9 +450,7 @@ function InfoAndMap({ locale }: { locale: Locale }) {
                 <Icon name={item.icon} className="size-[26px]" />
               </span>
               <div>
-                <h4 className={`mb-1 text-[13px] font-bold uppercase tracking-[0.07em] ${trackable}`}>
-                  {item.title}
-                </h4>
+                <h4 className={`mb-1 text-[13px] font-bold tracking-[0.07em] ${trackable}`}>{item.title}</h4>
                 <p
                   className="text-[13px] leading-normal text-white/[0.88]"
                   dir={item.numeric ? "ltr" : undefined}

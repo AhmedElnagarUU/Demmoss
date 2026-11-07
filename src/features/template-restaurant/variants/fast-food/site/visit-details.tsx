@@ -6,7 +6,7 @@ import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { formatTime, weekdayName } from "@/features/demo-engine/format/format";
 import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
-import { displayFont, pillOutline } from "./styles";
+import { pillOutline, serifFont } from "./styles";
 
 // Address, phone, WhatsApp, hours, and a map: everything that removes friction before a visit.
 export function VisitDetails({ locale }: { locale: Locale }) {
@@ -17,7 +17,7 @@ export function VisitDetails({ locale }: { locale: Locale }) {
   return (
     <div className="grid gap-10 md:grid-cols-2">
       <div className="space-y-4">
-        <h2 className={`${displayFont} text-4xl leading-none`}>{t("contact.hours")}</h2>
+        <h2 className={`${serifFont} text-[clamp(30px,4vw,44px)] leading-[1.2]`}>{t("contact.hours")}</h2>
         <dl>
           {settings.hours.map((day) => (
             <div
@@ -35,7 +35,7 @@ export function VisitDetails({ locale }: { locale: Locale }) {
         </dl>
       </div>
       <div className="space-y-4">
-        <h2 className={`${displayFont} text-4xl leading-none`}>{t("contact.findUs")}</h2>
+        <h2 className={`${serifFont} text-[clamp(30px,4vw,44px)] leading-[1.2]`}>{t("contact.findUs")}</h2>
         <div
           role="img"
           aria-label={t("contact.mapLabel")}

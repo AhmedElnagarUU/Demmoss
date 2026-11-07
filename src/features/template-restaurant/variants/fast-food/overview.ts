@@ -9,7 +9,7 @@ import { afterHoursFacts, emptyCategoryFacts } from "../../value-tips";
 import { getFastFoodT } from "./messages";
 import { useFastFoodStore } from "./store";
 
-// Overview cards, activity, and value tips of Smash Lab, computed from its orders and offers.
+// Overview cards, activity, and value tips of Sole Trattoria, computed from its orders and offers.
 export function useOverview(locale: Locale): Overview {
   const orders = useFastFoodStore((state) => state.orders);
   const offers = useFastFoodStore((state) => state.offers);

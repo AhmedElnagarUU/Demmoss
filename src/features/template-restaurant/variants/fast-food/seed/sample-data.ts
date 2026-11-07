@@ -17,36 +17,36 @@ export const seedAreas: Area[] = [
 
 export const seedOffers: Offer[] = [
   {
-    id: "double-tuesday",
-    title: { ar: "ثلاثاء الدبل", en: "Double Tuesday" },
+    id: "pizza-night",
+    title: { ar: "ليلة البيتزا", en: "Pizza Night" },
     description: {
-      ar: "دبل سماش مع بطاطس ومشروب بسعر خاص كل ثلاثاء.",
-      en: "A Double Smash with fries and a drink at a special price, every Tuesday.",
+      ar: "مارغريتا فرن الحطب مع ليموناتا بسعر خاص كل ليلة.",
+      en: "A Wood-Fired Margherita with a Limonata at a special price, every night.",
     },
-    price: 49,
-    image: "burger-stack",
+    price: 55,
+    image: "pizza-margherita",
     active: true,
   },
   {
-    id: "family-box",
-    title: { ar: "بوكس العائلة", en: "Family box" },
+    id: "family-pasta-box",
+    title: { ar: "بوكس الباستا العائلي", en: "Family pasta box" },
     description: {
-      ar: "أربعة برجر كلاسيك وبطاطس كبيرة وأربعة مشروبات تكفي العائلة كلها.",
-      en: "Four Classic Smash burgers, large fries, and four drinks: enough for the whole family.",
+      ar: "تالياتيلي بالراجو وسباغيتي بومودورو وتيراميسو وأربعة مشروبات تكفي العائلة.",
+      en: "Tagliatelle al Ragu, Spaghetti Pomodoro, tiramisu, and four drinks: enough for the whole family.",
     },
-    price: 139,
-    image: "burger-fries",
+    price: 199,
+    image: "pasta-tagliatelle",
     active: true,
   },
   {
-    id: "late-night",
-    title: { ar: "كومبو آخر الليل", en: "Late-night combo" },
+    id: "date-night",
+    title: { ar: "سهرة إيطالية", en: "Date night" },
     description: {
-      ar: "كلاسيك سماش مع بطاطس بالجبن وميلك شيك لوتس للسهرة.",
-      en: "A Classic Smash with cheese fries and a Lotus shake for the late shift.",
+      ar: "ديافولا وبوراتا وكأس نبيذ أحمر لشخصين.",
+      en: "A Diavola, burrata, and a glass of red for two.",
     },
-    price: 59,
-    image: "burger-dark",
+    price: 149,
+    image: "pizza-diavola",
     active: false,
   },
 ];
@@ -106,7 +106,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Sultan Al-Anazi",
       phone: "+966 50 311 4001",
       payment: "cash",
-      lines: [lineOf("double", 2), lineOf("cheese-fries", 1)],
+      lines: [lineOf("diavola", 2), lineOf("bruschetta", 1)],
       address: "Olaya Street, Building 12, flat 4",
       note: "Please ring the bell twice.",
     }),
@@ -118,7 +118,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Reem Al-Ghamdi",
       phone: "+966 55 422 5002",
       payment: "card",
-      lines: [lineOf("classic", 1), lineOf("lotus", 1)],
+      lines: [lineOf("margherita", 1), lineOf("tiramisu", 1)],
     }),
     order({
       number: 1008,
@@ -129,7 +129,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Bader Al-Subaie",
       phone: "+966 50 533 6003",
       payment: "card",
-      lines: [lineOf("truffle", 1), lineOf("fries", 1), lineOf("vanilla", 1)],
+      lines: [lineOf("tagliatelle-ragu", 1), lineOf("bruschetta", 1), lineOf("limonata", 1)],
       address: "Al Malqa, Prince Turki Road, villa 8",
     }),
     order({
@@ -140,7 +140,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Faisal Al-Dosari",
       phone: "+966 56 644 7004",
       payment: "cash",
-      lines: [lineOf("classic", 2), lineOf("fries", 2)],
+      lines: [lineOf("margherita", 2), lineOf("bruschetta", 2)],
     }),
     order({
       number: 1006,
@@ -151,7 +151,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Noura Al-Qahtani",
       phone: "+966 50 755 8005",
       payment: "cash",
-      lines: [lineOf("chicken", 2), lineOf("onion-rings", 1), lineOf("soft-drinks", 2)],
+      lines: [lineOf("carbonara", 2), lineOf("arancini", 1), lineOf("espresso", 2)],
       address: "Hittin, King Salman Road, tower B",
     }),
     order({
@@ -162,7 +162,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Lina Al-Harbi",
       phone: "+966 55 866 9006",
       payment: "card",
-      lines: [lineOf("kids-meal", 2), lineOf("double", 1)],
+      lines: [lineOf("margherita", 2), lineOf("diavola", 1)],
     }),
     order({
       number: 1004,
@@ -173,7 +173,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Majed Al-Dossary",
       phone: "+966 50 977 1007",
       payment: "cash",
-      lines: [lineOf("double", 1), lineOf("cheese-fries", 1), lineOf("soft-drinks", 1)],
+      lines: [lineOf("diavola", 1), lineOf("bruschetta", 1), lineOf("espresso", 1)],
       address: "Al Olaya, Tahlia Street, flat 21",
     }),
     order({
@@ -185,7 +185,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Hind Al-Mutairi",
       phone: "+966 56 188 2008",
       payment: "card",
-      lines: [lineOf("classic", 3), lineOf("fries", 2), lineOf("lotus", 2)],
+      lines: [lineOf("margherita", 3), lineOf("bruschetta", 2), lineOf("tiramisu", 2)],
       address: "Al Nakheel, villa 5",
     }),
     order({
@@ -196,7 +196,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Yasser Al-Qahtani",
       phone: "+966 50 299 3009",
       payment: "cash",
-      lines: [lineOf("truffle", 1)],
+      lines: [lineOf("tagliatelle-ragu", 1)],
     }),
     order({
       number: 1001,
@@ -206,7 +206,7 @@ export function createSampleOrders(now: Date): Order[] {
       name: "Sultan Al-Anazi",
       phone: "+966 50 311 4001",
       payment: "card",
-      lines: [lineOf("classic", 1), lineOf("vanilla", 1)],
+      lines: [lineOf("margherita", 1), lineOf("panna-cotta", 1)],
     }),
   ];
 }

@@ -9,7 +9,7 @@ import {
   Yellowtail,
 } from "next/font/google";
 
-// Smash Lab's fonts, downloaded at build time and served from our own host. Applied only inside the template.
+// Sole Trattoria's fonts, downloaded at build time and served from our own host. Applied only inside the template.
 // Latin: Bebas Neue (hero display), Lora 600 (serif headings), Poppins (text), Yellowtail (script accents).
 // Arabic: Lalezar (display + headings), IBM Plex Sans Arabic (text), Aref Ruqaa (script accents).
 // Each stack lists the Latin font first, so Arabic letters fall through to the Arabic font.

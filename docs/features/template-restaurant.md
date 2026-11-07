@@ -1,6 +1,6 @@
 # Template category: Restaurants & cafés
 
-Status: shared layer + **both variants built**: Zaytouna (restyled to the Verdant Table look) and Smash Lab (Sole Trattoria look, orders two-way loop).
+Status: shared layer + **both variants built**: Zaytouna (restyled to the Verdant Table look) and Sole Trattoria (pizza & pasta, orders two-way loop).
 Design: inspired by `theme-sources/` (see "Design mapping" below).
 
 Two complete restaurant websites, each a different kind of restaurant with its own content and look,
@@ -9,7 +9,7 @@ sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
 | | Variant A: Fine dining | Variant B: Fast food |
 |---|---|---|
 | Slug | `restaurant-fine-dining` | `restaurant-fast-food` |
-| Business (seed) | **Zaytouna** · **زيتونة**: Levantine fine-dining restaurant | **Smash Lab** · **سماش لاب**: smash burgers, fries, shakes |
+| Business (seed) | **Zaytouna** · **زيتونة**: Levantine fine-dining restaurant | **Sole Trattoria** · **سولي تراتوريا**: wood-fired pizza, fresh pasta, pickup and delivery |
 | Main value | Fill tables: reservations day and night, no missed calls | Sell directly: online orders without delivery-app commission |
 | Main closed loop | Reservation on the site → Reservations in the dashboard | Order on the site → live Orders board → customer sees status |
 | Second loop | Private event request → Event requests | Owner creates an offer → it appears on the site |
@@ -26,10 +26,11 @@ sharing one dashboard. Feature folder: `src/features/template-restaurant/`.
   a premium image that justifies the prices.
 - **Pain today:** reservations by phone only; calls missed at night and during service; no-shows; events booked by chance.
 
-### B. Smash Lab (fast food)
+### B. Sole Trattoria (fast food)
 
-- **Who it is:** a burger shop with pickup and delivery, young brand, busy evenings.
-- **Customers:** students, young professionals, families ordering at night.
+- **Who it is:** a family-owned Italian trattoria for wood-fired pizza and fresh pasta, with pickup and delivery,
+  a warm room, and busy evenings.
+- **Customers:** families, couples, young professionals, and offices ordering dinner.
 - **What the owner wants:** more direct orders, less dependence on delivery apps and their commission,
   repeat customers, offers that move sales on quiet days.
 - **Pain today:** orders by WhatsApp messages get lost or mixed up; customers keep calling "where is my order?".
@@ -57,17 +58,18 @@ Every section has a business goal. Sections without one are not built.
 | Reserve | Reservation form | bookings | Choose day, time, and guests; we confirm fast |
 | Contact | Map image, hours, phone, WhatsApp | remove friction | |
 
-### B. Smash Lab site
+### B. Sole Trattoria site
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
-| Home | Hero + "Order now" | sales | Hot burgers, ordered in two minutes |
-| Home | Today's offers (from Offers) | sales on quiet days | Deals made for today |
-| Home | Best sellers (from Menu, `featured`) | sales | Our most ordered |
-| Home | How it works (choose, pickup or delivery, track) | remove doubt | Order, track, enjoy |
-| Home | Delivery areas + fees | remove doubt | We deliver to your area |
-| Home | Reviews | trust | |
-| Home | Hours + contact | remove friction | |
+| Home | Hero + "View menu" / "Reserve now" | sales | Fresh from the oven: pizza and pasta, ordered in two minutes |
+| Home | 4 promises (oven, pasta, produce, recipes) | trust | Wood-fired, handmade daily, local produce, family recipes |
+| Home | Today's offers + Chef's Specials (from Offers + Menu, `featured`) | sales | Deals made for today, dishes people come back for |
+| Home | Menu preview (category tabs, price list) | decide | Taste of Italy |
+| Home | About story + "Since 1998" | trust | A sunlit table for family and friends |
+| Home | Delivery areas + fees (in the reservation slot) | remove doubt | We deliver to your area |
+| Home | Reviews | trust | What People Say |
+| Home | Opening hours + contact + map | remove friction | |
 | Menu | Categories, items, add to cart | sales | |
 | Cart | Items, quantities, note, total | sales | |
 | Checkout | Pickup/delivery, area, address, name, phone, pay on delivery/pickup | sales | No sign-up needed |
@@ -184,11 +186,11 @@ and at the top of the menu. Adding an offer to the cart adds it as one line.
 
 Uses `demo-engine` fake auth (see `docs/05-demo-engine.md`).
 
-- Register: name, password, and an **optional business name**. If given, it replaces "Zaytouna" / "Smash Lab"
+- Register: name, password, and an **optional business name**. If given, it replaces "Zaytouna" / "Sole Trattoria"
   in the site header, footer, and titles, in both languages (same text for ar and en until the user edits it).
 - Settings → **colors**: 5 palettes made for each variant (e.g. Zaytouna: olive, wine, charcoal, sand, navy).
   The site and dashboard update immediately. Palettes are tokens, so contrast is always checked.
-- The account is per variant: registering in Zaytouna does not register in Smash Lab.
+- The account is per variant: registering in Zaytouna does not register in Sole Trattoria.
 
 ---
 
@@ -198,7 +200,7 @@ So the dashboard is never empty, the seed includes sample activity **with dates 
 (created when the store is first seeded or reset):
 
 - Zaytouna: 8 reservations (yesterday to next weekend, mixed statuses, two with occasions), 2 event requests, 6 reviews.
-- Smash Lab: 10 orders today and yesterday (mixed pickup/delivery and statuses), 3 offers (2 active), 4 delivery areas, 6 reviews.
+- Sole Trattoria: 10 orders today and yesterday (mixed pickup/delivery and statuses), 3 offers (2 active), 4 delivery areas, 3 reviews.
 - Customers are computed from reservations/orders, not stored separately.
 
 The visitor's own actions are added on top. Reset restores the seed with fresh relative dates.
@@ -226,19 +228,21 @@ Prices use the currency in Settings and are formatted with `Intl`. Full copy (ar
 - Experience: private room for 20, live oud on Thursdays, family recipes.
 - Private events: birthdays, business dinners, engagement dinners, family gatherings.
 
-### Smash Lab · سماش لاب
+### Sole Trattoria · سولي تراتوريا
 
-- Tagline: "Smashed fresh, delivered hot" · "برجر طازج يُحضَّر أمامك ويصلك ساخنًا"
-- Menu:
+- Tagline: "PIZZA & PASTA" with the script "Fresh from the oven" · "بيتزا وباستا" مع "طازجة من الفرن"
+- Menu (SAR, whole-number prices; three `featured` specials):
 
 | Category | Items (EN · AR) |
 |---|---|
-| Burgers · برجر | Classic Smash · كلاسيك سماش; Double Smash · دبل سماش; Truffle Smash · ترافل سماش; Crispy Chicken · كرسبي تشيكن |
-| Sides · أطباق جانبية | Fries · بطاطس; Cheese fries · بطاطس بالجبن; Onion rings · حلقات البصل |
-| Shakes & drinks · ميلك شيك ومشروبات | Vanilla shake · ميلك شيك فانيلا; Lotus shake · ميلك شيك لوتس; Soft drinks · مشروبات غازية |
-| Kids · للأطفال | Mini burger meal · وجبة ميني برجر |
+| Pizza · بيتزا | Margherita · مارغريتا; Wood-Fired Margherita · مارغريتا فرن الحطب; Diavola · ديافولا; Quattro Formaggi · أربعة أجبان; Prosciutto e Rucola · بروشوتو وجرجير |
+| Pasta · معكرونة | Tagliatelle al Ragu · تالياتيلي بالراجو; Spaghetti Pomodoro · سباغيتي بومودورو; Pappardelle Funghi · بابارديلي بالفطر; Carbonara · كاربونارا |
+| Antipasti · مقبلات | Bruschetta · بروسكيتا; Caprese · كبريزي; Burrata · بوراتا; Arancini · أرانشيني |
+| Dolci · حلويات | Tiramisu · تيراميسو; Panna Cotta · بانا كوتا; Cannoli · كانولي; Affogato · أفوجاتو |
+| Drinks · مشروبات | Aperol Spritz · أبيرول سبرتز; Chianti Classico · كيانتي كلاسيكو; Limonata · ليموناتا; Espresso · إسبريسو |
 
-- Offers: "Double Tuesday" · "ثلاثاء الدبل"; "Family box" · "بوكس العائلة"; "Late-night combo" · "كومبو آخر الليل".
+- Offers: "Pizza Night" · "ليلة البيتزا"; "Family pasta box" · "بوكس الباستا العائلي"; "Date night" · "سهرة إيطالية".
+- Reviews: Marta R. (Local guide, 5), Daniel K. (Regular, 5), Sofia L. (Verified diner, 4).
 
 ---
 
@@ -254,7 +258,7 @@ shared (types.ts, both variants)
   content         { hero, about, experience/howItWorks, contact … each {ar,en} + image ids }
   menu            { categories: [{ id, name }], items: [{ id, categoryId, name, description, price,
                     image, tags: ("new"|"spicy"|"vegetarian"|"chef")[], available, featured }] }
-  reviews         [{ id, author, rating 1–5, text {ar,en}, visible }]
+  reviews         [{ id, author, role?, rating 1–5, text {ar,en}, visible }]
   dismissedTips   string[]
 
 fine-dining only
@@ -289,7 +293,7 @@ Status changes in the dashboard are not tracked (noise).
 
 ## 10. Flow in plain words (visitor journey)
 
-1. From the gallery or the wizard result, the visitor opens Zaytouna or Smash Lab.
+1. From the gallery or the wizard result, the visitor opens Zaytouna or Sole Trattoria.
 2. The demo banner says it is a live demo saved in their browser.
 3. They browse the site like a real customer and make a reservation or an order.
 4. The confirmation invites them to open the dashboard. They register (name, password, optional business name).
@@ -302,7 +306,7 @@ Status changes in the dashboard are not tracked (noise).
 flowchart TD
   G[Gallery / wizard result] --> V{Variant}
   V -->|Zaytouna| SA[Fine dining site]
-  V -->|Smash Lab| SB[Fast food site]
+  V -->|Sole Trattoria| SB[Fast food site]
   SA --> RA[Reserve / event request]
   SB --> OB[Order → status page]
   RA --> CTA[Open your dashboard]
@@ -413,11 +417,11 @@ src/features/template-restaurant/
 | Variant | Source design | What was kept | Fonts (self-hosted by next/font/google, applied inside the template only) |
 |---|---|---|---|
 | Zaytouna | `03-verdant-table` (+ promise strip and footer ideas from `02-ironhorn-steakhouse`) | deep green / cream / gold as the default palette "Verdant"; round plates; script accent; hero, 4-point promise strip, story, signature dishes panel, experience band (3 round plates), menu preview tabs, reviews, events teaser, reserve band with hours, map, phone | Cormorant Garamond + Jost + Pinyon Script (English only) · Amiri + IBM Plex Sans Arabic |
-| Smash Lab | `06-sole-trattoria` (+ cart drawer behaviour from `01-hearthbean-cafe`) | cream / tomato / basil, pill buttons, big display headings, dashed ring around the hero plate, promise card, red info strip; hero + Order now, 4 promises, today's offers, best sellers, how it works, delivery areas, reviews, info strip; cart drawer | Bebas Neue + Poppins · Lalezar + IBM Plex Sans Arabic |
+| Sole Trattoria | `06-sole-trattoria` (+ cart drawer behaviour from `01-hearthbean-cafe`) | cream / tomato / basil, Bebas hero, Lora headings, Yellowtail script accents, pill buttons, dashed ring around the hero plate, promise card, red info strip; hero + View menu / Reserve now, 4 promises, Chef's Specials, menu preview, about, reviews, delivery areas, info strip; cart drawer | Bebas Neue + Lora + Poppins + Yellowtail · Lalezar + IBM Plex Sans Arabic + Aref Ruqaa |
 
 Both variants keep their photos in one list (`variants/<variant>/photos.ts`, Unsplash URLs through `photoUrl`/`photoSrcSet`).
 The engine `Photo` (used by `RestaurantPhoto`) shows a neutral box with the alt text when a photo cannot load.
-Photo ids of Smash Lab burgers, fries, and shakes are well-known Unsplash photos that could not be opened from the build sandbox:
+Photo ids of Sole Trattoria pizzas, pastas, and the dining room come from the source design's Unsplash photos:
 open the gallery once in a real browser and replace any that do not show the right food.
 
 ## 14. Out of scope (said in the demo as "available in a real project")
@@ -449,9 +453,9 @@ Built with Zaytouna (phase 5, part 1):
 
 1. Default currency in the seed: **SAR** (changeable in Settings).
 2. Food photos: **free stock photos** that allow commercial use, optimized into the image library.
-3. **Event requests** (Zaytouna) and **Offers** (Smash Lab) are in v1.
+3. **Event requests** (Zaytouna) and **Offers** (Sole Trattoria) are in v1.
 
-Built with Smash Lab (phase 5, part 2):
+Built with Sole Trattoria (phase 5, part 2):
 
 13. **Order status page is `/order?id=<order id>`**, not `/order/<id>`: the page is generated once and orders exist only in the
     browser, so a dynamic path would need a server. The page lives in a `Suspense` boundary because it reads the query.
@@ -470,7 +474,7 @@ Built with Smash Lab (phase 5, part 2):
     dark palettes (Verdant, Charcoal, Midnight) and failed contrast on the fixed green.
 21. **Customers** column names are now "Visits" / "Latest visit" because they count reservations, orders, and requests.
 
-### Files added for Smash Lab
+### Files added for Sole Trattoria
 
 ```
 src/features/template-restaurant/

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { contrast } from "@/features/demo-engine/palettes/contrast";
 import { fastFoodPalettes } from "./palettes";
 
-describe("R5: every Smash Lab palette keeps readable colors (WCAG AA)", () => {
+describe("R5: every Sole Trattoria palette keeps readable colors (WCAG AA)", () => {
   it("has five palettes with unique ids", () => {
     expect(fastFoodPalettes).toHaveLength(5);
     expect(new Set(fastFoodPalettes.map((palette) => palette.id)).size).toBe(5);

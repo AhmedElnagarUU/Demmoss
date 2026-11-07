@@ -1,4 +1,4 @@
-// Smash Lab's look mirrors the Sole Trattoria design: cream page, tomato red, basil green accents, script
+// Sole Trattoria's look follows the source design: cream page, tomato red, basil green accents, script
 // flourishes, warm shadows (`--sl-shadow`, set in ../fonts.ts) and pill buttons. Letter-spacing and uppercase
 // are switched off in RTL because they break Arabic letter joining.
 const rtlSafe = "rtl:normal-case rtl:tracking-normal";
@@ -28,7 +28,8 @@ export const pillSolid = `${pillBase} ${rtlSafe} border-primary bg-primary text-
 export const pillOutline = `${pillBase} ${rtlSafe} border-primary bg-transparent text-(--sl-primary-text) hover:border-primary hover:bg-primary hover:text-on-primary hover:shadow-[0_8px_18px_rgba(217,65,43,0.3)]`;
 
 // The compact nav button (source: 9px 20px).
-export const pillSolidCompact = `${pillSolid} px-5! py-2! min-h-0!`;
+// Below 760px the source shrinks it to 8px 14px, 12px, so the header fits on phones.
+export const pillSolidCompact = `${pillSolid} px-5! py-[9px]! min-h-0! max-[760px]:px-3.5! max-[760px]:py-2! max-[760px]:text-xs!`;
 
 // The green add pill of the dish cards (source .add; hover darkens by brightness so every palette works).
 export const addClass =

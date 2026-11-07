@@ -8,7 +8,8 @@ import { createFastFoodSeed } from "./seed";
 import { FAST_FOOD_SLUG } from "./slug";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const FAST_FOOD_VERSION = 1;
+// Version 2: the business and content changed from Smash Lab burgers to Sole Trattoria pizza & pasta.
+export const FAST_FOOD_VERSION = 2;
 
 export const useFastFoodStore = createTemplateStore({
   slug: FAST_FOOD_SLUG,

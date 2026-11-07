@@ -5,6 +5,7 @@ import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
 import { FastFoodPhoto } from "./fast-food-photo";
 import { Section, SectionHeading } from "./section";
+import { serifFont } from "./styles";
 import { VisitDetails } from "./visit-details";
 
 // Contact: where, when, how to call; plus the short story of the shop (trust).
@@ -31,7 +32,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
             <FastFoodPhoto imageId={about.image} locale={locale} sizes="(min-width: 768px) 520px, 90vw" />
           </div>
           <div className="space-y-4">
-            <h2 id="story-title" className="text-3xl font-bold">
+            <h2 id="story-title" className={`${serifFont} text-[clamp(30px,4vw,44px)] leading-[1.2]`}>
               {about.title[locale]}
             </h2>
             {about.text[locale].split("\n\n").map((paragraph, index) => (

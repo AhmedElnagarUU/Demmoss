@@ -1,5 +1,8 @@
 // Small line icons for the promises, the info strip and the cards. Decorative: the text next to them says everything.
 const paths = {
+  oven: "M3 20V11a9 9 0 0 1 18 0v9zM9 20v-4a3 3 0 0 1 6 0v4",
+  pasta: "M4 8c4-3 12-3 16 0M4 12c4-3 12-3 16 0M4 16c4-3 12-3 16 0",
+  produce: "M12 8c-4 0-7 3-7 7s3 6 7 6 7-2 7-6-3-7-7-7zM12 8c0-3 1-5 4-5-.5 3-1.5 4.5-4 5z",
   flame: "M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z",
   leaf: "M5 19c0-8 5-14 15-14 0 10-6 15-14 15M5 19l8-8",
   bike: "M6 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15l4-8h5l3 8M10 7 8 4H6",

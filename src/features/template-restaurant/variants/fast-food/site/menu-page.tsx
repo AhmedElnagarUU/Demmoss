@@ -6,7 +6,7 @@ import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
 import { ItemCard, OfferCard } from "./item-card";
 import { Section, SectionHeading } from "./section";
-import { displayFont } from "./styles";
+import { serifFont } from "./styles";
 
 // Menu: offers first, then category tabs and items with "Add". Everything here ends in the cart.
 export function MenuPage({ locale }: { locale: Locale }) {
@@ -27,7 +27,7 @@ export function MenuPage({ locale }: { locale: Locale }) {
 
       {offers.length > 0 ? (
         <section aria-labelledby="menu-offers" className="mb-14">
-          <h2 id="menu-offers" className={`${displayFont} mb-6 text-3xl leading-none`}>
+          <h2 id="menu-offers" className={`${serifFont} mb-6 text-[clamp(30px,4vw,44px)] leading-[1.2]`}>
             {t("menu.offersTitle")}
           </h2>
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

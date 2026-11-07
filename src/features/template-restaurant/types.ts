@@ -67,6 +67,8 @@ export const menuSchema = z.object({
 export const reviewSchema = z.object({
   id: z.string().min(1),
   author: localizedTextSchema,
+  // optional line under the name (for example "Local guide"), when the business shows one
+  role: localizedTextSchema.optional(),
   rating: z.number().int().min(1).max(5),
   text: localizedTextSchema,
   visible: z.boolean(),

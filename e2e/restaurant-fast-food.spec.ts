@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Smash Lab (restaurant-fast-food). Demo data lives in the browser, so these journeys need no database.
+// Sole Trattoria (restaurant-fast-food). Demo data lives in the browser, so these journeys need no database.
 // Photos come from a CDN that may be blocked: nothing here depends on an image loading.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/restaurant/fast-food${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
@@ -36,16 +36,16 @@ test("R1-R3: order for delivery, follow it, and watch the dashboard move it forw
   context,
 }) => {
   await page.goto(site("en", "/menu"));
-  await expect(page.getByRole("heading", { level: 1, name: "Choose, add, order" })).toBeVisible();
-  await addToCart(page, "Double Smash", 2);
+  await expect(page.getByRole("heading", { level: 1, name: "Taste of Italy" })).toBeVisible();
+  await addToCart(page, "Diavola", 2);
   await expect(page.getByRole("button", { name: "Cart, 2 items" })).toBeVisible();
 
   await checkoutAsDelivery(page, "Rania Test");
   await expect(page.getByRole("heading", { level: 1, name: /^Order / })).toBeVisible();
   await expect(page).toHaveURL(/\/order\?id=/);
   await expect(page.getByRole("status").filter({ hasText: "We received your order" })).toBeVisible();
-  // 2 x 39 + delivery 8
-  await expect(page.getByText("SAR 86")).toBeVisible();
+  // 2 x 52 + delivery 8
+  await expect(page.getByText("SAR 112")).toBeVisible();
 
   // the owner, in a second tab of the same browser
   const owner = await context.newPage();
@@ -63,8 +63,8 @@ test("R1-R3: order for delivery, follow it, and watch the dashboard move it forw
 
 test("R1: a delivery below the area minimum is explained and not placed", async ({ page }) => {
   await page.goto(site("en", "/menu"));
-  await page.getByRole("button", { name: "Sides" }).click();
-  await addToCart(page, "Fries");
+  await page.getByRole("button", { name: "Antipasti" }).click();
+  await addToCart(page, "Bruschetta");
   await page.getByRole("button", { name: /^Cart,/ }).click();
   await page.getByRole("dialog").getByRole("link", { name: "Go to checkout" }).click();
   await page.getByText("Delivery", { exact: true }).click();
@@ -94,7 +94,7 @@ test("B2: an offer created in the dashboard appears on the home page", async ({ 
   await expect(page.getByRole("heading", { name: "وليمة الجمعة" })).toBeVisible();
 });
 
-test("R5: the business name given at register replaces Smash Lab on the site", async ({ page }) => {
+test("R5: the business name given at register replaces Sole Trattoria on the site", async ({ page }) => {
   await page.goto(dashboard("en"));
   await page.getByLabel("Your name").fill("Owner");
   await page.getByLabel("Password").fill("secret1");
@@ -103,7 +103,7 @@ test("R5: the business name given at register replaces Smash Lab on the site", a
   await expect(page.getByRole("button", { name: "Log out" })).toBeVisible();
   await page.goto(site("en"));
   await expect(page.getByRole("link", { name: "Burger Haus" }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "Smash Lab" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Sole Trattoria" })).toHaveCount(0);
 });
 
 test("the value tip explains an order that came while the shop was closed", async ({ page }) => {
@@ -121,15 +121,15 @@ test.describe("direction", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("برجر طازج يُحضَّر أمامك ويصلك ساخنًا");
-    const brand = await page.getByRole("link", { name: "سماش لاب" }).first().boundingBox();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("بيتزا وباستا");
+    const brand = await page.getByRole("link", { name: "سولي تراتوريا" }).first().boundingBox();
     const contact = await page.getByRole("link", { name: "تواصل معنا" }).first().boundingBox();
     expect(brand && contact && brand.x > contact.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Smashed fresh, delivered hot");
-    const enBrand = await page.getByRole("link", { name: "Smash Lab" }).first().boundingBox();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("PIZZA & PASTA");
+    const enBrand = await page.getByRole("link", { name: "Sole Trattoria" }).first().boundingBox();
     const enContact = await page.getByRole("link", { name: "Contact" }).first().boundingBox();
     expect(enBrand && enContact && enBrand.x < enContact.x).toBe(true);
 
@@ -159,7 +159,7 @@ test.describe("accessibility", () => {
 
   test("no serious accessibility issues on the checkout, with a delivery chosen", async ({ page }) => {
     await page.goto(site("en", "/menu"));
-    await addToCart(page, "Double Smash", 2);
+    await addToCart(page, "Diavola", 2);
     await page.goto(site("en", "/checkout"));
     await expect(page.getByRole("heading", { level: 1, name: "Checkout" })).toBeVisible();
     await page.getByText("Delivery", { exact: true }).click();
@@ -168,7 +168,7 @@ test.describe("accessibility", () => {
 
   test("no serious accessibility issues on the cart drawer", async ({ page }) => {
     await page.goto(site("en", "/menu"));
-    await addToCart(page, "Double Smash");
+    await addToCart(page, "Diavola");
     await page.getByRole("button", { name: /^Cart,/ }).click();
     await expect(page.getByRole("dialog")).toBeVisible();
     expect(await serious(page)).toEqual([]);
