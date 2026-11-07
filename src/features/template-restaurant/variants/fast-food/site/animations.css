@@ -1,0 +1,43 @@
+/* The Sole Trattoria keyframes, imported once by the site frame. Reduced motion turns them off like the source. */
+@keyframes sl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sl-float {
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+@keyframes sl-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.sl-anim-spin {
+  animation: sl-spin 40s linear infinite;
+}
+.sl-anim-float {
+  animation: sl-float 5s ease-in-out infinite;
+}
+.sl-anim-float-late {
+  animation: sl-float 5s ease-in-out infinite;
+  animation-delay: -2s;
+}
+.sl-anim-float-later {
+  animation: sl-float 5s ease-in-out infinite;
+  animation-delay: -3.5s;
+}
+.sl-anim-fade {
+  animation: sl-fade 0.4s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sl-anim-spin,
+  .sl-anim-float,
+  .sl-anim-float-late,
+  .sl-anim-float-later,
+  .sl-anim-fade {
+    animation: none;
+  }
+}

@@ -26,5 +26,11 @@ describe("R5: every Smash Lab palette keeps readable colors (WCAG AA)", () => {
       expect(contrast(get("--color-primary"), get("--color-surface"))).toBeGreaterThanOrEqual(3);
       expect(contrast(get("--color-focus"), get("--color-bg"))).toBeGreaterThanOrEqual(3);
     });
+
+    it("primary used as text keeps AA everywhere primary text appears (page, panels, and band)", () => {
+      for (const background of [get("--color-bg"), get("--color-surface"), get("--sl-band")]) {
+        expect(contrast(get("--sl-primary-text"), background)).toBeGreaterThanOrEqual(4.5);
+      }
+    });
   });
 });

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import type { Locale } from "@/shared/i18n/config";
 import { getFastFoodT } from "../messages";
 import { useFastFoodStore } from "../store";
-import { pillSolid } from "./styles";
+import { addClass } from "./styles";
 
 type Props = { kind: "item" | "offer"; refId: string; name: string; locale: Locale; available?: boolean };
 
@@ -16,13 +16,13 @@ export function AddButton({ kind, refId, name, locale, available = true }: Props
 
   useEffect(() => {
     if (!added) return;
-    const timer = setTimeout(() => setAdded(false), 1200);
+    const timer = setTimeout(() => setAdded(false), 900);
     return () => clearTimeout(timer);
   }, [added]);
 
   if (!available) {
     return (
-      <button type="button" disabled className={pillSolid}>
+      <button type="button" disabled className={addClass}>
         {t("menu.unavailable")}
       </button>
     );
@@ -37,7 +37,7 @@ export function AddButton({ kind, refId, name, locale, available = true }: Props
           addToCart(kind, refId);
           setAdded(true);
         }}
-        className={pillSolid}
+        className={addClass}
       >
         {added ? t("menu.added") : t("menu.add")}
       </button>

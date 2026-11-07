@@ -1,22 +1,30 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
 // Five palettes for Smash Lab. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
-// --sl-accent is Smash Lab's second color (promises, eyebrows, small highlights). Tomato is the default (Sole Trattoria look).
+// Each palette carries the Sole Trattoria design's extra tokens: --sl-accent (the green role: add buttons, badges,
+// script accents, avatars), --sl-on-accent (text on that accent), --sl-band (the tinted reviews section), and
+// --sl-primary-text (the primary hue darkened just enough to read as TEXT at 4.5:1 or better on --color-bg,
+// --color-surface and --sl-band; fills keep using --color-primary).
+// Tomato is the default and mirrors the source exactly (source #d9412b is 4.43:1 on white text; #d83f2b is the
+// nearest value that passes AA and is visually identical).
 export const fastFoodPalettes: readonly Palette[] = [
   {
     id: "tomato",
     name: { ar: "طماطم", en: "Tomato" },
     vars: {
       "--color-bg": "#fbf5ec",
-      "--color-surface": "#f6ecdc",
+      "--color-surface": "#ffffff",
       "--color-text": "#222222",
-      "--color-muted": "#5f574b",
-      "--color-border": "#d8c9b3",
-      "--color-primary": "#c93a24",
-      "--color-primary-hover": "#a92f1c",
+      "--color-muted": "#6b6459",
+      "--color-border": "#eadfce",
+      "--color-primary": "#d83f2b",
+      "--color-primary-hover": "#b9321f",
       "--color-on-primary": "#ffffff",
-      "--color-focus": "#c93a24",
-      "--sl-accent": "#2f6b2b",
+      "--color-focus": "#d83f2b",
+      "--sl-accent": "#3f7d3a",
+      "--sl-on-accent": "#ffffff",
+      "--sl-band": "#f6ecdc",
+      "--sl-primary-text": "#c33a27",
     },
   },
   {
@@ -24,15 +32,18 @@ export const fastFoodPalettes: readonly Palette[] = [
     name: { ar: "ريحان", en: "Basil" },
     vars: {
       "--color-bg": "#f5faf2",
-      "--color-surface": "#e4efdc",
+      "--color-surface": "#ffffff",
       "--color-text": "#1b2a1a",
       "--color-muted": "#4a5a47",
       "--color-border": "#bfd3b4",
       "--color-primary": "#2f6b2b",
-      "--color-primary-hover": "#245220",
+      "--color-primary-hover": "#245520",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#2f6b2b",
       "--sl-accent": "#b5361f",
+      "--sl-on-accent": "#ffffff",
+      "--sl-band": "#e4efdc",
+      "--sl-primary-text": "#2f6b2b",
     },
   },
   {
@@ -49,6 +60,9 @@ export const fastFoodPalettes: readonly Palette[] = [
       "--color-on-primary": "#17171a",
       "--color-focus": "#ff6a4d",
       "--sl-accent": "#ffc857",
+      "--sl-on-accent": "#17171a",
+      "--sl-band": "#2e2e36",
+      "--sl-primary-text": "#ff6a4d",
     },
   },
   {
@@ -56,7 +70,7 @@ export const fastFoodPalettes: readonly Palette[] = [
     name: { ar: "خردلي", en: "Mustard" },
     vars: {
       "--color-bg": "#fff9e6",
-      "--color-surface": "#fbefc2",
+      "--color-surface": "#ffffff",
       "--color-text": "#2a2208",
       "--color-muted": "#5c5129",
       "--color-border": "#e3d28f",
@@ -65,6 +79,9 @@ export const fastFoodPalettes: readonly Palette[] = [
       "--color-on-primary": "#ffffff",
       "--color-focus": "#b45309",
       "--sl-accent": "#8a2f12",
+      "--sl-on-accent": "#ffffff",
+      "--sl-band": "#fbefc2",
+      "--sl-primary-text": "#b05109",
     },
   },
   {
@@ -72,7 +89,7 @@ export const fastFoodPalettes: readonly Palette[] = [
     name: { ar: "محيطي", en: "Ocean" },
     vars: {
       "--color-bg": "#f2f8fb",
-      "--color-surface": "#dfedf4",
+      "--color-surface": "#ffffff",
       "--color-text": "#10222e",
       "--color-muted": "#455a68",
       "--color-border": "#b8d0de",
@@ -81,6 +98,9 @@ export const fastFoodPalettes: readonly Palette[] = [
       "--color-on-primary": "#ffffff",
       "--color-focus": "#1766a6",
       "--sl-accent": "#b5361f",
+      "--sl-on-accent": "#ffffff",
+      "--sl-band": "#dfedf4",
+      "--sl-primary-text": "#1766a6",
     },
   },
 ];
