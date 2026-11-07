@@ -1,21 +1,21 @@
 import type { Area, PriceBand } from "../../listings";
 
-// Districts of north Riyadh where the agency works. The ids are stored in each property.
+// The four neighbourhoods of the source design ("Where we work"). The ids are stored in each property.
 export const agencyAreas: readonly Area[] = [
-  { id: "al-malqa", name: { ar: "الملقا", en: "Al Malqa" } },
-  { id: "hittin", name: { ar: "حطين", en: "Hittin" } },
-  { id: "al-yasmin", name: { ar: "الياسمين", en: "Al Yasmin" } },
-  { id: "al-narjis", name: { ar: "النرجس", en: "Al Narjis" } },
-  { id: "al-olaya", name: { ar: "العليا", en: "Al Olaya" } },
+  { id: "riverside", name: { ar: "ريفرسايد", en: "Riverside" } },
+  { id: "old-town", name: { ar: "المدينة القديمة", en: "Old Town" } },
+  { id: "hillcrest", name: { ar: "هيلكريست", en: "Hillcrest" } },
+  { id: "harbour", name: { ar: "حي الميناء", en: "Harbour District" } },
 ];
 
 // Sale prices are in SAR; rent prices are SAR per year. The labels are in the shared messages (band.<id>).
+// The source's dollar bands (up to $500k, $500k-1M, $1M-2M, $2M+) in rounded riyals.
 export const agencyPriceBands: readonly PriceBand[] = [
-  { id: "sale-1", purpose: "sale", max: 1_500_000 },
-  { id: "sale-2", purpose: "sale", min: 1_500_001, max: 3_000_000 },
-  { id: "sale-3", purpose: "sale", min: 3_000_001, max: 5_000_000 },
-  { id: "sale-4", purpose: "sale", min: 5_000_001 },
-  { id: "rent-1", purpose: "rent", max: 60_000 },
-  { id: "rent-2", purpose: "rent", min: 60_001, max: 100_000 },
-  { id: "rent-3", purpose: "rent", min: 100_001 },
+  { id: "sale-1", purpose: "sale", max: 2_000_000 },
+  { id: "sale-2", purpose: "sale", min: 2_000_001, max: 4_000_000 },
+  { id: "sale-3", purpose: "sale", min: 4_000_001, max: 8_000_000 },
+  { id: "sale-4", purpose: "sale", min: 8_000_001 },
+  { id: "rent-1", purpose: "rent", max: 140_000 },
+  { id: "rent-2", purpose: "rent", min: 140_001, max: 180_000 },
+  { id: "rent-3", purpose: "rent", min: 180_001 },
 ];

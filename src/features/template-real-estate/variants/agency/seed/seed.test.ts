@@ -9,7 +9,7 @@ const arabicLetters = /[؀-ۿ]/;
 const morning = new Date(2026, 10, 4, 0, 30);
 const evening = new Date(2026, 10, 4, 23, 59);
 
-describe("Dar Al Manzil seed", () => {
+describe("Hartwell & Co. Realty seed", () => {
   it("is valid for the store schema, at any time of the day", () => {
     expect(agencySchema.safeParse(createAgencySeed(morning)).success).toBe(true);
     expect(agencySchema.safeParse(createAgencySeed(evening)).success).toBe(true);
@@ -59,6 +59,28 @@ describe("Dar Al Manzil seed", () => {
     expect(waitingViewingFacts(seed.viewings, morning).length).toBeGreaterThan(0);
     expect(waitingInquiryFacts(seed.inquiries, morning).length).toBeGreaterThan(0);
     expect(hotPropertyFacts(seed.viewings, seed.properties).length).toBeGreaterThan(0);
+  });
+
+  it("mirrors the source design: its business, its eight listings and its four agents", () => {
+    const seed = createAgencySeed(morning);
+    expect(seed.settings.businessName.en).toBe("Hartwell & Co. Realty");
+    expect(seed.properties.map((property) => property.title.en)).toEqual([
+      "14 Alder Lane, Riverside",
+      "8 Quay Street, Harbour District",
+      "3 Cypress Court, Hillcrest",
+      "27 Mill Yard, Old Town",
+      "61 Birch Road, Riverside",
+      "9 Laurel Heights, Hillcrest",
+      "102 Dock Lofts, Harbour District",
+      "40 Orchard Close, Old Town",
+    ]);
+    expect(seed.agents.map((agent) => agent.name.en)).toEqual([
+      "Eleanor Hartwell",
+      "James Calloway",
+      "Sofia Marchetti",
+      "Marcus Bell",
+    ]);
+    expect(seed.testimonials).toHaveLength(3);
   });
 
   it("has real Arabic and English content", () => {

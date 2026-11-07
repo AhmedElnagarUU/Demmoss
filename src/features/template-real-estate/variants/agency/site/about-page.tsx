@@ -8,7 +8,7 @@ import { useAgencyStore } from "../store";
 import { AgentsGrid } from "./agents-grid";
 import { Principles } from "./principles";
 
-const stats = ["sold", "years", "recommend"] as const;
+const stats = ["sold", "agents", "years"] as const;
 
 // About & team. Goal: trust, why owners and buyers choose this agency. Photo credit is here, as the design rules ask.
 export function AboutPage() {
@@ -46,11 +46,9 @@ export function AboutPage() {
         </div>
       </Section>
 
-      <section aria-labelledby="about-why" className="bg-primary text-on-primary">
+      <section aria-labelledby="about-why" className="bg-(--re-dark) text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-8 sm:py-20">
-          <SectionTitle id="about-why" className="mb-12">
-            {t("principles.title")}
-          </SectionTitle>
+          <SectionTitle id="about-why">{t("principles.title")}</SectionTitle>
           <Principles />
         </div>
       </section>

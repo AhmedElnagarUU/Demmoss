@@ -38,7 +38,7 @@ The designs cover **7 business categories**. Two of them are new (logistics, onl
 |---|---|---|---|
 | Restaurants | **Verdant Table**, fine dining (mirrors `03-verdant-table`) | **Sole Trattoria**, pizza & pasta ordering (Sole Trattoria + Hearthbean order drawer) | Built: the home page, header and footer mirror the source (`docs/design-specs/03-verdant-table.md`) |
 | Cafés | **Café & eatery**: table booking + pickup orders (Hearthbean) | **Specialty coffee**: order for pickup/delivery + beans (Sage & Grain) | Same dashboard as Restaurants (menu, orders, reservations) |
-| Real estate | **Agency**: buy/rent listings (Hartwell) | **Developer**: projects and units (Solenne) | Matches the agreed variants exactly |
+| Real estate | **Agency**: buy/rent listings (Hartwell & Co. Realty, mirrors `02-hartwell-realty`) | **Developer**: projects and units (Solenne) | Built: the agency home page, header and footer mirror the source (`docs/design-specs/02-hartwell-realty.md`) |
 | Clinics | **Specialist doctor**: dental implants (Dr. Vale) | **Medical centre**: several doctors (derived from Dr. Vale's design language) | No design for B yet |
 | Logistics *(new)* | **Freight forwarder** (Orbis + Meridian merged) | **Warehousing & 3PL** (Stackwell) | |
 | Marketing & creative *(updated)* | **Full-service marketing agency** (KZ Digital, owner's 8 services) | **Brand & interior design studio** (Olivine) | Replaces the earlier "performance agency" idea |

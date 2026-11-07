@@ -1,80 +1,130 @@
 {
   "nav": {
     "label": "Main",
-    "home": "Home",
-    "listings": "Listings",
-    "about": "About & team",
-    "contact": "Contact"
+    "buy": "Buy",
+    "rent": "Rent",
+    "sell": "Sell",
+    "agents": "Agents",
+    "contact": "Contact",
+    "menu": "Menu"
   },
   "header": {
     "schedule": "Schedule a viewing"
   },
   "hero": {
-    "eyebrow": "Residential brokerage in Riyadh",
+    "eyebrow": "Residential brokerage",
     "searchLabel": "Search homes",
     "buy": "Buy",
     "rent": "Rent",
-    "search": "Search"
+    "search": "Search",
+    "location": "Location",
+    "type": "Property type",
+    "price": "Price range",
+    "anyLocation": "Any location",
+    "allTypes": "All types",
+    "anyPrice": "Any price",
+    "house": "House",
+    "apartment": "Apartment",
+    "villa": "Villa",
+    "poolHotspot": "Pool terrace",
+    "poolTip": "Heated pool terrace",
+    "poolNote": "Included",
+    "livingHotspot": "Open living",
+    "livingTip": "Open-plan living",
+    "livingNote": "180 m² ground floor"
   },
   "stats": {
     "label": "Our numbers",
     "sold": {
       "value": "2,400+",
+      "format": "{value}+",
       "label": "Homes sold"
     },
-    "years": {
-      "value": "20",
-      "label": "Years in Riyadh"
+    "volume": {
+      "value": "SAR 4.5B",
+      "format": "SAR {value}B",
+      "label": "Sales volume"
     },
-    "recommend": {
-      "value": "98%",
-      "label": "Clients who recommend us"
+    "agents": {
+      "value": "35",
+      "format": "{value}",
+      "label": "Expert agents"
+    },
+    "years": {
+      "value": "18",
+      "format": "{value}",
+      "label": "Years in business"
     }
   },
   "featured": {
     "eyebrow": "Featured properties",
-    "title": "Fresh homes, honest prices",
-    "all": "All listings"
+    "title": "Current listings",
+    "filterLabel": "Filter listings",
+    "tabs": {
+      "all": "All",
+      "house": "Houses",
+      "apartment": "Apartments",
+      "villa": "Villas",
+      "rent": "For rent"
+    },
+    "none": "No properties match this filter right now.",
+    "favorite": "Favorite",
+    "tag": {
+      "new": "New",
+      "openHouse": "Open house"
+    }
   },
   "principles": {
-    "eyebrow": "Why Dar Al Manzil",
-    "title": "Three principles, one calm process",
+    "eyebrow": "Why Hartwell",
+    "title": "Three principles,|one calm process",
     "local": {
       "title": "Local insight",
-      "text": "Our agents live in the districts they sell. We know the school runs, the quiet streets, and where the best bakery hides."
+      "text": "Our agents live in the streets they sell. We know which school runs are quick, which lanes flood, and where the best bakery hides."
     },
     "pricing": {
-      "title": "Clear pricing",
-      "text": "Every valuation comes with its evidence. No hidden fees and no inflated estimates just to win a listing."
+      "title": "Transparent pricing",
+      "text": "Every valuation comes with its evidence. No hidden fees, no inflated estimates just to win a listing; only clear numbers you can trust."
     },
     "fullService": {
-      "title": "One team for everything",
-      "text": "Photography, legal coordination, and mortgage introductions under one roof, so you only need one phone number."
+      "title": "Full-service",
+      "text": "Staging, photography, legal coordination and mortgage introductions under one roof, so you only ever need one phone number."
     }
   },
   "hoods": {
     "eyebrow": "Neighbourhoods",
     "title": "Where we work",
-    "count": "{count} open listings"
+    "riverside": "46 listings",
+    "oldTown": "31 listings",
+    "hillcrest": "28 listings",
+    "harbour": "19 listings"
   },
   "mortgage": {
     "eyebrow": "Mortgage calculator",
-    "title": "Know your monthly payment before you call",
-    "lead": "Move the sliders to see what your home could cost each month. Thinking of selling instead? We value your home for free.",
-    "valuation": "Request a free valuation"
+    "title": "Plan your monthly payment",
+    "lead": "Move the sliders to see an estimate of what your home could cost each month. Thinking of selling instead? Our team will value your home free of charge.",
+    "valuation": "Request a valuation",
+    "price": "Home price",
+    "down": "Down payment",
+    "rate": "Interest rate",
+    "term": "Term",
+    "yearsValue": "{count} years",
+    "perMonth": "/ month",
+    "principal": "Principal",
+    "interest": "Interest"
   },
   "agents": {
     "eyebrow": "Our agents",
-    "title": "Real people who answer"
+    "title": "Meet the team",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "x": "X"
   },
   "stories": {
     "eyebrow": "Kind words",
-    "title": "Families who found their home with us"
-  },
-  "cta": {
-    "title": "Book a viewing in a minute",
-    "text": "Pick a free time and an agent confirms within hours.",
-    "button": "Schedule a viewing"
+    "title": "Client stories",
+    "prev": "Previous",
+    "next": "Next",
+    "slide": "Slide {number}"
   },
   "listings": {
     "eyebrow": "Listings",
@@ -105,42 +155,70 @@
     "credit": "Photos: Unsplash contributors."
   },
   "contact": {
-    "eyebrow": "Contact",
-    "viewingTitle": "Book a viewing",
+    "eyebrow": "Book a viewing",
+    "general": "General enquiry",
+    "name": "Name",
+    "phone": "Phone",
+    "property": "Property",
+    "date": "Date",
+    "time": "Time",
+    "message": "Message",
     "inquiryTitle": "Ask a question or request a free valuation",
-    "visitTitle": "Visit our office"
+    "infoEyebrow": "Visit our office",
+    "infoTitle": "Hartwell House",
+    "address": "Address",
+    "contactLabel": "Contact",
+    "email": "hello@hartwell.example",
+    "hours": "Hours",
+    "mapLabel": "Hartwell & Co."
   },
   "footer": {
-    "tagline": "Buy, rent, or sell with a team that knows north Riyadh.",
+    "tagline": "Property news and new listings, delivered monthly. No noise.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "thanks": "Thank you for subscribing. Welcome to Hartwell.",
     "explore": "Explore",
+    "company": "Company",
+    "follow": "Follow",
     "buy": "Buy",
     "rent": "Rent",
-    "visit": "Visit us",
-    "demoNote": "{name} is a demo website built to show what your business could have."
+    "sell": "Sell",
+    "mortgage": "Mortgage calculator",
+    "agents": "Agents",
+    "reviews": "Reviews",
+    "hoods": "Neighbourhoods",
+    "contact": "Contact",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "x": "X",
+    "copyright": "© 2026 {name}",
+    "legal": "Privacy · Terms"
   },
   "meta": {
     "home": {
-      "title": "Dar Al Manzil · Real estate in Riyadh",
-      "description": "Buy or rent homes in north Riyadh with an agency that answers."
+      "title": "Hartwell & Co. Realty",
+      "description": "Considered homes, honest advice and a team that treats every key handover like a small celebration. Buy, rent or sell with Hartwell."
     },
     "listings": {
-      "title": "Listings · Dar Al Manzil",
-      "description": "Search apartments, villas, and townhouses for sale and rent."
+      "title": "Listings · Hartwell & Co. Realty",
+      "description": "Search houses, apartments, and villas for sale and rent."
     },
     "property": {
-      "title": "Property · Dar Al Manzil",
+      "title": "Property · Hartwell & Co. Realty",
       "description": "Photos, facts, mortgage estimate, and a free time to view."
     },
     "about": {
-      "title": "About & team · Dar Al Manzil",
-      "description": "Meet the agents who know Riyadh street by street."
+      "title": "About & team · Hartwell & Co. Realty",
+      "description": "Meet the agents who live in the streets they sell."
     },
     "contact": {
-      "title": "Contact · Dar Al Manzil",
+      "title": "Contact · Hartwell & Co. Realty",
       "description": "Book a viewing or request a free valuation."
     },
     "dashboard": {
-      "title": "Dashboard · Dar Al Manzil"
+      "title": "Dashboard · Hartwell & Co. Realty"
     }
   }
 }

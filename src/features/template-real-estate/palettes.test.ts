@@ -34,6 +34,18 @@ describe.each(variants)("RE13: every %s palette keeps readable colors (WCAG AA)"
   });
 });
 
+describe("RE13: the agency design tokens keep readable colors on its dark bands", () => {
+  describe.each(agencyPalettes.map((palette) => [palette.id, palette.vars] as const))("%s", (_id, vars) => {
+    const get = (name: `--${string}`) => vars[name] ?? "";
+
+    it("the light accent and the decorative accent are readable as text on the dark band", () => {
+      expect(contrast(get("--re-beige"), get("--re-dark"))).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(get("--re-gold"), get("--re-dark"))).toBeGreaterThanOrEqual(4.5);
+      expect(contrast("#ffffff", get("--re-dark"))).toBeGreaterThanOrEqual(4.5);
+    });
+  });
+});
+
 it("the contrast function itself is right (black on white is 21:1)", () => {
   expect(contrast("#000000", "#ffffff")).toBeCloseTo(21, 0);
 });

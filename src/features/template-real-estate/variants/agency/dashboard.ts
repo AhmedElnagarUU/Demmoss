@@ -16,14 +16,14 @@ export const agencyModules: readonly DashboardModule[] = [
 
 export const agencyConfig: RealEstateConfig = {
   slug: AGENCY_SLUG,
-  templateName: "Dar Al Manzil",
+  templateName: "Hartwell & Co. Realty",
   basePath: "/demos/real-estate/agency",
   listingsSegment: "listings",
   palettes: agencyPalettes,
   photos: agencyPhotos,
   areas: agencyAreas,
   purposes: ["sale", "rent"],
-  types: ["apartment", "villa", "townhouse"],
+  types: ["townhouse", "apartment", "villa"],
   priceBands: agencyPriceBands,
   unitsDriveStatus: false,
   mortgageCalculator: true,

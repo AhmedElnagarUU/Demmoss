@@ -16,41 +16,41 @@ const find = (filter: Parameters<typeof filterProperties>[1]) =>
 
 describe("RE1: search and filter properties", () => {
   it("filters by buy or rent", () => {
-    expect(find({ purpose: "rent" })).toEqual(["narjis-townhouse", "olaya-apartment", "olaya-studio"]);
+    expect(find({ purpose: "rent" })).toEqual(["birch-road", "dock-lofts", "quay-street"]);
     expect(find({ purpose: "sale" })).toHaveLength(5);
   });
 
   it("filters by type, area, and a minimum number of bedrooms", () => {
-    expect(find({ type: "townhouse", purpose: "sale" })).toEqual(["yasmin-townhouse"]);
-    expect(find({ area: "al-olaya" })).toEqual(["olaya-apartment", "olaya-studio"]);
-    expect(find({ minBedrooms: 5 })).toEqual(["hittin-villa", "malqa-villa", "malqa-villa-2"]);
+    expect(find({ type: "townhouse", purpose: "sale" })).toEqual(["alder-lane", "orchard-close"]);
+    expect(find({ area: "harbour" })).toEqual(["dock-lofts", "quay-street"]);
+    expect(find({ minBedrooms: 5 })).toEqual(["cypress-court", "laurel-heights"]);
   });
 
   it("price limits are inclusive", () => {
-    expect(find({ purpose: "sale", minPrice: 1_150_000, maxPrice: 2_150_000 })).toEqual([
-      "yasmin-apartment",
-      "yasmin-townhouse",
+    expect(find({ purpose: "sale", minPrice: 2_590_000, maxPrice: 3_690_000 })).toEqual([
+      "mill-yard",
+      "orchard-close",
     ]);
   });
 
   it("combines every filter (all must match)", () => {
-    expect(find({ purpose: "sale", type: "villa", area: "al-malqa", maxPrice: 4_000_000 })).toEqual([
-      "malqa-villa",
+    expect(find({ purpose: "sale", type: "villa", area: "hillcrest", maxPrice: 10_000_000 })).toEqual([
+      "laurel-heights",
     ]);
     expect(find({ purpose: "rent", type: "villa" })).toEqual([]);
   });
 
   it("searches the title and the area in Arabic and in English, every word must match", () => {
-    expect(find({ query: "villa malqa" })).toEqual(["malqa-villa", "malqa-villa-2"]);
-    expect(find({ query: "فيلا حطين" })).toEqual(["hittin-villa"]);
-    expect(find({ query: "الملقا" })).toEqual(["malqa-villa", "malqa-villa-2"]);
-    expect(find({ query: "  VILLA  " })).toHaveLength(3);
+    expect(find({ query: "lane riverside" })).toEqual(["alder-lane"]);
+    expect(find({ query: "ريفرسايد" })).toEqual(["alder-lane", "birch-road"]);
+    expect(find({ query: "هيلكريست كورت" })).toEqual(["cypress-court"]);
+    expect(find({ query: "  HILLCREST  " })).toEqual(["cypress-court", "laurel-heights"]);
     expect(find({ query: "castle" })).toEqual([]);
   });
 
   it("available only hides a listing under offer", () => {
-    expect(find({ availableOnly: true })).not.toContain("malqa-villa-2");
-    expect(find({})).toContain("malqa-villa-2");
+    expect(find({ availableOnly: true })).not.toContain("orchard-close");
+    expect(find({})).toContain("orchard-close");
   });
 
   it("available only judges a residence by its units", () => {
@@ -62,8 +62,8 @@ describe("RE1: search and filter properties", () => {
 
 describe("RE1: sorting", () => {
   it("sorts by price in both directions", () => {
-    expect(sortProperties(seedProperties, "priceAsc")[0]?.id).toBe("olaya-studio");
-    expect(sortProperties(seedProperties, "priceDesc")[0]?.id).toBe("hittin-villa");
+    expect(sortProperties(seedProperties, "priceAsc")[0]?.id).toBe("dock-lofts");
+    expect(sortProperties(seedProperties, "priceDesc")[0]?.id).toBe("cypress-court");
   });
 
   it("featured first keeps the owner's order inside each group and does not change the input", () => {
@@ -81,8 +81,8 @@ describe("RE1: filter controls", () => {
     expect(toPropertyFilter(state, agencyPriceBands)).toEqual({
       purpose: "rent",
       type: "townhouse",
-      minPrice: 60_001,
-      maxPrice: 100_000,
+      minPrice: 140_001,
+      maxPrice: 180_000,
       minBedrooms: 3,
     });
     // a sale band does nothing when renting
@@ -93,11 +93,11 @@ describe("RE1: filter controls", () => {
 
   it("reads the URL of the home search and ignores unknown values", () => {
     const allowed = { purposes: ["sale", "rent"] as const, areas: agencyAreas, bands: agencyPriceBands };
-    const params = new URLSearchParams("purpose=rent&type=villa&area=al-malqa&band=rent-1");
+    const params = new URLSearchParams("purpose=rent&type=villa&area=riverside&band=rent-1");
     expect(filterStateFromParams(params, allowed)).toMatchObject({
       purpose: "rent",
       type: "villa",
-      area: "al-malqa",
+      area: "riverside",
       band: "rent-1",
     });
     const bad = new URLSearchParams("purpose=lease&type=castle&area=mars&band=sale-1&purpose2=x");

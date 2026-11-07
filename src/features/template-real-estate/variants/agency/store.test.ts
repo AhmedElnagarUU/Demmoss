@@ -8,11 +8,11 @@ const storage = createFakeStorage();
 vi.stubGlobal("window", { localStorage: storage });
 const { useAgencyStore } = await import("./store");
 
-const account = { name: "Sara", passwordHash: "a".repeat(64), businessName: "Dar Sara" };
+const account = { name: "Sara", passwordHash: "a".repeat(64), businessName: "Hartwell Sara" };
 const store = () => useAgencyStore.getState();
 
 const request = {
-  propertyId: "malqa-villa",
+  propertyId: "alder-lane",
   name: "  Nada  ",
   phone: "966500000009",
   date: "2026-11-10",
@@ -72,15 +72,15 @@ describe("RE10: properties, agents, testimonials", () => {
   });
 
   it("removing an agent clears the agent from their properties", () => {
-    store().removeAgent("fahad");
-    expect(store().agents.some((agent) => agent.id === "fahad")).toBe(false);
-    expect(store().properties.filter((property) => property.agentId === "fahad")).toEqual([]);
-    expect(store().properties.find((property) => property.id === "malqa-villa")).toBeDefined();
+    store().removeAgent("eleanor");
+    expect(store().agents.some((agent) => agent.id === "eleanor")).toBe(false);
+    expect(store().properties.filter((property) => property.agentId === "eleanor")).toEqual([]);
+    expect(store().properties.find((property) => property.id === "alder-lane")).toBeDefined();
   });
 
   it("hides a testimonial without deleting it", () => {
-    store().updateTestimonial("t-dosari", { visible: false });
-    expect(store().testimonials.find((item) => item.id === "t-dosari")?.visible).toBe(false);
+    store().updateTestimonial("t-maya", { visible: false });
+    expect(store().testimonials.find((item) => item.id === "t-maya")?.visible).toBe(false);
   });
 
   it("RE13: editing the name in Settings marks it as edited", () => {
@@ -102,10 +102,10 @@ describe("E3: reset", () => {
   it("reset restores the seed and keeps the account", () => {
     store().setAccount(account);
     store().addViewing(request);
-    store().removeProperty("malqa-villa");
+    store().removeProperty("alder-lane");
     store().resetDemo();
     expect(store().account).toEqual(account);
-    expect(store().properties.some((property) => property.id === "malqa-villa")).toBe(true);
+    expect(store().properties.some((property) => property.id === "alder-lane")).toBe(true);
     expect(store().viewings.some((viewing) => viewing.name === "Nada")).toBe(false);
   });
 });

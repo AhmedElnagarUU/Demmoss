@@ -59,6 +59,8 @@ export const propertySchema = z.object({
   // photo ids from the variant's photo list; the first one is the cover
   photos: z.array(z.string().min(1)).min(1).max(8),
   featured: z.boolean(),
+  // a small label on the card, e.g. "New" or "Open house" (agency design)
+  tag: z.enum(["new", "openHouse"]).optional(),
   status: propertyStatusSchema,
   agentId: z.string().optional(),
   // developer residences only; empty for agency listings

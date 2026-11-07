@@ -8,8 +8,8 @@ Feature folder: `src/features/template-real-estate/`.
 | | Variant A: Agency | Variant B: Developer |
 |---|---|---|
 | Slug | `real-estate-agency` | `real-estate-developer` |
-| Business (seed) | **Dar Al Manzil** · **دار المنزل العقارية**: Riyadh brokerage, buy and rent | **Rawasi** · **رواسي للتطوير العقاري**: Jeddah villa and penthouse developer |
-| Design | Hartwell: warm white, black, bronze; Montserrat + IBM Plex Sans Arabic | Solenne: black, sand; light Montserrat + Tajawal |
+| Business (seed) | **Hartwell & Co. Realty** · **هارتويل وشركاه العقارية**: residential brokerage, buy and rent (the source design's own business) | **Rawasi** · **رواسي للتطوير العقاري**: Jeddah villa and penthouse developer |
+| Design | Hartwell: warm white, black, bronze; Montserrat + IBM Plex Sans Arabic. **The home page, header and footer mirror the source exactly** (`docs/design-specs/02-hartwell-realty.md`) | Solenne: black, sand; light Montserrat + Tajawal |
 | Main value | More viewings and a trusted brand against portals and phone tag | Sell units: qualified viewings and live availability instead of PDF price lists |
 | Main closed loop | Viewing request on a property → Viewings | Viewing request on a residence → Viewings |
 | Second loop | Property inquiry or valuation request → Inquiries | Owner marks a unit available / reserved / sold → the site shows it; unit inquiry → Inquiries |
@@ -18,9 +18,9 @@ Feature folder: `src/features/template-real-estate/`.
 
 ## 1. Business profiles
 
-### A. Dar Al Manzil (agency)
+### A. Hartwell & Co. Realty (agency)
 
-- **Who it is:** an established Riyadh brokerage selling and renting apartments, villas, and townhouses in the north of the city.
+- **Who it is:** an established residential brokerage selling and renting houses, apartments, and villas across four neighbourhoods (Riverside, Old Town, Hillcrest, Harbour District). Prices are shown in riyals (the source's dollars x3.75).
 - **Customers:** families buying a first or bigger home, expats and young professionals renting yearly, owners who want to sell or rent out.
 - **What the owner wants:** more serious viewings booked directly, fewer missed calls and WhatsApp threads, owners who trust the agency to list their property.
 - **Pain today:** listings live in portals that take the lead; viewings are arranged by phone and forgotten; buyers cannot tell what the monthly cost will be.
@@ -38,19 +38,19 @@ Feature folder: `src/features/template-real-estate/`.
 
 Every section has a business goal. Sections without one are not built.
 
-### A. Dar Al Manzil site
+### A. Hartwell & Co. Realty site (home sections in the source's order)
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
-| Home | Hero with Buy / Rent search | leads | Find the home that fits you in three taps |
-| Home | Numbers strip (homes sold, years, agents) | trust | Neighbourhood experts you can rely on |
-| Home | Featured listings | sales, viewings | Fresh homes, honest prices |
-| Home | Three principles | trust | Local insight, clear pricing, one team for everything |
-| Home | Neighbourhoods (links to filtered listings) | discovery | Start from the district you want |
-| Home | Mortgage calculator | qualify buyers | Know your monthly payment before you call |
-| Home | Agents | trust, contact | Real people who answer |
-| Home | Testimonials | trust | Families who found their home with us |
-| Home | Viewing CTA band | viewings | Book a viewing in a minute |
+| Home | Hero (round-topped photo, two hotspots) with Buy / Rent search that filters the listings below | leads | Find the place you will call home |
+| Home | Numbers strip (homes sold, sales volume, agents, years) that counts up | trust | Neighbourhood experts you can rely on |
+| Home | Current listings with All / Houses / Apartments / Villas / For rent tabs, heart favourite | sales, viewings | Current listings |
+| Home | Three principles (dark band) | trust | Local insight, transparent pricing, full-service |
+| Home | Neighbourhoods (night photo, four columns, each links to that area's listings) | discovery | Where we work |
+| Home | Mortgage calculator (four sliders, principal / interest bar) + valuation request link | qualify buyers | Plan your monthly payment |
+| Home | Agents (portrait, social icons on hover, phone) | trust, contact | Meet the team |
+| Home | Client stories slider (arrows, dots, auto-advance) | trust | Client stories |
+| Home | **Schedule a visit** form (closed loop to Viewings) + office info and map | viewings | Schedule a visit |
 | Listings | Filters (buy/rent, type, area, price, bedrooms, text) + sort + cards | decide | Find it fast, see what is available |
 | Property detail | Gallery, key facts, description, features | desire | Everything needed to decide |
 | Property detail | Mortgage calculator (buy only) | qualify | Monthly payment for this home |

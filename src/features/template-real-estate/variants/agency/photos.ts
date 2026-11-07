@@ -5,14 +5,14 @@ import type { Photo } from "../../site/photo";
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}`;
 
 const landscape = { width: 1200, height: 800 } as const;
-const portrait = { width: 600, height: 750 } as const;
+const portrait = { width: 600, height: 800 } as const;
 
 export const agencyPhotos: readonly Photo[] = [
   {
     id: "hero-pool",
     src: unsplash("1600585154340-be6161a56a0c"),
     ...landscape,
-    alt: { ar: "فيلا عصرية بمسبح وإضاءة مسائية", en: "Modern villa with a pool at dusk" },
+    alt: { ar: "بيت عصري بمسبح", en: "Modern house with pool" },
   },
   {
     id: "villa-garden",
@@ -66,34 +66,34 @@ export const agencyPhotos: readonly Photo[] = [
     id: "city-night",
     src: unsplash("1486406146926-c627a92ad1ab"),
     ...landscape,
-    alt: { ar: "أبراج المدينة في المساء", en: "City towers in the evening" },
+    alt: { ar: "المدينة ليلًا", en: "City at night" },
   },
   {
-    id: "agent-fahad",
+    id: "agent-james",
     src: unsplash("1507003211169-0a1dd7228f2d"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة فهد الحربي", en: "Portrait of Fahad Al-Harbi" },
+    alt: { ar: "صورة جيمس كالاواي", en: "Portrait of James Calloway" },
   },
   {
-    id: "agent-noura",
+    id: "agent-eleanor",
     src: unsplash("1494790108377-be9c29b29330"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة نورة القحطاني", en: "Portrait of Noura Al-Qahtani" },
+    alt: { ar: "صورة إليانور هارتويل", en: "Portrait of Eleanor Hartwell" },
   },
   {
-    id: "agent-lama",
+    id: "agent-sofia",
     src: unsplash("1573496359142-b8d87734a5a2"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة لمى الشهري", en: "Portrait of Lama Al-Shehri" },
+    alt: { ar: "صورة صوفيا ماركيتي", en: "Portrait of Sofia Marchetti" },
   },
   {
-    id: "agent-khalid",
+    id: "agent-marcus",
     src: unsplash("1500648767791-00dcc994a43e"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة خالد الدوسري", en: "Portrait of Khalid Al-Dosari" },
+    alt: { ar: "صورة ماركوس بيل", en: "Portrait of Marcus Bell" },
   },
 ];

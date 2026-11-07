@@ -3,7 +3,7 @@ import { createTranslator, type TranslateFor } from "@/shared/i18n/t";
 import ar from "./messages/ar.json";
 import en from "./messages/en.json";
 
-// Text of the Dar Al Manzil site. Everything else is in ../../messages.
+// Text of the Hartwell & Co. Realty site. Everything else is in ../../messages.
 export type AgencyMessages = typeof en;
 export type AgencyTranslate = TranslateFor<AgencyMessages>;
 

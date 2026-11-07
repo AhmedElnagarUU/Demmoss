@@ -8,7 +8,7 @@ import { createAgencySeed } from "./seed";
 import { AGENCY_SLUG } from "./slug";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const AGENCY_VERSION = 1;
+export const AGENCY_VERSION = 2;
 
 export const useAgencyStore = createTemplateStore({
   slug: AGENCY_SLUG,

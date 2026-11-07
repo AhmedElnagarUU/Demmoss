@@ -299,13 +299,13 @@
     "priceDesc": "Price: high to low"
   },
   "band": {
-    "sale-1": "Up to SAR 1.5M",
-    "sale-2": "SAR 1.5M – 3M",
-    "sale-3": "SAR 3M – 5M",
-    "sale-4": "SAR 5M and above",
-    "rent-1": "Up to SAR 60,000 / year",
-    "rent-2": "SAR 60,000 – 100,000 / year",
-    "rent-3": "Above SAR 100,000 / year",
+    "sale-1": "Up to SAR 2M",
+    "sale-2": "SAR 2M – 4M",
+    "sale-3": "SAR 4M – 8M",
+    "sale-4": "SAR 8M and above",
+    "rent-1": "Up to SAR 140,000 / year",
+    "rent-2": "SAR 140,000 – 180,000 / year",
+    "rent-3": "Above SAR 180,000 / year",
     "dev-1": "Up to SAR 3M",
     "dev-2": "SAR 3M – 4M",
     "dev-3": "SAR 4M and above"

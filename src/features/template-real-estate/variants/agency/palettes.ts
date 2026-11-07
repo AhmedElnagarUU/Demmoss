@@ -1,22 +1,30 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
-// Five palettes for the agency. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
-// --re-accent is the design's accent for small text (labels, eyebrows).
+// Five palettes for Hartwell & Co. Realty. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// Besides the shared tokens each palette carries the design's own:
+// --re-accent: the accent used as small TEXT (labels, roles), darkened just enough to pass AA on the page and on panels.
+// --re-gold: the accent as a decoration only (slider fill, bars, icons, hover rules), exactly the source's #b8946f in Bronze.
+// --re-dark: the dark bands (principles, footer, neighbourhoods); --re-beige: the light accent used as text on them.
+// Bronze mirrors the source: page #f4f1ec, white cards, ink #111. Source hover color #b8946f with white text fails AA,
+// so the button hover is the darker #7a5a37.
 export const agencyPalettes: readonly Palette[] = [
   {
     id: "bronze",
     name: { ar: "برونزي", en: "Bronze" },
     vars: {
       "--color-bg": "#f4f1ec",
-      "--color-surface": "#ebe6de",
+      "--color-surface": "#ffffff",
       "--color-text": "#111111",
-      "--color-muted": "#5f5a52",
-      "--color-border": "#cfc8bc",
+      "--color-muted": "#6b665e",
+      "--color-border": "#d4d1cd",
       "--color-primary": "#111111",
       "--color-primary-hover": "#7a5a37",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#111111",
       "--re-accent": "#7d5f3a",
+      "--re-gold": "#b8946f",
+      "--re-dark": "#121212",
+      "--re-beige": "#d9b99b",
     },
   },
   {
@@ -24,15 +32,18 @@ export const agencyPalettes: readonly Palette[] = [
     name: { ar: "أخضر مريمي", en: "Sage" },
     vars: {
       "--color-bg": "#f2f4ef",
-      "--color-surface": "#e4e9de",
+      "--color-surface": "#ffffff",
       "--color-text": "#14201a",
       "--color-muted": "#55605a",
-      "--color-border": "#c6cfc0",
+      "--color-border": "#cfd6c9",
       "--color-primary": "#2f4a3a",
       "--color-primary-hover": "#223a2c",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#2f4a3a",
       "--re-accent": "#4a6a3d",
+      "--re-gold": "#7d9a68",
+      "--re-dark": "#14201a",
+      "--re-beige": "#c9d8b8",
     },
   },
   {
@@ -40,15 +51,18 @@ export const agencyPalettes: readonly Palette[] = [
     name: { ar: "كحلي", en: "Navy" },
     vars: {
       "--color-bg": "#f3f4f7",
-      "--color-surface": "#e5e8ef",
+      "--color-surface": "#ffffff",
       "--color-text": "#0f1724",
       "--color-muted": "#535c6b",
-      "--color-border": "#c9cfda",
+      "--color-border": "#d0d5df",
       "--color-primary": "#1f3358",
       "--color-primary-hover": "#162645",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#1f3358",
       "--re-accent": "#3b5a96",
+      "--re-gold": "#6f8fc4",
+      "--re-dark": "#0f1724",
+      "--re-beige": "#b9c9e6",
     },
   },
   {
@@ -56,15 +70,18 @@ export const agencyPalettes: readonly Palette[] = [
     name: { ar: "طيني", en: "Terracotta" },
     vars: {
       "--color-bg": "#f7f1ec",
-      "--color-surface": "#efe3d9",
+      "--color-surface": "#ffffff",
       "--color-text": "#23150f",
       "--color-muted": "#66544a",
-      "--color-border": "#dccabb",
+      "--color-border": "#e3d5c9",
       "--color-primary": "#8c3f24",
       "--color-primary-hover": "#70311b",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#8c3f24",
       "--re-accent": "#a14b2a",
+      "--re-gold": "#c8845f",
+      "--re-dark": "#23150f",
+      "--re-beige": "#e8c3a8",
     },
   },
   {
@@ -72,15 +89,18 @@ export const agencyPalettes: readonly Palette[] = [
     name: { ar: "رصاصي", en: "Graphite" },
     vars: {
       "--color-bg": "#f5f5f4",
-      "--color-surface": "#e8e8e6",
+      "--color-surface": "#ffffff",
       "--color-text": "#121212",
       "--color-muted": "#595959",
-      "--color-border": "#cfcfcc",
+      "--color-border": "#d6d6d3",
       "--color-primary": "#3a3a3a",
       "--color-primary-hover": "#1f1f1f",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#3a3a3a",
       "--re-accent": "#5a5a5a",
+      "--re-gold": "#8a8a8a",
+      "--re-dark": "#121212",
+      "--re-beige": "#d4d4d4",
     },
   },
 ];

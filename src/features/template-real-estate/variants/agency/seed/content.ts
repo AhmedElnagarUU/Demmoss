@@ -1,111 +1,111 @@
 import type { Agent } from "../../../modules/agents/types";
 import type { Content, Settings, Testimonial } from "../../../types";
 
-// The starting content of the Dar Al Manzil demo: a Riyadh brokerage selling and renting homes in the north of the city.
+// The starting content of the demo: Hartwell & Co. Realty, from theme-sources/02-hartwell-realty.html (English word for word).
 
 export const seedSettings: Settings = {
-  businessName: { ar: "دار المنزل العقارية", en: "Dar Al Manzil Real Estate" },
+  businessName: { ar: "هارتويل وشركاه العقارية", en: "Hartwell & Co. Realty" },
   nameEdited: false,
   palette: "bronze",
-  phone: "+966 11 000 0100",
+  phone: "+1 (555) 010-2030",
   whatsapp: "966500000100",
   address: {
-    ar: "طريق الملك فهد، حي العليا، الرياض",
-    en: "King Fahd Road, Al Olaya, Riyadh",
+    ar: "١٢ إكزامبل رو، ريفرسايد، ٠٠٠٠٠",
+    en: "12 Example Row, Riverside, 00000",
   },
   hours: {
-    ar: "الأحد – الخميس: ٩:٠٠ ص – ٦:٠٠ م · السبت: ١٠:٠٠ ص – ٣:٠٠ م",
-    en: "Sun – Thu: 9:00 am – 6:00 pm · Sat: 10:00 am – 3:00 pm",
+    ar: "الإثنين – الجمعة ٩:٠٠ – ١٨:٠٠ · السبت ١٠:٠٠ – ١٥:٠٠",
+    en: "Mon - Fri 9:00 - 18:00 · Sat 10:00 - 15:00",
   },
-  mortgageRate: 5.5,
+  mortgageRate: 5.2,
 };
 
 export const seedContent: Content = {
   hero: {
-    title: { ar: "اعثر على البيت الذي ستسميه وطنك", en: "Find the place you will call home" },
+    title: { ar: "اعثر على المكان الذي ستسمّيه بيتك", en: "Find the place you'll call home" },
     subtitle: {
-      ar: "بيوت مختارة بعناية، ونصيحة صادقة، وفريق يحتفي معك بكل مفتاح يُسلَّم. اشترِ أو استأجر أو بع مع دار المنزل.",
-      en: "Carefully chosen homes, honest advice, and a team that celebrates every key handover with you. Buy, rent, or sell with Dar Al Manzil.",
+      ar: "بيوت مدروسة، ونصيحة صادقة، وفريق يعامل كل تسليم مفتاح كاحتفال صغير. اشترِ أو استأجر أو بِع مع هارتويل.",
+      en: "Considered homes, honest advice and a team that treats every key handover like a small celebration. Buy, rent or sell with Hartwell.",
     },
   },
   about: {
     title: {
-      ar: "وسيط عقاري يعرف شوارع الرياض شارعًا شارعًا",
-      en: "A brokerage that knows Riyadh street by street",
+      ar: "ثلاثة مبادئ، وعملية واحدة هادئة",
+      en: "Three principles, one calm process",
     },
     text: {
-      ar: "منذ ٢٠٠٦ ونحن نساعد العائلات على شراء بيوتها وإيجارها في شمال الرياض. وكلاؤنا يسكنون في الأحياء التي يبيعون فيها، ويعرفون المدارس القريبة والشوارع الهادئة وأين يقع أفضل مخبز.",
-      en: "Since 2006 we have helped families buy and rent homes in north Riyadh. Our agents live in the districts they sell, and know the nearby schools, the quiet streets, and where the best bakery is.",
+      ar: "وكلاؤنا يسكنون في الشوارع التي يبيعون فيها. نعرف أي طرق المدارس أسرع، وأي الأزقة تغمرها المياه، وأين يختبئ أفضل مخبز. كل تقييم يأتي مع أدلته، وكل خدمة تحت سقف واحد.",
+      en: "Our agents live in the streets they sell. We know which school runs are quick, which lanes flood, and where the best bakery hides. Every valuation comes with its evidence, and every service sits under one roof.",
     },
   },
   contact: {
-    title: { ar: "زورونا أو احجزوا معاينة", en: "Visit us or book a viewing" },
+    title: { ar: "جدولة زيارة", en: "Schedule a visit" },
     text: {
-      ar: "اختر موعدًا مناسبًا وسيؤكده الوكيل خلال ساعات. هل تفكر في البيع؟ نقدّم تقييمًا مجانيًا لعقارك.",
-      en: "Pick a time that suits you and an agent confirms within hours. Thinking of selling? We value your property for free.",
+      ar: "اختر وقتًا مناسبًا وسيؤكده أحد الوكلاء قريبًا. هل تفكر في البيع؟ سيقيّم فريقنا بيتك مجانًا.",
+      en: "Pick a time that suits you and an agent will confirm shortly. Thinking of selling? Our team will value your home free of charge.",
     },
   },
 };
 
 export const seedAgents: Agent[] = [
   {
-    id: "fahad",
-    name: { ar: "فهد الحربي", en: "Fahad Al-Harbi" },
-    role: { ar: "المدير العام والوسيط الرئيسي", en: "Managing director and principal broker" },
-    phone: "+966 50 000 0101",
-    photo: "agent-fahad",
+    id: "eleanor",
+    name: { ar: "إليانور هارتويل", en: "Eleanor Hartwell" },
+    role: { ar: "الوسيط الرئيسي", en: "Principal Broker" },
+    phone: "+1 (555) 010-2031",
+    photo: "agent-eleanor",
   },
   {
-    id: "noura",
-    name: { ar: "نورة القحطاني", en: "Noura Al-Qahtani" },
-    role: { ar: "مديرة التأجير", en: "Head of lettings" },
-    phone: "+966 50 000 0102",
-    photo: "agent-noura",
+    id: "james",
+    name: { ar: "جيمس كالاواي", en: "James Calloway" },
+    role: { ar: "وكيل مبيعات أول", en: "Senior Sales Agent" },
+    phone: "+1 (555) 010-2032",
+    photo: "agent-james",
   },
   {
-    id: "khalid",
-    name: { ar: "خالد الدوسري", en: "Khalid Al-Dosari" },
-    role: { ar: "مستشار العقارات الفاخرة", en: "Luxury property advisor" },
-    phone: "+966 50 000 0103",
-    photo: "agent-khalid",
+    id: "sofia",
+    name: { ar: "صوفيا ماركيتي", en: "Sofia Marchetti" },
+    role: { ar: "مديرة التأجير", en: "Lettings Director" },
+    phone: "+1 (555) 010-2033",
+    photo: "agent-sofia",
   },
   {
-    id: "lama",
-    name: { ar: "لمى الشهري", en: "Lama Al-Shehri" },
-    role: { ar: "مستشارة مبيعات", en: "Sales advisor" },
-    phone: "+966 50 000 0104",
-    photo: "agent-lama",
+    id: "marcus",
+    name: { ar: "ماركوس بيل", en: "Marcus Bell" },
+    role: { ar: "متخصص العقارات الفاخرة", en: "Luxury Specialist" },
+    phone: "+1 (555) 010-2034",
+    photo: "agent-marcus",
   },
 ];
 
 export const seedTestimonials: Testimonial[] = [
   {
-    id: "t-dosari",
-    name: { ar: "عائلة الدوسري", en: "The Al-Dosari family" },
-    context: { ar: "اشترت فيلا في الملقا", en: "Bought a villa in Al Malqa" },
+    id: "t-maya",
+    name: { ar: "مايا ودانيال ر.", en: "Maya & Daniel R." },
+    context: { ar: "اشتروا في ريفرسايد", en: "Bought in Riverside" },
     text: {
-      ar: "وجدوا لنا بيتًا لم نكن لنعثر عليه بأنفسنا. كانوا هادئين وصادقين وصبورين من أول معاينة حتى استلام المفتاح.",
-      en: "They found us a home we would never have spotted ourselves. Calm, honest, and patient from the first viewing to the key handover.",
+      ar: "وجدت لنا هارتويل بيتًا ما كنا لنراه على الإنترنت أبدًا. هادئون وصادقون وصبورون بلا حدود، من أول معاينة حتى استلام المفاتيح.",
+      en: "Hartwell found us a home we would never have spotted online. Calm, honest and endlessly patient from first viewing to the keys.",
     },
     visible: true,
   },
   {
-    id: "t-fahd",
-    name: { ar: "تركي الفهد", en: "Turki Al-Fahd" },
-    context: { ar: "باع شقة في الياسمين", en: "Sold an apartment in Al Yasmin" },
+    id: "t-tomas",
+    name: { ar: "توماس ويتفيلد", en: "Tomas Whitfield" },
+    context: { ar: "باع في المدينة القديمة", en: "Sold in Old Town" },
     text: {
-      ar: "بِيعت شقتي خلال أحد عشر يومًا وبسعر أعلى من المطلوب. تقييمهم كان دقيقًا والتواصل لم ينقطع لحظة.",
-      en: "My apartment sold in eleven days, above the asking price. Their valuation was spot on and communication never dropped.",
+      ar: "بِيعت شقتنا خلال أحد عشر يومًا وبسعر أعلى من المطلوب. نصيحة التسعير كانت في محلها، والتواصل لم ينقطع للحظة.",
+      en: "Our flat sold in eleven days, above asking. The pricing advice was spot on and the communication never dropped for a moment.",
     },
     visible: true,
   },
   {
-    id: "t-mutairi",
-    name: { ar: "سارة المطيري", en: "Sarah Al-Mutairi" },
-    context: { ar: "استأجرت شقة في العليا", en: "Rented an apartment in Al Olaya" },
+    id: "t-priya",
+    name: { ar: "بريا نائير", en: "Priya Nair" },
+    context: { ar: "مستأجرة في حي الميناء", en: "Renting in Harbour District" },
     text: {
-      ar: "كنت جديدة في المدينة وشعرت بالاهتمام. عقد واضح، وصيانة سريعة، وفريق ودود فعلًا.",
-      en: "I was new to the city and felt looked after. A clear contract, quick repairs, and a genuinely friendly team.",
+      ar: "كمستأجرة لأول مرة في مدينة جديدة، شعرت بالاهتمام الحقيقي. عقود واضحة، وإصلاحات سريعة، وفريق ملّاك ودود فعلًا.",
+      en: "As a first-time renter in a new city I felt looked after. Clear contracts, quick repairs, and a genuinely friendly landlord team.",
     },
     visible: true,
   },

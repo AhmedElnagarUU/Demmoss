@@ -12,7 +12,7 @@ export function createSampleViewings(now: Date): Viewing[] {
   return [
     {
       id: "view-1",
-      propertyId: "malqa-villa",
+      propertyId: "alder-lane",
       name: "ماجد العتيبي",
       phone: "+966 50 555 0101",
       date: dateKeyFromNow(now, 2),
@@ -23,7 +23,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-2",
-      propertyId: "hittin-villa",
+      propertyId: "cypress-court",
       name: "ريم الغامدي",
       phone: "+966 55 555 0102",
       date: dateKeyFromNow(now, 3),
@@ -33,7 +33,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-3",
-      propertyId: "olaya-apartment",
+      propertyId: "quay-street",
       name: "Sultan Al-Mutairi",
       phone: "+966 54 555 0103",
       date: dateKeyFromNow(now, 1),
@@ -43,7 +43,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-4",
-      propertyId: "hittin-villa",
+      propertyId: "cypress-court",
       name: "حنان الزهراني",
       phone: "+966 50 555 0104",
       date: dateKeyFromNow(now, 4),
@@ -53,7 +53,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-5",
-      propertyId: "yasmin-apartment",
+      propertyId: "mill-yard",
       name: "Abdulaziz Al-Shammari",
       phone: "+966 56 555 0105",
       date: dateKeyFromNow(now, -2),
@@ -63,7 +63,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-6",
-      propertyId: "narjis-townhouse",
+      propertyId: "birch-road",
       name: "دلال العنزي",
       phone: "+966 59 555 0106",
       date: dateKeyFromNow(now, -1),
@@ -78,7 +78,7 @@ export function createSampleInquiries(now: Date): Inquiry[] {
   return [
     {
       id: "inq-1",
-      propertyId: "malqa-villa",
+      propertyId: "alder-lane",
       kind: "question",
       name: "نواف الراشد",
       phone: "+966 50 555 0201",
@@ -91,13 +91,13 @@ export function createSampleInquiries(now: Date): Inquiry[] {
       kind: "valuation",
       name: "Hessa Al-Subaie",
       phone: "+966 55 555 0202",
-      message: "أرغب بتقييم شقة من ثلاث غرف في حي الياسمين قبل عرضها للبيع.",
+      message: "أرغب بتقييم بيتي في المدينة القديمة قبل عرضه للبيع.",
       status: "new",
       createdAt: daysFrom(now, -2, "20:15"),
     },
     {
       id: "inq-3",
-      propertyId: "olaya-apartment",
+      propertyId: "quay-street",
       kind: "question",
       name: "Omar Al-Khalidi",
       phone: "+966 54 555 0203",
@@ -107,7 +107,7 @@ export function createSampleInquiries(now: Date): Inquiry[] {
     },
     {
       id: "inq-4",
-      propertyId: "yasmin-apartment",
+      propertyId: "mill-yard",
       kind: "question",
       name: "منيرة السهلي",
       phone: "+966 56 555 0204",

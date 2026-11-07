@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Dar Al Manzil (real-estate-agency). Demo data lives in the browser, so these journeys need no database.
+// Hartwell & Co. Realty (real-estate-agency). Demo data lives in the browser, so these journeys need no database.
 // Photos come from a CDN: nothing here depends on them loading.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/real-estate/agency${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
@@ -35,13 +35,15 @@ test("RE1, RE3, RE7, RE8: filter the listings, open a property, schedule a viewi
   await expect(page.getByRole("status").filter({ hasText: "properties found" })).toHaveText(
     "3 properties found",
   );
-  await page.getByLabel("Search", { exact: true }).fill("studio");
+  await page.getByLabel("Search", { exact: true }).fill("lofts");
   await expect(page.getByRole("status").filter({ hasText: "properties found" })).toHaveText(
     "1 properties found",
   );
 
-  await page.getByRole("link", { name: "Furnished studio in Al Olaya" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Furnished studio in Al Olaya" })).toBeVisible();
+  await page.getByRole("link", { name: "102 Dock Lofts, Harbour District" }).click();
+  await expect(
+    page.getByRole("heading", { level: 1, name: "102 Dock Lofts, Harbour District" }),
+  ).toBeVisible();
   await scheduleViewing(page, "Nada Test");
 
   await page.getByRole("link", { name: "Open your dashboard to see it arrive" }).click();
@@ -49,14 +51,14 @@ test("RE1, RE3, RE7, RE8: filter the listings, open a property, schedule a viewi
 
   const row = page.getByRole("listitem").filter({ hasText: "Nada Test" });
   await expect(row).toBeVisible();
-  await expect(row.getByText("Furnished studio in Al Olaya")).toBeVisible();
+  await expect(row.getByText("102 Dock Lofts, Harbour District")).toBeVisible();
   await expect(row.getByText("New", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Confirm: Nada Test" }).click();
   await expect(row.getByText("Confirmed", { exact: true })).toBeVisible();
 
   await page.goto(site("en"));
   await expect(page.getByRole("link", { name: "Dar Rania" }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "Dar Al Manzil" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Hartwell & Co. Realty" })).toHaveCount(0);
 });
 
 test("RE1: filters narrow the listings and an empty result says so", async ({ page }) => {
@@ -66,26 +68,28 @@ test("RE1: filters narrow the listings and an empty result says so", async ({ pa
   );
   await page.getByLabel("Property type").selectOption("townhouse");
   await expect(page.getByRole("status").filter({ hasText: "properties found" })).toHaveText(
-    "1 properties found",
+    "2 properties found",
   );
-  await page.getByLabel("Area").selectOption("al-olaya");
+  await page.getByLabel("Area").selectOption("harbour");
   await expect(page.getByText("No property matches these filters. Try widening your search.")).toBeVisible();
 });
 
-test("RE1: the home search opens the listings with the same choices", async ({ page }) => {
+test("RE1: the home search filters the listings below it with the same choices", async ({ page }) => {
   await page.goto(site("en"));
   const search = page.getByRole("form", { name: "Search homes" });
   await search.getByRole("button", { name: "Rent" }).click();
-  await search.getByLabel("Area").selectOption("al-narjis");
+  await search.getByLabel("Location").selectOption("riverside");
   await search.getByRole("button", { name: "Search" }).click();
-  await expect(page.getByRole("status").filter({ hasText: "properties found" })).toHaveText(
-    "1 properties found",
-  );
-  await expect(page.getByRole("link", { name: "Duplex townhouse for rent in Al Narjis" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "61 Birch Road, Riverside" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "14 Alder Lane, Riverside" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Villas", exact: true }).click();
+  await expect(page.getByRole("link", { name: "3 Cypress Court, Hillcrest" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "61 Birch Road, Riverside" })).toHaveCount(0);
 });
 
 test("RE4, RE9: a question on a property reaches the dashboard Inquiries", async ({ page }) => {
-  await page.goto(site("en", "/listings/detail?id=malqa-villa"));
+  await page.goto(site("en", "/listings/detail?id=alder-lane"));
   const form = page.getByRole("form", { name: "Ask about this property" });
   await form.getByLabel("Your name").fill("Huda Asks");
   await form.getByLabel("Phone number").fill("966507654321");
@@ -112,7 +116,7 @@ test("RE4: a valuation request can be sent without a message", async ({ page }) 
 });
 
 test("RE3: a bad phone number or a missing time is explained, nothing is saved", async ({ page }) => {
-  await page.goto(site("en", "/listings/detail?id=olaya-apartment"));
+  await page.goto(site("en", "/listings/detail?id=quay-street"));
   const form = page.getByRole("form", { name: "Schedule a viewing" });
   await form.getByLabel("Your name").fill("No Phone");
   await form.getByLabel("Phone number").fill("12");
@@ -123,7 +127,7 @@ test("RE3: a bad phone number or a missing time is explained, nothing is saved",
 });
 
 test("RE5: the mortgage calculator reacts to the down payment", async ({ page }) => {
-  await page.goto(site("en", "/listings/detail?id=malqa-villa"));
+  await page.goto(site("en", "/listings/detail?id=alder-lane"));
   const monthly = page.getByText("Estimated monthly payment").locator("xpath=following-sibling::p[1]");
   await expect(monthly).toContainText("SAR");
   const before = await monthly.textContent();
@@ -137,15 +141,15 @@ test("RE10, E3: edit a property in Arabic and English, then reset restores the s
   await page.goto(dashboard("en", "/properties"));
   await register(page);
 
-  await page.getByRole("button", { name: "Edit: Furnished studio in Al Olaya" }).click();
+  await page.getByRole("button", { name: "Edit: 102 Dock Lofts, Harbour District" }).click();
   await page.getByLabel("Title (English)").fill("Studio with a view");
   await page.getByLabel("Title (Arabic)").fill("استوديو بإطلالة");
   await page.getByRole("button", { name: "Save property" }).click();
   await expect(page.getByText("Studio with a view").first()).toBeVisible();
 
-  await page.goto(site("en", "/listings/detail?id=olaya-studio"));
+  await page.goto(site("en", "/listings/detail?id=dock-lofts"));
   await expect(page.getByRole("heading", { level: 1, name: "Studio with a view" })).toBeVisible();
-  await page.goto(site("ar", "/listings/detail?id=olaya-studio"));
+  await page.goto(site("ar", "/listings/detail?id=dock-lofts"));
   await expect(page.getByRole("heading", { level: 1, name: "استوديو بإطلالة" })).toBeVisible();
 
   await page.goto(dashboard("en", "/settings"));
@@ -153,23 +157,25 @@ test("RE10, E3: edit a property in Arabic and English, then reset restores the s
   await expect(page.getByText("The demo was reset.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Log out" })).toBeVisible();
 
-  await page.goto(site("en", "/listings/detail?id=olaya-studio"));
-  await expect(page.getByRole("heading", { level: 1, name: "Furnished studio in Al Olaya" })).toBeVisible();
+  await page.goto(site("en", "/listings/detail?id=dock-lofts"));
+  await expect(
+    page.getByRole("heading", { level: 1, name: "102 Dock Lofts, Harbour District" }),
+  ).toBeVisible();
 });
 
 test("RE10: a property added in the dashboard opens on the site", async ({ page }) => {
   await page.goto(dashboard("en", "/properties"));
   await register(page);
   await page.getByRole("button", { name: "Add a property" }).click();
-  await page.getByLabel("Title (English)").fill("Garden flat in Hittin");
+  await page.getByLabel("Title (English)").fill("Garden flat in Riverside");
   await page.getByLabel("Price (SAR)").fill("1800000");
   await page.getByLabel("Size (m²)").fill("140");
   await page.getByRole("button", { name: "Save property" }).click();
-  await expect(page.getByText("Garden flat in Hittin").first()).toBeVisible();
+  await expect(page.getByText("Garden flat in Riverside").first()).toBeVisible();
 
   await page.goto(site("en", "/listings"));
-  await page.getByRole("link", { name: "Garden flat in Hittin" }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Garden flat in Hittin" })).toBeVisible();
+  await page.getByRole("link", { name: "Garden flat in Riverside" }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Garden flat in Riverside" })).toBeVisible();
 });
 
 test("RE12: the value tip names a client who waited more than a day", async ({ page }) => {
@@ -193,14 +199,14 @@ test.describe("direction", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("اعثر على البيت الذي ستسميه وطنك");
-    const brand = await page.getByRole("link", { name: "دار المنزل العقارية" }).first().boundingBox();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("اعثر على المكان الذي ستسمّيه بيتك");
+    const brand = await page.getByRole("link", { name: "هارتويل وشركاه العقارية" }).first().boundingBox();
     const contact = await page.getByRole("link", { name: "تواصل معنا" }).first().boundingBox();
     expect(brand && contact && brand.x > contact.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    const enBrand = await page.getByRole("link", { name: "Dar Al Manzil Real Estate" }).first().boundingBox();
+    const enBrand = await page.getByRole("link", { name: "Hartwell & Co. Realty" }).first().boundingBox();
     const enContact = await page.getByRole("link", { name: "Contact", exact: true }).first().boundingBox();
     expect(enBrand && enContact && enBrand.x < enContact.x).toBe(true);
 
@@ -210,8 +216,8 @@ test.describe("direction", () => {
   });
 
   test("RE14: the Arabic property page shows Arabic prices and facts", async ({ page }) => {
-    await page.goto(site("ar", "/listings/detail?id=malqa-villa"));
-    await expect(page.getByRole("heading", { level: 1, name: "فيلا حديثة في الملقا" })).toBeVisible();
+    await page.goto(site("ar", "/listings/detail?id=alder-lane"));
+    await expect(page.getByRole("heading", { level: 1, name: "١٤ ألدر لين، ريفرسايد" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "احجز معاينة" })).toBeVisible();
   });
 });
@@ -231,7 +237,7 @@ test.describe("accessibility", () => {
     });
 
     test(`no serious accessibility issues on a property page (${locale})`, async ({ page }) => {
-      await page.goto(site(locale, "/listings/detail?id=malqa-villa"));
+      await page.goto(site(locale, "/listings/detail?id=alder-lane"));
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
       await expectNoSeriousIssues(page);
     });
