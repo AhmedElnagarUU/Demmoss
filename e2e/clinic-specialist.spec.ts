@@ -7,6 +7,8 @@ const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/clinic/specia
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
 async function register(page: Page, businessName = "") {
+  // wait for the register form itself: the page we come from may also have a "Your name" field
+  await expect(page.getByRole("heading", { level: 1, name: "Create your dashboard account" })).toBeVisible();
   await page.getByLabel("Your name").fill("Owner");
   await page.getByLabel("Password").fill("secret1");
   if (businessName) await page.getByLabel("Business name (optional)").fill(businessName);

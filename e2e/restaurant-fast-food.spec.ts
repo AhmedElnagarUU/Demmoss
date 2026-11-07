@@ -7,6 +7,8 @@ const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/restaurant/fa
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
 async function registerAndWait(page: Page) {
+  // wait for the register form itself: the page we come from may also have a "Your name" field
+  await expect(page.getByRole("heading", { level: 1, name: "Create your dashboard account" })).toBeVisible();
   await page.getByLabel("Your name").fill("Owner");
   await page.getByLabel("Password").fill("secret1");
   await page.getByRole("button", { name: "Create account and open dashboard" }).click();
