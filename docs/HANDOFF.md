@@ -18,7 +18,7 @@ data in the visitor's browser), feedback, anonymous tracking, owner admin.
 | Admin (English only, decided) | `src/app/[locale]/admin`, feature `admin` | scrypt + HMAC cookie, no new deps |
 | Demo engine | `src/features/demo-engine` | storage, fake auth, banner, dashboard shell, ui/, photo/, palettes/, format/ |
 | Restaurants | `template-restaurant`: Verdant Table (fine dining), Sole Trattoria (pizza & pasta ordering); each home mirrors its `theme-sources` design exactly | plan `docs/features/template-restaurant.md` |
-| Real estate | `template-real-estate`: Dar Al Manzil (agency), Rawasi (developer) | plan `docs/features/template-real-estate.md` |
+| Real estate | `template-real-estate`: Hartwell & Co. Realty (agency), Solenne Estates (developer); each home mirrors its `theme-sources` design exactly | plan `docs/features/template-real-estate.md` |
 | Logistics | `template-logistics`: Jisr Cargo (freight), Makhzan 3PL (warehousing) | plan `docs/features/template-logistics.md` |
 | Clinics | `template-clinic`: Dr. Rayan Al Harthi (specialist), Noor (medical centre) | plan `docs/features/template-clinic.md` |
 | Plans not built | `docs/09-design-sources.md` (designs → categories), `docs/10-theme-system.md` (skins, parked by owner), `docs/11-production.md` (go-live code batches) | |

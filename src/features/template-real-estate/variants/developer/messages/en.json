@@ -1,15 +1,18 @@
 {
   "nav": {
     "label": "Main",
-    "home": "Home",
     "residences": "Residences",
-    "process": "Process & studio",
-    "contact": "Contact"
+    "principles": "Principles",
+    "collection": "Collection",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu"
   },
   "header": {
     "book": "Book a viewing"
   },
   "hero": {
+    "since": "Since 2009",
     "explore": "Explore residences",
     "hotspots": {
       "glazing": "Floor-to-ceiling glazing",
@@ -18,81 +21,115 @@
     }
   },
   "stats": {
+    "label": "Solenne in numbers",
+    "plus": "+",
+    "percent": "%",
     "delivered": {
-      "value": "120+",
       "label": "Homes delivered"
     },
     "awards": {
-      "value": "14",
-      "label": "Design awards"
+      "label": "Awards"
     },
     "referral": {
-      "value": "98%",
-      "label": "Clients who refer us"
+      "label": "Client referral"
     }
   },
   "principles": {
     "eyebrow": "Our philosophy",
-    "title": "Principles every home is built on",
+    "title": "Principles every\nhome is built on",
     "site": {
       "title": "Site first",
-      "text": "Every design begins with the land: its light, slope, wind, and views. We shape the house around the site, so each home feels as if it always belonged there."
+      "text": "Every design begins with the land: its light, slope, wind and views. We shape the house around the site, never the other way around, so each home feels as if it has always belonged there."
     },
     "materials": {
       "title": "Honest materials",
-      "text": "Stone, cedar, glass, and raw concrete are left to age with dignity. A few exceptional materials, detailed with care."
+      "text": "Stone, cedar, glass and raw concrete are left to age with dignity. We choose a few exceptional materials and detail them with care, rather than layering finishes for effect."
     },
     "quiet": {
       "title": "Quiet luxury",
-      "text": "True comfort is felt, not announced. Silence, proportion, daylight, and craft define our homes."
+      "text": "True comfort is felt, not announced. Silence, proportion, daylight and craftsmanship define our homes far more than ornament or excess ever could."
     }
   },
-  "types": {
-    "eyebrow": "Residence types",
-    "title": "Choose the way you want to live",
-    "villa": "Hillside retreats among the pines.",
-    "coastal": "Salt air, long horizons, deep terraces.",
-    "penthouse": "Sky-level living above the city.",
-    "count": "{count} residences open"
+  "pano": {
+    "label": "Residence types",
+    "forest": {
+      "title": "Forest Villas",
+      "text": "Retreats among the pines, open to the canopy."
+    },
+    "coastal": {
+      "title": "Coastal Homes",
+      "text": "Salt air, long horizons and deep terraces."
+    },
+    "city": {
+      "title": "City Penthouses",
+      "text": "Sky-level living above the skyline."
+    },
+    "bespoke": {
+      "title": "Bespoke Builds",
+      "text": "Your land, your brief, our craft."
+    }
   },
-  "available": {
+  "collection": {
     "eyebrow": "The collection",
-    "title": "Residences available now",
-    "all": "All residences",
-    "none": "No residence of this type is open right now."
+    "title": "Residences available",
+    "none": "No residence of this type is open right now.",
+    "tabs": {
+      "all": "All",
+      "villa": "Villas",
+      "penthouse": "Penthouses",
+      "coastal": "Coastal"
+    },
+    "beds": "{count} beds",
+    "baths": "{count} baths",
+    "area": "{size} m²"
   },
-  "team": {
-    "eyebrow": "The team",
-    "title": "The people who design and build"
+  "about": {
+    "eyebrow": "About us",
+    "second": "From the first walk across the site to the final handover of keys, our in-house team of designers, engineers and craftspeople works as one. No intermediaries, no compromises, only homes we would be proud to live in ourselves.",
+    "founderRole": "Founder & Principal Architect"
   },
   "steps": {
     "eyebrow": "How we work",
-    "title": "From first sketch to final key",
+    "title": "From first sketch\nto final key",
     "consult": {
       "title": "Consultation",
-      "text": "We listen, walk the site with you, and define the brief and timeline."
+      "text": "We listen, walk the site with you and define the brief, budget and timeline."
     },
     "design": {
       "title": "Site & design",
-      "text": "Surveys, concepts, and detailed drawings refined together."
+      "text": "Surveys, concept studies and detailed drawings refined together until it feels right."
     },
     "build": {
       "title": "Build",
-      "text": "Our own crews build with fixed milestones and weekly progress updates."
+      "text": "Our own crews build with fixed milestones and weekly visibility on progress."
     },
     "handover": {
       "title": "Handover",
-      "text": "A careful walkthrough, full documentation, and a decade of aftercare."
+      "text": "A careful walkthrough, full documentation and a decade of aftercare support."
     }
   },
   "stories": {
     "eyebrow": "Client voices",
-    "title": "Owners tell the story"
+    "prev": "Previous",
+    "next": "Next",
+    "slide": "Show testimonial {number}"
   },
-  "book": {
+  "contact": {
     "eyebrow": "Private viewings",
-    "title": "Book a private viewing",
-    "text": "Choose a residence and a free time. Our sales team confirms and shows you the units available now."
+    "name": "Full name",
+    "phone": "Phone",
+    "property": "Residence of interest",
+    "general": "Any residence",
+    "date": "Preferred viewing date",
+    "time": "Preferred time",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your plans",
+    "studio": "Studio",
+    "contactTitle": "Contact",
+    "hours": "Hours",
+    "email": "hello@solenne-estates.example",
+    "mapLabel": "Solenne Studio",
+    "inquiryTitle": "Request the brochure or ask a question"
   },
   "residences": {
     "eyebrow": "Residences",
@@ -127,41 +164,43 @@
       "handover": "A careful walkthrough, complete documents, and ten years of aftercare for every residence."
     }
   },
-  "contact": {
-    "eyebrow": "Sales studio",
-    "viewingTitle": "Request a private viewing",
-    "inquiryTitle": "Request the brochure or ask a question",
-    "visitTitle": "Visit our studio"
-  },
   "footer": {
-    "tagline": "Villas and architectural homes, designed and built with respect for the land.",
-    "explore": "Explore",
-    "visit": "Visit us",
-    "demoNote": "{name} is a demo website built to show what your business could have."
+    "tagline": "Luxury villas and architectural homes, designed and built with respect for the land.",
+    "residences": "Residences",
+    "company": "Company",
+    "process": "Process",
+    "clients": "Clients",
+    "contact": "Contact",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "pinterest": "Pinterest",
+    "youtube": "YouTube",
+    "copyright": "© 2026 {name}. All rights reserved.",
+    "legal": "Privacy · Terms"
   },
   "meta": {
     "home": {
-      "title": "Rawasi · Villas and penthouses in Jeddah",
-      "description": "Architectural homes in Obhur, Al Hada, and Al Shati, with live unit availability."
+      "title": "Solenne Estates · Villas and architectural homes",
+      "description": "Solenne Estates designs and builds luxury villas and architectural homes shaped by landscape, with live unit availability."
     },
     "residences": {
-      "title": "Residences · Rawasi",
+      "title": "Residences · Solenne Estates",
       "description": "See which units are available, reserved, or sold."
     },
     "residence": {
-      "title": "Residence · Rawasi",
+      "title": "Residence · Solenne Estates",
       "description": "Photos, features, the unit table, and a private viewing."
     },
     "process": {
-      "title": "Process & studio · Rawasi",
+      "title": "Process & studio · Solenne Estates",
       "description": "From first sketch to final key, and the team behind it."
     },
     "contact": {
-      "title": "Contact · Rawasi",
+      "title": "Contact · Solenne Estates",
       "description": "Book a private viewing or request the brochure."
     },
     "dashboard": {
-      "title": "Dashboard · Rawasi"
+      "title": "Dashboard · Solenne Estates"
     }
   }
 }

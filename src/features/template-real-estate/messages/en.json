@@ -306,9 +306,9 @@
     "rent-1": "Up to SAR 140,000 / year",
     "rent-2": "SAR 140,000 – 180,000 / year",
     "rent-3": "Above SAR 180,000 / year",
-    "dev-1": "Up to SAR 3M",
-    "dev-2": "SAR 3M – 4M",
-    "dev-3": "SAR 4M and above"
+    "dev-1": "Up to SAR 12M",
+    "dev-2": "SAR 12M – 14M",
+    "dev-3": "SAR 14M and above"
   },
   "card": {
     "from": "From",

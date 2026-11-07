@@ -6,7 +6,7 @@ export const developerMeta = {
   slug: DEVELOPER_SLUG,
   category: "real-estate",
   variant: "developer",
-  name: { ar: "رواسي · مطوّر فلل ومساكن", en: "Rawasi · Villa developer" },
+  name: { ar: "سولين للعقارات · مطوّر فلل ومساكن", en: "Solenne Estates · Villa developer" },
   pitch: {
     ar: "بِع وحداتك بثقة: توفّر الوحدات تتحدث لحظيًا من لوحة التحكم، وطلبات معاينة خاصة وكتيبات تصل مباشرة إلى فريق المبيعات.",
     en: "Sell units with confidence: unit availability updates live from your dashboard, and private viewing and brochure requests go straight to your sales team.",

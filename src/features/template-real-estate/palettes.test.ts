@@ -46,6 +46,32 @@ describe("RE13: the agency design tokens keep readable colors on its dark bands"
   });
 });
 
+describe("RE13: the developer design tokens keep readable colors on its black bands and its light About band", () => {
+  describe.each(developerPalettes.map((palette) => [palette.id, palette.vars] as const))(
+    "%s",
+    (_id, vars) => {
+      const get = (name: `--${string}`) => vars[name] ?? "";
+
+      it("text, muted text, and accent are readable on the black bands", () => {
+        expect(contrast(get("--color-text"), get("--re-deep"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--color-muted"), get("--re-deep"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--re-accent"), get("--re-deep"))).toBeGreaterThanOrEqual(4.5);
+      });
+
+      it("the three ink colors are readable on the light About band", () => {
+        for (const ink of ["--re-ink", "--re-ink-body", "--re-ink-muted"] as const) {
+          expect(contrast(get(ink), get("--re-paper"))).toBeGreaterThanOrEqual(4.5);
+        }
+      });
+
+      it("the error color is readable on the page and on panels", () => {
+        expect(contrast(get("--re-error"), get("--color-bg"))).toBeGreaterThanOrEqual(4.5);
+        expect(contrast(get("--re-error"), get("--color-surface"))).toBeGreaterThanOrEqual(4.5);
+      });
+    },
+  );
+});
+
 it("the contrast function itself is right (black on white is 21:1)", () => {
   expect(contrast("#000000", "#ffffff")).toBeCloseTo(21, 0);
 });

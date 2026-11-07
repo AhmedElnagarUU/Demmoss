@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { DemoBanner } from "@/features/demo-engine/banner/demo-banner";
 import { getEngineT } from "@/features/demo-engine/messages";
 import { HydrationGate } from "@/features/demo-engine/storage/hydration-gate";
@@ -13,15 +12,18 @@ import { getT } from "@/shared/i18n/t";
 import { businessNameOf } from "@/features/demo-engine/fake-auth/business-name";
 import { RealEstateProvider, useRealEstate } from "../../../context";
 import { PaletteScope } from "@/features/demo-engine/palettes/palette-scope";
-import { pillClasses } from "../../../site/site-ui";
 import { developerConfig } from "../dashboard";
 import { getDeveloperT } from "../messages";
 import { DEVELOPER_SLUG } from "../slug";
 import { useDeveloperStore } from "../store";
+import { BrandName, logoLinkClass } from "./brand";
+import { SiteFooter } from "./site-footer";
+import { container, pill, pillNav, rtlSafe } from "./styles";
+import "./animations.css";
 
 type Props = { locale: Locale; children: ReactNode };
 
-// Palette + loaded demo data + banner + header and footer around every public page of the developer.
+// Palette + loaded demo data + banner + header and footer around every public page of Solenne Estates.
 export function SiteFrame({ locale, children }: Props) {
   return (
     <RealEstateProvider store={useDeveloperStore} config={developerConfig} locale={locale}>
@@ -34,27 +36,42 @@ export function SiteFrame({ locale, children }: Props) {
   );
 }
 
-const pages = [
-  { path: "", key: "nav.home" },
-  { path: "/residences", key: "nav.residences" },
-  { path: "/process", key: "nav.process" },
-  { path: "/contact", key: "nav.contact" },
-] as const;
+const linkClass =
+  "relative py-1.5 text-[11px] uppercase tracking-[0.22em] text-text/80 transition-colors duration-300 hover:text-(--re-accent) " +
+  "after:absolute after:bottom-0 after:start-0 after:h-px after:w-0 after:bg-(--re-accent) after:transition-[width] after:duration-300 " +
+  `hover:after:w-full focus-visible:after:w-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${rtlSafe}`;
 
 function Chrome({ children }: { children: ReactNode }) {
   const { store, config, locale } = useRealEstate();
   const t = getDeveloperT(locale);
-  const pathname = usePathname();
   const name = store((state) => businessNameOf(state, locale));
-  const settings = store((state) => state.settings);
+  const [menuOpen, setMenuOpen] = useState(false);
+  // like the source, the bar turns solid after 60px of scrolling
+  const [solid, setSolid] = useState(false);
   const root = `/${locale}${config.basePath}`;
 
   useEffect(() => {
     track("demo_opened", { locale, template: DEVELOPER_SLUG });
   }, [locale]);
 
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { href: `${root}#residences`, label: t("nav.residences") },
+    { href: `${root}#principles`, label: t("nav.principles") },
+    { href: `${root}#collection`, label: t("nav.collection") },
+    { href: `${root}#about`, label: t("nav.about") },
+    { href: `${root}#contact`, label: t("nav.contact") },
+  ];
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <div className="bg-bg font-light text-text">
+    <div className="overflow-x-clip bg-bg font-light leading-[1.7] text-text antialiased">
       <DemoBanner
         store={store}
         slug={DEVELOPER_SLUG}
@@ -62,73 +79,79 @@ function Chrome({ children }: { children: ReactNode }) {
         locale={locale}
         dashboardHref={`${root}/dashboard`}
       />
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4 sm:px-8">
-          <Link
-            href={root}
-            className="text-lg font-extralight uppercase tracking-[0.35em] focus-visible:outline-2 focus-visible:outline-focus rtl:font-medium rtl:normal-case rtl:tracking-normal"
-          >
-            {name}
-          </Link>
-          <nav aria-label={t("nav.label")}>
-            <ul className="flex flex-wrap gap-x-6 gap-y-1 text-sm font-medium">
-              {pages.map((page) => {
-                const href = `${root}${page.path}`;
-                const current = page.path === "" ? pathname === href : pathname.startsWith(href);
-                return (
-                  <li key={page.path}>
-                    <Link
-                      href={href}
-                      aria-current={current ? "page" : undefined}
-                      className="inline-block py-2 text-text hover:text-(--re-accent) aria-[current=page]:border-b aria-[current=page]:border-(--re-accent) focus-visible:outline-2 focus-visible:outline-focus"
-                    >
-                      {t(page.key)}
+      {/* a sticky strip with no height: the bar floats over the hero and does not push the page down when it shrinks */}
+      <div className="sticky top-0 z-50 h-0">
+        <header
+          className={`absolute inset-x-0 top-0 z-20 border-b transition-[padding,background-color,border-color] duration-[400ms] motion-reduce:transition-none ${
+            solid || menuOpen
+              ? "border-border bg-bg/90 py-3.5 backdrop-blur-[12px]"
+              : "border-transparent py-[22px]"
+          }`}
+        >
+          <div className={`${container} flex items-center justify-between gap-6 max-[640px]:gap-3`}>
+            <Link href={root} className={`${logoLinkClass} min-w-0 truncate`}>
+              <BrandName name={name} />
+            </Link>
+            <nav aria-label={t("nav.label")} className="max-[1024px]:hidden">
+              <ul className="flex items-center gap-9">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={linkClass}>
+                      {link.label}
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <div className="flex items-center gap-2">
-            <TrackedLanguageSwitch locale={locale} label={getT(locale)("common.switchLanguage")} />
-            <Link href={`${root}/contact`} className={pillClasses.solid}>
-              {t("header.book")}
+                ))}
+              </ul>
+            </nav>
+            <div className="flex shrink-0 items-center gap-3">
+              <TrackedLanguageSwitch locale={locale} label={getT(locale)("common.switchLanguage")} />
+              <Link href={`${root}#contact`} className={pillNav}>
+                {t("header.book")}
+              </Link>
+              <button
+                type="button"
+                aria-label={t("nav.menu")}
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((open) => !open)}
+                className="relative hidden h-5 w-8 cursor-pointer max-[1024px]:block focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-focus"
+              >
+                <i
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 h-px bg-text transition-all duration-300 ${menuOpen ? "top-2.5 rotate-45" : "top-0.5"}`}
+                />
+                <i
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 top-2.5 h-px bg-text transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+                />
+                <i
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 h-px bg-text transition-all duration-300 ${menuOpen ? "top-2.5 -rotate-45" : "top-[18px]"}`}
+                />
+              </button>
+            </div>
+          </div>
+        </header>
+        {/* the full-screen menu of the source (under 1024px): the links centred on the page colour */}
+        <div
+          className={`fixed inset-0 z-10 hidden flex-col items-center justify-center gap-7 bg-bg transition-[translate,visibility] duration-500 max-[1024px]:flex motion-reduce:transition-none ${menuOpen ? "visible translate-y-0" : "invisible -translate-y-full"}`}
+        >
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+              className={`text-[15px] uppercase tracking-[0.14em] text-text/80 hover:text-(--re-accent) focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus ${rtlSafe}`}
+            >
+              {link.label}
             </Link>
-          </div>
+          ))}
+          <Link href={`${root}#contact`} onClick={closeMenu} className={`${pill} text-xs`}>
+            {t("header.book")}
+          </Link>
         </div>
-      </header>
+      </div>
       <main id="main">{children}</main>
-      <footer className="border-t border-border bg-surface">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <p className="text-lg font-semibold">{name}</p>
-            <p className="text-muted">{t("footer.tagline")}</p>
-          </div>
-          <nav aria-label={t("footer.explore")}>
-            <p className="mb-3 font-semibold">{t("footer.explore")}</p>
-            <ul className="space-y-1">
-              {pages.map((page) => (
-                <li key={page.path}>
-                  <Link href={`${root}${page.path}`} className="underline">
-                    {t(page.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <address className="space-y-1 not-italic">
-            <p className="mb-3 font-semibold">{t("footer.visit")}</p>
-            <p>{settings.address[locale]}</p>
-            <p dir="ltr" className="text-start">
-              {settings.phone}
-            </p>
-            <p>{settings.hours[locale]}</p>
-          </address>
-        </div>
-        <p className="border-t border-border px-4 py-4 text-center text-sm text-muted">
-          {t("footer.demoNote", { name })}
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -11,8 +11,8 @@ export function createSampleViewings(now: Date): Viewing[] {
   return [
     {
       id: "view-1",
-      propertyId: "hada-ridge-villa",
-      unitId: "hr-1",
+      propertyId: "cedar-hollow-villa",
+      unitId: "ch-1",
       name: "عبدالرحمن الشهري",
       phone: "+966 50 555 0301",
       date: dateKeyFromNow(now, 3),
@@ -23,8 +23,8 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-2",
-      propertyId: "shati-sky-residence",
-      unitId: "sk-1",
+      propertyId: "skyline-penthouse",
+      unitId: "sp-1",
       name: "Lina Bakr",
       phone: "+966 55 555 0302",
       date: dateKeyFromNow(now, 2),
@@ -34,8 +34,8 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-3",
-      propertyId: "obhur-driftline",
-      unitId: "od-1",
+      propertyId: "driftline-residence",
+      unitId: "dl-1",
       name: "فيصل المالكي",
       phone: "+966 54 555 0303",
       date: dateKeyFromNow(now, 1),
@@ -45,7 +45,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-4",
-      propertyId: "obhur-driftline",
+      propertyId: "driftline-residence",
       name: "Noor Al-Amri",
       phone: "+966 56 555 0304",
       date: dateKeyFromNow(now, 4),
@@ -55,7 +55,7 @@ export function createSampleViewings(now: Date): Viewing[] {
     },
     {
       id: "view-5",
-      propertyId: "corniche-skyline-penthouse",
+      propertyId: "skyline-penthouse",
       name: "سلطان العتيبي",
       phone: "+966 59 555 0305",
       date: dateKeyFromNow(now, -3),
@@ -70,8 +70,8 @@ export function createSampleInquiries(now: Date): Inquiry[] {
   return [
     {
       id: "inq-1",
-      propertyId: "hada-stillwater-villa",
-      unitId: "hs-1",
+      propertyId: "stillwater-villa",
+      unitId: "sw-1",
       kind: "brochure",
       name: "ريم الدوسري",
       phone: "+966 50 555 0401",
@@ -81,7 +81,7 @@ export function createSampleInquiries(now: Date): Inquiry[] {
     },
     {
       id: "inq-2",
-      propertyId: "shati-sky-residence",
+      propertyId: "obsidian-sky-residence",
       kind: "question",
       name: "Khaled Nasser",
       phone: "+966 55 555 0402",
@@ -91,7 +91,7 @@ export function createSampleInquiries(now: Date): Inquiry[] {
     },
     {
       id: "inq-3",
-      propertyId: "obhur-shore-house",
+      propertyId: "saltmarsh-house",
       kind: "question",
       name: "هالة الجهني",
       phone: "+966 54 555 0403",

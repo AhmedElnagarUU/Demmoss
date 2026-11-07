@@ -1,12 +1,14 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Rawasi (real-estate-developer). Demo data lives in the browser, so these journeys need no database.
+// Solenne Estates (real-estate-developer). Demo data lives in the browser, so these journeys need no database.
 // Photos come from a CDN: nothing here depends on them loading.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/real-estate/developer${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
 async function register(page: Page, businessName = "") {
+  // wait for the register form itself: the page we come from may also have a "Your name" field
+  await expect(page.getByRole("heading", { level: 1, name: "Create your dashboard account" })).toBeVisible();
   await page.getByLabel("Your name").fill("Owner");
   await page.getByLabel("Password").fill("secret1");
   if (businessName) await page.getByLabel("Business name (optional)").fill(businessName);
@@ -17,46 +19,44 @@ async function register(page: Page, businessName = "") {
 test("RE11, RE6: marking a unit reserved in the dashboard shows it as reserved on the site", async ({
   page,
 }) => {
-  await page.goto(site("en", "/residences/detail?id=shati-sky-residence"));
+  await page.goto(site("en", "/residences/detail?id=skyline-penthouse"));
   const table = page.getByRole("table");
-  await expect(table.getByRole("row", { name: /SK-1/ }).getByRole("button")).toBeVisible();
+  await expect(table.getByRole("row", { name: /P-24/ }).getByRole("button")).toBeVisible();
 
   await page.goto(dashboard("en", "/projects"));
   await register(page);
-  await page.getByLabel("Status of unit SK-1 in Shati Sky Residence").selectOption("reserved");
+  await page.getByLabel("Status of unit P-24 in Skyline Penthouse").selectOption("reserved");
 
-  await page.goto(site("en", "/residences/detail?id=shati-sky-residence"));
-  const row = page.getByRole("row", { name: /SK-1/ });
+  await page.goto(site("en", "/residences/detail?id=skyline-penthouse"));
+  const row = page.getByRole("row", { name: /P-24/ });
   await expect(row.getByText("Reserved", { exact: true })).toBeVisible();
   await expect(row.getByRole("button")).toHaveCount(0);
 
   // every unit is now taken: the residence card says reserved, and "available only" hides it
   await page.goto(site("en", "/residences"));
-  await expect(page.getByRole("article").filter({ hasText: "Shati Sky Residence" })).toContainText(
-    "Reserved",
-  );
+  await expect(page.getByRole("article").filter({ hasText: "Skyline Penthouse" })).toContainText("Reserved");
   await page.getByLabel("Show available only").check();
-  await expect(page.getByRole("link", { name: "Shati Sky Residence" })).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Hada Ridge Villa" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Skyline Penthouse" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Cedar Hollow Villa" })).toBeVisible();
 });
 
 test("RE11: freeing a sold unit makes it available again on the site", async ({ page }) => {
   await page.goto(dashboard("en", "/projects"));
   await register(page);
-  await page.getByLabel("Status of unit V-04 in Hada Ridge Villa").selectOption("available");
-  await page.goto(site("en", "/residences/detail?id=hada-ridge-villa"));
+  await page.getByLabel("Status of unit V-04 in Cedar Hollow Villa").selectOption("available");
+  await page.goto(site("en", "/residences/detail?id=cedar-hollow-villa"));
   await expect(page.getByRole("button", { name: "Choose unit V-04 for the request" })).toBeVisible();
 });
 
 test("RE3, RE7, RE8: request a private viewing of a unit, then confirm it in the dashboard", async ({
   page,
 }) => {
-  await page.goto(site("en", "/residences/detail?id=hada-ridge-villa"));
-  await expect(page.getByRole("heading", { level: 1, name: "Hada Ridge Villa" })).toBeVisible();
+  await page.goto(site("en", "/residences/detail?id=cedar-hollow-villa"));
+  await expect(page.getByRole("heading", { level: 1, name: "Cedar Hollow Villa" })).toBeVisible();
   await page.getByRole("button", { name: "Choose unit V-01 for the request" }).click();
 
   const form = page.getByRole("form", { name: "Request a private viewing" });
-  await expect(form.getByLabel("Unit")).toHaveValue("hr-1");
+  await expect(form.getByLabel("Unit")).toHaveValue("ch-1");
   await form.getByRole("radio").first().check({ force: true });
   await form.getByLabel("Your name").fill("Nada Buyer");
   await form.getByLabel("Phone number").fill("966501234567");
@@ -64,20 +64,20 @@ test("RE3, RE7, RE8: request a private viewing of a unit, then confirm it in the
   await expect(page.getByRole("heading", { name: "We received your viewing request" })).toBeVisible();
 
   await page.getByRole("link", { name: "Open your dashboard to see it arrive" }).click();
-  await register(page, "Rawasi Test");
+  await register(page, "Solenne Test");
   const row = page.getByRole("listitem").filter({ hasText: "Nada Buyer" });
-  await expect(row).toContainText("Hada Ridge Villa · V-01");
+  await expect(row).toContainText("Cedar Hollow Villa · V-01");
   await page.getByRole("button", { name: "Confirm: Nada Buyer" }).click();
   await expect(row.getByText("Confirmed", { exact: true })).toBeVisible();
 
   await page.goto(site("en"));
-  await expect(page.getByRole("link", { name: "Rawasi Test" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Solenne Test" }).first()).toBeVisible();
 });
 
 test("RE4: a brochure request for a unit reaches the dashboard Inquiries", async ({ page }) => {
-  await page.goto(site("en", "/residences/detail?id=obhur-driftline"));
+  await page.goto(site("en", "/residences/detail?id=driftline-residence"));
   const form = page.getByRole("form", { name: "Request the brochure or ask about a unit" });
-  await form.getByLabel("Unit").selectOption("od-2");
+  await form.getByLabel("Unit").selectOption("dl-2");
   await form.getByLabel("Your name").fill("Huda Brochure");
   await form.getByLabel("Phone number").fill("966507654321");
   await form.getByRole("button", { name: "Send" }).click();
@@ -94,9 +94,12 @@ test("RE4: a brochure request for a unit reaches the dashboard Inquiries", async
 
 test("RE1: the home type filter and the residences filters narrow the list", async ({ page }) => {
   await page.goto(site("en"));
-  await page.getByRole("group", { name: "Property type" }).getByRole("button", { name: "Penthouse" }).click();
-  await expect(page.getByRole("link", { name: "Corniche Skyline Penthouse" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Hada Ridge Villa" })).toHaveCount(0);
+  await page
+    .getByRole("group", { name: "Property type" })
+    .getByRole("button", { name: "Penthouses" })
+    .click();
+  await expect(page.getByRole("link", { name: "Skyline Penthouse" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Cedar Hollow Villa" })).toHaveCount(0);
 
   await page.goto(site("en", "/residences?type=coastal"));
   await expect(page.getByRole("status").filter({ hasText: "residences found" })).toHaveText(
@@ -115,7 +118,7 @@ test("RE11: adding a unit in the dashboard shows it on the residence page", asyn
   await page.getByLabel("Size (m²)").fill("480");
   await page.getByLabel("Price (SAR)").fill("3950000");
   await page.getByRole("button", { name: "Add unit" }).click();
-  await expect(page.getByLabel("Status of unit D-09 in Hada Ridge Villa")).toBeVisible();
+  await expect(page.getByLabel("Status of unit D-09 in Cedar Hollow Villa")).toBeVisible();
 });
 
 test("RE12: the value tip points to a residence with one unit left", async ({ page }) => {
@@ -135,13 +138,13 @@ test.describe("direction", () => {
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("بيوت تشكّلها الطبيعة");
-    const brand = await page.getByRole("link", { name: "رواسي للتطوير العقاري" }).first().boundingBox();
+    const brand = await page.getByRole("link", { name: "سولين للعقارات" }).first().boundingBox();
     const contact = await page.getByRole("link", { name: "تواصل معنا" }).first().boundingBox();
     expect(brand && contact && brand.x > contact.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    const enBrand = await page.getByRole("link", { name: "Rawasi Development" }).first().boundingBox();
+    const enBrand = await page.getByRole("link", { name: "Solenne Estates" }).first().boundingBox();
     const enContact = await page.getByRole("link", { name: "Contact", exact: true }).first().boundingBox();
     expect(enBrand && enContact && enBrand.x < enContact.x).toBe(true);
 
@@ -151,8 +154,8 @@ test.describe("direction", () => {
   });
 
   test("RE14: the Arabic residence page shows the unit table in Arabic", async ({ page }) => {
-    await page.goto(site("ar", "/residences/detail?id=hada-ridge-villa"));
-    await expect(page.getByRole("heading", { level: 1, name: "فيلا قمة الهدا" })).toBeVisible();
+    await page.goto(site("ar", "/residences/detail?id=cedar-hollow-villa"));
+    await expect(page.getByRole("heading", { level: 1, name: "فيلا وادي الأرز" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "توفّر الوحدات" })).toBeVisible();
   });
 });
@@ -172,7 +175,7 @@ test.describe("accessibility", () => {
     });
 
     test(`no serious accessibility issues on a residence page (${locale})`, async ({ page }) => {
-      await page.goto(site(locale, "/residences/detail?id=hada-ridge-villa"));
+      await page.goto(site(locale, "/residences/detail?id=cedar-hollow-villa"));
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
       await expectNoSeriousIssues(page);
     });

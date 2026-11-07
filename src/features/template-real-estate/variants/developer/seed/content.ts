@@ -1,76 +1,77 @@
 import type { Content, Settings, Testimonial } from "../../../types";
 
-// The starting content of the Rawasi demo: a Jeddah developer of villas, coastal homes, and penthouses.
+// The starting content of the Solenne Estates demo: the source design's own business, a developer of villas,
+// coastal homes, and penthouses. English is the source's text word for word; Arabic is natural Arabic.
 
 export const seedSettings: Settings = {
-  businessName: { ar: "رواسي للتطوير العقاري", en: "Rawasi Development" },
+  businessName: { ar: "سولين للعقارات", en: "Solenne Estates" },
   nameEdited: false,
   palette: "sand",
-  phone: "+966 12 000 0200",
+  phone: "+1 (555) 010-2090",
   whatsapp: "966500000200",
   address: {
-    ar: "طريق الأمير سلطان، حي الشاطئ، جدة",
-    en: "Prince Sultan Road, Al Shati, Jeddah",
+    ar: "٢٤ لاندن رو، هالمارك ريدج، إكزامبل سيتي ٠٠٠٠٠",
+    en: "24 Linden Row, Hallmark Ridge, Example City 00000",
   },
   hours: {
-    ar: "الأحد – الخميس: ٩:٠٠ ص – ٦:٠٠ م · السبت: بموعد مسبق",
-    en: "Sun – Thu: 9:00 am – 6:00 pm · Sat: by appointment",
+    ar: "الاثنين – الجمعة ٩:٠٠ – ١٨:٠٠ · السبت بموعد مسبق",
+    en: "Mon – Fri 9:00 – 18:00 · Sat by appointment",
   },
   mortgageRate: 5.5,
 };
 
 export const seedContent: Content = {
   hero: {
-    title: { ar: "بيوت تشكّلها الطبيعة", en: "Homes shaped by their setting" },
+    title: { ar: "بيوت تشكّلها الطبيعة", en: "Homes shaped by landscape" },
     subtitle: {
       ar: "نصمّم وننفّذ فللًا ومنازل معمارية تستقر بهدوء في مكانها وتزداد جمالًا مع الوقت.",
-      en: "We design and build villas and architectural homes that settle quietly into their setting and grow more beautiful with time.",
+      en: "We design and build villas and architectural homes that sit quietly in their setting and grow more beautiful with time.",
     },
   },
   about: {
     title: { ar: "بُنيت ببطء، لتُسكن لأجيال", en: "Built slowly, lived in for generations" },
     text: {
-      ar: "تأسست رواسي عام ٢٠٠٩ على يد مجموعة صغيرة من المعماريين والمنفذين آمنوا بأن البيت استجابة لمكانه. نقبل عددًا محدودًا من المساكن كل عام، ليحظى كل مسكن باهتمامنا الكامل من أول زيارة للموقع حتى تسليم المفتاح.",
-      en: "Rawasi was founded in 2009 by a small group of architects and builders who believed a home is a response to its place. We take on a limited number of residences each year, so every one gets our full attention from the first site visit to the key handover.",
+      ar: "تأسست سولين للعقارات عام ٢٠٠٩ على يد مجموعة صغيرة من المعماريين والبنّائين آمنوا بأن البيت ينبغي أن يكون استجابة لمكانه. وبعد خمسة عشر عامًا ما زلنا صغارًا عن قصد، نتولى عددًا قليلًا من المساكن كل عام لينال كل منها اهتمامنا الكامل.",
+      en: "Solenne Estates was founded in 2009 by a small group of architects and builders who believed a home should be a response to its place. Fifteen years on, we remain deliberately small, taking on a handful of residences each year so that every one receives our full attention.",
     },
   },
   contact: {
-    title: { ar: "احجز معاينة خاصة", en: "Book a private viewing" },
+    title: { ar: "احجز معاينة", en: "Book a viewing" },
     text: {
-      ar: "زر استوديو المبيعات أو المشروع نفسه. نعرض عليك الوحدات المتاحة حاليًا ونجيب عن كل سؤال.",
-      en: "Visit the sales studio or the project itself. We show you the units available now and answer every question.",
+      ar: "زر الاستوديو أو المسكن نفسه. نعرض عليك الوحدات المتاحة حاليًا ونجيب عن كل سؤال.",
+      en: "Visit the studio or the residence itself. We show you what is available now and answer every question.",
     },
   },
 };
 
 export const seedTestimonials: Testimonial[] = [
   {
-    id: "t-harbi",
-    name: { ar: "عبدالله وهند الحربي", en: "Abdullah and Hind Al-Harbi" },
-    context: { ar: "فيلا قمة الهدا", en: "Hada Ridge Villa" },
+    id: "t-amelia",
+    name: { ar: "أميليا ويوناس هـ.", en: "Amelia & Jonas H." },
+    context: { ar: "فيلا الغابة، هالمارك ريدج", en: "Forest Villa, Hallmark Ridge" },
     text: {
-      ar: "فهموا المنحدر قبل أن يرسموا خطًا واحدًا. بعد عامين ما زال البيت يفاجئنا بضوء جديد كل صباح.",
-      en: "They understood the slope before they drew a single line. Two years on, the house still surprises us with new light every morning.",
+      ar: "فهموا سفح التلّ قبل أن يرسموا خطًا واحدًا. وبعد عامين ما زال البيت يفاجئنا بضوء جديد كل صباح.",
+      en: "They understood the hillside before they drew a single line. Two years on, the house still surprises us with new light every morning.",
     },
     visible: true,
   },
   {
-    id: "t-zahrani",
-    name: { ar: "ماجد الزهراني", en: "Majed Al-Zahrani" },
-    context: { ar: "بيت شاطئ أبحر", en: "Obhur Shore House" },
+    id: "t-marcus",
+    name: { ar: "ماركوس ت.", en: "Marcus T." },
+    context: { ar: "منزل ساحلي، كيب ليندن", en: "Coastal Home, Cape Linden" },
     text: {
-      ar: "هادئون ودقيقون وصادقون. سُلّم المشروع في موعده وضمن الميزانية تمامًا، وقيل لي إن ذلك مستحيل.",
-      en: "Calm, precise, and honest. The build finished on schedule and exactly on budget, which I had been told was impossible.",
+      ar: "هادئون ودقيقون وصادقون من البداية إلى النهاية. سُلّم المشروع في موعده وضمن الميزانية تمامًا، وقيل لي إن ذلك مستحيل.",
+      en: "Calm, precise and honest throughout. The build finished on schedule and exactly on budget, which I had been told was impossible.",
     },
     visible: true,
   },
   {
-    id: "t-sahli",
-    name: { ar: "رنا السهلي", en: "Rana Al-Sahli" },
-    context: { ar: "بنتهاوس أفق الكورنيش", en: "Corniche Skyline Penthouse" },
+    id: "t-priya",
+    name: { ar: "بريا ن.", en: "Priya N." },
+    context: { ar: "بنتهاوس المدينة، برج أوريليا", en: "City Penthouse, Aurelia Tower" },
     text: {
-      ar: "بنتهاوسنا هادئ بأجمل معاني الكلمة. كل مادة وكل وصلة تُظهر عناية أناس يحبون صنعتهم.",
-      en: "Our penthouse feels quiet in the best sense. Every material and every junction shows the care of people who love their craft.",
+      ar: "بنتهاوسنا هادئ بأجمل معاني الكلمة. كل مادة وكل وصلة تُظهر عناية أناس يحبون صنعتهم حقًا.",
+      en: "Our penthouse feels quiet in the best sense. Every material, every junction, shows the care of people who truly love their craft.",
     },
     visible: true,
   },
@@ -79,21 +80,21 @@ export const seedTestimonials: Testimonial[] = [
 // The team shown on the site (fixed content, not edited in the dashboard).
 export const seedTeam = [
   {
-    id: "haifa",
-    name: { ar: "م. هيفاء الشريف", en: "Eng. Haifa Al-Sharif" },
-    role: { ar: "كبيرة المعماريين والمؤسِّسة", en: "Principal architect and founder" },
-    photo: "team-haifa",
+    id: "elena",
+    name: { ar: "إيلينا ماركيتي", en: "Elena Marchetti" },
+    role: { ar: "كبيرة المعماريين", en: "Principal Architect" },
+    photo: "team-elena",
   },
   {
-    id: "salman",
-    name: { ar: "م. سلمان الغامدي", en: "Eng. Salman Al-Ghamdi" },
-    role: { ar: "رئيس قسم التنفيذ", en: "Head of construction" },
-    photo: "team-salman",
+    id: "daniel",
+    name: { ar: "دانيال رييس", en: "Daniel Reyes" },
+    role: { ar: "رئيس قسم التنفيذ", en: "Head of Construction" },
+    photo: "team-daniel",
   },
   {
-    id: "reema",
-    name: { ar: "ريما باخشوين", en: "Reema Bakhashwain" },
-    role: { ar: "مديرة التصميم الداخلي", en: "Interior director" },
-    photo: "team-reema",
+    id: "sofia",
+    name: { ar: "صوفيا ليندكفيست", en: "Sofia Lindqvist" },
+    role: { ar: "مديرة التصميم الداخلي", en: "Interior Director" },
+    photo: "team-sofia",
   },
 ] as const;

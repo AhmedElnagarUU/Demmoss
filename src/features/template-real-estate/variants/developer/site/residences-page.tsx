@@ -12,10 +12,10 @@ import {
   type FilterState,
 } from "../../../listings";
 import { FilterBar } from "../../../site/filter-bar";
-import { PropertyCard } from "../../../site/property-card";
-import { Eyebrow, Section, SectionTitle } from "../../../site/site-ui";
 import { getDeveloperT } from "../messages";
 import { useDeveloperStore } from "../store";
+import { ResidenceCard } from "./residence-card";
+import { container, h2Big, labelClass } from "./styles";
 
 // Residences: only what is for sale, with live availability. The home type links arrive here with their choice in the URL.
 export function ResidencesPage() {
@@ -49,36 +49,39 @@ function ResidencesView({ initial }: { initial: FilterState }) {
   );
 
   return (
-    <Section id="residences-title">
-      <Eyebrow>{t("residences.eyebrow")}</Eyebrow>
-      <SectionTitle id="residences-title" level={1} className="mb-4">
-        {t("residences.title")}
-      </SectionTitle>
-      <p className="mb-8 max-w-2xl text-lg text-muted">{t("residences.intro")}</p>
+    <section
+      aria-labelledby="residences-title"
+      className="relative overflow-x-clip bg-bg pb-[140px] pt-[150px] max-[640px]:pb-[90px]"
+    >
+      <div className={container}>
+        <p className={`${labelClass} text-muted`}>{t("residences.eyebrow")}</p>
+        <h1 id="residences-title" className={h2Big}>
+          {t("residences.title")}
+        </h1>
+        <p className="mb-10 mt-6 max-w-2xl text-sm leading-[1.9] text-muted">{t("residences.intro")}</p>
 
-      <FilterBar
-        idPrefix="residences"
-        state={state}
-        onChange={setState}
-        fields={["type", "area", "price", "sort", "availableOnly"]}
-      />
+        <FilterBar
+          idPrefix="residences"
+          state={state}
+          onChange={setState}
+          fields={["type", "area", "price", "sort", "availableOnly"]}
+        />
 
-      <p role="status" className="mb-6 mt-8 font-semibold text-text">
-        {t("residences.results", { count: formatNumber(results.length, locale) })}
-      </p>
-      {results.length === 0 ? (
-        <p className="text-muted">{t("residences.none")}</p>
-      ) : (
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((property) => (
-            <li key={property.id} className="flex">
-              <div className="flex w-full">
-                <PropertyCard property={property} layout="tall" />
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Section>
+        <p role="status" className="mb-6 mt-10 text-sm font-medium text-text">
+          {t("residences.results", { count: formatNumber(results.length, locale) })}
+        </p>
+        {results.length === 0 ? (
+          <p className="text-muted">{t("residences.none")}</p>
+        ) : (
+          <ul className="grid grid-cols-3 gap-7 max-[1024px]:grid-cols-2 max-[640px]:grid-cols-1">
+            {results.map((property) => (
+              <li key={property.id}>
+                <ResidenceCard property={property} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
   );
 }

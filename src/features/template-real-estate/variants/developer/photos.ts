@@ -1,6 +1,6 @@
 import type { Photo } from "../../site/photo";
 
-// Every photo of the developer site, in one list (CDN addresses from the design). Use photoUrl / photoSrcSet to show them.
+// Every photo of the Solenne Estates site, in one list (the CDN addresses of the source design). Use photoUrl / photoSrcSet to show them.
 // Moving to self-hosted files later means changing `src` here only.
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}`;
 
@@ -19,7 +19,7 @@ export const developerPhotos: readonly Photo[] = [
     id: "studio-exterior",
     src: unsplash("1600607687939-ce8a6c25118c"),
     ...landscape,
-    alt: { ar: "واجهة مسكن حديث من تنفيذنا", en: "Exterior of one of our modern residences" },
+    alt: { ar: "واجهة مسكن حديث من مساكن سولين", en: "Modern Solenne residence exterior" },
   },
   {
     id: "panorama",
@@ -65,24 +65,24 @@ export const developerPhotos: readonly Photo[] = [
     alt: { ar: "منزل ساحلي أبيض بحديقة", en: "A white coastal house with a garden" },
   },
   {
-    id: "team-haifa",
+    id: "team-elena",
     src: unsplash("1494790108377-be9c29b29330"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة المهندسة هيفاء الشريف", en: "Portrait of Eng. Haifa Al-Sharif" },
+    alt: { ar: "صورة إيلينا ماركيتي", en: "Portrait of Elena Marchetti" },
   },
   {
-    id: "team-salman",
+    id: "team-daniel",
     src: unsplash("1507003211169-0a1dd7228f2d"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة المهندس سلمان الغامدي", en: "Portrait of Eng. Salman Al-Ghamdi" },
+    alt: { ar: "صورة دانيال رييس", en: "Portrait of Daniel Reyes" },
   },
   {
-    id: "team-reema",
+    id: "team-sofia",
     src: unsplash("1573496359142-b8d87734a5a2"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة المصممة ريما باخشوين", en: "Portrait of designer Reema Bakhashwain" },
+    alt: { ar: "صورة صوفيا ليندكفيست", en: "Portrait of Sofia Lindqvist" },
   },
 ];

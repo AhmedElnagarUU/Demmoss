@@ -11,7 +11,7 @@ const arabicLetters = /[؀-ۿ]/;
 const morning = new Date(2026, 10, 4, 0, 30);
 const evening = new Date(2026, 10, 4, 23, 59);
 
-describe("Rawasi seed", () => {
+describe("Solenne Estates seed", () => {
   it("is valid for the store schema, at any time of the day", () => {
     expect(realEstateDataSchema.safeParse(createDeveloperSeed(morning)).success).toBe(true);
     expect(realEstateDataSchema.safeParse(createDeveloperSeed(evening)).success).toBe(true);

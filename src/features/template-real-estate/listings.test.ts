@@ -55,8 +55,8 @@ describe("RE1: search and filter properties", () => {
 
   it("available only judges a residence by its units", () => {
     const available = filterProperties(residences, { availableOnly: true }, []).map((item) => item.id);
-    expect(available).not.toContain("obhur-shore-house");
-    expect(available).toContain("hada-ridge-villa");
+    expect(available).not.toContain("saltmarsh-house");
+    expect(available).toContain("cedar-hollow-villa");
   });
 });
 

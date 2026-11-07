@@ -8,7 +8,7 @@ import { createDeveloperSeed } from "./seed";
 import { DEVELOPER_SLUG } from "./slug";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const DEVELOPER_VERSION = 1;
+export const DEVELOPER_VERSION = 2;
 
 // The developer stores the shared real estate data; its units live inside each residence.
 export const useDeveloperStore = createTemplateStore({

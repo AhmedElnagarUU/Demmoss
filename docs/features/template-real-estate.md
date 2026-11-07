@@ -8,8 +8,8 @@ Feature folder: `src/features/template-real-estate/`.
 | | Variant A: Agency | Variant B: Developer |
 |---|---|---|
 | Slug | `real-estate-agency` | `real-estate-developer` |
-| Business (seed) | **Hartwell & Co. Realty** · **هارتويل وشركاه العقارية**: residential brokerage, buy and rent (the source design's own business) | **Rawasi** · **رواسي للتطوير العقاري**: Jeddah villa and penthouse developer |
-| Design | Hartwell: warm white, black, bronze; Montserrat + IBM Plex Sans Arabic. **The home page, header and footer mirror the source exactly** (`docs/design-specs/02-hartwell-realty.md`) | Solenne: black, sand; light Montserrat + Tajawal |
+| Business (seed) | **Hartwell & Co. Realty** · **هارتويل وشركاه العقارية**: residential brokerage, buy and rent (the source design's own business) | **Solenne Estates** · **سولين للعقارات**: villa and penthouse developer (the source design's own business) |
+| Design | Hartwell: warm white, black, bronze; Montserrat + IBM Plex Sans Arabic. **The home page, header and footer mirror the source exactly** (`docs/design-specs/02-hartwell-realty.md`) | Solenne: black, sand; light Montserrat + IBM Plex Sans Arabic. **The home page, header and footer mirror the source exactly** (`docs/design-specs/01-solenne-estates.md`) |
 | Main value | More viewings and a trusted brand against portals and phone tag | Sell units: qualified viewings and live availability instead of PDF price lists |
 | Main closed loop | Viewing request on a property → Viewings | Viewing request on a residence → Viewings |
 | Second loop | Property inquiry or valuation request → Inquiries | Owner marks a unit available / reserved / sold → the site shows it; unit inquiry → Inquiries |
@@ -25,9 +25,9 @@ Feature folder: `src/features/template-real-estate/`.
 - **What the owner wants:** more serious viewings booked directly, fewer missed calls and WhatsApp threads, owners who trust the agency to list their property.
 - **Pain today:** listings live in portals that take the lead; viewings are arranged by phone and forgotten; buyers cannot tell what the monthly cost will be.
 
-### B. Rawasi (developer)
+### B. Solenne Estates (developer)
 
-- **Who it is:** a Jeddah developer delivering a few villa, coastal, and penthouse projects per year (Obhur, Al Hada, Al Shati).
+- **Who it is:** a small developer delivering a handful of villas, coastal homes, and penthouses per year (Hallmark Ridge, Cape Linden, Aurelia Tower and more), founded in 2009 by an architect and builders. Prices are in SAR (the source's USD x 3.75).
 - **Customers:** high-income families and investors buying off-plan or ready units; many arrive from Instagram and WhatsApp.
 - **What the owner wants:** a premium image, qualified viewing requests, and an always-correct list of which units are still for sale.
 - **Pain today:** availability lives in a PDF and in the sales manager's head; the same unit is promised twice; brochures are requested by chat.
@@ -60,18 +60,18 @@ Every section has a business goal. Sections without one are not built.
 | About & team | Story, numbers, agents, principles | trust | Why owners and buyers choose us |
 | Contact | Viewing form, valuation / question form, address, hours | viewings, listing leads | Sell or rent with us: free valuation |
 
-### B. Rawasi site
+### B. Solenne Estates site (the home page follows the source section by section)
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
-| Home | Hero with feature hotspots + numbers | premium image | Homes shaped by their setting |
+| Home | Hero with three feature hotspots, counting numbers | premium image | Homes shaped by landscape |
 | Home | Principles | trust | Site first, honest materials, quiet luxury |
-| Home | Residence types (villas, coastal, penthouses) | discovery | Choose the way you want to live |
-| Home | Available residences with type filter | sales | See what is still available |
-| Home | Team | trust | The people who design and build |
+| Home | Panorama of residence types (forest villas, coastal, penthouses, bespoke) | discovery | Choose the way you want to live |
+| Home | Collection: residences with type tabs | sales | Residences available |
+| Home | About: studio story, founder, team | trust | Built slowly, lived in for generations |
 | Home | Four-step process | reduce fear | From first sketch to final key |
-| Home | Testimonials | trust | Owners tell the story |
-| Home | Viewing CTA band | viewings | Book a private viewing |
+| Home | Client voices slider | trust | Owners tell the story |
+| Home | Book a viewing (form, studio details, map) | viewings | Book a viewing |
 | Residences | Filters (type, project area, price, available only) + cards | decide | Only what is for sale, always up to date |
 | Residence detail | Gallery, features, description | desire | |
 | Residence detail | **Unit availability table** (available / reserved / sold) | urgency, honesty | Know which units are left, live |

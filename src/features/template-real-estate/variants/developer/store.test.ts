@@ -22,51 +22,53 @@ beforeEach(() => {
 
 describe("RE11: unit availability edited in the dashboard", () => {
   it("setting the last free unit to reserved makes the residence reserved, then sold makes it sold out", () => {
-    expect(propertyState(residence("shati-sky-residence"))).toBe("available");
-    store().setUnitStatus("shati-sky-residence", "sk-1", "reserved");
-    expect(propertyState(residence("shati-sky-residence"))).toBe("reserved");
-    store().setUnitStatus("shati-sky-residence", "sk-1", "sold");
-    store().setUnitStatus("shati-sky-residence", "sk-2", "sold");
-    expect(propertyState(residence("shati-sky-residence"))).toBe("sold_out");
+    expect(propertyState(residence("skyline-penthouse"))).toBe("available");
+    store().setUnitStatus("skyline-penthouse", "sp-1", "reserved");
+    expect(propertyState(residence("skyline-penthouse"))).toBe("reserved");
+    store().setUnitStatus("skyline-penthouse", "sp-1", "sold");
+    store().setUnitStatus("skyline-penthouse", "sp-2", "sold");
+    expect(propertyState(residence("skyline-penthouse"))).toBe("sold_out");
   });
 
   it("freeing a unit makes a sold out residence available again", () => {
-    store().setUnitStatus("shati-sky-residence", "sk-1", "sold");
-    store().setUnitStatus("shati-sky-residence", "sk-2", "sold");
-    store().setUnitStatus("shati-sky-residence", "sk-2", "available");
-    expect(unitCounts(residence("shati-sky-residence").units).available).toBe(1);
-    expect(propertyState(residence("shati-sky-residence"))).toBe("available");
+    store().setUnitStatus("skyline-penthouse", "sp-1", "sold");
+    store().setUnitStatus("skyline-penthouse", "sp-2", "sold");
+    store().setUnitStatus("skyline-penthouse", "sp-2", "available");
+    expect(unitCounts(residence("skyline-penthouse").units).available).toBe(1);
+    expect(propertyState(residence("skyline-penthouse"))).toBe("available");
   });
 
   it("adds, reprices, and removes a unit of one residence only", () => {
-    const other = residence("hada-ridge-villa").units.length;
-    const id = store().addUnit("obhur-driftline", {
+    const other = residence("cedar-hollow-villa").units.length;
+    const id = store().addUnit("driftline-residence", {
       label: "D-05",
       floor: 0,
       size: 470,
       price: 3_900_000,
       status: "available",
     });
-    expect(residence("obhur-driftline").units.at(-1)).toMatchObject({ id, label: "D-05" });
-    store().updateUnit("obhur-driftline", id, { price: 3_850_000 });
-    expect(residence("obhur-driftline").units.at(-1)?.price).toBe(3_850_000);
-    store().removeUnit("obhur-driftline", id);
-    expect(residence("obhur-driftline").units.some((unit) => unit.id === id)).toBe(false);
-    expect(residence("hada-ridge-villa").units).toHaveLength(other);
+    expect(residence("driftline-residence").units.at(-1)).toMatchObject({ id, label: "D-05" });
+    store().updateUnit("driftline-residence", id, { price: 3_850_000 });
+    expect(residence("driftline-residence").units.at(-1)?.price).toBe(3_850_000);
+    store().removeUnit("driftline-residence", id);
+    expect(residence("driftline-residence").units.some((unit) => unit.id === id)).toBe(false);
+    expect(residence("cedar-hollow-villa").units).toHaveLength(other);
   });
 
   it("removing a residence removes its units with it", () => {
-    store().removeProperty("hada-ridge-villa");
-    expect(store().properties.some((property) => property.units.some((unit) => unit.id === "hr-1"))).toBe(
+    store().removeProperty("cedar-hollow-villa");
+    expect(store().properties.some((property) => property.units.some((unit) => unit.id === "ch-1"))).toBe(
       false,
     );
   });
 
   it("reset restores the seed units and keeps the account", () => {
     store().setAccount(account);
-    store().setUnitStatus("hada-ridge-villa", "hr-1", "sold");
+    store().setUnitStatus("cedar-hollow-villa", "ch-1", "sold");
     store().resetDemo();
-    expect(residence("hada-ridge-villa").units.find((unit) => unit.id === "hr-1")?.status).toBe("available");
+    expect(residence("cedar-hollow-villa").units.find((unit) => unit.id === "ch-1")?.status).toBe(
+      "available",
+    );
     expect(store().account).toEqual(account);
   });
 });
@@ -74,13 +76,13 @@ describe("RE11: unit availability edited in the dashboard", () => {
 describe("RE3: viewing of a unit", () => {
   it("keeps the chosen unit with the viewing request", () => {
     const id = store().addViewing({
-      propertyId: "hada-ridge-villa",
-      unitId: "hr-2",
+      propertyId: "cedar-hollow-villa",
+      unitId: "ch-2",
       name: "Nada",
       phone: "966500000009",
       date: "2026-11-10",
       time: "12:00",
     });
-    expect(store().viewings[0]).toMatchObject({ id, unitId: "hr-2", status: "new" });
+    expect(store().viewings[0]).toMatchObject({ id, unitId: "ch-2", status: "new" });
   });
 });

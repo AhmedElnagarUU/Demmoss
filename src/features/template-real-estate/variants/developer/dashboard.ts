@@ -16,7 +16,7 @@ export const developerModules: readonly DashboardModule[] = [
 
 export const developerConfig: RealEstateConfig = {
   slug: DEVELOPER_SLUG,
-  templateName: "Rawasi",
+  templateName: "Solenne Estates",
   basePath: "/demos/real-estate/developer",
   listingsSegment: "residences",
   palettes: developerPalettes,
