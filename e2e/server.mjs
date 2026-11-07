@@ -17,6 +17,7 @@ writeFileSync("e2e/.tmp/mongo-uri", mongoUri);
 
 const next = spawn("npx", ["next", "start", "-p", port], {
   stdio: "inherit",
+  shell: process.platform === "win32",
   env: {
     ...process.env,
     MONGODB_URI: mongoUri,
