@@ -32,6 +32,7 @@ export function ResultWhatsApp({ locale, type, fieldName }: Props) {
     <TrackedWhatsAppButton
       locale={locale}
       label={t("result.whatsapp")}
+      className="site-pill"
       message={buildWhatsAppMessage({
         t,
         brand: publicEnv.NEXT_PUBLIC_BRAND_NAME,

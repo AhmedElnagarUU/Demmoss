@@ -1,0 +1,104 @@
+/* The hero decorations of the source design, imported once by the site frame. */
+
+/* The floating "2 warehouses" card. */
+.wh-bob {
+  animation: wh-bob 5s ease-in-out infinite;
+}
+@keyframes wh-bob {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* The pulse ring of the contact button. */
+.wh-pulse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  animation: wh-pulse 1.8s infinite;
+}
+@keyframes wh-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* Range sliders of the estimator: a filled track and a round white thumb with a primary ring. */
+.wh-range {
+  appearance: none;
+  height: 5px;
+  border-radius: 5px;
+  outline: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) var(--wh-fill, 30%),
+    var(--color-border) var(--wh-fill, 30%)
+  );
+}
+.wh-range:dir(rtl) {
+  background: linear-gradient(
+    to left,
+    var(--color-primary) var(--wh-fill, 30%),
+    var(--color-border) var(--wh-fill, 30%)
+  );
+}
+.wh-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.wh-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-primary);
+  cursor: pointer;
+}
+.wh-range:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* The map of the quote section: white roads over a grey grid. */
+.wh-map {
+  background-color: #e8e9ec;
+  background-image:
+    linear-gradient(#fff 2px, transparent 2px), linear-gradient(90deg, #fff 2px, transparent 2px),
+    linear-gradient(#dcdde1 1px, transparent 1px), linear-gradient(90deg, #dcdde1 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    30px 30px,
+    30px 30px;
+}
+.wh-map::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -10%;
+  top: 55%;
+  width: 130%;
+  height: 26px;
+  background: #fff;
+  transform: rotate(-14deg);
+  box-shadow: 0 0 0 2px #dcdde1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wh-bob,
+  .wh-pulse::before {
+    animation: none;
+  }
+}

@@ -19,7 +19,7 @@ data in the visitor's browser), feedback, anonymous tracking, owner admin.
 | Demo engine | `src/features/demo-engine` | storage, fake auth, banner, dashboard shell, ui/, photo/, palettes/, format/ |
 | Restaurants | `template-restaurant`: Verdant Table (fine dining), Sole Trattoria (pizza & pasta ordering); each home mirrors its `theme-sources` design exactly | plan `docs/features/template-restaurant.md` |
 | Real estate | `template-real-estate`: Hartwell & Co. Realty (agency), Solenne Estates (developer); each home mirrors its `theme-sources` design exactly | plan `docs/features/template-real-estate.md` |
-| Logistics | `template-logistics`: Jisr Cargo (freight), Makhzan 3PL (warehousing) | plan `docs/features/template-logistics.md` |
+| Logistics | `template-logistics`: Orbis Cargo (freight), Stackwell (warehousing) | plan `docs/features/template-logistics.md` |
 | Clinics | `template-clinic`: Dr. Rayan Al Harthi (specialist), Noor (medical centre) | plan `docs/features/template-clinic.md` |
 | Plans not built | `docs/09-design-sources.md` (designs → categories), `docs/10-theme-system.md` (skins, parked by owner), `docs/11-production.md` (go-live code batches) | |
 
@@ -49,7 +49,7 @@ data in the visitor's browser), feedback, anonymous tracking, owner admin.
 ## Checks (sandbox)
 
 ```bash
-export NEXT_PUBLIC_BRAND_NAME=Brand NEXT_PUBLIC_WHATSAPP_NUMBER=966500000000 NEXT_PUBLIC_DEFAULT_LOCALE=ar NEXT_PUBLIC_SITE_URL=http://localhost:3000
+export NEXT_PUBLIC_BRAND_NAME=Brand NEXT_PUBLIC_WHATSAPP_NUMBER=966500000000 NEXT_PUBLIC_DEFAULT_LOCALE=en NEXT_PUBLIC_SITE_URL=http://localhost:3000
 npm run typecheck && npx eslint . && npx prettier --check . && npx vitest run --exclude "**/service.test.ts"
 npx next build && E2E_MONGODB_URI="mongodb://127.0.0.1:1/none" npx playwright test <specs>
 ```

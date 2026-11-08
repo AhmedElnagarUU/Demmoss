@@ -6,7 +6,6 @@ import { LOCALE_COOKIE, pickLocale } from "@/shared/i18n/config";
 export function proxy(request: NextRequest) {
   const locale = pickLocale({
     cookie: request.cookies.get(LOCALE_COOKIE)?.value,
-    acceptLanguage: request.headers.get("accept-language"),
     fallback: publicEnv.NEXT_PUBLIC_DEFAULT_LOCALE,
   });
   const url = request.nextUrl.clone();

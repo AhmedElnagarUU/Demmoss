@@ -8,7 +8,7 @@ import { createWarehousingSeed } from "./seed";
 import { WAREHOUSING_SLUG } from "./slug";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const WAREHOUSING_VERSION = 1;
+export const WAREHOUSING_VERSION = 2;
 
 export const useWarehousingStore = createTemplateStore({
   slug: WAREHOUSING_SLUG,

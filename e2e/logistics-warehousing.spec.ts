@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Makhzan 3PL (logistics-warehousing). Demo data lives in the browser, so these journeys need no database.
+// Stackwell (logistics-warehousing). Demo data lives in the browser, so these journeys need no database.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/logistics/warehousing${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
@@ -60,7 +60,7 @@ test("L9: editing the occupied pallets of a warehouse changes the free spots on 
   await page.goto(dashboard("en", "/warehouses"));
   await register(page);
   await page.locator("#wh-riyadh-occupied").fill("4000");
-  await page.getByRole("button", { name: "Save warehouse: Riyadh Hub" }).click();
+  await page.getByRole("button", { name: "Save warehouse: North Hub" }).click();
   await expect(page.getByRole("status")).toContainText("Saved.");
 
   await page.goto(site("en", "/warehouses"));
@@ -77,7 +77,7 @@ test("L10: a case study hidden in the dashboard disappears from the site", async
   await page.goto(site("en", "/case-studies"));
   await expect(page.getByRole("heading", { level: 1, name: "Case studies" })).toBeVisible();
   await expect(page.getByText("Cutting pick times for a fast-growing home goods brand")).toHaveCount(0);
-  await expect(page.getByText("Expiry-controlled storage for a dates and sweets distributor")).toBeVisible();
+  await expect(page.getByText("Expiry-controlled storage for a chilled snack distributor")).toBeVisible();
 });
 
 test("the value tip warns about a warehouse that is almost full", async ({ page }) => {
@@ -94,15 +94,15 @@ test.describe("direction", () => {
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "تخزين وتجهيز لوجستي بلا تأخير ولا تكاليف خفية",
+      "تخزين وحلول لوجستية موثوقة بلا تأخير ولا تكاليف إضافية",
     );
-    const brand = await page.getByRole("link", { name: "مخزن" }).first().boundingBox();
+    const brand = await page.getByRole("link", { name: "ستاكويل" }).first().boundingBox();
     const warehouses = await page.getByRole("link", { name: "المستودعات" }).first().boundingBox();
     expect(brand && warehouses && brand.x > warehouses.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    const enBrand = await page.getByRole("link", { name: "Makhzan 3PL" }).first().boundingBox();
+    const enBrand = await page.getByRole("link", { name: "Stackwell" }).first().boundingBox();
     const enWarehouses = await page.getByRole("link", { name: "Warehouses" }).first().boundingBox();
     expect(enBrand && enWarehouses && enBrand.x < enWarehouses.x).toBe(true);
 

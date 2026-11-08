@@ -16,9 +16,11 @@ type Props = {
   empty: ReactNode;
 };
 
-const chipBase = "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-medium";
+const chipBase =
+  "inline-flex min-h-9 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
 const chipOn = "border-primary bg-primary text-on-primary";
-const chipOff = "border-border text-text";
+const chipOff =
+  "border-border bg-white/[0.03] text-muted hover:border-primary/40 hover:bg-white/[0.06] hover:text-text";
 
 // The page is static and shows every category. In the browser, ?category=slug narrows it.
 export function GalleryFilter({ basePath, label, allLabel, chips, sections, empty }: Props) {
@@ -29,7 +31,7 @@ export function GalleryFilter({ basePath, label, allLabel, chips, sections, empt
   return (
     <>
       {chips.length > 0 && (
-        <nav aria-label={label} className="mx-auto w-full max-w-5xl px-4">
+        <nav aria-label={label} className="mx-auto w-full max-w-6xl px-4 sm:px-6">
           <ul className="flex flex-wrap gap-2">
             <li>
               <Link

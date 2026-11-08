@@ -4,6 +4,8 @@ import type { Photo } from "../../site/photo";
 // Moving to self-hosted files later means changing `src` here only.
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}`;
 
+const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg`;
+
 const landscape = { width: 1200, height: 800 } as const;
 const portrait = { width: 600, height: 750 } as const;
 
@@ -16,9 +18,12 @@ export const medicalCentrePhotos: readonly Photo[] = [
   },
   {
     id: "team",
-    src: unsplash("1631217868264-e5b90bb7e133"),
+    src: pexels(4173239),
     ...landscape,
-    alt: { ar: "فريق طبي يراجع الفحوصات", en: "A medical team reviewing scans" },
+    alt: {
+      ar: "طبيب يراجع ملف مريض في ممر المركز",
+      en: "A doctor reviewing a patient file in the centre corridor",
+    },
   },
   {
     id: "dr-ahmad",
@@ -29,37 +34,37 @@ export const medicalCentrePhotos: readonly Photo[] = [
   },
   {
     id: "dr-reem",
-    src: unsplash("1559839734-2b71ea197ec2"),
+    src: pexels(5452293),
     ...portrait,
     portrait: true,
-    alt: { ar: "د. ريم الفهمي", en: "Dr. Reem Al Fahmi" },
+    alt: { ar: "د. راشد الفهمي", en: "Dr. Rashid Al Fahmi" },
   },
   {
     id: "dr-huda",
-    src: unsplash("1594824476967-48c8b964273f"),
+    src: unsplash("1612349317150-e413f6a5b16d"),
     ...portrait,
     portrait: true,
-    alt: { ar: "د. هدى سعيد", en: "Dr. Huda Saeed" },
+    alt: { ar: "د. حمد سعيد", en: "Dr. Hamad Saeed" },
   },
   {
     id: "dr-mona",
-    src: unsplash("1494790108377-be9c29b29330"),
+    src: pexels(5452268),
     ...portrait,
     portrait: true,
-    alt: { ar: "د. منى عادل", en: "Dr. Mona Adel" },
+    alt: { ar: "د. منير عادل", en: "Dr. Munir Adel" },
   },
   {
     id: "dr-tariq",
-    src: unsplash("1537368910025-700350fe46c7"),
+    src: pexels(8460157),
     ...portrait,
     portrait: true,
     alt: { ar: "د. طارق ناصر", en: "Dr. Tariq Nasser" },
   },
   {
     id: "dr-lina",
-    src: unsplash("1573496359142-b8d87734a5a2"),
+    src: unsplash("1582750433449-648ed127bb54"),
     ...portrait,
     portrait: true,
-    alt: { ar: "د. لينا قاسم", en: "Dr. Lina Qasim" },
+    alt: { ar: "د. ليث قاسم", en: "Dr. Laith Qasim" },
   },
 ];

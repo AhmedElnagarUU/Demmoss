@@ -8,7 +8,7 @@ Two complete logistics websites, each a different kind of business, sharing one 
 | | Variant A: Freight forwarder | Variant B: Warehousing & 3PL |
 |---|---|---|
 | Slug | `logistics-freight` | `logistics-warehousing` |
-| Business (seed) | **Orbis Cargo** · **أوربس كارجو**: international freight forwarder moving cargo from Asia by air, sea and road, with customs clearance (business, copy and look mirror `01-orbis-cargo.html`) | **Makhzan 3PL** · **مخزن**: warehouses in Riyadh and Jebel Ali, storage and e-commerce fulfilment |
+| Business (seed) | **Orbis Cargo** · **أوربس كارجو**: international freight forwarder moving cargo from Asia by air, sea and road, with customs clearance (business, copy and look mirror `01-orbis-cargo.html`) | **Stackwell** · **ستاكويل**: two warehouses (North Hub, Port Annex), pallet storage and e-commerce fulfilment (business, copy and look mirror `03-stackwell-3pl.html`) |
 | Main value | More quotes, fewer "where is my cargo?" calls | More qualified quotes: the visitor arrives with pallets and months already priced |
 | Closed loops | Quote request → Quotes · Dashboard updates a shipment → public tracker shows the new step · Dashboard edits a rate → calculator changes | Quote request with estimator values → Quotes · Dashboard edits warehouse space → site shows free pallet spots |
 | Look | Exactly the Orbis source: white page, light grey bands, ink text, white rounded cards, no accent colour · Manrope + IBM Plex Sans Arabic | Stackwell: white, red, black; sharp and industrial · Plus Jakarta Sans + Tajawal |
@@ -25,9 +25,9 @@ Two complete logistics websites, each a different kind of business, sharing one 
 - **What the owner wants:** more quote requests from serious importers, fewer phone calls asking where a shipment is, a price visitors can trust before they call.
 - **Pain today:** prices are given by phone and WhatsApp only; every client asks for the status of their cargo by message.
 
-### B. Makhzan 3PL (warehousing and fulfilment)
+### B. Stackwell (warehousing and 3PL fulfilment)
 
-- **Who it is:** a third-party logistics company with two warehouses (Riyadh Second Industrial City, Jebel Ali Dubai) that stores pallets and ships online orders.
+- **Who it is:** a third-party logistics company (Stackwell · ستاكويل, business, copy and design mirror `theme-sources/03-stackwell-3pl.html`, spec in `docs/design-specs/03-stackwell-3pl.md`) with two warehouses, the North Hub (3,200 m², Riyadh) and the Port Annex (1,800 m²), that stores pallets and ships online orders.
 - **Customers:** online stores, brands, and distributors who need pallet space and picking/packing without building a warehouse.
 - **What the owner wants:** quote requests that already say how many pallets, how long, and whether picking is needed, so sales calls are short.
 - **Pain today:** every visitor asks "how much for 40 pallets?" and waits a day for an answer; space is full in one site and empty in the other and nobody sees it.
@@ -54,19 +54,21 @@ Two complete logistics websites, each a different kind of business, sharing one 
 | Track shipment | Tracker (number → timeline) | saves calls | |
 | Get a quote | Quote form, contact details | leads | |
 
-### B. Makhzan site
+### B. Stackwell site
+
+The home page mirrors the source, section by section, in the source's order, sizes, colours and interactions (sticky header, reveal on scroll, auto-advancing stepper, partner row, today's hours, estimator, one-open FAQ accordion, dark footer). The shared quote form stays the closed loop; the estimator uses the demo's own rates and logic with the source's look.
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
-| Home | Hero + two warehouses + years | trust, leads | Storage and fulfilment without delays or hidden costs |
-| Home | Standards | trust | Certified processes |
-| Home | Smart storage (4 points, extra services) | decide | What storage includes |
+| Home | Hero + float card + years + standards + three-step stepper | trust, leads | Reliable Storage and 3PL Solutions Without Delays or Extra Costs |
+| Home | Partners row | trust | Brands that already store with us |
+| Home | Smart storage (4 points, schedule, extra services) | decide | What storage includes, and when we receive |
 | Home | 3PL process (4 steps) | decide | From receiving to your customer's door |
-| Home | Stats | trust | |
-| Home | Estimator (compact) | leads | Know your monthly cost |
-| Home | Warehouses (free spots) | decide | Space available now |
+| Home | Stats | trust | 99.8% accuracy, 24/7, 5,000+ m², 100+ clients |
+| Home | Estimator | leads | Estimate Your Storage Cost |
+| Home | Warehouses (free spots from the dashboard) | decide | Space available now |
 | Home | Case studies (visible ones) | trust | Results for brands like yours |
-| Home | Testimonials, FAQ, quote band | trust, remove doubt, leads | |
+| Home | FAQ + quote form with map | remove doubt, leads | Request a quote |
 | Services | Storage and fulfilment sections with "from" rates | decide | |
 | Warehouses | Both sites: specs, address, free spots | decide | |
 | Case studies | All visible case studies | trust | |

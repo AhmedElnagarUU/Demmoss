@@ -13,7 +13,7 @@ type Props = { locale: Locale; onClose: () => void };
 type Status = "idle" | "sending" | "sent";
 
 const fieldClasses =
-  "mt-1 w-full rounded-control border border-border bg-bg px-3 py-2 text-base text-text focus-visible:outline-2 focus-visible:outline-focus";
+  "mt-1 w-full rounded-lg border border-border bg-white/[0.04] px-3 py-2 text-base text-text focus-visible:outline-2 focus-visible:outline-focus";
 
 function visitorId(): string {
   try {
@@ -74,7 +74,9 @@ export function FeedbackForm({ locale, onClose }: Props) {
         <p role="status" className="text-base text-text">
           {t("thanks")}
         </p>
-        <Button onClick={onClose}>{t("close")}</Button>
+        <Button onClick={onClose} className="site-pill">
+          {t("close")}
+        </Button>
       </div>
     );
   }
@@ -135,10 +137,10 @@ export function FeedbackForm({ locale, onClose }: Props) {
         </p>
       )}
       <div className="flex flex-wrap gap-3">
-        <Button type="submit" disabled={status === "sending"}>
+        <Button type="submit" disabled={status === "sending"} className="site-pill">
           {status === "sending" ? t("sending") : t("send")}
         </Button>
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose} className="site-pill">
           {t("close")}
         </Button>
       </div>

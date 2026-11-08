@@ -14,7 +14,7 @@ export const warehousingModules: readonly DashboardModule[] = [
 
 export const warehousingConfig: LogisticsConfig = {
   slug: WAREHOUSING_SLUG,
-  templateName: "Makhzan 3PL",
+  templateName: "Stackwell",
   basePath: WAREHOUSING_ROOT,
   palettes: warehousingPalettes,
   fontClassName: warehousingFontClassName,

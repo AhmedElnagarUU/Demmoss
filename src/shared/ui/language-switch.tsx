@@ -8,9 +8,10 @@ type Props = {
   locale: Locale;
   label: string;
   onSwitch?: (from: Locale, to: Locale) => void;
+  className?: string;
 };
 
-export function LanguageSwitch({ locale, label, onSwitch }: Props) {
+export function LanguageSwitch({ locale, label, onSwitch, className = "" }: Props) {
   const pathname = usePathname();
   const target = otherLocale(locale);
 
@@ -25,9 +26,10 @@ export function LanguageSwitch({ locale, label, onSwitch }: Props) {
       hrefLang={target}
       lang={target}
       onClick={rememberChoice}
-      className="rounded-control border border-border px-3 py-1.5 text-sm font-semibold text-text hover:bg-surface focus-visible:outline-2 focus-visible:outline-focus"
+      aria-label={label}
+      className={`inline-flex h-9 min-w-10 items-center justify-center rounded-control border border-border px-3 text-sm font-semibold uppercase text-text hover:bg-surface focus-visible:outline-2 focus-visible:outline-focus ${className}`}
     >
-      {label}
+      {target.toUpperCase()}
     </Link>
   );
 }

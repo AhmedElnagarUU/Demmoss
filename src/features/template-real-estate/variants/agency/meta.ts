@@ -11,5 +11,5 @@ export const agencyMeta = {
     ar: "حوّل الزوار إلى معاينات: عقارات للبيع والإيجار بتصميم هادئ، حاسبة تمويل تؤهّل العميل، وطلبات معاينة وتقييم تصل إلى لوحة التحكم.",
     en: "Turn browsers into viewings: buy and rent listings, a mortgage calculator that qualifies buyers, and valuation requests that land in your dashboard.",
   },
-  screenshot: "/demos/real-estate-agency.svg",
+  screenshot: "/demos/real-estate-agency.jpg",
 } as const;

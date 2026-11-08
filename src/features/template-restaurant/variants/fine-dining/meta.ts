@@ -11,5 +11,5 @@ export const fineDiningMeta = {
     ar: "احجز طاولتك في ثوانٍ: حجوزات ليلًا ونهارًا دون مكالمات فائتة، وطلبات عشاءات خاصة تصل إلى لوحة التحكم.",
     en: "Fill your tables: reservations day and night with no missed calls, and private dinner requests that land in your dashboard.",
   },
-  screenshot: "/demos/restaurant-fine-dining.svg",
+  screenshot: "/demos/restaurant-fine-dining.jpg",
 } as const;

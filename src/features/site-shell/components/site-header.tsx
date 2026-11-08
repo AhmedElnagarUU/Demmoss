@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TrackedLanguageSwitch } from "@/features/tracking/components/tracked-language-switch";
 import type { Locale } from "@/shared/i18n/config";
 import { getT } from "@/shared/i18n/t";
+import { LinkButton } from "@/shared/ui/link-button";
 import { Logo } from "@/shared/ui/logo";
 import { siteShellT } from "../translate";
 import { MobileMenu } from "./mobile-menu";
@@ -16,20 +17,20 @@ export function SiteHeader({ locale }: { locale: Locale }) {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-control focus:bg-bg focus:px-4 focus:py-2 focus:text-text"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-on-primary"
       >
         {common("common.skipToContent")}
       </a>
-      <header className="relative border-b border-border bg-bg">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+      <header className="sticky top-0 z-30 border-b border-white/5 bg-black/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <Logo href={`/${locale}`} />
           <nav aria-label={t("nav.label")} className="hidden md:block">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-7">
               {items.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-base font-semibold text-text hover:text-primary focus-visible:outline-2 focus-visible:outline-focus"
+                    className="rounded-lg text-[13px] font-medium text-muted transition-colors hover:text-text focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
                   >
                     {item.label}
                   </Link>
@@ -37,13 +38,27 @@ export function SiteHeader({ locale }: { locale: Locale }) {
               ))}
             </ul>
           </nav>
-          <div className="flex items-center gap-2">
-            <TrackedLanguageSwitch locale={locale} label={common("common.switchLanguage")} />
+          <div className="flex items-center justify-end gap-2">
+            <TrackedLanguageSwitch
+              locale={locale}
+              label={common("common.switchLanguage")}
+              className="site-pill site-btn-ghost inline-flex items-center"
+            />
+            <div className="hidden md:block">
+              <LinkButton
+                href={`/${locale}/start`}
+                className="site-pill bg-primary text-on-primary hover:bg-primary-hover"
+              >
+                {t("nav.start")}
+              </LinkButton>
+            </div>
             <MobileMenu
               items={items}
               navLabel={t("nav.label")}
               openLabel={t("menu.open")}
               closeLabel={t("menu.close")}
+              ctaHref={`/${locale}/start`}
+              ctaLabel={t("nav.start")}
             />
           </div>
         </div>

@@ -11,5 +11,5 @@ export const freightMeta = {
     ar: "حاسبة أسعار وتتبّع شحنات: العميل يعرف السعر ومكان بضاعته دون اتصال، وطلبات الأسعار تصل إلى لوحة التحكم.",
     en: "A price calculator and live shipment tracking: clients see the price and where their cargo is without calling, and quote requests land in your dashboard.",
   },
-  screenshot: "/demos/logistics-freight.svg",
+  screenshot: "/demos/logistics-freight.jpg",
 } as const;

@@ -3,7 +3,7 @@ import { createTranslator, type TranslateFor } from "@/shared/i18n/t";
 import ar from "./messages/ar.json";
 import en from "./messages/en.json";
 
-// Text of the Makhzan site and its overview cards. Everything else is in ../../messages.
+// Text of the Stackwell site and its overview cards. Everything else is in ../../messages.
 export type WarehousingMessages = typeof en;
 export type WarehousingTranslate = TranslateFor<WarehousingMessages>;
 

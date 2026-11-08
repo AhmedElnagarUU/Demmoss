@@ -25,27 +25,27 @@ export function ResultView({ locale, type, field }: Props) {
 
   return (
     <>
-      <h1 className="text-2xl font-bold sm:text-3xl">
+      <h1 className="site-display text-3xl text-text sm:text-4xl">
         {type === "business" ? t("result.businessTitle") : t("result.ideaTitle")}
       </h1>
 
-      {type !== "business" && <p className="text-base text-muted">{t("result.ideaText")}</p>}
+      {type !== "business" && <p className="text-base leading-relaxed text-muted">{t("result.ideaText")}</p>}
 
       {type === "business" && (
         <section className="flex flex-col gap-3" aria-labelledby="demos-title">
-          <h2 id="demos-title" className="text-xl font-semibold">
+          <h2 id="demos-title" className="text-xl font-semibold text-text">
             {showCategoryDemos ? t("result.demosTitle") : t("result.demosFallbackTitle")}
           </h2>
           {!showCategoryDemos && <p className="text-base text-muted">{t("result.demosFallbackText")}</p>}
           {demos.length > 0 && (
             <ul className="flex flex-col gap-3">
               {demos.map((demo) => (
-                <li key={demo.slug} className="flex flex-col gap-2 rounded-control border border-border p-4">
-                  <span className="font-semibold">{demo.name[locale]}</span>
+                <li key={demo.slug} className="site-tile flex flex-col gap-2 p-4">
+                  <span className="font-semibold text-text">{demo.name[locale]}</span>
                   <span className="text-sm text-muted">{demo.pitch[locale]}</span>
                   <Link
                     href={`/${locale}/demos/${demo.category}/${demo.variant}`}
-                    className="font-semibold text-primary underline"
+                    className="w-fit rounded-full font-semibold text-primary underline decoration-primary/40 underline-offset-4 hover:text-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
                   >
                     {t("result.tryDemo")}
                   </Link>
@@ -54,7 +54,7 @@ export function ResultView({ locale, type, field }: Props) {
             </ul>
           )}
           {!showCategoryDemos && (
-            <LinkButton href={`/${locale}/demos`} variant="secondary" className="self-start">
+            <LinkButton href={`/${locale}/demos`} variant="secondary" className="site-pill self-start">
               {t("result.allDemos")}
             </LinkButton>
           )}

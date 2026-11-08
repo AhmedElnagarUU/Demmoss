@@ -2,7 +2,7 @@
 
 ## The whole journey in plain words
 
-1. A visitor arrives from an ad, a social post, or a WhatsApp link. The site opens in their browser language (Arabic by default).
+1. A visitor arrives from an ad, a social post, or a WhatsApp link. The site opens in English by default; the visitor's remembered language choice wins.
 2. The **landing page** explains what we deliver and the value it brings to their business, and how we work.
 3. The visitor can read the **Software Guide** to understand the difference between a profile website,
    a functional website with a dashboard, and a SaaS product, and which one fits them.

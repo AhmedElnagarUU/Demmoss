@@ -9,14 +9,16 @@ type Props = {
   label: string;
   message: string;
   template?: string;
+  className?: string;
 };
 
-export function TrackedWhatsAppButton({ locale, label, message, template }: Props) {
+export function TrackedWhatsAppButton({ locale, label, message, template, className }: Props) {
   return (
     <WhatsAppButton
       label={label}
       message={message}
       onClick={() => track("whatsapp_clicked", { locale, template })}
+      className={className}
     />
   );
 }

@@ -43,13 +43,31 @@ No database. Two static lists:
 - `catalog.ts`: every variant's `meta.ts` (slug, category, variant, name ar/en, pitch ar/en, screenshot).
 Adding a variant = adding its `meta` to the catalog. A category with no variants yet is hidden in the gallery.
 
+## Gallery screenshots
+
+Each card shows a real screenshot of the demo's **source design** in `theme-sources/`, saved as `public/demos/<slug>.jpg`.
+The medical centre has no source design: its card is a screenshot of our own built demo (`/en/demos/clinic/medical-centre`).
+
+| Slug | Source design |
+|---|---|
+| restaurant-fine-dining | `theme-sources/03-verdant-table.html` |
+| restaurant-fast-food | `theme-sources/06-sole-trattoria.html` |
+| real-estate-agency | `theme-sources/02-hartwell-realty.html` |
+| real-estate-developer | `theme-sources/01-solenne-estates.html` |
+| clinic-specialist | `theme-sources/02-dr-adrian-vale.html` |
+| logistics-freight | `theme-sources/01-orbis-cargo.html` |
+| logistics-warehousing | `theme-sources/03-stackwell-3pl.html` |
+
+Run `npm run screenshots:demos` after a source design changes.
+Rows with a `url` (the medical centre, which has no source design) are captured from our built demo when `SCREENSHOT_BASE_URL` points to a running production server (e.g. `http://localhost:3000`); otherwise they are skipped.
+
 ## Tests
 
 | Level | Test | Protects |
 |---|---|---|
 | Contract | every catalog entry valid; categories without variants hidden | G1, G3 |
 | Unit | `getDemosByCategory` returns both variants of a category | G2 |
-| E2E | filter by category; card opens the site and the dashboard | G1–G3 |
+| E2E | filter by category; card opens the site (in a new tab) and the dashboard | G1–G3 |
 
 ## Files
 

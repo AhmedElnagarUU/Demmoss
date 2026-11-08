@@ -9,16 +9,29 @@ to the Software Guide, the wizard, or the demos.
 
 ## Flow in plain words
 
-1. The visitor lands on `/ar` or `/en` (browser language, Arabic fallback).
+1. The visitor lands on `/ar` or `/en` (English by default; a remembered choice wins).
 2. The hero states the business result we bring and offers two actions: **Start your project** (wizard) and **See live demos**.
 3. Sections, in order:
-   - **The value**: what a good website or system changes for a business (customers, time, trust, sales).
-   - **What we deliver**: profile websites, functional websites with dashboards, SaaS / custom systems, each told as value.
-   - **Not sure what you need?** short teaser linking to the Software Guide.
-   - **Live demos**: a few highlighted templates from the gallery.
-   - **How we work**: simple steps from first message to launch.
-   - **Final call to action**: wizard + WhatsApp.
+   - **Hero**: badge, two-line headline whose last words sit in a green box with a blinking cursor, subtitle, green
+     "Start your project" and white "See live demos" buttons, a caption, then three tilted sample-dashboard cards
+     (New leads, Bookings this week, Orders today; only the centre one on phones) and green arcs at the bottom corner.
+   - **Why choose us (bento)**: customers at any hour (three icon tiles), your time comes back (notification rows), trust at
+     first sight (green donut), your dashboard live (weekday bar chart), customers in their own language (orbit
+     illustration), requests flow to you automatically (node diagram).
+   - **What we deliver**: website, website with dashboard, custom system or SaaS; icon tile, green value line, grey text.
+   - **Not sure what you need?** one wide glass card linking to the Software Guide.
+   - **Live demos**: one wide glass card with a few highlighted templates from the gallery.
+   - **Get started in 4 simple steps**: a 2x2 grid of glass cards, each with a small green line illustration.
+   - **Final call to action**: a glass card with green glow, wizard button and WhatsApp.
 4. Header: logo/brand name, links (Guide, Demos, Start), language switch. Floating feedback and WhatsApp buttons.
+
+## Look
+
+The public site uses the BOCHKE identity: pure black background, dark-green glass cards (1px border, soft green glow in
+one corner), white headings with an italic serif accent word (bold upright in Arabic), grey body text and emerald green
+`#22c55e` accents. Primary buttons are small green rounded rectangles with an arrow; secondary buttons are white. The hero
+has soft green light rays falling from the top and concentric green arcs below. Reference:
+[`docs/design-references/bochke-ui.png`](../design-references/bochke-ui.png).
 
 ## User stories
 

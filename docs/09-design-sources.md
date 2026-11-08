@@ -40,7 +40,7 @@ The designs cover **7 business categories**. Two of them are new (logistics, onl
 | Cafés | **Café & eatery**: table booking + pickup orders (Hearthbean) | **Specialty coffee**: order for pickup/delivery + beans (Sage & Grain) | Same dashboard as Restaurants (menu, orders, reservations) |
 | Real estate | **Agency**: buy/rent listings (Hartwell & Co. Realty, mirrors `02-hartwell-realty`) | **Developer**: projects and units (Solenne Estates, mirrors `01-solenne-estates`) | Built: both real estate homes, headers and footers mirror their sources (`docs/design-specs/02-hartwell-realty.md`, `docs/design-specs/01-solenne-estates.md`) |
 | Clinics | **Specialist doctor**: dental implants (Dr. Vale) | **Medical centre**: several doctors (derived from Dr. Vale's design language) | No design for B yet |
-| Logistics *(new)* | **Freight forwarder**: Orbis Cargo, exact mirror of `01-orbis-cargo.html`; the tracker loop comes from Meridian | **Warehousing & 3PL** (Stackwell) | A spec: `docs/design-specs/01-orbis-cargo.md` |
+| Logistics *(new)* | **Freight forwarder**: Orbis Cargo, exact mirror of `01-orbis-cargo.html`; the tracker loop comes from Meridian | **Warehousing & 3PL** (Stackwell), exact mirror of `03-stackwell-3pl.html` | Built: the home page, header and footer mirror the source (`docs/design-specs/03-stackwell-3pl.md`); freight spec: `docs/design-specs/01-orbis-cargo.md` |
 | Marketing & creative *(updated)* | **Full-service marketing agency** (KZ Digital, owner's 8 services) | **Brand & interior design studio** (Olivine) | Replaces the earlier "performance agency" idea |
 | Online stores *(new)* | **Home décor shop** (Solène) | **Coffee roaster shop with subscriptions** (Ember & Oak) | |
 

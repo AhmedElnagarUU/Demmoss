@@ -8,7 +8,7 @@ import { afterHoursFacts, staleQuoteFacts } from "../../value-tips";
 import { getWarehousingT } from "./messages";
 import { useWarehousingStore } from "./store";
 
-// Overview cards, activity, and value tips of Makhzan, computed from its quotes and warehouses.
+// Overview cards, activity, and value tips of Stackwell, computed from its quotes and warehouses.
 export function useOverview(locale: Locale): Overview {
   const quotes = useWarehousingStore((state) => state.quotes);
   const warehouses = useWarehousingStore((state) => state.warehouses);

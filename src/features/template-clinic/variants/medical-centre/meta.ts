@@ -11,5 +11,5 @@ export const medicalCentreMeta = {
     ar: "اترك المريض يختار طبيبه ووقتًا متاحًا فعلًا بدل الاتصال بالاستقبال: أقسام وأطباء وجداول أسبوعية وحجوزات تظهر عند كل طبيب.",
     en: "Let patients choose the doctor and a truly free slot instead of calling reception: departments, doctors, weekly schedules, and bookings that show up under each doctor.",
   },
-  screenshot: "/demos/clinic-medical-centre.svg",
+  screenshot: "/demos/clinic-medical-centre.jpg",
 } as const;

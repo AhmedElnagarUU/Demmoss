@@ -42,7 +42,7 @@ test("W2, W4, W5, W6: a business owner picks a category in Arabic and ends on Wh
   await expect
     .poll(async () => decodeURIComponent((await whatsapp.getAttribute("href")) ?? ""))
     .toContain("سارة المطيري");
-  expect(decodeURIComponent((await whatsapp.getAttribute("href")) ?? "")).toContain("المطاعم والمقاهي");
+  expect(decodeURIComponent((await whatsapp.getAttribute("href")) ?? "")).toContain("مجالي: المطاعم");
 
   await expect
     .poll(() => leadNamed("سارة المطيري"))

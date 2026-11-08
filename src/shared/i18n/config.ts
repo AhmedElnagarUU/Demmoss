@@ -35,26 +35,10 @@ export function switchPathLocale(pathname: string, to: Locale): string {
 
 type PickLocaleInput = {
   cookie: string | undefined;
-  acceptLanguage: string | null;
   fallback: Locale;
 };
 
-export function pickLocale({ cookie, acceptLanguage, fallback }: PickLocaleInput): Locale {
+export function pickLocale({ cookie, fallback }: PickLocaleInput): Locale {
   if (isLocale(cookie)) return cookie;
-  return preferredLanguage(acceptLanguage) ?? fallback;
-}
-
-function preferredLanguage(acceptLanguage: string | null): Locale | null {
-  if (!acceptLanguage) return null;
-  const ranked = acceptLanguage
-    .split(",")
-    .map((part) => {
-      const [tag = "", ...params] = part.trim().split(";");
-      const qParam = params.find((param) => param.trim().startsWith("q="));
-      const quality = qParam ? Number(qParam.trim().slice(2)) : 1;
-      return { language: tag.split("-")[0]?.toLowerCase(), quality: Number.isNaN(quality) ? 0 : quality };
-    })
-    .filter((entry) => entry.quality > 0)
-    .sort((a, b) => b.quality - a.quality);
-  return ranked.map((entry) => entry.language).find(isLocale) ?? null;
+  return fallback;
 }

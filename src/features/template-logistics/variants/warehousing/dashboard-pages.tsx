@@ -10,7 +10,7 @@ import { warehousingConfig } from "./dashboard";
 import { WAREHOUSING_SLUG } from "./slug";
 import { useWarehousingStore } from "./store";
 
-// Binds the shared dashboard and the variant modules to the Makhzan store.
+// Binds the shared dashboard and the variant modules to the Stackwell store.
 export function WarehousingDashboard({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
     <DashboardFrame store={useWarehousingStore} config={warehousingConfig} locale={locale}>

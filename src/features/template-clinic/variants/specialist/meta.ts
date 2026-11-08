@@ -11,5 +11,5 @@ export const specialistMeta = {
     ar: "حوّل استفسارات الزراعة إلى استشارات محجوزة حتى منتصف الليل: أسعار شفافة، قبل وبعد، وحجز بأوقات متاحة فعلًا يصل إلى لوحة التحكم.",
     en: "Turn implant enquiries into booked consultations, even at midnight: clear prices, before and after, and booking into truly free times that land in your dashboard.",
   },
-  screenshot: "/demos/clinic-specialist.svg",
+  screenshot: "/demos/clinic-specialist.jpg",
 } as const;

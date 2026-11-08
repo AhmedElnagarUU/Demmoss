@@ -5,10 +5,10 @@ export const warehousingMeta = {
   slug: WAREHOUSING_SLUG,
   category: "logistics",
   variant: "warehousing",
-  name: { ar: "مخزن · تخزين وخدمات لوجستية", en: "Makhzan · Warehousing & 3PL" },
+  name: { ar: "ستاكويل · تخزين وخدمات لوجستية", en: "Stackwell · Warehousing & 3PL" },
   pitch: {
     ar: "مقدّر تكلفة التخزين يصل إلى لوحة التحكم مع الطلب: عدد الطبليات والمدة والتجهيز، فتكون مكالمة المبيعات الأولى قصيرة.",
     en: "A storage cost estimator whose numbers travel with the quote request: pallets, months and picking, so the first sales call is short.",
   },
-  screenshot: "/demos/logistics-warehousing.svg",
+  screenshot: "/demos/logistics-warehousing.jpg",
 } as const;

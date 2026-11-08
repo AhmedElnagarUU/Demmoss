@@ -11,5 +11,5 @@ export const developerMeta = {
     ar: "بِع وحداتك بثقة: توفّر الوحدات تتحدث لحظيًا من لوحة التحكم، وطلبات معاينة خاصة وكتيبات تصل مباشرة إلى فريق المبيعات.",
     en: "Sell units with confidence: unit availability updates live from your dashboard, and private viewing and brochure requests go straight to your sales team.",
   },
-  screenshot: "/demos/real-estate-developer.svg",
+  screenshot: "/demos/real-estate-developer.jpg",
 } as const;

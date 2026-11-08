@@ -47,7 +47,7 @@ src/
       admin/login/page.tsx            → features/admin
       admin/(protected)/...           → features/admin (layout.tsx checks the session)
     sitemap.ts, robots.ts
-  proxy.ts                            redirects / and paths without a locale (browser language or saved choice)
+  proxy.ts                            redirects / and paths without a locale (saved choice or default locale)
   features/
     landing/
     software-guide/
@@ -193,7 +193,7 @@ Variables starting with `NEXT_PUBLIC_` are public (sent to the browser). The oth
 |---|---|
 | `NEXT_PUBLIC_BRAND_NAME` | Brand name shown in the UI (not decided yet) |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Number for every WhatsApp button |
-| `NEXT_PUBLIC_DEFAULT_LOCALE` | Fallback locale (`ar`) |
+| `NEXT_PUBLIC_DEFAULT_LOCALE` | Default locale for a first visit (`en`) |
 | `NEXT_PUBLIC_SITE_URL` | Absolute site URL |
 | `MONGODB_URI` | Database connection |
 | `ADMIN_EMAIL` | Admin login |

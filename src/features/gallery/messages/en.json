@@ -4,6 +4,7 @@
     "description": "Open complete business websites with their own dashboards. Try them like a real owner and see what the right software does for your field."
   },
   "hero": {
+    "badge": "Live, clickable demos",
     "title": "Try the software your business could have",
     "text": "Every demo is a complete website with a working dashboard. Open it, book a table or send an inquiry, then see it arrive in the dashboard. No sign-up needed."
   },
@@ -13,6 +14,7 @@
   },
   "card": {
     "openSite": "Open the website",
+    "newTab": "(opens in a new tab)",
     "openDashboard": "Open the dashboard",
     "screenshotAlt": "Preview of the {name} website"
   },

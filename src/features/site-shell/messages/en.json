@@ -1,8 +1,10 @@
 {
   "nav": {
     "label": "Main",
+    "home": "Home",
     "guide": "Guide",
     "demos": "Demos",
+    "contact": "Contact",
     "start": "Start"
   },
   "menu": {

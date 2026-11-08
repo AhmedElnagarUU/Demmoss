@@ -1,11 +1,50 @@
 {
   "hero": {
+    "badge": "Websites, dashboards and custom systems",
     "title": "A website that brings you customers, even while you sleep",
+    "accent": "even while you sleep",
     "subtitle": "We build websites, dashboards, and custom systems that take bookings and orders around the clock, build trust with every visitor, and give your team its time back.",
     "start": "Start your project",
-    "demos": "See live demos"
+    "demos": "See live demos",
+    "caption": "No commitment. We show you a working demo first.",
+    "previews": {
+      "live": "Live",
+      "leadsTitle": "New leads",
+      "leads1": {
+        "initial": "R",
+        "label": "Restaurant site",
+        "time": "2 min"
+      },
+      "leads2": {
+        "initial": "C",
+        "label": "Clinic dashboard",
+        "time": "9 min"
+      },
+      "leads3": {
+        "initial": "S",
+        "label": "Retail store",
+        "time": "14 min"
+      },
+      "bookingsTitle": "Bookings",
+      "bookingsTrend": "+18%",
+      "bookingsTotal": "128",
+      "bookingsLabel": "this month",
+      "bookingsHint": "confirmed automatically",
+      "ordersTitle": "Today",
+      "orders": {
+        "confirmed": "Order confirmed",
+        "paid": "Payment received",
+        "whatsapp": "Sent to WhatsApp"
+      },
+      "ordersAgo": {
+        "confirmed": "just now",
+        "paid": "3 min",
+        "whatsapp": "12 min"
+      }
+    }
   },
   "value": {
+    "badge": "Why choose us",
     "title": "What the right software changes in your business",
     "customers": {
       "title": "Customers reach you at any hour",
@@ -22,9 +61,32 @@
     "languages": {
       "title": "Customers in their own language",
       "text": "Arabic and English, fully right-to-left where it matters, so every customer feels the business speaks to them."
+    },
+    "visuals": {
+      "rows": {
+        "booking": "New booking",
+        "order": "New order",
+        "message": "New message"
+      },
+      "times": {
+        "first": "2 min",
+        "second": "9 min",
+        "third": "1 h"
+      },
+      "donutLabel": "On every phone",
+      "donutWord": "Fast"
+    },
+    "dashboard": {
+      "title": "Your dashboard, live",
+      "text": "Every booking and order appears as it happens, so you always know what today looks like."
+    },
+    "flow": {
+      "title": "Requests flow to you automatically",
+      "text": "A request on your site reaches your dashboard and your WhatsApp in seconds, with nothing to copy by hand."
     }
   },
   "deliver": {
+    "badge": "What we build",
     "title": "What we deliver",
     "intro": "Three kinds of products. Each one solves a different problem, and we help you pick the one you actually need.",
     "website": {
@@ -44,17 +106,19 @@
     }
   },
   "guide": {
+    "badge": "Not sure yet?",
     "title": "Not sure what you need?",
     "text": "Many owners ask for a website and need a system, or the other way around. Answer a few simple questions and see which type fits your business.",
     "cta": "Open the Software Guide"
   },
   "demos": {
+    "badge": "Try before you decide",
     "title": "See it working before you decide",
     "text": "Open a complete business website, make a booking or an order, then open its dashboard and watch it appear. Everything you do stays in your browser.",
     "cta": "Browse live demos"
   },
   "how": {
-    "title": "How we work",
+    "badge": "The process",
     "step1": {
       "title": "You tell us about your project",
       "text": "Answer a few short questions in the wizard, or message us on WhatsApp."
@@ -70,9 +134,12 @@
     "step4": {
       "title": "We launch and stay close",
       "text": "We put it online and support you after launch."
-    }
+    },
+    "titleLead": "Get started in 4",
+    "titleAccent": "simple steps"
   },
   "cta": {
+    "badge": "Start today",
     "title": "Ready to turn visitors into customers?",
     "text": "Tell us about your business and we will suggest the next step.",
     "start": "Tell us about your project"

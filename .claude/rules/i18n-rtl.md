@@ -7,7 +7,7 @@ every template site, every template dashboard.
 
 - Routes are prefixed: `/ar/...` and `/en/...` (the `[locale]` segment, validated in `src/app/[locale]/layout.tsx`; unknown locale → `notFound()`). `src/proxy.ts` redirects paths without a locale.
 - Translation is our own small module in `src/shared/i18n`: `ar.json` / `en.json` messages and a typed `t()` helper. No i18n library.
-- First visit: follow the browser language; fall back to `NEXT_PUBLIC_DEFAULT_LOCALE` (Arabic).
+- First visit: English (`NEXT_PUBLIC_DEFAULT_LOCALE=en`); the visitor's remembered choice wins.
 - The visitor's choice is remembered. The language icon is visible on every page, including template sites and dashboards.
 - `<html lang dir>` is set from the locale: `ar` → `dir="rtl"`, `en` → `dir="ltr"`.
 

@@ -41,7 +41,7 @@ const stepFields: Record<Step, LeadField[]> = {
 };
 
 const inputClasses =
-  "min-h-11 w-full rounded-control border border-border bg-bg px-3 py-2 text-base text-text " +
+  "min-h-11 w-full rounded-lg border border-border bg-white/[0.04] px-3 py-2 text-base text-text placeholder:text-muted " +
   "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus " +
   "aria-[invalid=true]:border-danger";
 
@@ -208,11 +208,14 @@ function LeadSteps({ locale }: { locale: Locale }) {
       <div className="flex flex-col gap-2">
         <p className="text-sm text-muted">{t("common.step", { current: String(step), total: "3" })}</p>
         <div className="h-1.5 rounded-full bg-surface" aria-hidden="true">
-          <div className="h-full rounded-full bg-primary" style={{ width: `${(step / 3) * 100}%` }} />
+          <div
+            className="h-full rounded-full bg-primary transition-[width] duration-300"
+            style={{ width: `${(step / 3) * 100}%` }}
+          />
         </div>
       </div>
 
-      <h1 ref={heading} tabIndex={-1} className="text-2xl font-bold outline-none sm:text-3xl">
+      <h1 ref={heading} tabIndex={-1} className="site-display text-3xl text-text outline-none sm:text-4xl">
         {title}
       </h1>
 
@@ -241,11 +244,11 @@ function LeadSteps({ locale }: { locale: Locale }) {
 
       <div className="flex flex-wrap gap-3">
         {step > 1 && (
-          <Button variant="secondary" onClick={goBack} disabled={sending}>
+          <Button variant="secondary" onClick={goBack} disabled={sending} className="site-pill">
             {t("common.back")}
           </Button>
         )}
-        <Button type="submit" disabled={sending}>
+        <Button type="submit" disabled={sending} className="site-pill">
           {step === 3 ? (sending ? t("common.sending") : t("common.submit")) : t("common.next")}
         </Button>
       </div>
@@ -266,7 +269,7 @@ function TypeStep(props: {
       {leadTypes.map((type) => (
         <label
           key={type}
-          className="flex cursor-pointer items-start gap-3 rounded-control border border-border p-4 has-checked:border-primary has-checked:bg-surface has-focus-visible:outline-2 has-focus-visible:outline-focus"
+          className="site-tile flex cursor-pointer items-start gap-3 p-4 has-checked:border-primary has-checked:bg-primary/10 has-focus-visible:outline-2 has-focus-visible:outline-focus"
         >
           <input
             type="radio"
@@ -277,7 +280,7 @@ function TypeStep(props: {
             className="mt-1 size-4 accent-primary"
           />
           <span className="flex flex-col gap-1">
-            <span className="font-semibold">{t(`type.${type}.label`)}</span>
+            <span className="font-semibold text-text">{t(`type.${type}.label`)}</span>
             <span className="text-sm text-muted">{t(`type.${type}.hint`)}</span>
           </span>
         </label>
@@ -416,7 +419,7 @@ function Field(props: { id: string; label: string; hint?: string; error?: string
   const { id, label, hint, error, children } = props;
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-base font-semibold">
+      <label htmlFor={id} className="text-base font-semibold text-text">
         {label}
       </label>
       {hint && (

@@ -39,7 +39,7 @@ test("C2, C4: book with a chosen doctor, then find the request under that doctor
   await expect(row).toBeVisible();
   await expect(row.getByText("Dr. Tariq Nasser")).toBeVisible();
 
-  await page.getByLabel("Doctor", { exact: true }).selectOption({ label: "Dr. Mona Adel" });
+  await page.getByLabel("Doctor", { exact: true }).selectOption({ label: "Dr. Munir Adel" });
   await expect(row).toHaveCount(0);
   await page.getByLabel("Doctor", { exact: true }).selectOption({ label: "Dr. Tariq Nasser" });
   await expect(row).toBeVisible();
@@ -55,10 +55,10 @@ test("C2: the doctors directory filters by department and opens a profile", asyn
   await page.goto(site("en", "/doctors"));
   await expect(page.getByRole("link", { name: /Dr. Ahmad Bakr/ })).toBeVisible();
   await page.getByRole("button", { name: "Dermatology" }).click();
-  await expect(page.getByRole("link", { name: /Dr. Mona Adel/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Dr. Munir Adel/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Dr. Ahmad Bakr/ })).toHaveCount(0);
-  await page.getByRole("link", { name: /Dr. Mona Adel/ }).click();
-  await expect(page.getByRole("heading", { level: 1, name: "Dr. Mona Adel" })).toBeVisible();
+  await page.getByRole("link", { name: /Dr. Munir Adel/ }).click();
+  await expect(page.getByRole("heading", { level: 1, name: "Dr. Munir Adel" })).toBeVisible();
   await expect(page.getByText("Weekly schedule")).toBeVisible();
 });
 

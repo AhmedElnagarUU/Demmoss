@@ -1,6 +1,6 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
-// Five palettes for Makhzan 3PL. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// Five palettes for Stackwell 3PL. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
 // --lg-accent is the variant's own accent (eyebrows, highlights).
 export const warehousingPalettes: readonly Palette[] = [
   {
@@ -12,10 +12,10 @@ export const warehousingPalettes: readonly Palette[] = [
       "--color-text": "#111111",
       "--color-muted": "#5a5a63",
       "--color-border": "#dcdce0",
-      "--color-primary": "#d4202a",
-      "--color-primary-hover": "#b01820",
+      "--color-primary": "#e3262b",
+      "--color-primary-hover": "#c81e23",
       "--color-on-primary": "#ffffff",
-      "--color-focus": "#d4202a",
+      "--color-focus": "#e3262b",
       "--lg-accent": "#c81e23",
     },
   },

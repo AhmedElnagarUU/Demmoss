@@ -11,7 +11,7 @@ jobs:
     env:
       NEXT_PUBLIC_BRAND_NAME: Brand
       NEXT_PUBLIC_WHATSAPP_NUMBER: "966500000000"
-      NEXT_PUBLIC_DEFAULT_LOCALE: ar
+      NEXT_PUBLIC_DEFAULT_LOCALE: en
       NEXT_PUBLIC_SITE_URL: http://localhost:3100
       MONGOMS_DOWNLOAD_DIR: /home/runner/.cache/mongodb-binaries
     steps:

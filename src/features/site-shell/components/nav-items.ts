@@ -6,8 +6,9 @@ export type NavItem = { href: string; label: string };
 export function navItems(locale: Locale): NavItem[] {
   const t = siteShellT(locale);
   return [
+    { href: `/${locale}`, label: t("nav.home") },
     { href: `/${locale}/guide`, label: t("nav.guide") },
     { href: `/${locale}/demos`, label: t("nav.demos") },
-    { href: `/${locale}/start`, label: t("nav.start") },
+    { href: `/${locale}#contact`, label: t("nav.contact") },
   ];
 }

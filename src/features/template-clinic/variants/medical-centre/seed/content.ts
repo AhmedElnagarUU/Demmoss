@@ -116,17 +116,17 @@ export const seedDoctors: Doctor[] = [
   },
   {
     id: "reem-fahmi",
-    name: { ar: "د. ريم الفهمي", en: "Dr. Reem Al Fahmi" },
-    title: { ar: "طبيبة أسرة (فترة مسائية)", en: "Family physician (evenings)" },
+    name: { ar: "د. راشد الفهمي", en: "Dr. Rashid Al Fahmi" },
+    title: { ar: "طبيب أسرة (فترة مسائية)", en: "Family physician (evenings)" },
     departmentId: "general",
     photo: "dr-reem",
     bio: {
-      ar: "طبيبة أسرة تستقبل المرضى مساءً لمن لا يناسبهم الدوام الصباحي.",
+      ar: "طبيب أسرة يستقبل المرضى مساءً لمن لا يناسبهم الدوام الصباحي.",
       en: "A family physician who sees patients in the evening, for those who cannot come in the morning.",
     },
     credentials: [
       { ar: "الزمالة السعودية في طب الأسرة", en: "Saudi Fellowship in Family Medicine" },
-      { ar: "اهتمام خاص بصحة المرأة", en: "Special interest in women's health" },
+      { ar: "اهتمام خاص بصحة الأسرة", en: "Special interest in family health" },
     ],
     years: 9,
     slotMinutes: 20,
@@ -142,12 +142,12 @@ export const seedDoctors: Doctor[] = [
   },
   {
     id: "huda-saeed",
-    name: { ar: "د. هدى سعيد", en: "Dr. Huda Saeed" },
-    title: { ar: "استشارية طب الأطفال", en: "Consultant paediatrician" },
+    name: { ar: "د. حمد سعيد", en: "Dr. Hamad Saeed" },
+    title: { ar: "استشاري طب الأطفال", en: "Consultant paediatrician" },
     departmentId: "paediatrics",
     photo: "dr-huda",
     bio: {
-      ar: "استشارية أطفال تتابع نمو الطفل من الولادة حتى المراهقة، وتشرح لكل أم ما تحتاجه بهدوء.",
+      ar: "استشاري أطفال يتابع نمو الطفل من الولادة حتى المراهقة، ويشرح لكل أب وأم ما يحتاجانه بهدوء.",
       en: "A consultant paediatrician following a child's growth from birth to adolescence, explaining calmly what each parent needs to know.",
     },
     credentials: [
@@ -168,12 +168,12 @@ export const seedDoctors: Doctor[] = [
   },
   {
     id: "mona-adel",
-    name: { ar: "د. منى عادل", en: "Dr. Mona Adel" },
-    title: { ar: "أخصائية الأمراض الجلدية", en: "Dermatologist" },
+    name: { ar: "د. منير عادل", en: "Dr. Munir Adel" },
+    title: { ar: "أخصائي الأمراض الجلدية", en: "Dermatologist" },
     departmentId: "dermatology",
     photo: "dr-mona",
     bio: {
-      ar: "أخصائية جلدية تعالج حب الشباب والإكزيما وتساقط الشعر بخطط واقعية.",
+      ar: "أخصائي جلدية يعالج حب الشباب والإكزيما وتساقط الشعر بخطط واقعية.",
       en: "A dermatologist treating acne, eczema, and hair loss with realistic plans.",
     },
     credentials: [
@@ -220,12 +220,12 @@ export const seedDoctors: Doctor[] = [
   },
   {
     id: "lina-qasim",
-    name: { ar: "د. لينا قاسم", en: "Dr. Lina Qasim" },
-    title: { ar: "طبيبة أسنان", en: "Dentist" },
+    name: { ar: "د. ليث قاسم", en: "Dr. Laith Qasim" },
+    title: { ar: "طبيب أسنان", en: "Dentist" },
     departmentId: "dental",
     photo: "dr-lina",
     bio: {
-      ar: "طبيبة أسنان تهتم بالفحص الدوري وتبييض الأسنان وتجعل الزيارة مريحة للصغار والكبار.",
+      ar: "طبيب أسنان يهتم بالفحص الدوري وتبييض الأسنان ويجعل الزيارة مريحة للصغار والكبار.",
       en: "A dentist focused on regular check-ups and whitening, making the visit comfortable for children and adults.",
     },
     credentials: [
@@ -469,8 +469,8 @@ export const seedTestimonials: Testimonial[] = [
     name: { ar: "والد عمر", en: "Omar's father" },
     context: { ar: "طب الأطفال", en: "Paediatrics" },
     text: {
-      ar: "الدكتورة هدى تشرح كل شيء ببساطة، وابني لم يعد يخاف من العيادة.",
-      en: "Dr. Huda explains everything simply, and my son is no longer afraid of the clinic.",
+      ar: "الدكتور حمد يشرح كل شيء ببساطة، وابني لم يعد يخاف من العيادة.",
+      en: "Dr. Hamad explains everything simply, and my son is no longer afraid of the clinic.",
     },
     visible: true,
   },

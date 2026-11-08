@@ -24,6 +24,8 @@ const next = spawn("npx", ["next", "start", "-p", port], {
     ADMIN_EMAIL: admin.email,
     ADMIN_PASSWORD_HASH: admin.passwordHash,
     SESSION_SECRET: admin.sessionSecret,
+    // Skip the developer's .env files: Next.js would expand the "$" parts of the hash above and break it.
+    __NEXT_PROCESSED_ENV: "true",
   },
 });
 

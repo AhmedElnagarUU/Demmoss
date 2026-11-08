@@ -39,7 +39,7 @@ describe("seed", () => {
     const seed = createWarehousingSeed(new Date());
     expect(afterHoursFacts(seed.quotes, seed.settings).length).toBeGreaterThan(0);
     expect(fullWarehouseFacts(seed.warehouses).map((f) => f.label)).toEqual([
-      { ar: "مركز الرياض", en: "Riyadh Hub" },
+      { ar: "المركز الشمالي", en: "North Hub" },
     ]);
   });
 });
