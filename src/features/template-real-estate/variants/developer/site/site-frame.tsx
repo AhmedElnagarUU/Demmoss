@@ -37,7 +37,7 @@ export function SiteFrame({ locale, children }: Props) {
 }
 
 const linkClass =
-  "relative py-1.5 text-[11px] uppercase tracking-[0.22em] text-text/80 transition-colors duration-300 hover:text-(--re-accent) " +
+  "relative py-1.5 text-[11px] rtl:text-[13px] uppercase tracking-[0.22em] text-text/80 transition-colors duration-300 hover:text-(--re-accent) " +
   "after:absolute after:bottom-0 after:start-0 after:h-px after:w-0 after:bg-(--re-accent) after:transition-[width] after:duration-300 " +
   `hover:after:w-full focus-visible:after:w-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${rtlSafe}`;
 

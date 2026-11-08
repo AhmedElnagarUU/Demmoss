@@ -1,27 +1,27 @@
 # Template category: Logistics & shipping
 
 Status: in progress (plan written with the build; both variants built in `src/features/template-logistics/`).
-Design sources: `theme-sources/01-orbis-cargo.html` + `02-meridian-route.html` (A), `03-stackwell-3pl.html` (B). Rebuilt as React + Tailwind, bilingual, RTL.
+Design sources: `theme-sources/01-orbis-cargo.html` (A, mirrored exactly; its own tracker loop replaces Meridian's), `03-stackwell-3pl.html` (B). Rebuilt as React + Tailwind, bilingual, RTL. A's design spec: `docs/design-specs/01-orbis-cargo.md`.
 
 Two complete logistics websites, each a different kind of business, sharing one dashboard.
 
 | | Variant A: Freight forwarder | Variant B: Warehousing & 3PL |
 |---|---|---|
 | Slug | `logistics-freight` | `logistics-warehousing` |
-| Business (seed) | **Jisr Cargo** · **جسر كارجو**: Jeddah freight forwarder, cargo from China and Asia to KSA and the Gulf | **Makhzan 3PL** · **مخزن**: warehouses in Riyadh and Jebel Ali, storage and e-commerce fulfilment |
+| Business (seed) | **Orbis Cargo** · **أوربس كارجو**: international freight forwarder moving cargo from Asia by air, sea and road, with customs clearance (business, copy and look mirror `01-orbis-cargo.html`) | **Makhzan 3PL** · **مخزن**: warehouses in Riyadh and Jebel Ali, storage and e-commerce fulfilment |
 | Main value | More quotes, fewer "where is my cargo?" calls | More qualified quotes: the visitor arrives with pallets and months already priced |
 | Closed loops | Quote request → Quotes · Dashboard updates a shipment → public tracker shows the new step · Dashboard edits a rate → calculator changes | Quote request with estimator values → Quotes · Dashboard edits warehouse space → site shows free pallet spots |
-| Look | Orbis: light grey, ink, white rounded cards; Meridian accents · Manrope + IBM Plex Sans Arabic | Stackwell: white, red, black; sharp and industrial · Plus Jakarta Sans + Tajawal |
+| Look | Exactly the Orbis source: white page, light grey bands, ink text, white rounded cards, no accent colour · Manrope + IBM Plex Sans Arabic | Stackwell: white, red, black; sharp and industrial · Plus Jakarta Sans + Tajawal |
 | Photos | Unsplash photos of the source designs, one list in `variants/freight/photos.ts` | One list in `variants/warehousing/photos.ts` |
 
 ---
 
 ## 1. Business profiles
 
-### A. Jisr Cargo (freight forwarder)
+### A. Orbis Cargo (freight forwarder)
 
-- **Who it is:** a freight forwarder in Jeddah that brings cargo from Shanghai, Shenzhen, Guangzhou and Yiwu to Jeddah, Dammam, Riyadh, Dubai and Kuwait by air, sea, road and rail, with customs clearance.
-- **Customers:** importers and online sellers (electronics, fashion, home goods, spare parts) who buy from Chinese suppliers.
+- **Who it is:** an international freight forwarder that moves cargo from Shanghai, Shenzhen, Guangzhou, Yiwu, Beijing, Ho Chi Minh City and Seoul to Warsaw, Hamburg, Rotterdam, London, Dubai and New York by air, sea and road, with customs clearance.
+- **Customers:** importers and online sellers (electronics, fashion, home goods, spare parts) who buy from Asian suppliers.
 - **What the owner wants:** more quote requests from serious importers, fewer phone calls asking where a shipment is, a price visitors can trust before they call.
 - **Pain today:** prices are given by phone and WhatsApp only; every client asks for the status of their cargo by message.
 
@@ -36,23 +36,20 @@ Two complete logistics websites, each a different kind of business, sharing one 
 
 ## 2. Value map
 
-### A. Jisr Cargo site
+### A. Orbis Cargo site
 
 | Page | Section | Business goal | Value message (EN) |
 |---|---|---|---|
 | Home | Hero + trust points | leads, trust | Cargo from Asia, door to door, insured and tracked |
+| Home | About panel + four services | trust, decide | Complete logistics from Asia for your business; pick the right way to ship |
+| Home | Calculator (ink card) | leads | Estimate your cost in seconds |
 | Home | Stats | trust | Numbers that show we deliver on time |
-| Home | About | trust | One contract, one manager, no surprises |
-| Home | Services (5, with "from" price) | decide | Pick the right way to ship |
-| Home | Calculator (compact) | leads | Know the price range in seconds |
-| Home | Steps | remove doubt | Five clear steps from request to door |
-| Home | Popular routes | decide | Routes we run every week |
-| Home | Shipment tracker | saves calls | See where your cargo is without calling us |
-| Home | Pricing plans | decide | Transparent service tiers |
-| Home | Testimonials (visible ones) | trust | Importers who moved all their freight to us |
+| Home | How it works (5 steps) | remove doubt | Five steps from request to door |
+| Home | Pricing plans (3) | decide | Transparent service tiers; freight quoted per shipment |
+| Home | Testimonials slider | trust | Importers who trust us with their cargo |
 | Home | FAQ | remove doubt | Answers before the first call |
-| Home | Quote band | leads | Tell us about your cargo |
-| Services | Five services with photos and "from" rates (from the rates the owner edits) | decide | |
+| Home | Quote form + info + map | leads | Tell us about your cargo |
+| Services | Four services with photos and "from" rates (from the rates the owner edits) | decide | |
 | Calculator | Calculator + quote form with the estimate attached | leads | Ask for an exact quote with your numbers |
 | Track shipment | Tracker (number → timeline) | saves calls | |
 | Get a quote | Quote form, contact details | leads | |
@@ -75,7 +72,7 @@ Two complete logistics websites, each a different kind of business, sharing one 
 | Case studies | All visible case studies | trust | |
 | Get a quote | Estimator + quote form with the estimate attached | leads | |
 
-Sections without a goal were dropped: the designs' blog, "watch our story" video, partner logos of invented companies, and the language-neutral map.
+Sections without a goal were dropped: the designs' blog and the partner logos of invented companies. On A the standalone home tracker band is dropped because the tracker keeps its own page; "Watch our story" stays as the source's placeholder modal, and the source's map is rebuilt in CSS inside the quote block.
 
 ---
 
@@ -135,7 +132,7 @@ Photos are fixed per variant (stock photos from the designs); the owner edits te
 
 ## 5. Data (Zod, `types.ts` and `modules/*/types.ts`)
 
-Shared: `account`, `settings` (`businessName {ar,en}`, `nameEdited`, `palette`, `phone`, `whatsapp`, `address {ar,en}`, `currency` = SAR, `officeOpen`, `officeClose`), `content` (`hero`, `about`, `contact`, each `{ar,en}`), `quotes[]`, `faq[]`, `testimonials[]`, `dismissedTips[]`.
+Shared: `account`, `settings` (`businessName {ar,en}`, `nameEdited`, `palette`, `phone`, `whatsapp`, `address {ar,en}`, `currency` = SAR, `officeOpen`, `officeClose`), `content` (`hero`, `about`, `contact`, each `{ar,en}`), `quotes[]`, `faq[]`, `testimonials[]` (A also stores an optional `sector {ar,en}`), `dismissedTips[]`.
 
 - **Quote:** `id, name, company, phone, email, service, message, status (new|quoted|won|lost), createdAt, estimate` where `estimate` is `null`, a freight estimate `{kind:"freight", mode, origin, destination, weightKg, volumeCbm, minCost, maxCost}` or a storage estimate `{kind:"storage", pallets, months, ordersPerMonth, insurance, monthlyTotal}`.
 - **A shipment:** `id, trackingNumber, customer, origin {ar,en}, destination {ar,en}, mode, cargo, eta, events[{status, at, note?}]`. The current status is the last event's status (never stored twice).
@@ -144,7 +141,7 @@ Shared: `account`, `settings` (`businessName {ar,en}`, `nameEdited`, `palette`, 
 - **B storageRates:** `palletPerMonth, discount6Months, discount12Months, handlingPerMonth, pickingPerOrder, insurancePercent, minimumMonthly`.
 - **B caseStudies:** `id, sector, title, text, metricValue, metricLabel, visible`.
 
-Seeds (SAR, dates relative to today): A has 6 quotes, 6 shipments with timelines (one stuck in customs), 4 modes, 6 origins, 6 destinations. B has 5 quotes, 2 warehouses (one 92% full), 3 case studies, 4 testimonials, 5 FAQ. Store version `1`.
+Seeds (SAR, dates relative to today): A has 6 quotes, 6 shipments with timelines (one stuck in customs), 4 modes (air 16, sea 1.2, road 4, rail 2.8 SAR/kg), 7 origins, 6 destinations, 4 testimonials and 6 FAQ. B has 5 quotes, 2 warehouses (one 92% full), 3 case studies, 4 testimonials, 5 FAQ. Store version `2`.
 
 ## 6. Rules
 
@@ -185,9 +182,9 @@ Seeds (SAR, dates relative to today): A has 6 quotes, 6 shipments with timelines
 | Unit | `clients.test.ts`, `value-tips.test.ts` (the business-name rule is tested in `demo-engine/fake-auth/business-name.test.ts`) | L3, L11 |
 | Unit | `variants/*/store.test.ts`: add quote, status, shipment move, rates, warehouses, reset keeps account | L2, L5, L6, L9 |
 | Unit | `variants/*/seed/seed.test.ts`: seed is valid, tracking numbers are unique, tips appear | seed rules |
-| Unit | `palettes.test.ts`: 5 palettes per variant, AA contrast | R5 (palettes) |
+| Unit | `palettes.test.ts`: 5 palettes per variant, AA contrast (including the Orbis `--lg-band` and `--lg-primary-text` tokens) | R5 (palettes) |
 | Contract | `template-contract.test.ts` runs for both slugs; ar/en parity and logical CSS run on the new files | contract |
-| E2E | `e2e/logistics-freight.spec.ts`: calculator → quote → register → mark quoted; shipment update → tracker; rates → calculator; ar/en + RTL; axe | L1–L6, L12 |
+| E2E | `e2e/logistics-freight.spec.ts`: calculator (Air/Sea tabs) → quote with estimate → register → mark quoted; shipment update → tracker; rates → calculator; Orbis h1/brand in Arabic; ar/en + RTL; axe | L1–L6, L12 |
 | E2E | `e2e/logistics-warehousing.spec.ts`: estimator → quote with values in dashboard; warehouse edit → site; ar/en + RTL; axe | L7–L9, L12 |
 
 ## 9. Routes and files

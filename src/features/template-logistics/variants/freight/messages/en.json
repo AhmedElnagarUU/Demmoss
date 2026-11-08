@@ -1,120 +1,132 @@
 {
   "meta": {
     "home": {
-      "title": "Jisr Cargo: freight from China and Asia to Saudi Arabia and the Gulf",
-      "description": "Air, sea, road and rail freight with customs cleared, a price calculator and live shipment tracking."
+      "title": "Orbis Cargo: freight from Asia, door to door",
+      "description": "Orbis Cargo is an import freight forwarder from China and Asia: air, sea, road and rail freight with customs clearance."
     },
     "services": {
-      "title": "Freight services: air, sea, road, rail and customs",
-      "description": "Choose how your cargo travels from Asia, with starting prices per kilogram."
+      "title": "Freight services: air, sea, road and customs | Orbis Cargo",
+      "description": "Four ways we move your cargo from Asia: air, sea, road and customs clearance, with starting prices per kilogram."
     },
     "calculator": {
-      "title": "Shipping calculator: price and transit time in seconds",
-      "description": "Estimate the cost of your shipment by mode, route, weight and volume, then ask for an exact quote."
+      "title": "Shipping calculator: estimate your cost in seconds | Orbis Cargo",
+      "description": "Pick a mode, enter your cargo and route, and see an indicative price range and transit time right away."
     },
     "track": {
-      "title": "Track your shipment",
+      "title": "Track your shipment | Orbis Cargo",
       "description": "Enter your tracking number to see where your cargo is and what happens next."
     },
     "quote": {
-      "title": "Get a freight quote",
-      "description": "Tell us about your cargo and a manager will reply within one working hour."
+      "title": "Get a freight quote | Orbis Cargo",
+      "description": "Tell us about your cargo and a manager will contact you within one hour."
     },
     "dashboard": { "title": "Freight dashboard" }
   },
+  "brand": { "tagline": "Freight from Asia" },
   "nav": {
     "label": "Main menu",
     "home": "Home",
     "services": "Services",
-    "calculator": "Calculator",
+    "about": "About",
+    "pricing": "Pricing",
+    "faq": "FAQ",
     "track": "Track shipment",
-    "quote": "Get a quote"
+    "contacts": "Contacts",
+    "menu": "Menu"
   },
-  "header": { "cta": "Get a quote" },
+  "header": {
+    "cta": "Calculate shipping",
+    "hours": "Daily {open} – {close}",
+    "menu": "Menu"
+  },
   "hero": {
-    "eyebrow": "Freight from China and Asia",
+    "eyebrow": "Import freight from China & Asia",
     "calculate": "Calculate shipping",
-    "track": "Track a shipment",
-    "insured": "Cargo insured at every stage",
-    "fast": "Delivery from 4 days by air",
-    "customs": "Customs fully handled",
-    "manager": "A personal manager for your account"
+    "watch": "Watch our\nstory",
+    "watchLabel": "Watch our story",
+    "features": {
+      "insured": "Cargo insured at every stage",
+      "fast": "Delivery from 7 days by air or road",
+      "customs": "Customs fully handled",
+      "manager": "Personal manager 24/7"
+    },
+    "float": {
+      "value": "5000+",
+      "text": "clients trust us\nwith their cargo",
+      "label": "Our clients"
+    }
   },
-  "stats": {
-    "years": { "value": "12", "label": "years of experience" },
-    "clients": { "value": "3,400+", "label": "importers served" },
-    "countries": { "value": "6", "label": "destination countries" },
-    "ontime": { "value": "97%", "label": "deliveries on time" }
+  "about": {
+    "eyebrow": "About the company",
+    "link": "More about us",
+    "note": "We work with companies\nand private importers"
   },
-  "about": { "eyebrow": "About us", "link": "See all our services" },
   "services": {
     "eyebrow": "Our services",
-    "title": "Solutions for every shipment",
+    "title": "Solutions for any task",
     "all": "All services",
-    "from": "From {price} per kg",
-    "minimum": "Minimum charge {price}",
-    "contact": "Priced per declaration",
-    "quote": "Get a quote",
-    "air": { "b1": "Fastest option: from 4 days", "b2": "Ideal for urgent and high-value cargo" },
-    "sea": { "b1": "Lowest cost for large shipments", "b2": "Full and shared containers" },
-    "road": { "b1": "A balance of price and speed", "b2": "Door-to-door across the Gulf" },
-    "rail": { "b1": "Faster than sea, cheaper than air", "b2": "Regular departures from inland China" },
-    "customs": {
-      "b1": "Declarations and certificates handled for you",
-      "b2": "Duties calculated before the cargo lands"
-    },
     "pageTitle": "Freight services",
-    "pageIntro": "Five ways we move your business forward. Prices start from the rates below and your exact quote follows your cargo."
+    "pageIntro": "Four ways we move your cargo from Asia to your door. The calculator prices each one with your own route and weight.",
+    "air": { "title": "Air freight", "b1": "Fast delivery from 7 days", "b2": "Ideal for urgent cargo" },
+    "sea": { "title": "Sea freight", "b1": "Best rates for large shipments", "b2": "FCL and LCL options" },
+    "road": { "title": "Road freight", "b1": "Balanced price and speed", "b2": "Door-to-door delivery" },
+    "customs": {
+      "title": "Customs clearance",
+      "b1": "Full documentation support",
+      "b2": "Certification and declaration"
+    }
   },
   "calculatorSection": {
     "eyebrow": "Shipping calculator",
-    "title": "Estimate your cost in seconds",
-    "text": "Pick a mode, enter your cargo and route. You see a price range and the transit time right away.",
-    "open": "Open the full calculator"
+    "title": "Estimate your cost\nin seconds",
+    "text": "Pick a mode, enter your cargo and route. You will see an indicative price range and transit time right away.",
+    "weight": "Weight, kg",
+    "volume": "Volume, m³",
+    "origin": "Origin",
+    "destination": "Destination",
+    "result": "Estimated cost",
+    "modeRow": "Mode",
+    "transitRow": "Transit time",
+    "chargeableRow": "Chargeable weight",
+    "daysValue": "{min}–{max} days",
+    "kgValue": "{kg} kg",
+    "quote": "Get exact quote",
+    "disclaimer": "Indicative estimate only. Final price depends on cargo type, packaging, season and customs duties.",
+    "empty": "Enter a weight or a volume to see the price."
   },
   "calculatorPage": {
     "title": "Shipping calculator",
-    "intro": "Estimate first, then send the request with your numbers attached. Nothing to retype."
+    "intro": "Pick a mode, enter your cargo and route. You will see an indicative price range and transit time right away."
+  },
+  "stats": {
+    "years": { "value": "12", "decimals": "0", "label": "years on the market" },
+    "clients": { "value": "5000", "decimals": "0", "suffix": "+", "label": "clients worldwide" },
+    "countries": { "value": "48", "decimals": "0", "label": "countries served" },
+    "ontime": { "value": "99.2", "decimals": "1", "suffix": "%", "label": "deliveries on time" }
   },
   "steps": {
     "eyebrow": "How it works",
-    "title": "Five steps from request to your door",
-    "s1": { "title": "Request", "text": "Send your cargo details and get a quote within an hour." },
+    "title": "Five steps\nfrom request to door",
+    "s1": { "title": "Request", "text": "Send details of your cargo and get a quote within an hour." },
     "s2": {
       "title": "Supplier check",
-      "text": "We verify the factory, the goods and the documents in China."
+      "text": "We verify the factory, goods quality and documents."
     },
     "s3": { "title": "Consolidation", "text": "Goods are gathered, packed and labelled at our hub." },
-    "s4": { "title": "Shipping", "text": "Transport by the mode you chose, tracked from end to end." },
+    "s4": { "title": "Shipping", "text": "Transport by the mode you chose, tracked end to end." },
     "s5": { "title": "Delivery", "text": "Customs cleared and cargo handed over at your door." }
   },
-  "routes": {
-    "eyebrow": "Popular routes",
-    "title": "Routes we run every week",
-    "text": "Regular departures mean predictable dates for your stock.",
-    "r1": { "title": "Shanghai to Jeddah", "detail": "Sea freight · 28 to 40 days" },
-    "r2": { "title": "Shenzhen to Dammam", "detail": "Sea freight · 30 to 42 days" },
-    "r3": { "title": "Guangzhou to Jebel Ali, Dubai", "detail": "Sea freight · 24 to 36 days" },
-    "r4": { "title": "Yiwu to Riyadh", "detail": "Rail freight · 17 to 23 days" },
-    "r5": { "title": "Shenzhen to Riyadh", "detail": "Air freight · 7 to 10 days" },
-    "r6": { "title": "Guangzhou to Kuwait", "detail": "Road freight · 22 to 29 days" }
-  },
-  "trackerSection": {
-    "eyebrow": "Tracking",
-    "title": "Where is your shipment?",
-    "text": "Enter your tracking number and see every step. No phone call needed.",
-    "pageTitle": "Track your shipment",
-    "pageIntro": "Your tracking number starts with JC and is in the booking confirmation we sent you."
-  },
   "pricing": {
-    "eyebrow": "Service plans",
-    "title": "A plan for every volume",
-    "text": "Clear service tiers. The freight itself is priced per shipment with the calculator.",
-    "perShipment": "per shipment",
+    "eyebrow": "Pricing",
+    "title": "Plans\nfor every volume",
+    "text": "Transparent service tiers. Freight itself is quoted per shipment.",
+    "perShipment": "/ shipment",
     "custom": "Custom",
     "popular": "Most popular",
     "start": {
       "name": "Start",
+      "tag": "Start",
+      "price": "185",
       "text": "For first-time importers and small parcels.",
       "f1": "Cargo up to 300 kg",
       "f2": "Basic insurance",
@@ -124,49 +136,116 @@
     },
     "business": {
       "name": "Business",
+      "tag": "Business",
+      "price": "750",
       "text": "For regular importers and growing brands.",
       "f1": "Cargo up to 5 tonnes",
       "f2": "Full insurance",
       "f3": "Customs clearance included",
-      "f4": "Supplier check and a personal manager",
+      "f4": "Supplier check",
+      "f5": "Personal manager",
       "cta": "Choose Business"
     },
     "enterprise": {
       "name": "Enterprise",
+      "tag": "Enterprise",
       "text": "For large volumes and contract logistics.",
-      "f1": "Full containers and fixed yearly rates",
-      "f2": "Bonded warehousing",
-      "f3": "A dedicated team, 24/7",
-      "f4": "Monthly reporting",
+      "f1": "Unlimited volume, FCL",
+      "f2": "Fixed annual rates",
+      "f3": "Bonded warehousing",
+      "f4": "24/7 dedicated team",
       "cta": "Talk to sales"
     }
   },
-  "testimonials": { "eyebrow": "Testimonials", "title": "Trusted by importers across the Kingdom" },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "Trusted\nby importers",
+    "previous": "Previous",
+    "next": "Next",
+    "slide": "Slide {n}"
+  },
   "faq": {
     "eyebrow": "FAQ",
-    "title": "Questions we hear often",
-    "text": "Cannot find your answer? Our managers reply within one working hour."
+    "title": "Questions\nwe hear often",
+    "text": "Can't find your answer? Our managers reply within one working hour.",
+    "ask": "Ask a manager"
   },
-  "quoteBand": {
-    "cta": "Get a quote",
-    "whatsapp": "Message us on WhatsApp"
+  "quote": {
+    "eyebrow": "Get a quote",
+    "title": "Tell us about\nyour cargo",
+    "formTitle": "Request a quote",
+    "formText": "Fill in the form and we will contact you within one hour.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "phone": "Phone",
+    "phonePlaceholder": "+1 555 000 0000",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "cargo": "Cargo type",
+    "mode": "Mode",
+    "message": "Message",
+    "messagePlaceholder": "Route, weight, volume, supplier…",
+    "submit": "Send request",
+    "cargoOptions": {
+      "general": "General goods",
+      "electronics": "Electronics",
+      "apparel": "Apparel & textiles",
+      "machinery": "Machinery & parts",
+      "fragile": "Fragile / oversized"
+    },
+    "errorSummary": "Please check the highlighted fields.",
+    "errors": {
+      "name": "Please enter your name.",
+      "phone": "Please enter a phone number we can call.",
+      "email": "This email address does not look right."
+    },
+    "estimateAttached": "Your estimate is attached to this request.",
+    "estimateSummary": "Estimate: {min} – {max}, {weight} kg, {volume} m³, {origin} → {destination}.",
+    "doneTitle": "Thank you! We received your request.",
+    "doneText": "Thank you, {name}! We received your request and will contact you within one hour.",
+    "doneDashboard": "Open your dashboard to see it arrive",
+    "doneAnother": "Send another request"
   },
   "quotePage": {
-    "title": "Get a freight quote",
-    "intro": "Tell us about your cargo. A manager replies within one working hour.",
-    "contact": "Contact",
+    "title": "Tell us about your cargo",
+    "intro": "Fill in the form and we will contact you within one hour.",
+    "contact": "Contact"
+  },
+  "contact": {
     "phone": "Phone",
-    "address": "Office",
-    "hours": "Office hours",
-    "hoursText": "Sunday to Thursday, {open} to {close}"
+    "email": "Email",
+    "office": "Office",
+    "hours": "Hours",
+    "emailValue": "hello@orbiscargo.example",
+    "hoursText": "Daily {open} – {close}",
+    "mapLabel": "Map placeholder",
+    "hq": "ORBIS CARGO HQ"
+  },
+  "video": {
+    "label": "Our story video",
+    "close": "Close",
+    "title": "Video placeholder",
+    "text": "Our story — coming soon"
+  },
+  "trackPage": {
+    "title": "Track your shipment",
+    "intro": "Your tracking number starts with JC and is in the booking confirmation we sent you."
   },
   "footer": {
     "tagline": "Freight from Asia, door to door. Air, sea, road and rail with customs handled.",
     "services": "Services",
     "company": "Company",
-    "contact": "Contact",
+    "contact": "Contacts",
+    "about": "About us",
+    "how": "How it works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
     "rights": "© 2026 {name}. All rights reserved.",
-    "credit": "Photos: Unsplash"
+    "legal": "Privacy policy · Terms of service"
   },
   "overview": {
     "cardsNew": "New quotes",

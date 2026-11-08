@@ -74,7 +74,7 @@ export function HeroSection() {
         <div className="relative flex flex-wrap items-end justify-between gap-10 max-[640px]:flex-col-reverse max-[640px]:items-start max-[640px]:gap-5">
           <h1
             id="hero-title"
-            className={`max-w-[11ch] text-[clamp(34px,6.2vw,96px)] font-extralight uppercase leading-[1.08] tracking-[0.12em] ${rtlSafe} rtl:max-w-[14ch] rtl:font-light rtl:leading-[1.4]`}
+            className={`max-w-[11ch] text-[clamp(34px,6.2vw,96px)] font-extralight uppercase leading-[1.08] tracking-[0.12em] ${rtlSafe} rtl:max-w-[7ch] rtl:font-light rtl:leading-[1.4]`}
           >
             {content.hero.title[locale]}
           </h1>

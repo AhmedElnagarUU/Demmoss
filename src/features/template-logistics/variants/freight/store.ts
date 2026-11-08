@@ -7,7 +7,7 @@ import { createFreightSeed } from "./seed";
 import { FREIGHT_SLUG } from "./slug";
 
 // Saved data with another version is replaced by the new seed (the account is kept). Bump it when the shape changes.
-export const FREIGHT_VERSION = 1;
+export const FREIGHT_VERSION = 2;
 
 export const useFreightStore = createTemplateStore({
   slug: FREIGHT_SLUG,

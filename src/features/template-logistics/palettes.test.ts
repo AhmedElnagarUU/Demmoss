@@ -16,10 +16,26 @@ describe.each([
     const get = (name: `--${string}`) => vars[name] ?? "";
 
     it("text, muted text, and accent are readable on the page and on panels", () => {
+      const accent = get("--lg-accent");
       for (const background of [get("--color-bg"), get("--color-surface")]) {
         expect(contrast(get("--color-text"), background)).toBeGreaterThanOrEqual(4.5);
         expect(contrast(get("--color-muted"), background)).toBeGreaterThanOrEqual(4.5);
-        expect(contrast(get("--lg-accent"), background)).toBeGreaterThanOrEqual(4.5);
+        if (accent) expect(contrast(accent, background)).toBeGreaterThanOrEqual(4.5);
+      }
+    });
+
+    it("the band and primary-as-text tokens keep AA where the palette defines them", () => {
+      const band = get("--lg-band");
+      const primaryText = get("--lg-primary-text");
+      if (primaryText) {
+        for (const background of [get("--color-bg"), get("--color-surface"), band || get("--color-bg")]) {
+          expect(contrast(primaryText, background)).toBeGreaterThanOrEqual(4.5);
+        }
+      }
+      if (band) {
+        for (const color of [get("--color-text"), get("--color-muted")]) {
+          expect(contrast(color, band)).toBeGreaterThanOrEqual(4.5);
+        }
       }
     });
 

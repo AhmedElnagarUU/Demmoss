@@ -91,6 +91,8 @@ export const testimonialSchema = z.object({
   author: localizedTextSchema,
   role: localizedTextSchema,
   text: localizedTextSchema,
+  // the small sector line some designs show above the quote (for example "Electronics retailer")
+  sector: localizedTextSchema.optional(),
   visible: z.boolean(),
 });
 

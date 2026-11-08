@@ -1,22 +1,26 @@
 import type { Palette } from "@/features/demo-engine/palettes/palette";
 
-// Five palettes for Jisr Cargo. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
-// --lg-accent is the variant's own accent (eyebrows, small highlights).
+// Five palettes for Orbis Cargo. Colors are tokens; every palette is contrast-checked by palettes.test.ts (WCAG AA).
+// Besides the shared tokens each palette carries the design's own:
+// --lg-band: the light grey strip behind the stats and testimonials (source #f6f6f7);
+// --lg-primary-text: the primary hue used as small text (outline buttons, links), kept at AA on bg, surface and band.
+// Graphite mirrors the source exactly: white cards on white, ink #111, muted #6b6b70, line #e7e7ea.
 export const freightPalettes: readonly Palette[] = [
   {
     id: "graphite",
-    name: { ar: "جرافيت", en: "Graphite" },
+    name: { ar: "رمادي فحمي", en: "Graphite" },
     vars: {
-      "--color-bg": "#f3f3f4",
+      "--color-bg": "#ffffff",
       "--color-surface": "#ffffff",
       "--color-text": "#111111",
-      "--color-muted": "#55555c",
-      "--color-border": "#d4d4d9",
+      "--color-muted": "#6b6b70",
+      "--color-border": "#e7e7ea",
       "--color-primary": "#111111",
       "--color-primary-hover": "#2b2b2e",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#111111",
-      "--lg-accent": "#b3202a",
+      "--lg-band": "#f6f6f7",
+      "--lg-primary-text": "#111111",
     },
   },
   {
@@ -32,12 +36,13 @@ export const freightPalettes: readonly Palette[] = [
       "--color-primary-hover": "#9f1c23",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#c0232b",
-      "--lg-accent": "#2c5aa8",
+      "--lg-band": "#efe8e8",
+      "--lg-primary-text": "#a81d25",
     },
   },
   {
     id: "ocean",
-    name: { ar: "أزرق بحري", en: "Ocean" },
+    name: { ar: "محيطي", en: "Ocean" },
     vars: {
       "--color-bg": "#eef2f7",
       "--color-surface": "#ffffff",
@@ -48,7 +53,8 @@ export const freightPalettes: readonly Palette[] = [
       "--color-primary-hover": "#183e7c",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#1f4f9e",
-      "--lg-accent": "#0b6377",
+      "--lg-band": "#e3eaf3",
+      "--lg-primary-text": "#1f4f9e",
     },
   },
   {
@@ -64,7 +70,8 @@ export const freightPalettes: readonly Palette[] = [
       "--color-primary-hover": "#0b5640",
       "--color-on-primary": "#ffffff",
       "--color-focus": "#0f6b4f",
-      "--lg-accent": "#8a5a00",
+      "--lg-band": "#e4eee8",
+      "--lg-primary-text": "#0f6b4f",
     },
   },
   {
@@ -80,7 +87,8 @@ export const freightPalettes: readonly Palette[] = [
       "--color-primary-hover": "#ffffff",
       "--color-on-primary": "#111111",
       "--color-focus": "#e8e8ec",
-      "--lg-accent": "#ff8a8f",
+      "--lg-band": "#1c1c20",
+      "--lg-primary-text": "#e8e8ec",
     },
   },
 ];

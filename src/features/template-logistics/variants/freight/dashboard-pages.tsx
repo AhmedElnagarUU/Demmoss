@@ -9,7 +9,7 @@ import { freightConfig } from "./dashboard";
 import { FREIGHT_SLUG } from "./slug";
 import { useFreightStore } from "./store";
 
-// Binds the shared dashboard and the variant modules to the Jisr Cargo store.
+// Binds the shared dashboard and the variant modules to the Orbis Cargo store.
 export function FreightDashboard({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
     <DashboardFrame store={useFreightStore} config={freightConfig} locale={locale}>

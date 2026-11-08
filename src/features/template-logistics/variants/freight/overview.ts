@@ -9,7 +9,7 @@ import { afterHoursFacts, staleQuoteFacts } from "../../value-tips";
 import { getFreightT } from "./messages";
 import { useFreightStore } from "./store";
 
-// Overview cards, activity, and value tips of Jisr Cargo, computed from its quotes and shipments.
+// Overview cards, activity, and value tips of Orbis Cargo, computed from its quotes and shipments.
 export function useOverview(locale: Locale): Overview {
   const quotes = useFreightStore((state) => state.quotes);
   const shipments = useFreightStore((state) => state.shipments);

@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
 
-// Jisr Cargo (logistics-freight). Demo data lives in the browser, so these journeys need no database.
+// Orbis Cargo (logistics-freight). Demo data lives in the browser, so these journeys need no database.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/logistics/freight${path}`;
 const dashboard = (locale: "ar" | "en", path = "") => site(locale, `/dashboard${path}`);
 
@@ -26,29 +26,29 @@ test("L1, L2, L3: calculator → quote request with the estimate → register �
 }) => {
   await page.goto(site("en", "/calculator"));
   await expect(page.getByRole("heading", { level: 1, name: "Shipping calculator" })).toBeVisible();
-  await expect(page.getByText(/8,000/)).toBeVisible();
+  await expect(page.getByRole("status").getByText(/8,000/)).toBeVisible();
 
-  await page.getByRole("radio", { name: "Sea" }).check({ force: true });
-  await expect(page.getByText(/2,400/)).toBeVisible();
+  await page.getByRole("tab", { name: "Sea" }).click();
+  await expect(page.getByRole("status").getByText(/2,400/)).toBeVisible();
 
-  await page.getByLabel("Your name").fill("Rania Test");
-  await page.getByLabel("Phone number").fill("+966 50 123 4567");
-  await page.getByRole("button", { name: "Send my quote request" }).click();
-  await expect(page.getByRole("heading", { name: "We received your quote request" })).toBeVisible();
+  await page.getByLabel("Name", { exact: true }).fill("Rania Test");
+  await page.getByLabel("Phone", { exact: true }).fill("+966 50 123 4567");
+  await page.getByRole("button", { name: "Send request" }).click();
+  await expect(page.getByRole("heading", { name: "Thank you! We received your request." })).toBeVisible();
 
   await page.getByRole("link", { name: "Open your dashboard to see it arrive" }).click();
   await register(page, "Dar Rania");
 
   const row = page.getByRole("listitem").filter({ hasText: "Rania Test" });
   await expect(row).toBeVisible();
-  await expect(row.getByText(/Estimate: Sea freight, Shanghai, China to Jeddah, Saudi Arabia/)).toBeVisible();
+  await expect(row.getByText(/Estimate: Sea freight, Shanghai, China to Warsaw, Poland/)).toBeVisible();
   await expect(row.getByText("New", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Mark as quoted: Rania Test" }).click();
   await expect(row.getByText("Quoted", { exact: true })).toBeVisible();
 
   await page.goto(site("en"));
   await expect(page.getByRole("link", { name: "Dar Rania" }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: "Jisr Cargo" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Orbis Cargo" })).toHaveCount(0);
 });
 
 test("L4, L5: the owner updates a shipment and the public tracker shows the new step", async ({ page }) => {
@@ -82,8 +82,8 @@ test("L6: changing a rate in the dashboard changes the calculator", async ({ pag
   await expect(page.getByRole("status")).toContainText("Saved.");
 
   await page.goto(site("en", "/calculator"));
-  await page.getByRole("radio", { name: "Sea" }).check({ force: true });
-  await expect(page.getByText(/4,000/)).toBeVisible();
+  await page.getByRole("tab", { name: "Sea" }).click();
+  await expect(page.getByRole("status").getByText(/4,000/)).toBeVisible();
 });
 
 test("L10: the value tip explains a shipment stuck in customs, and reset restores the demo", async ({
@@ -105,14 +105,14 @@ test.describe("direction", () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto(site("ar"));
     await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("نوصّل بضاعتك من آسيا إلى بابك");
-    const brand = await page.getByRole("link", { name: "جسر كارجو" }).first().boundingBox();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("نأخذ أعمالك إلى أبعد");
+    const brand = await page.getByRole("link", { name: "أوربس كارجو" }).first().boundingBox();
     const track = await page.getByRole("link", { name: "تتبّع الشحنة" }).first().boundingBox();
     expect(brand && track && brand.x > track.x).toBe(true);
 
     await page.goto(site("en"));
     await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
-    const enBrand = await page.getByRole("link", { name: "Jisr Cargo" }).first().boundingBox();
+    const enBrand = await page.getByRole("link", { name: "Orbis Cargo" }).first().boundingBox();
     const enTrack = await page.getByRole("link", { name: "Track shipment" }).first().boundingBox();
     expect(enBrand && enTrack && enBrand.x < enTrack.x).toBe(true);
 
@@ -124,7 +124,7 @@ test.describe("direction", () => {
   test("the Arabic calculator shows Arabic modes and prices", async ({ page }) => {
     await page.goto(site("ar", "/calculator"));
     await expect(page.getByRole("heading", { level: 1, name: "حاسبة الشحن" })).toBeVisible();
-    await expect(page.getByRole("radio", { name: "بحري" })).toBeAttached();
+    await expect(page.getByRole("tab", { name: "بحري" })).toBeAttached();
     await expect(page.getByText("التكلفة التقديرية")).toBeVisible();
   });
 });

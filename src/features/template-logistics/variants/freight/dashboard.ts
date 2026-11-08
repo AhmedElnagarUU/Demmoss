@@ -13,7 +13,7 @@ export const freightModules: readonly DashboardModule[] = [
 
 export const freightConfig: LogisticsConfig = {
   slug: FREIGHT_SLUG,
-  templateName: "Jisr Cargo",
+  templateName: "Orbis Cargo",
   basePath: FREIGHT_ROOT,
   palettes: freightPalettes,
   fontClassName: freightFontClassName,

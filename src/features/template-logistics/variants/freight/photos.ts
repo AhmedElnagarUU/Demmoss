@@ -1,6 +1,6 @@
 import type { PhotoData } from "@/features/demo-engine/photo/photo";
 
-// Every photo of the Jisr Cargo site, from the Unsplash photos of the source designs (Orbis Cargo and Meridian Route).
+// Every photo of the Orbis Cargo source, from its Unsplash list.
 // They are served by the photo CDN through photoUrl(); moving to self-hosted files later is a change in this list only.
 const unsplash = (id: string) => `https://images.unsplash.com/photo-${id}`;
 
@@ -28,12 +28,6 @@ export const freightPhotos = {
     width: 1200,
     height: 800,
     alt: { ar: "داخل مستودع الشحن", en: "Inside the freight warehouse" },
-  },
-  aisles: {
-    src: unsplash("1587293852726-70cdb56c2866"),
-    width: 1200,
-    height: 800,
-    alt: { ar: "ممرات المستودع والرفوف", en: "Warehouse aisles and racks" },
   },
   airFreight: {
     src: unsplash("1529078155058-5d716f45d604"),
@@ -64,5 +58,47 @@ export const freightPhotos = {
     width: 1200,
     height: 800,
     alt: { ar: "صناديق جاهزة للتخليص الجمركي", en: "Boxes ready for customs clearance" },
+  },
+  video: {
+    src: unsplash("1494412651409-8963ce7935a7"),
+    width: 1200,
+    height: 800,
+    alt: { ar: "ميناء الشحن ليلًا", en: "A cargo port at night" },
+  },
+  avatarDaniel: {
+    src: unsplash("1507003211169-0a1dd7228f2d"),
+    width: 800,
+    height: 800,
+    alt: { ar: "دانيال رييس", en: "Daniel Reyes" },
+  },
+  avatarMarcus: {
+    src: unsplash("1500648767791-00dcc994a43e"),
+    width: 800,
+    height: 800,
+    alt: { ar: "ماركوس هيل", en: "Marcus Hale" },
+  },
+  portraitDaniel: {
+    src: unsplash("1507003211169-0a1dd7228f2d"),
+    width: 800,
+    height: 800,
+    alt: { ar: "دانيال رييس", en: "Daniel Reyes" },
+  },
+  portraitAmelia: {
+    src: unsplash("1494790108377-be9c29b29330"),
+    width: 800,
+    height: 800,
+    alt: { ar: "أميليا براندت", en: "Amelia Brandt" },
+  },
+  portraitMarcus: {
+    src: unsplash("1500648767791-00dcc994a43e"),
+    width: 800,
+    height: 800,
+    alt: { ar: "ماركوس هيل", en: "Marcus Hale" },
+  },
+  portraitPriya: {
+    src: unsplash("1573496359142-b8d87734a5a2"),
+    width: 800,
+    height: 800,
+    alt: { ar: "بريا ناير", en: "Priya Nair" },
   },
 } as const satisfies Record<string, PhotoData>;

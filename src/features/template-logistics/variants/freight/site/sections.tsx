@@ -1,220 +1,94 @@
 "use client";
 
 import Link from "next/link";
-import { whatsappUrl } from "@/shared/ui/whatsapp";
 import type { Locale } from "@/shared/i18n/config";
-import { FaqAccordion } from "../../../components/faq-accordion";
 import { Photo, type PhotoData } from "@/features/demo-engine/photo/photo";
-import { formatPrice } from "@/features/demo-engine/format/format";
-import { getLogisticsT } from "../../../messages";
 import { getFreightT } from "../messages";
 import { freightPhotos } from "../photos";
 import { FREIGHT_ROOT } from "../slug";
-import { useFreightStore } from "../store";
-import { Section } from "./section";
-import { card, pillButton } from "./styles";
+import { ArrowIcon } from "./icons";
+import { card, eyebrow, rtlSafe, roundButton } from "./styles";
+
+const serviceCards = [
+  { key: "air", photo: freightPhotos.airFreight, target: "/calculator" },
+  { key: "sea", photo: freightPhotos.seaFreight, target: "/calculator" },
+  { key: "road", photo: freightPhotos.roadFreight, target: "/calculator" },
+  { key: "customs", photo: freightPhotos.customs, target: "#faq" },
+] as const satisfies readonly { key: string; photo: PhotoData; target: string }[];
 
 type Props = { locale: Locale };
 
-const serviceCards = [
-  { key: "air", photo: freightPhotos.airFreight },
-  { key: "sea", photo: freightPhotos.seaFreight },
-  { key: "road", photo: freightPhotos.roadFreight },
-  { key: "rail", photo: freightPhotos.railFreight },
-  { key: "customs", photo: freightPhotos.customs },
-] as const satisfies readonly { key: string; photo: PhotoData }[];
-
-// The five services with their starting price per kg, read from the rates the owner edits.
+// The four cards of the source: a grey photo, the service name, two short promises and a round arrow.
 export function ServiceCards({ locale }: Props) {
   const t = getFreightT(locale);
-  const shared = getLogisticsT(locale);
-  const rates = useFreightStore((state) => state.rates);
-  const currency = useFreightStore((state) => state.settings.currency);
   const root = `/${locale}${FREIGHT_ROOT}`;
 
   return (
-    <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {serviceCards.map(({ key, photo }) => {
-        const rate = key === "customs" ? undefined : rates.modes.find((item) => item.mode === key);
-        return (
-          <li key={key} className={`${card} flex flex-col overflow-hidden`}>
-            <div className="aspect-[3/2] bg-bg">
+    <ul className="grid grid-cols-4 gap-[18px] max-[1024px]:grid-cols-2 max-[640px]:grid-cols-1">
+      {serviceCards.map(({ key, photo, target }) => (
+        <li key={key}>
+          <Link
+            href={target.startsWith("#") ? `${root}${target}` : `${root}${target}`}
+            className={`${card} group flex h-full flex-col p-5`}
+          >
+            <div className="mb-[22px] h-[150px] overflow-hidden rounded-2xl">
               <Photo
                 photo={photo}
                 locale={locale}
-                widths={[400, 640, 900]}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                widths={[320, 500, 800]}
+                sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+                className="grayscale-[0.9] transition-[transform,filter] duration-[1000ms] group-hover:scale-[1.07] group-hover:grayscale-[0.2] motion-reduce:transition-none"
               />
             </div>
-            <div className="flex grow flex-col gap-3 p-5">
-              <h3 className="text-xl font-extrabold">{shared(`services.${key}`)}</h3>
-              <ul className="list-disc space-y-1 ps-5 text-muted">
-                <li>{t(`services.${key}.b1`)}</li>
-                <li>{t(`services.${key}.b2`)}</li>
-              </ul>
-              <p className="mt-auto font-bold text-(--lg-accent)">
-                {rate
-                  ? t("services.from", { price: formatPrice(rate.ratePerKg, currency, locale) })
-                  : t("services.contact")}
-              </p>
-              {rate ? (
-                <p className="text-sm text-muted">
-                  {t("services.minimum", { price: formatPrice(rate.minimumCharge, currency, locale) })}
-                </p>
-              ) : null}
-              <Link href={`${root}/quote`} className={pillButton("outline")}>
-                {t("services.quote")}
-              </Link>
-            </div>
-          </li>
-        );
-      })}
+            <h3 className="mb-3.5 text-[18px] font-semibold tracking-[-0.01em] text-text">
+              {t(`services.${key}.title`)}
+            </h3>
+            <ul className="flex-1 text-[13px] leading-[1.55] text-muted">
+              <li className="relative mb-2 ps-4 before:absolute before:start-[2px] before:top-[9px] before:size-1 before:rounded-full before:bg-text/40">
+                {t(`services.${key}.b1`)}
+              </li>
+              <li className="relative ps-4 before:absolute before:start-[2px] before:top-[9px] before:size-1 before:rounded-full before:bg-text/40">
+                {t(`services.${key}.b2`)}
+              </li>
+            </ul>
+            <span
+              aria-hidden="true"
+              className={`${roundButton} mt-3 self-end group-hover:translate-x-[3px] group-hover:bg-primary group-hover:text-on-primary rtl:group-hover:-translate-x-[3px]`}
+            >
+              <ArrowIcon className="size-[18px] rtl:rotate-180" />
+            </span>
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }
 
-const routeKeys = ["r1", "r2", "r3", "r4", "r5", "r6"] as const;
-const routePhotos = [
-  freightPhotos.ship,
-  freightPhotos.port,
-  freightPhotos.seaFreight,
-  freightPhotos.railFreight,
-  freightPhotos.airplane,
-  freightPhotos.roadFreight,
-];
-
-export function RoutesSection({ locale }: Props) {
+// The services head inside the white about panel: eyebrow, title and the "All services" link.
+export function ServicesBlock({ locale }: Props) {
   const t = getFreightT(locale);
-  return (
-    <Section id="routes" eyebrow={t("routes.eyebrow")} title={t("routes.title")} intro={t("routes.text")}>
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {routeKeys.map((key, index) => (
-          <li key={key} className={`${card} flex items-center gap-4 p-3`}>
-            <div className="size-20 shrink-0 overflow-hidden rounded-2xl bg-bg">
-              <Photo
-                photo={routePhotos[index] ?? freightPhotos.ship}
-                locale={locale}
-                widths={[160, 240]}
-                sizes="80px"
-              />
-            </div>
-            <div>
-              <h3 className="font-extrabold">{t(`routes.${key}.title`)}</h3>
-              <p className="text-sm text-muted">{t(`routes.${key}.detail`)}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  );
-}
-
-const planPrices = { start: 199, business: 749, enterprise: null } as const;
-
-export function PricingSection({ locale }: Props) {
-  const t = getFreightT(locale);
-  const currency = useFreightStore((state) => state.settings.currency);
   const root = `/${locale}${FREIGHT_ROOT}`;
-  return (
-    <Section id="pricing" eyebrow={t("pricing.eyebrow")} title={t("pricing.title")} intro={t("pricing.text")}>
-      <ul className="grid gap-5 lg:grid-cols-3">
-        {(["start", "business", "enterprise"] as const).map((plan) => {
-          const price = planPrices[plan];
-          const popular = plan === "business";
-          return (
-            <li
-              key={plan}
-              className={`${card} flex flex-col gap-4 p-6 ${popular ? "border-2 border-primary" : ""}`}
-            >
-              {popular ? (
-                <p className="text-sm font-bold text-(--lg-accent)">{t("pricing.popular")}</p>
-              ) : null}
-              <h3 className="text-xl font-extrabold">{t(`pricing.${plan}.name`)}</h3>
-              <p className="text-3xl font-extrabold">
-                {price === null ? t("pricing.custom") : formatPrice(price, currency, locale)}
-                {price === null ? null : (
-                  <span className="text-base font-semibold text-muted"> {t("pricing.perShipment")}</span>
-                )}
-              </p>
-              <p className="text-muted">{t(`pricing.${plan}.text`)}</p>
-              <ul className="list-disc space-y-1 ps-5">
-                <li>{t(`pricing.${plan}.f1`)}</li>
-                <li>{t(`pricing.${plan}.f2`)}</li>
-                <li>{t(`pricing.${plan}.f3`)}</li>
-                <li>{t(`pricing.${plan}.f4`)}</li>
-              </ul>
-              <Link
-                href={`${root}/quote`}
-                className={`${pillButton(popular ? "primary" : "outline")} mt-auto`}
-              >
-                {t(`pricing.${plan}.cta`)}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </Section>
-  );
-}
 
-export function TestimonialsSection({ locale }: Props) {
-  const t = getFreightT(locale);
-  const testimonials = useFreightStore((state) => state.testimonials);
-  const visible = testimonials.filter((item) => item.visible);
-  if (visible.length === 0) return null;
   return (
-    <Section id="testimonials" eyebrow={t("testimonials.eyebrow")} title={t("testimonials.title")}>
-      <ul className="grid gap-5 md:grid-cols-2">
-        {visible.map((item) => (
-          <li key={item.id} className={`${card} p-6`}>
-            <blockquote className="text-lg">“{item.text[locale]}”</blockquote>
-            <p className="mt-4 font-bold">{item.author[locale]}</p>
-            <p className="text-sm text-muted">{item.role[locale]}</p>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  );
-}
-
-export function FaqSection({ locale }: Props) {
-  const t = getFreightT(locale);
-  return (
-    <Section id="faq" eyebrow={t("faq.eyebrow")} title={t("faq.title")} intro={t("faq.text")}>
-      <FaqAccordion store={useFreightStore} locale={locale} itemClassName="rounded-[22px]" />
-    </Section>
-  );
-}
-
-export function QuoteBand({ locale }: Props) {
-  const t = getFreightT(locale);
-  const content = useFreightStore((state) => state.content.contact);
-  const whatsapp = useFreightStore((state) => state.settings.whatsapp);
-  const root = `/${locale}${FREIGHT_ROOT}`;
-  return (
-    <section aria-labelledby="quote-band-title" className="mx-auto max-w-6xl px-4 py-12">
-      <div className="space-y-4 rounded-[22px] bg-primary p-8 text-on-primary md:p-12">
-        <h2 id="quote-band-title" className="text-3xl font-extrabold">
-          {content.title[locale]}
-        </h2>
-        <p className="max-w-2xl text-lg">{content.text[locale]}</p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href={`${root}/quote`}
-            className="inline-flex min-h-11 items-center rounded-full bg-bg px-6 font-bold text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+    <div id="services" className="pt-[60px]">
+      <div className="mb-[34px] flex items-end justify-between gap-5 border-t border-border pt-[34px] max-[640px]:flex-col max-[640px]:items-start">
+        <div>
+          <p className={eyebrow}>{t("services.eyebrow")}</p>
+          <h2
+            className={`mt-3 text-[clamp(26px,3vw,36px)] font-medium leading-[1.08] tracking-[-0.025em] text-text ${rtlSafe} rtl:leading-[1.3]`}
           >
-            {t("quoteBand.cta")}
-          </Link>
-          <a
-            href={whatsappUrl(whatsapp, "")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center rounded-full border-2 border-on-primary px-6 font-bold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
-          >
-            {t("quoteBand.whatsapp")}
-          </a>
+            {t("services.title")}
+          </h2>
         </div>
+        <Link
+          href={`${root}/services`}
+          className="flex items-center gap-3.5 whitespace-nowrap text-[13.5px] font-medium text-text hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+        >
+          {t("services.all")}
+          <ArrowIcon className="size-5 transition-transform duration-[250ms] hover:translate-x-1 rtl:rotate-180" />
+        </Link>
       </div>
-    </section>
+      <ServiceCards locale={locale} />
+    </div>
   );
 }
