@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans, Tajawal } from "next/font/google";
+import { fontStack } from "@/features/demo-engine/fonts/font-stack";
 
 // Self-hosted at build time. Scoped to the template wrapper (the variables are set on it), never on the main site.
 const latin = Plus_Jakarta_Sans({
@@ -14,5 +15,4 @@ const arabic = Tajawal({
 });
 
 export const warehousingFontClassName = `${latin.variable} ${arabic.variable}`;
-export const warehousingFontFamily =
-  "var(--font-warehousing-latin), var(--font-warehousing-arabic), ui-sans-serif, system-ui, sans-serif";
+export const warehousingFontFamily = fontStack([latin, arabic], "ui-sans-serif, system-ui, sans-serif");

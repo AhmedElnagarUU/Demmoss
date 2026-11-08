@@ -7,11 +7,12 @@ import {
   Jost,
   Pinyon_Script,
 } from "next/font/google";
+import { fontStack } from "@/features/demo-engine/fonts/font-stack";
 
 // Verdant Table's fonts, downloaded at build time and served from our own host. Applied only inside the template.
 // Latin: Cormorant Garamond 500/600 (headings, italic for the hero accent word), Jost 300/400 (text), Pinyon Script (script).
 // Arabic: Amiri (headings), IBM Plex Sans Arabic (text), Aref Ruqaa (script accents, in place of Pinyon Script).
-// Each stack lists the Latin font first, so Arabic letters fall through to the Arabic font.
+// fontStack lists the Latin font, then the Arabic font, then their fallbacks, so Arabic letters reach the Arabic font.
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["500", "600"],
@@ -53,8 +54,8 @@ const ruqaa = Aref_Ruqaa({
 export const fineDiningFonts = {
   className: [cormorant, jost, pinyon, amiri, plex, ruqaa].map((font) => font.variable).join(" "),
   style: {
-    "--fd-display": "var(--font-fd-cormorant), var(--font-fd-amiri), Georgia, serif",
-    "--fd-body": "var(--font-fd-jost), var(--font-fd-plex), system-ui, sans-serif",
-    "--fd-script": "var(--font-fd-pinyon), var(--font-fd-ruqaa), cursive",
+    "--fd-display": fontStack([cormorant, amiri], "Georgia, serif"),
+    "--fd-body": fontStack([jost, plex], "system-ui, sans-serif"),
+    "--fd-script": fontStack([pinyon, ruqaa], "cursive"),
   } as CSSProperties,
 };

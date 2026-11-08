@@ -29,6 +29,10 @@ every template site, every template dashboard.
 
 - One Arabic font and one Latin font, chosen in the design phase, self-hosted with `next/font/local` (no external font requests).
 - Check line height and font size for Arabic separately; Arabic usually needs more line height.
+- Build every template font stack with `fontStack()` (`src/features/demo-engine/fonts/font-stack.ts`): it lists the Latin and
+  Arabic fonts first and their Arial-based `next/font` fallbacks after them. A stack of font CSS variables puts the Latin
+  fallback (Arial, which has Arabic letters) before the Arabic font, so Arabic renders in Arial (checked by
+  `tests/contracts/arabic-fonts.test.ts`).
 
 ## Review checklist
 

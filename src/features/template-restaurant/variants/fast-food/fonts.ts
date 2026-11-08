@@ -8,13 +8,24 @@ import {
   Poppins,
   Yellowtail,
 } from "next/font/google";
+import { fontStack } from "@/features/demo-engine/fonts/font-stack";
 
 // Sole Trattoria's fonts, downloaded at build time and served from our own host. Applied only inside the template.
 // Latin: Bebas Neue (hero display), Lora 600 (serif headings), Poppins (text), Yellowtail (script accents).
 // Arabic: Lalezar (display + headings), IBM Plex Sans Arabic (text), Aref Ruqaa (script accents).
-// Each stack lists the Latin font first, so Arabic letters fall through to the Arabic font.
-const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-sl-bebas", display: "swap" });
-const lora = Lora({ subsets: ["latin"], weight: "600", variable: "--font-sl-lora", display: "swap" });
+// fontStack lists the Latin font, then the Arabic font, then their fallbacks, so Arabic letters reach the Arabic font.
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sl-bebas",
+  display: "swap",
+});
+const lora = Lora({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-sl-lora",
+  display: "swap",
+});
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -49,10 +60,10 @@ const ruqaa = Aref_Ruqaa({
 export const fastFoodFonts = {
   className: [bebas, poppins, lora, yellowtail, lalezar, plex, ruqaa].map((font) => font.variable).join(" "),
   style: {
-    "--sl-display": "var(--font-sl-bebas), var(--font-sl-lalezar), Impact, sans-serif",
-    "--sl-serif": "var(--font-sl-lora), var(--font-sl-lalezar), Georgia, serif",
-    "--sl-script": "var(--font-sl-yellowtail), var(--font-sl-ruqaa), cursive",
-    "--sl-body": "var(--font-sl-poppins), var(--font-sl-plex), system-ui, sans-serif",
+    "--sl-display": fontStack([bebas, lalezar], "Impact, sans-serif"),
+    "--sl-serif": fontStack([lora, lalezar], "Georgia, serif"),
+    "--sl-script": fontStack([yellowtail, ruqaa], "cursive"),
+    "--sl-body": fontStack([poppins, plex], "system-ui, sans-serif"),
     // The source's warm card shadow token (-sh in the source file), for every lifted card.
     "--sl-shadow": "0 10px 30px rgba(80, 50, 20, 0.1)",
   } as CSSProperties,
