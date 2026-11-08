@@ -90,6 +90,7 @@ Tests: unit tests for the limiter (window, expiry, retry time, keys independent)
 - `src/shared/env.server.ts`: in production, admin variables are required at startup (fail fast with a clear message).
 - `README.md`: "Run in production" section (build, env, compose up, health URL).
 - CI: add a job that builds the Docker image (no push).
+- Done: `output: "standalone"`, `Dockerfile`, `.dockerignore`, and the tag-driven release to Docker Hub (`docs/12-releases.md`).
 
 ## Later (not needed for launch)
 

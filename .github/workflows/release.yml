@@ -1,0 +1,97 @@
+name: Release
+
+# Pushing a version tag (v1.0.0) builds the Docker image and pushes it to Docker Hub.
+# Steps and rules: docs/12-releases.md
+on:
+  push:
+    tags: ["v*.*.*"]
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+env:
+  IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/bochke
+
+jobs:
+  verify:
+    name: Check the tag can be released
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Tag is vMAJOR.MINOR.PATCH and matches package.json
+        id: version
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if ! [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Tag $tag is not vMAJOR.MINOR.PATCH (example: v1.2.0)."; exit 1
+          fi
+          version="${tag#v}"
+          package_version="$(node -p "require('./package.json').version")"
+          if [ "$version" != "$package_version" ]; then
+            echo "::error::Tag $tag does not match package.json version $package_version. Bump package.json first."; exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Tagged commit is on main
+        run: |
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "::error::Release tags must point to a commit on main. Merge first, then tag main."; exit 1
+          fi
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Version is not on Docker Hub yet (published versions never change)
+        run: |
+          if docker manifest inspect "${IMAGE}:${{ steps.version.outputs.version }}" > /dev/null 2>&1; then
+            echo "::error::${IMAGE}:${{ steps.version.outputs.version }} already exists. Release a new version instead."; exit 1
+          fi
+
+  checks:
+    name: Same checks as CI
+    needs: verify
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    name: Build and push the image
+    needs: [verify, checks]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Image tags (1.2.3, 1.2, 1, latest)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+          flavor: latest=true
+          labels: |
+            org.opencontainers.image.title=BOCHKE
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          build-args: APP_VERSION=${{ needs.verify.outputs.version }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: GitHub release with the change list
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag --title "$GITHUB_REF_NAME"

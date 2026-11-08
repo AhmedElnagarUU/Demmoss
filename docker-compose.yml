@@ -1,0 +1,14 @@
+# Production on the server: `docker compose up -d`.
+# Secrets come from .env.production next to this file (never in the image, never in git).
+services:
+  web:
+    image: ${DOCKERHUB_USERNAME:?set DOCKERHUB_USERNAME}/bochke:${BOCHKE_VERSION:-1.0.0}
+    env_file: .env.production
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "5"

@@ -1,0 +1,16 @@
+# Kept out of the image build. tests/ and e2e/ stay: `next build` type-checks every .ts file, tests included.
+.git
+.github
+.next
+node_modules
+.env
+.env.*
+!.env.example
+docs
+theme-sources
+scripts
+playwright-report
+test-results
+*.tsbuildinfo
+.claude
+*.md

@@ -1,7 +1,7 @@
 // Starts an in-memory MongoDB and the production Next.js server for E2E tests.
-// Run after `next build` (npm run e2e does both).
+// Run after `next build` (npm run e2e does both); it serves .next/standalone like the Docker image.
 import { spawn } from "node:child_process";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { MongoMemoryServer } from "mongodb-memory-server";
 
 // TEST admin for the E2E journeys (see e2e/helpers/admin.ts). Never real credentials.
@@ -15,11 +15,16 @@ const mongoUri = process.env.E2E_MONGODB_URI ?? mongo.getUri("e2e");
 mkdirSync("e2e/.tmp", { recursive: true });
 writeFileSync("e2e/.tmp/mongo-uri", mongoUri);
 
-const next = spawn("npx", ["next", "start", "-p", port], {
+// Same server as the Docker image: the standalone build plus its static files and public folder.
+cpSync("public", ".next/standalone/public", { recursive: true });
+cpSync(".next/static", ".next/standalone/.next/static", { recursive: true });
+
+const next = spawn(process.execPath, [".next/standalone/server.js"], {
   stdio: "inherit",
-  shell: process.platform === "win32",
   env: {
     ...process.env,
+    PORT: port,
+    HOSTNAME: "localhost",
     MONGODB_URI: mongoUri,
     ADMIN_EMAIL: admin.email,
     ADMIN_PASSWORD: admin.password,
