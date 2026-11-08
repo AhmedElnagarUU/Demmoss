@@ -1,6 +1,5 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { attemptAdminLogin } from "./admin-session";
-import { hashPassword } from "./password";
 
 const email = "owner@example.com";
 const password = "a password";
@@ -8,7 +7,7 @@ const now = 1_770_000_000_000;
 
 beforeAll(() => {
   process.env.ADMIN_EMAIL = email;
-  process.env.ADMIN_PASSWORD_HASH = hashPassword(password);
+  process.env.ADMIN_PASSWORD = password;
   process.env.SESSION_SECRET = "a-test-secret-that-is-at-least-32-characters-long";
 });
 

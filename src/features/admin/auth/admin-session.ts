@@ -2,7 +2,7 @@ import "server-only";
 import { cookies } from "next/headers";
 import { getAdminEnv } from "@/shared/env.server";
 import { isRateLimited, recordRateLimitHit } from "@/shared/rate-limit";
-import { verifyPassword } from "./password";
+import { passwordMatches } from "./password";
 import {
   SESSION_COOKIE,
   SESSION_MAX_AGE_SECONDS,
@@ -34,8 +34,8 @@ export async function requireAdmin(): Promise<AdminSession> {
 export function credentialsAreValid(email: string, password: string): boolean {
   const env = getAdminEnv();
   // The password is always checked, so a wrong email and a wrong password take the same time.
-  const passwordMatches = verifyPassword(password, env.ADMIN_PASSWORD_HASH);
-  return passwordMatches && email.trim().toLowerCase() === env.ADMIN_EMAIL.toLowerCase();
+  const passwordIsRight = passwordMatches(password, env.ADMIN_PASSWORD);
+  return passwordIsRight && email.trim().toLowerCase() === env.ADMIN_EMAIL.toLowerCase();
 }
 
 const loginRateLimit = { limit: 5, windowMs: 15 * 60 * 1000 };

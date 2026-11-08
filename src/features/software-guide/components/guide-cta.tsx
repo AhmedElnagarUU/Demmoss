@@ -7,18 +7,32 @@ type Props = { locale: Locale; content: GuideContent["cta"] };
 
 export function GuideCta({ locale, content }: Props) {
   return (
-    <section aria-labelledby="cta-title" className="bg-surface">
-      <div className="mx-auto flex max-w-3xl flex-col items-start gap-5 px-4 py-14 sm:py-20">
-        <h2 id="cta-title" className="text-2xl font-bold sm:text-4xl">
+    <section id="cta" aria-labelledby="cta-title" className="guide-anchor border-t border-border py-12">
+      <div className="site-panel w-full p-6 sm:p-8">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -end-16 -top-24 size-64 rounded-full bg-primary/10 blur-3xl"
+        />
+        <h2 id="cta-title" className="site-display relative text-[clamp(1.75rem,4vw,2.25rem)] text-text">
           {content.title}
         </h2>
-        <p className="text-lg text-muted">{content.text}</p>
-        <div className="flex flex-wrap gap-3">
-          <LinkButton href={`/${locale}/start`}>{content.startProject}</LinkButton>
-          <LinkButton href={`/${locale}/demos`} variant="secondary">
+        <p className="relative mt-4 text-lg leading-relaxed text-muted">{content.text}</p>
+        <div className="relative mt-6 flex flex-wrap gap-3">
+          <LinkButton
+            href={`/${locale}/start`}
+            className="site-pill bg-primary text-on-primary hover:bg-primary-hover"
+          >
+            {content.startProject}
+          </LinkButton>
+          <LinkButton href={`/${locale}/demos`} variant="secondary" className="site-pill site-btn-ghost">
             {content.seeDemos}
           </LinkButton>
-          <TrackedWhatsAppButton locale={locale} label={content.whatsapp} message={content.whatsappMessage} />
+          <TrackedWhatsAppButton
+            locale={locale}
+            label={content.whatsapp}
+            message={content.whatsappMessage}
+            className="site-pill site-btn-ghost"
+          />
         </div>
       </div>
     </section>

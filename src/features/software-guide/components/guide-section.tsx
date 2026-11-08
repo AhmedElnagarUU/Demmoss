@@ -1,24 +1,36 @@
 import type { ReactNode } from "react";
+import { prevNext, type GuideNav } from "../guide-nav";
+import type { GuideContent } from "../types";
+import { GuideCallout } from "./guide-callout";
+import { SectionPager } from "./section-pager";
 
 type Props = {
   id: string;
   title: string;
-  tone?: "plain" | "soft";
+  lead?: string;
+  summary?: string;
+  nav: GuideNav;
+  menu: GuideContent["menu"];
   children: ReactNode;
 };
 
-export function GuideSection({ id, title, tone = "plain", children }: Props) {
+export function GuideSection({ id, title, lead, summary, nav, menu, children }: Props) {
+  const item = nav.items.find((candidate) => candidate.id === id);
+  const { previous, next } = prevNext(nav.items, id);
+
   return (
-    <section
-      id={id}
-      aria-labelledby={`${id}-title`}
-      className={`scroll-mt-16 ${tone === "soft" ? "bg-surface" : ""}`}
-    >
-      <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-12 sm:py-16">
-        <h2 id={`${id}-title`} className="text-2xl font-bold sm:text-3xl">
-          {title}
-        </h2>
+    <section id={id} aria-labelledby={`${id}-title`} className="guide-anchor border-t border-border py-12">
+      <div className="flex flex-col gap-6">
+        <header className="flex flex-col gap-3">
+          {item ? <p className="text-sm font-semibold text-primary">{item.groupLabel}</p> : null}
+          <h2 id={`${id}-title`} className="site-display text-[clamp(1.75rem,4vw,2.25rem)] text-text">
+            {title}
+          </h2>
+          {lead ? <p className="text-lg leading-relaxed text-muted">{lead}</p> : null}
+        </header>
+        {summary ? <GuideCallout label={menu.inShort} text={summary} /> : null}
         {children}
+        <SectionPager previous={previous} next={next} menu={menu} />
       </div>
     </section>
   );

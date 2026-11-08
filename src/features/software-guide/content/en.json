@@ -5,22 +5,76 @@
   },
   "menu": {
     "label": "Guide sections",
-    "items": [
-      { "id": "types", "label": "The four types" },
-      { "id": "compare", "label": "Comparison" },
-      { "id": "rent-or-build", "label": "Rent or build" },
-      { "id": "how-built", "label": "How it's built" },
-      { "id": "myths", "label": "Myths" },
-      { "id": "quiz", "label": "Find what fits me" },
-      { "id": "glossary", "label": "Glossary" }
+    "title": "Guide",
+    "searchLabel": "Search the guide",
+    "searchPlaceholder": "Search the guide",
+    "noMatch": "No matching section",
+    "glossaryResults": "Glossary terms",
+    "sectionsButton": "Sections",
+    "close": "Close",
+    "onThisPage": "On this page",
+    "previous": "Previous",
+    "next": "Next",
+    "inShort": "In short",
+    "helpTitle": "Not sure yet?",
+    "helpText": "Answer five quick questions and get a recommendation.",
+    "helpQuiz": "Take the quiz",
+    "groups": [
+      {
+        "id": "start",
+        "label": "Start here",
+        "description": "What this guide is and why it matters to you",
+        "items": [
+          { "id": "overview", "label": "Overview" },
+          { "id": "why", "label": "Why this matters" }
+        ]
+      },
+      {
+        "id": "understand",
+        "label": "Understand",
+        "description": "The four types side by side, and how software is built",
+        "items": [
+          {
+            "id": "types",
+            "label": "The four types",
+            "children": [
+              { "id": "profile", "label": "Profile website" },
+              { "id": "functional", "label": "Functional website" },
+              { "id": "system", "label": "Custom system" },
+              { "id": "saas", "label": "SaaS product" }
+            ]
+          },
+          { "id": "compare", "label": "Comparison" },
+          { "id": "how-built", "label": "How it's built" }
+        ]
+      },
+      {
+        "id": "decide",
+        "label": "Decide",
+        "description": "Rent or build, myths to avoid, and a short quiz",
+        "items": [
+          { "id": "rent-or-build", "label": "Rent or build" },
+          { "id": "myths", "label": "Myths" },
+          { "id": "quiz", "label": "Find what fits me" }
+        ]
+      },
+      {
+        "id": "reference",
+        "label": "Reference",
+        "description": "Plain-language meanings of the words you will hear",
+        "items": [{ "id": "glossary", "label": "Glossary" }]
+      }
     ]
   },
   "quizLink": "Not sure which one fits you? Take the 1-minute quiz",
   "hero": {
+    "badge": "The plain-words guide",
     "title": "Know what you need before you pay for it",
     "subtitle": "Website, dashboard, system, SaaS… they sound alike but they solve different problems. In a few minutes you'll know the difference and which one fits your business.",
     "findCta": "Find what fits me",
-    "demosCta": "See live demos"
+    "demosCta": "See live demos",
+    "groupsTitle": "In this guide",
+    "readTime": "About {minutes} min read"
   },
   "facts": {
     "title": "Why this matters",
@@ -49,6 +103,7 @@
   },
   "types": {
     "title": "The four types of software, explained with a shop",
+    "summary": "Four kinds of software, four different jobs. Choose by what you need to do: be found, take bookings, run your team, or sell software.",
     "intro": "Think of your business as a shop. Each type of software is a different part of it.",
     "labels": {
       "analogy": "In shop terms",
@@ -112,6 +167,7 @@
   },
   "comparison": {
     "title": "The four types side by side",
+    "summary": "Start with the row that matters most to you, usually the main goal, then check the effort and the ongoing care.",
     "caption": "Comparison of the four types of software",
     "rowHeader": "What to compare",
     "columns": [
@@ -170,6 +226,7 @@
   },
   "rentOrBuild": {
     "title": "Ready-made tool or your own?",
+    "summary": "Rent what everyone needs. Build only what makes your business different.",
     "text": "For many needs there are ready-made online tools you rent monthly. They're quick to start. Your own (custom) software costs more at the start, but it fits your exact way of working, carries your brand, and belongs to you.",
     "rent": {
       "label": "Rent when",
@@ -221,6 +278,7 @@
   },
   "myths": {
     "title": "Myths and the truth",
+    "summary": "Most costly mistakes come from a few wrong ideas. Open each myth to see the truth behind it.",
     "mythLabel": "Myth",
     "truthLabel": "Truth",
     "items": [
@@ -355,6 +413,7 @@
   },
   "glossary": {
     "title": "Words you will hear, in plain language",
+    "noMatch": "No matching term",
     "items": [
       { "id": "domain", "term": "Domain", "definition": "Your website's address, like yourname.com." },
       {

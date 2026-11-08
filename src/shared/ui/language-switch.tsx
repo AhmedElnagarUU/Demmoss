@@ -26,7 +26,7 @@ export function LanguageSwitch({ locale, label, onSwitch, className = "" }: Prop
       hrefLang={target}
       lang={target}
       onClick={rememberChoice}
-      aria-label={label}
+      aria-label={`${target.toUpperCase()} · ${label}`}
       className={`inline-flex h-9 min-w-10 items-center justify-center rounded-control border border-border px-3 text-sm font-semibold uppercase text-text hover:bg-surface focus-visible:outline-2 focus-visible:outline-focus ${className}`}
     >
       {target.toUpperCase()}

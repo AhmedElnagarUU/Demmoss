@@ -14,7 +14,8 @@ type Props = {
     submit: string;
     invalidInput: string;
     invalidCredentials: string;
-    tooManyAttempts: (minutes: number) => string;
+    /** Message with a {minutes} placeholder (a server component cannot pass a function to this client form). */
+    tooManyAttempts: string;
   };
 };
 
@@ -24,7 +25,7 @@ export function LoginForm({ locale, labels }: Props) {
     result?.error === "invalid_input"
       ? labels.invalidInput
       : result?.error === "too_many_attempts"
-        ? labels.tooManyAttempts(result.retryAfterMinutes)
+        ? labels.tooManyAttempts.replace("{minutes}", String(result.retryAfterMinutes))
         : labels.invalidCredentials;
 
   return (

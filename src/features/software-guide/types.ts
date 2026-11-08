@@ -31,13 +31,52 @@ const quizQuestionSchema = z.object({
 
 const quizResultSchema = z.object({ title: text, why: text });
 
+const navLinkSchema = z.object({ id: text, label: text });
+
+const menuSchema = z.object({
+  label: text,
+  title: text,
+  searchLabel: text,
+  searchPlaceholder: text,
+  noMatch: text,
+  glossaryResults: text,
+  sectionsButton: text,
+  close: text,
+  onThisPage: text,
+  previous: text,
+  next: text,
+  inShort: text,
+  helpTitle: text,
+  helpText: text,
+  helpQuiz: text,
+  groups: z
+    .array(
+      z.object({
+        id: text,
+        label: text,
+        description: text,
+        items: z.array(navLinkSchema.extend({ children: z.array(navLinkSchema).optional() })).min(1),
+      }),
+    )
+    .min(1),
+});
+
 export const guideContentSchema = z.object({
   meta: z.object({ title: text, description: text }),
-  menu: z.object({ label: text, items: z.array(z.object({ id: text, label: text })).min(1) }),
+  menu: menuSchema,
   quizLink: text,
-  hero: z.object({ title: text, subtitle: text, findCta: text, demosCta: text }),
+  hero: z.object({
+    badge: text,
+    title: text,
+    subtitle: text,
+    findCta: text,
+    demosCta: text,
+    groupsTitle: text,
+    readTime: text,
+  }),
   facts: sectionTitle.extend({ items: z.array(idText).min(1) }),
   types: sectionTitle.extend({
+    summary: text.optional(),
     intro: text,
     labels: z.object({
       analogy: text,
@@ -50,12 +89,14 @@ export const guideContentSchema = z.object({
     items: z.array(typeCardSchema).length(4),
   }),
   comparison: sectionTitle.extend({
+    summary: text.optional(),
     caption: text,
     rowHeader: text,
     columns: z.array(z.object({ id: guideTypeSchema, name: text })).length(4),
     rows: z.array(z.object({ id: text, label: text, values: z.array(text).length(4) })).min(1),
   }),
   rentOrBuild: sectionTitle.extend({
+    summary: text.optional(),
     text,
     rent: z.object({ label: text, text }),
     build: z.object({ label: text, text }),
@@ -65,6 +106,7 @@ export const guideContentSchema = z.object({
     items: z.array(z.object({ id: text, title: text, text })).min(1),
   }),
   myths: sectionTitle.extend({
+    summary: text.optional(),
     mythLabel: text,
     truthLabel: text,
     items: z.array(z.object({ id: text, myth: text, truth: text })).min(1),
@@ -90,6 +132,7 @@ export const guideContentSchema = z.object({
     }),
   }),
   glossary: sectionTitle.extend({
+    noMatch: text,
     items: z.array(z.object({ id: text, term: text, definition: text })).min(1),
   }),
   cta: sectionTitle.extend({

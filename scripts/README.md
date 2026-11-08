@@ -9,11 +9,10 @@ Available:
 
 | Script | Purpose |
 |---|---|
-| `hash-password` | `npm run hash-password -- "my password"` prints the `ADMIN_PASSWORD_HASH` value for `.env` (`scrypt$<salt>$<hash>`, Node `crypto`, no dependency) |
+| `screenshots:demos` | `npm run screenshots:demos` captures the gallery screenshots in `public/demos/` (see `docs/features/gallery.md`) |
 
 Planned candidates:
 
 | Script | Purpose | When |
 |---|---|---|
-| `screenshots` | Capture gallery screenshots of each template | When templates exist |
 | `clean-events` | Delete old tracking events | If the database grows |

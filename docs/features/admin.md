@@ -69,7 +69,7 @@ Writes: lead status/notes, feedback read flag, notification read flag. No admin 
 | Level | Test | Protects |
 |---|---|---|
 | Unit | session cookie: valid, tampered, expired, other secret, malformed (`auth/session.test.ts`) | C1 |
-| Unit | password: right/wrong, new salt each time, bad format, hash made by `scripts/hash-password.mjs` (`auth/password.test.ts`) | C1 |
+| Unit | password: right/wrong, case-sensitive, Arabic, no password configured never matches (`auth/password.test.ts`) | C1 |
 | Unit | conversion, funnel, windows, top lists, source labels, per-template stats (`metrics.test.ts`) | C2, C5, C7 |
 | Unit | notification grouping by day and type (`notifications/group.test.ts`), notification to admin page (`paths.test.ts`) | N1, N2 |
 | Unit | action inputs reject bad ids, statuses, types (`types.test.ts`) | C3 |
@@ -86,7 +86,7 @@ E2E uses a TEST admin from `e2e/helpers/admin-credentials.json` (never real cred
 
 ```
 src/features/admin/
-  auth/           password.ts (scrypt), session.ts (signed cookie), admin-session.ts (requireAdmin, login, logout)
+  auth/           password.ts (constant-time compare with ADMIN_PASSWORD), session.ts (signed cookie), admin-session.ts (requireAdmin, login, logout)
   components/     one page component per section + shell, sidebar, tables, bars
   messages/       en.json, ar.json
   actions.ts      loginAction, logoutAction, lead status/notes, feedback read, notifications read/open

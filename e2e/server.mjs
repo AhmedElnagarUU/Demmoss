@@ -22,9 +22,9 @@ const next = spawn("npx", ["next", "start", "-p", port], {
     ...process.env,
     MONGODB_URI: mongoUri,
     ADMIN_EMAIL: admin.email,
-    ADMIN_PASSWORD_HASH: admin.passwordHash,
+    ADMIN_PASSWORD: admin.password,
     SESSION_SECRET: admin.sessionSecret,
-    // Skip the developer's .env files: Next.js would expand the "$" parts of the hash above and break it.
+    // Skip the developer's .env files: the test admin above must win over their values.
     __NEXT_PROCESSED_ENV: "true",
   },
 });

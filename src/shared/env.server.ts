@@ -15,12 +15,7 @@ export function getServerEnv(): ServerEnv {
 
 export const adminEnvSchema = z.object({
   ADMIN_EMAIL: z.email(),
-  ADMIN_PASSWORD_HASH: z
-    .string()
-    .regex(
-      /^scrypt\$[0-9a-f]+\$[0-9a-f]+$/,
-      "must look like scrypt$<salt>$<hash> (create it with scripts/hash-password.mjs)",
-    ),
+  ADMIN_PASSWORD: z.string().min(8, "must be at least 8 characters"),
   SESSION_SECRET: z.string().min(32, "must be at least 32 characters"),
 });
 
@@ -30,7 +25,7 @@ export type AdminEnv = z.infer<typeof adminEnvSchema>;
 export function getAdminEnv(): AdminEnv {
   return parseEnv(adminEnvSchema, {
     ADMIN_EMAIL: process.env.ADMIN_EMAIL,
-    ADMIN_PASSWORD_HASH: process.env.ADMIN_PASSWORD_HASH,
+    ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
     SESSION_SECRET: process.env.SESSION_SECRET,
   });
 }

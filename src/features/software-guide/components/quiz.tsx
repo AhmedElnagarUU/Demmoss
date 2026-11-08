@@ -8,7 +8,6 @@ import { Button } from "@/shared/ui/button";
 import { LinkButton } from "@/shared/ui/link-button";
 import { fillPlaceholders, pickRecommendation, type Recommendation } from "../quiz";
 import type { GuideContent, GuideType } from "../types";
-import { GuideSection } from "./guide-section";
 
 type Props = {
   locale: Locale;
@@ -48,8 +47,7 @@ export function Quiz({ locale, content, typeNames }: Props) {
   }
 
   return (
-    <GuideSection id="quiz" title={content.title}>
-      <p className="text-lg text-muted">{content.intro}</p>
+    <>
       {recommendation ? (
         <QuizResult
           locale={locale}
@@ -62,12 +60,9 @@ export function Quiz({ locale, content, typeNames }: Props) {
       ) : (
         <form onSubmit={submit} className="flex flex-col gap-6">
           {content.questions.map((question, index) => (
-            <fieldset
-              key={question.id}
-              className="flex flex-col gap-3 rounded-control border border-border p-5"
-            >
-              <legend className="px-2 font-bold">
-                <span className="block text-sm font-semibold text-muted">
+            <fieldset key={question.id} className="guide-card flex flex-col gap-3 p-5">
+              <legend className="px-2 font-semibold text-text">
+                <span className="block text-sm font-medium text-muted">
                   {fillPlaceholders(content.questionCount, {
                     number: String(index + 1),
                     total: String(content.questions.length),
@@ -78,7 +73,7 @@ export function Quiz({ locale, content, typeNames }: Props) {
               {question.options.map((option) => (
                 <label
                   key={option.id}
-                  className="flex min-h-11 cursor-pointer items-center gap-3 rounded-control border border-border px-4 py-2 has-[:checked]:border-primary has-[:checked]:bg-surface has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-focus"
+                  className="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-border bg-bg/40 px-4 py-2 text-text transition-colors hover:border-primary/30 has-[:checked]:border-primary has-[:checked]:bg-primary/10 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-focus"
                 >
                   <input
                     type="radio"
@@ -94,14 +89,14 @@ export function Quiz({ locale, content, typeNames }: Props) {
             </fieldset>
           ))}
           <div className="flex flex-col items-start gap-2">
-            <Button type="submit" disabled={!allAnswered}>
+            <Button type="submit" disabled={!allAnswered} className="site-pill">
               {content.submit}
             </Button>
             {allAnswered ? null : <p className="text-sm text-muted">{content.incomplete}</p>}
           </div>
         </form>
       )}
-    </GuideSection>
+    </>
   );
 }
 
@@ -121,20 +116,20 @@ function QuizResult({ locale, content, typeNames, recommendation, headingRef, on
   const result = isTie ? content.results.tie : content.results[recommendation.type];
 
   return (
-    <div
-      className="flex flex-col items-start gap-4 rounded-control border border-primary bg-surface p-6"
-      aria-live="polite"
-    >
+    <div className="site-panel flex flex-col items-start gap-4 p-6" aria-live="polite">
       <p className="text-sm font-semibold text-muted">{content.resultLabel}</p>
-      <h3 ref={headingRef} tabIndex={-1} className="text-2xl font-bold focus:outline-none">
+      <h3 ref={headingRef} tabIndex={-1} className="text-2xl font-semibold text-text focus:outline-none">
         {fillPlaceholders(result.title, names)}
       </h3>
-      <p className="text-lg">{result.why}</p>
+      <p className="text-lg leading-relaxed text-muted">{result.why}</p>
       <div className="flex flex-wrap gap-3">
-        <LinkButton href={`/${locale}/start?type=${recommendation.wizardType}`}>
+        <LinkButton
+          href={`/${locale}/start?type=${recommendation.wizardType}`}
+          className="site-pill bg-primary text-on-primary hover:bg-primary-hover"
+        >
           {content.startProject}
         </LinkButton>
-        <LinkButton href={`/${locale}/demos`} variant="secondary">
+        <LinkButton href={`/${locale}/demos`} variant="secondary" className="site-pill site-btn-ghost">
           {content.seeDemos}
         </LinkButton>
         {isTie ? (
@@ -142,9 +137,10 @@ function QuizResult({ locale, content, typeNames, recommendation, headingRef, on
             locale={locale}
             label={content.whatsapp}
             message={fillPlaceholders(content.whatsappMessage, names)}
+            className="site-pill"
           />
         ) : null}
-        <Button variant="secondary" onClick={onRestart}>
+        <Button variant="secondary" onClick={onRestart} className="site-pill">
           {content.restart}
         </Button>
       </div>

@@ -6,7 +6,6 @@ import { createLead, listLeads } from "@/features/wizard/service";
 import type { LeadInput } from "@/features/wizard/types";
 import { setupTestDatabase } from "../../../tests/helpers/db";
 import { AdminAuthError } from "./auth/admin-session";
-import { hashPassword } from "./auth/password";
 import { signSession } from "./auth/session";
 import {
   changeLeadStatus,
@@ -40,7 +39,7 @@ const adminEmail = "owner@example.com";
 
 beforeAll(() => {
   process.env.ADMIN_EMAIL = adminEmail;
-  process.env.ADMIN_PASSWORD_HASH = hashPassword("a password");
+  process.env.ADMIN_PASSWORD = "a password";
   process.env.SESSION_SECRET = secret;
 });
 

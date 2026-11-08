@@ -1,5 +1,4 @@
 import type { GuideContent } from "../types";
-import { GuideSection } from "./guide-section";
 import { QuizLink } from "./quiz-link";
 
 type Props = { content: GuideContent["types"]; quizLink: string };
@@ -7,9 +6,8 @@ type Props = { content: GuideContent["types"]; quizLink: string };
 export function TypeCards({ content, quizLink }: Props) {
   const { labels } = content;
   return (
-    <GuideSection id="types" title={content.title}>
-      <p className="text-lg text-muted">{content.intro}</p>
-      <div className="grid gap-6 md:grid-cols-2">
+    <>
+      <div className="flex flex-col gap-5">
         {content.items.map((type) => {
           const rows: [string, string][] = [
             [labels.analogy, type.analogy],
@@ -20,28 +18,27 @@ export function TypeCards({ content, quizLink }: Props) {
             [labels.effort, type.effort],
           ];
           return (
-            <article
-              key={type.id}
-              className="flex flex-col gap-4 rounded-control border border-border bg-bg p-6"
-            >
-              <h3 className="text-xl font-bold">{type.name}</h3>
-              <p className="text-lg font-semibold">{type.oneLine}</p>
+            <article id={type.id} key={type.id} className="guide-card guide-anchor flex flex-col gap-4 p-5">
+              <h3 className="text-xl font-semibold text-text">{type.name}</h3>
+              <p className="text-base font-medium text-primary">{type.oneLine}</p>
               <dl className="flex flex-col gap-3">
                 {rows.map(([label, value]) => (
                   <div key={label}>
                     <dt className="text-sm font-semibold text-muted">{label}</dt>
-                    <dd>{value}</dd>
+                    <dd className="text-base leading-relaxed text-text">{value}</dd>
                   </div>
                 ))}
               </dl>
               {type.note ? (
-                <p className="rounded-control bg-surface p-3 text-sm font-semibold">{type.note}</p>
+                <p className="rounded-lg border border-primary/20 bg-primary/10 p-3 text-sm font-medium text-primary">
+                  {type.note}
+                </p>
               ) : null}
             </article>
           );
         })}
       </div>
       <QuizLink label={quizLink} />
-    </GuideSection>
+    </>
   );
 }
