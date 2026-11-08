@@ -62,6 +62,8 @@ flowchart TD
 ## Data
 
 Reads from `wizard` (leads), `tracking` (visitors, events), `feedback`, `notifications`, and `gallery` (template names).
+Look: the admin uses the BOCHKE identity (dark, green "glass" cards, `.brand-site` wrapper and site fonts), with the logo and language switch in its header.
+
 Writes: lead status/notes, feedback read flag, notification read flag. No admin model; credentials in `.env`.
 
 ## Tests

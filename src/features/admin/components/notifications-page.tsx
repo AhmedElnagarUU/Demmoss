@@ -39,11 +39,7 @@ export async function NotificationsPage({ locale }: { locale: Locale }) {
             <h2 className="mb-2 text-lg font-semibold text-text">{formatDay(day.day, locale)}</h2>
             <div className="flex flex-col gap-2">
               {day.types.map((group) => (
-                <details
-                  key={group.type}
-                  className="rounded-control border border-border p-3"
-                  open={group.unread > 0}
-                >
+                <details key={group.type} className="site-tile p-3" open={group.unread > 0}>
                   <summary className="cursor-pointer font-semibold text-text">
                     {t("notifications.group", {
                       type: t(`notificationTypes.${group.type}`),

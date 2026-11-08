@@ -24,6 +24,8 @@ const next = spawn("npx", ["next", "start", "-p", port], {
     ADMIN_EMAIL: admin.email,
     ADMIN_PASSWORD: admin.password,
     SESSION_SECRET: admin.sessionSecret,
+    // All E2E tests share one localhost address, so the per-client limits would block later tests.
+    RATE_LIMIT_DISABLED: "true",
     // Skip the developer's .env files: the test admin above must win over their values.
     __NEXT_PROCESSED_ENV: "true",
   },

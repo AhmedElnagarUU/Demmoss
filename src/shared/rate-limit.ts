@@ -1,6 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { headers } from "next/headers";
+import { isRateLimitDisabled } from "@/shared/env.server";
 
 export type RateLimitOptions = { limit: number; windowMs: number; now: number };
 export type RateLimitResult = { allowed: boolean; retryAfterMs: number };
@@ -41,6 +42,7 @@ export function recordRateLimitHit(key: string, options: RateLimitOptions): void
 }
 
 export function clientKeyFromHeaders(requestHeaders: Headers): string | null {
+  if (isRateLimitDisabled()) return null;
   const forwarded = requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim();
   const ip = requestHeaders.get("cf-connecting-ip")?.trim() || forwarded;
   if (!ip) return null;
@@ -48,7 +50,7 @@ export function clientKeyFromHeaders(requestHeaders: Headers): string | null {
   return createHash("sha256").update(`${secret}:${ip}`).digest("hex");
 }
 
-// A null client key (no ip header, e.g. local dev and the E2E server) is not limited.
+// A null client key (no ip header, or RATE_LIMIT_DISABLED=true on the E2E server) is not limited.
 export async function getClientKey(): Promise<string | null> {
   return clientKeyFromHeaders(await headers());
 }

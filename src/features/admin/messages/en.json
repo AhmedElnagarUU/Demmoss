@@ -29,6 +29,7 @@
     "feedback": "Feedback",
     "notifications": "Notifications",
     "unread": "{count} unread",
+    "switchLanguage": "Switch language",
     "logout": "Sign out"
   },
   "overview": {

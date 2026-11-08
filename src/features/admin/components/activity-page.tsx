@@ -24,9 +24,11 @@ export async function ActivityPage({ locale, name }: { locale: Locale; name: Eve
         action={adminPath(locale, "activity")}
         className="mb-4 flex flex-wrap items-end gap-2"
       >
-        <label className="flex flex-col gap-1 text-sm font-semibold text-text">
-          {t("activity.eventLabel")}
-          <select name="event" defaultValue={name ?? ""} className={inputClasses}>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="activity-event-filter" className="text-sm font-semibold text-text">
+            {t("activity.eventLabel")}
+          </label>
+          <select id="activity-event-filter" name="event" defaultValue={name ?? ""} className={inputClasses}>
             <option value="">{t("activity.anyEvent")}</option>
             {eventNames.map((value) => (
               <option key={value} value={value}>
@@ -34,7 +36,7 @@ export async function ActivityPage({ locale, name }: { locale: Locale; name: Eve
               </option>
             ))}
           </select>
-        </label>
+        </div>
         <Button type="submit" variant="secondary">
           {t("common.filter")}
         </Button>

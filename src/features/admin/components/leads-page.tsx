@@ -89,9 +89,11 @@ export async function LeadsPage({ locale, status }: { locale: Locale; status: Le
     <>
       <PageHeading title={t("leads.title")} intro={t("leads.intro")} />
       <form method="get" action={adminPath(locale, "leads")} className="mb-4 flex flex-wrap items-end gap-2">
-        <label className="flex flex-col gap-1 text-sm font-semibold text-text">
-          {t("leads.filterLabel")}
-          <select name="status" defaultValue={status ?? ""} className={inputClasses}>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="leads-status-filter" className="text-sm font-semibold text-text">
+            {t("leads.filterLabel")}
+          </label>
+          <select id="leads-status-filter" name="status" defaultValue={status ?? ""} className={inputClasses}>
             <option value="">{t("common.all")}</option>
             {leadStatuses.map((value) => (
               <option key={value} value={value}>
@@ -99,7 +101,7 @@ export async function LeadsPage({ locale, status }: { locale: Locale; status: Le
               </option>
             ))}
           </select>
-        </label>
+        </div>
         <Button type="submit" variant="secondary">
           {t("common.filter")}
         </Button>

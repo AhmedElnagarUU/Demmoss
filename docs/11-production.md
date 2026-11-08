@@ -5,7 +5,7 @@ Each batch below is sized for **one agent run** with a smaller model: exact file
 All batches follow `CLAUDE.md`, `.claude/rules/*`, and the testing rules (valuable tests only, never weakened).
 
 Decisions: admin stays English only. No new npm dependencies unless a batch says so.
-Done: **Batch 1.1 and 1.2** (in-memory limiter in `src/shared/rate-limit.ts`, applied to admin login, lead, feedback, and event tracking); no ip header → not limited.
+Done: **Batch 1.1 and 1.2** (in-memory limiter in `src/shared/rate-limit.ts`, applied to admin login, lead, feedback, and event tracking); no ip header → not limited. `RATE_LIMIT_DISABLED=true` (set only by `e2e/server.mjs`, read in `src/shared/env.server.ts`) also turns the limits off, because every E2E test comes from one localhost address.
 Done: **Batch 1.3** (security headers for every route in `next.config.ts`, CSP with `'unsafe-inline'` until nonces).
 
 ## Batch 1 · Abuse protection and security headers (must have)

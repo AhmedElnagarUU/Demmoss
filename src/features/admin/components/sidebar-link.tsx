@@ -14,7 +14,7 @@ export function SidebarLink({ href, label, exact = false, unread = 0, unreadLabe
       href={href}
       aria-current={active ? "page" : undefined}
       className={`flex min-h-11 items-center justify-between gap-2 rounded-control px-3 py-2 text-base font-semibold focus-visible:outline-2 focus-visible:outline-focus ${
-        active ? "bg-primary text-on-primary" : "text-text hover:bg-surface"
+        active ? "bg-primary text-on-primary" : "text-text hover:bg-white/[0.06]"
       }`}
     >
       <span>{label}</span>

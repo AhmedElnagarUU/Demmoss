@@ -29,3 +29,15 @@ export function getAdminEnv(): AdminEnv {
     SESSION_SECRET: process.env.SESSION_SECRET,
   });
 }
+
+// Only the E2E server sets this: every browser test comes from one localhost address, so the limits would trip.
+export const rateLimitEnvSchema = z.object({
+  RATE_LIMIT_DISABLED: z.enum(["true", "false"]).default("false"),
+});
+
+export function isRateLimitDisabled(): boolean {
+  return (
+    parseEnv(rateLimitEnvSchema, { RATE_LIMIT_DISABLED: process.env.RATE_LIMIT_DISABLED || undefined })
+      .RATE_LIMIT_DISABLED === "true"
+  );
+}

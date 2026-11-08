@@ -9,7 +9,7 @@ type Props = {
 export function BarList({ title, rows, empty, formatCount }: Props) {
   const largest = Math.max(1, ...rows.map((row) => row.count));
   return (
-    <section className="rounded-control border border-border p-4">
+    <section className="site-tile p-4">
       <h2 className="mb-3 text-lg font-semibold text-text">{title}</h2>
       {rows.length === 0 ? (
         <p className="text-sm text-muted">{empty}</p>

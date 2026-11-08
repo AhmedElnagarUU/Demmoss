@@ -19,10 +19,7 @@ export async function FeedbackPage({ locale }: { locale: Locale }) {
       ) : (
         <ul className="flex flex-col gap-3">
           {feedback.map((item) => (
-            <li
-              key={item.id}
-              className={`rounded-control border p-4 ${item.read ? "border-border" : "border-primary bg-surface"}`}
-            >
+            <li key={item.id} className={`site-tile p-4 ${item.read ? "" : "border-primary"}`}>
               <article className="flex flex-col gap-2">
                 <header className="flex flex-wrap items-center justify-between gap-2 text-sm text-muted">
                   <span>

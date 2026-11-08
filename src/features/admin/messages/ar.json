@@ -29,6 +29,7 @@
     "feedback": "الملاحظات",
     "notifications": "الإشعارات",
     "unread": "{count} غير مقروء",
+    "switchLanguage": "تغيير اللغة",
     "logout": "تسجيل الخروج"
   },
   "overview": {

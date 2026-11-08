@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Default tokens keep the admin and the demo templates in their current light/blue look. */
+/* Default tokens keep the demo templates in their current light/blue look. */
 @theme {
   --color-bg: #ffffff;
   --color-surface: #f5f6f8;
@@ -45,6 +45,33 @@
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--site-sans);
+}
+
+/* Form fields on the dark site: dark surface, white text, green border on focus, dark open dropdown list. */
+@layer base {
+  .brand-site {
+    color-scheme: dark;
+  }
+
+  .brand-site :is(input, textarea, select):not([type="checkbox"], [type="radio"], [type="hidden"]) {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .brand-site :is(input, textarea, select):not([type="checkbox"], [type="radio"], [type="hidden"]):focus {
+    border-color: var(--color-primary);
+  }
+
+  .brand-site :is(input, textarea)::placeholder {
+    color: var(--color-muted);
+    opacity: 1;
+  }
+
+  .brand-site :is(select option, select optgroup) {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
 }
 
 /* Buttons of the public site: compact, softly rounded rectangles like the reference. */

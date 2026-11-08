@@ -14,7 +14,7 @@
 - Brand: **BOCHKE**. The public site (`app/[locale]/(site)`) uses a black + emerald green glass identity scoped with
   the `.brand-site` wrapper in `(site)/layout.tsx`: pure black background, dark-green glass cards (1px border, soft green
   glow), white headings with an italic serif accent, grey body text, emerald `#22c55e` accents and small green
-  rounded-rectangle primary buttons (white secondary buttons). Reference: `docs/design-references/bochke-ui.png`. The admin and the demo templates keep the default light/blue tokens.
+  rounded-rectangle primary buttons (white secondary buttons). Reference: `docs/design-references/bochke-ui.png`. The admin uses the BOCHKE identity too (same `.brand-site` wrapper and fonts in `admin/layout.tsx`); demo templates keep their own tokens. Form fields on the dark scope get a dark surface, white text, a green border on focus, and `color-scheme: dark` so native select lists are dark.
 - The brand name comes from `NEXT_PUBLIC_BRAND_NAME`. Templates may define their own tokens inside their feature; they do
   not change the main site tokens.
 
