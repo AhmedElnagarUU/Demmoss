@@ -72,9 +72,9 @@ describe("RE10: properties, agents, testimonials", () => {
   });
 
   it("removing an agent clears the agent from their properties", () => {
-    store().removeAgent("eleanor");
-    expect(store().agents.some((agent) => agent.id === "eleanor")).toBe(false);
-    expect(store().properties.filter((property) => property.agentId === "eleanor")).toEqual([]);
+    store().removeAgent("edward");
+    expect(store().agents.some((agent) => agent.id === "edward")).toBe(false);
+    expect(store().properties.filter((property) => property.agentId === "edward")).toEqual([]);
     expect(store().properties.find((property) => property.id === "alder-lane")).toBeDefined();
   });
 

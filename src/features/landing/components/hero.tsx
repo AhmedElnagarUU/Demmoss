@@ -72,8 +72,6 @@ export function Hero({ locale }: { locale: Locale }) {
             {t("hero.demos")}
           </LinkButton>
         </div>
-
-        <p className="mt-5 text-xs text-muted">{t("hero.caption")}</p>
       </div>
 
       <HeroPreviews locale={locale} />

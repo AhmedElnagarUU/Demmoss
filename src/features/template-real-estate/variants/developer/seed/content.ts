@@ -80,10 +80,10 @@ export const seedTestimonials: Testimonial[] = [
 // The team shown on the site (fixed content, not edited in the dashboard).
 export const seedTeam = [
   {
-    id: "elena",
-    name: { ar: "إيلينا ماركيتي", en: "Elena Marchetti" },
-    role: { ar: "كبيرة المعماريين", en: "Principal Architect" },
-    photo: "team-elena",
+    id: "luca",
+    name: { ar: "لوكا ماركيتي", en: "Luca Marchetti" },
+    role: { ar: "كبير المعماريين", en: "Principal Architect" },
+    photo: "team-luca",
   },
   {
     id: "daniel",
@@ -92,9 +92,9 @@ export const seedTeam = [
     photo: "team-daniel",
   },
   {
-    id: "sofia",
-    name: { ar: "صوفيا ليندكفيست", en: "Sofia Lindqvist" },
-    role: { ar: "مديرة التصميم الداخلي", en: "Interior Director" },
-    photo: "team-sofia",
+    id: "erik",
+    name: { ar: "إريك ليندكفيست", en: "Erik Lindqvist" },
+    role: { ar: "مدير التصميم الداخلي", en: "Interior Director" },
+    photo: "team-erik",
   },
 ] as const;

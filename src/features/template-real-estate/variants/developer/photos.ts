@@ -65,11 +65,11 @@ export const developerPhotos: readonly Photo[] = [
     alt: { ar: "منزل ساحلي أبيض بحديقة", en: "A white coastal house with a garden" },
   },
   {
-    id: "team-elena",
-    src: unsplash("1494790108377-be9c29b29330"),
+    id: "team-luca",
+    src: unsplash("1560250097-0b93528c311a"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة إيلينا ماركيتي", en: "Portrait of Elena Marchetti" },
+    alt: { ar: "صورة لوكا ماركيتي", en: "Portrait of Luca Marchetti" },
   },
   {
     id: "team-daniel",
@@ -79,10 +79,10 @@ export const developerPhotos: readonly Photo[] = [
     alt: { ar: "صورة دانيال رييس", en: "Portrait of Daniel Reyes" },
   },
   {
-    id: "team-sofia",
-    src: unsplash("1573496359142-b8d87734a5a2"),
+    id: "team-erik",
+    src: unsplash("1472099645785-5658abf4ff4e"),
     ...portrait,
     portrait: true,
-    alt: { ar: "صورة صوفيا ليندكفيست", en: "Portrait of Sofia Lindqvist" },
+    alt: { ar: "صورة إريك ليندكفيست", en: "Portrait of Erik Lindqvist" },
   },
 ];

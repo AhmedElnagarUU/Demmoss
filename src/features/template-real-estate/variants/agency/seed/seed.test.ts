@@ -75,9 +75,9 @@ describe("Hartwell & Co. Realty seed", () => {
       "40 Orchard Close, Old Town",
     ]);
     expect(seed.agents.map((agent) => agent.name.en)).toEqual([
-      "Eleanor Hartwell",
+      "Edward Hartwell",
       "James Calloway",
-      "Sofia Marchetti",
+      "Matteo Marchetti",
       "Marcus Bell",
     ]);
     expect(seed.testimonials).toHaveLength(3);

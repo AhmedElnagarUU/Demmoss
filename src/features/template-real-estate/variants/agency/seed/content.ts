@@ -49,11 +49,11 @@ export const seedContent: Content = {
 
 export const seedAgents: Agent[] = [
   {
-    id: "eleanor",
-    name: { ar: "إليانور هارتويل", en: "Eleanor Hartwell" },
+    id: "edward",
+    name: { ar: "إدوارد هارتويل", en: "Edward Hartwell" },
     role: { ar: "الوسيط الرئيسي", en: "Principal Broker" },
     phone: "+1 (555) 010-2031",
-    photo: "agent-eleanor",
+    photo: "agent-edward",
   },
   {
     id: "james",
@@ -63,11 +63,11 @@ export const seedAgents: Agent[] = [
     photo: "agent-james",
   },
   {
-    id: "sofia",
-    name: { ar: "صوفيا ماركيتي", en: "Sofia Marchetti" },
-    role: { ar: "مديرة التأجير", en: "Lettings Director" },
+    id: "matteo",
+    name: { ar: "ماتيو ماركيتي", en: "Matteo Marchetti" },
+    role: { ar: "مدير التأجير", en: "Lettings Director" },
     phone: "+1 (555) 010-2033",
-    photo: "agent-sofia",
+    photo: "agent-matteo",
   },
   {
     id: "marcus",

@@ -45,7 +45,7 @@ export const seedProperties: Property[] = [
     featured: true,
     tag: "openHouse",
     status: "available",
-    agentId: "sofia",
+    agentId: "matteo",
     units: [],
   },
   {
@@ -109,7 +109,7 @@ export const seedProperties: Property[] = [
     photos: ["townhouse-front", "townhouse-garden"],
     featured: false,
     status: "available",
-    agentId: "sofia",
+    agentId: "matteo",
     units: [],
   },
   {
@@ -153,7 +153,7 @@ export const seedProperties: Property[] = [
     featured: false,
     tag: "new",
     status: "available",
-    agentId: "sofia",
+    agentId: "matteo",
     units: [],
   },
   {
@@ -174,7 +174,7 @@ export const seedProperties: Property[] = [
     photos: ["townhouse-garden", "townhouse-front"],
     featured: false,
     status: "reserved",
-    agentId: "eleanor",
+    agentId: "edward",
     units: [],
   },
 ];

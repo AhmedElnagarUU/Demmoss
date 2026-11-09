@@ -14,7 +14,7 @@ to the Software Guide, the wizard, or the demos.
    **Try a live demo**.
 3. Sections, in order:
    - **Hero**: badge, two-line headline whose last words sit in a green box with a blinking cursor, subtitle, green
-     "Get my free recommendation" and white "Try a live demo" buttons, a caption, then three tilted sample-dashboard
+     "Get my free recommendation" and white "Try a live demo" buttons, then three tilted sample-dashboard
      cards telling one story (what arrived overnight, bookings taken while closed, what happened automatically in
      seconds; only the centre one on phones) and green arcs at the bottom corner.
    - **Problem**: "Sound familiar?" three everyday pains (missed calls, repeated questions, requests lost in chats)
