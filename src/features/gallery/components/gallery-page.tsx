@@ -9,7 +9,7 @@ import { categories } from "../categories";
 import { groupDemosByCategory } from "../grouping";
 import { galleryT } from "../translate";
 import { DemoCard } from "./demo-card";
-import { GalleryFilter } from "./gallery-filter";
+import { GalleryFilter, GalleryFilterView } from "./gallery-filter";
 
 export function GalleryPage({ locale }: { locale: Locale }) {
   const t = galleryT(locale);
@@ -63,6 +63,14 @@ export function GalleryPage({ locale }: { locale: Locale }) {
       </section>
     ),
   }));
+  const filter = {
+    basePath: `/${locale}/demos`,
+    label: t("filter.label"),
+    allLabel: t("filter.all"),
+    chips: groups.map(({ category }) => ({ slug: category.slug, label: category.name[locale] })),
+    sections,
+    empty,
+  };
 
   return (
     <main id="main" className="flex flex-col gap-12 pb-20">
@@ -81,15 +89,8 @@ export function GalleryPage({ locale }: { locale: Locale }) {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">{t("hero.text")}</p>
         </div>
       </header>
-      <Suspense fallback={null}>
-        <GalleryFilter
-          basePath={`/${locale}/demos`}
-          label={t("filter.label")}
-          allLabel={t("filter.all")}
-          chips={groups.map(({ category }) => ({ slug: category.slug, label: category.name[locale] }))}
-          sections={sections}
-          empty={empty}
-        />
+      <Suspense fallback={<GalleryFilterView {...filter} selected={undefined} />}>
+        <GalleryFilter {...filter} />
       </Suspense>
     </main>
   );

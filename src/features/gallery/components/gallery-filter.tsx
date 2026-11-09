@@ -23,9 +23,21 @@ const chipOff =
   "border-border bg-white/[0.03] text-muted hover:border-primary/40 hover:bg-white/[0.06] hover:text-text";
 
 // The page is static and shows every category. In the browser, ?category=slug narrows it.
-export function GalleryFilter({ basePath, label, allLabel, chips, sections, empty }: Props) {
+export function GalleryFilter(props: Props) {
   const requested = useSearchParams().get("category");
-  const selected = isCategorySlug(requested) ? requested : undefined;
+  return <GalleryFilterView {...props} selected={isCategorySlug(requested) ? requested : undefined} />;
+}
+
+// Also the server-rendered fallback (no category chosen), so every card is in the static HTML.
+export function GalleryFilterView({
+  basePath,
+  label,
+  allLabel,
+  chips,
+  sections,
+  empty,
+  selected,
+}: Props & { selected: string | undefined }) {
   const visible = selected ? sections.filter((section) => section.slug === selected) : sections;
 
   return (

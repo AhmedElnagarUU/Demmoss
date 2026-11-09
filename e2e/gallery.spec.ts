@@ -53,3 +53,15 @@ test("the gallery announces both languages for search engines", async ({ page })
   await expect(page.locator('link[rel="alternate"][hreflang="ar"]')).toHaveAttribute("href", /\/ar\/demos$/);
   await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute("href", /\/en\/demos$/);
 });
+
+test.describe("without JavaScript", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("regression G1: every demo card is in the static page (search engines, slow phones)", async ({
+    page,
+  }) => {
+    await page.goto("/en/demos");
+    await expect(page.locator("main article").first()).toBeVisible();
+    expect(await page.locator("main article a", { hasText: "Open the website" }).count()).toBeGreaterThan(0);
+  });
+});
