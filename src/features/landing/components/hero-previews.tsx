@@ -1,34 +1,42 @@
 import type { Locale } from "@/shared/i18n/config";
 import { landingT } from "../translate";
 
-const leads = [
+const nightItems = [
   {
-    key: "hero.previews.leads1",
-    initial: "hero.previews.leads1.initial",
-    label: "hero.previews.leads1.label",
-    time: "hero.previews.leads1.time",
+    key: "booking",
+    initial: "hero.previews.night.items.booking.initial",
+    label: "hero.previews.night.items.booking.label",
+    time: "hero.previews.night.items.booking.time",
   },
   {
-    key: "hero.previews.leads2",
-    initial: "hero.previews.leads2.initial",
-    label: "hero.previews.leads2.label",
-    time: "hero.previews.leads2.time",
+    key: "order",
+    initial: "hero.previews.night.items.order.initial",
+    label: "hero.previews.night.items.order.label",
+    time: "hero.previews.night.items.order.time",
   },
   {
-    key: "hero.previews.leads3",
-    initial: "hero.previews.leads3.initial",
-    label: "hero.previews.leads3.label",
-    time: "hero.previews.leads3.time",
+    key: "question",
+    initial: "hero.previews.night.items.question.initial",
+    label: "hero.previews.night.items.question.label",
+    time: "hero.previews.night.items.question.time",
   },
 ] as const;
 
-const orders = [
-  { key: "confirmed", label: "hero.previews.orders.confirmed", ago: "hero.previews.ordersAgo.confirmed" },
-  { key: "paid", label: "hero.previews.orders.paid", ago: "hero.previews.ordersAgo.paid" },
+const autoSteps = [
+  {
+    key: "confirm",
+    label: "hero.previews.auto.steps.confirm.label",
+    time: "hero.previews.auto.steps.confirm.time",
+  },
   {
     key: "whatsapp",
-    label: "hero.previews.orders.whatsapp",
-    ago: "hero.previews.ordersAgo.whatsapp",
+    label: "hero.previews.auto.steps.whatsapp.label",
+    time: "hero.previews.auto.steps.whatsapp.time",
+  },
+  {
+    key: "dashboard",
+    label: "hero.previews.auto.steps.dashboard.label",
+    time: "hero.previews.auto.steps.dashboard.time",
   },
 ] as const;
 
@@ -42,23 +50,23 @@ export function HeroPreviews({ locale }: { locale: Locale }) {
       <div className="grid items-end gap-4 sm:grid-cols-[1fr_1.15fr_1.35fr] sm:gap-5">
         <div className="site-panel hidden -rotate-3 p-4 sm:block sm:translate-y-6">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-semibold text-text">{t("hero.previews.leadsTitle")}</p>
+            <p className="text-xs font-semibold text-text">{t("hero.previews.night.title")}</p>
             <span className="rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[10px] text-primary">
               {t("hero.previews.live")}
             </span>
           </div>
           <ul className="mt-4 space-y-2.5">
-            {leads.map((lead, index) => (
-              <li key={lead.key} className="flex items-center gap-2.5">
+            {nightItems.map((item, index) => (
+              <li key={item.key} className="flex items-center gap-2.5">
                 <span
                   className={`flex size-7 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold text-on-primary ${
                     index === 0 ? "bg-primary" : index === 1 ? "bg-emerald-400/80" : "bg-emerald-900"
                   }`}
                 >
-                  {t(lead.initial)}
+                  {t(item.initial)}
                 </span>
-                <span className="min-w-0 flex-1 truncate text-[11px] text-text">{t(lead.label)}</span>
-                <span className="shrink-0 text-[10px] text-muted">{t(lead.time)}</span>
+                <span className="min-w-0 flex-1 truncate text-[11px] text-text">{t(item.label)}</span>
+                <span className="shrink-0 text-[10px] text-muted">{t(item.time)}</span>
               </li>
             ))}
           </ul>
@@ -66,8 +74,8 @@ export function HeroPreviews({ locale }: { locale: Locale }) {
 
         <div className="site-panel p-5 sm:translate-y-1">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-semibold text-text">{t("hero.previews.bookingsTitle")}</p>
-            <span className="text-[10px] text-primary">{t("hero.previews.bookingsTrend")}</span>
+            <p className="text-xs font-semibold text-text">{t("hero.previews.closed.title")}</p>
+            <span className="text-[10px] text-primary">{t("hero.previews.closed.today")}</span>
           </div>
           <div className="mt-5 flex items-center gap-5">
             <div
@@ -77,14 +85,14 @@ export function HeroPreviews({ locale }: { locale: Locale }) {
               }}
             >
               <span className="flex size-[4.5rem] items-center justify-center rounded-full bg-[var(--color-site-panel)] text-[11px] text-muted">
-                {t("hero.previews.bookingsLabel")}
+                {t("hero.previews.closed.period")}
               </span>
             </div>
             <div>
               <p className="text-3xl font-semibold tracking-tight text-text">
-                {t("hero.previews.bookingsTotal")}
+                {t("hero.previews.closed.total")}
               </p>
-              <p className="mt-1 text-[11px] text-muted">{t("hero.previews.bookingsHint")}</p>
+              <p className="mt-1 text-[11px] text-muted">{t("hero.previews.closed.hint")}</p>
             </div>
           </div>
           <div className="mt-5 flex h-12 items-end gap-1.5">
@@ -100,13 +108,13 @@ export function HeroPreviews({ locale }: { locale: Locale }) {
 
         <div className="site-panel hidden rotate-3 p-4 sm:block sm:translate-y-8">
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs font-semibold text-text">{t("hero.previews.ordersTitle")}</p>
+            <p className="text-xs font-semibold text-text">{t("hero.previews.auto.title")}</p>
             <span className="size-1.5 rounded-full bg-primary" />
           </div>
           <ul className="mt-4 space-y-2.5">
-            {orders.map((order) => (
+            {autoSteps.map((step) => (
               <li
-                key={order.key}
+                key={step.key}
                 className="flex items-center gap-2 rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-2"
               >
                 <span className="flex size-5 shrink-0 items-center justify-center rounded-full border border-primary/40 text-primary">
@@ -120,8 +128,8 @@ export function HeroPreviews({ locale }: { locale: Locale }) {
                     />
                   </svg>
                 </span>
-                <span className="min-w-0 flex-1 truncate text-[11px] text-text">{t(order.label)}</span>
-                <span className="shrink-0 text-[10px] text-muted">{t(order.ago)}</span>
+                <span className="min-w-0 flex-1 truncate text-[11px] text-text">{t(step.label)}</span>
+                <span className="shrink-0 text-[10px] text-muted">{t(step.time)}</span>
               </li>
             ))}
           </ul>

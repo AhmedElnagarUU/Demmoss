@@ -10,18 +10,24 @@ to the Software Guide, the wizard, or the demos.
 ## Flow in plain words
 
 1. The visitor lands on `/ar` or `/en` (English by default; a remembered choice wins).
-2. The hero states the business result we bring and offers two actions: **Start your project** (wizard) and **See live demos**.
+2. The hero states the business result we bring and offers two actions: **Get my free recommendation** (wizard) and
+   **Try a live demo**.
 3. Sections, in order:
    - **Hero**: badge, two-line headline whose last words sit in a green box with a blinking cursor, subtitle, green
-     "Start your project" and white "See live demos" buttons, a caption, then three tilted sample-dashboard cards
-     (New leads, Bookings this week, Orders today; only the centre one on phones) and green arcs at the bottom corner.
-   - **Why choose us (bento)**: customers at any hour (three icon tiles), your time comes back (notification rows), trust at
-     first sight (green donut), your dashboard live (weekday bar chart), customers in their own language (orbit
-     illustration), requests flow to you automatically (node diagram).
-   - **What we deliver**: website, website with dashboard, custom system or SaaS; icon tile, green value line, grey text.
-   - **Not sure what you need?** one wide glass card linking to the Software Guide.
-   - **Live demos**: one wide glass card with a few highlighted templates from the gallery.
-   - **Get started in 4 simple steps**: a 2x2 grid of glass cards, each with a small green line illustration.
+     "Get my free recommendation" and white "Try a live demo" buttons, a caption, then three tilted sample-dashboard
+     cards telling one story (what arrived overnight, bookings taken while closed, what happened automatically in
+     seconds; only the centre one on phones) and green arcs at the bottom corner.
+   - **Problem**: "Sound familiar?" three everyday pains (missed calls, repeated questions, requests lost in chats)
+     and one line saying a website that works for you solves all three.
+   - **What changes (bento)**: customers at any hour (three icon tiles), your day comes back (notification rows), chosen
+     over your competitor (green donut), your whole day on one screen (weekday bar chart), every customer in their own
+     language (orbit illustration), nothing to copy by hand (node diagram).
+   - **What we build**: website, website with dashboard, custom system or SaaS; icon tile, green value line, grey text.
+   - **Guide teaser**: one wide glass card linking to the Software Guide.
+   - **Demos**: one wide glass card inviting the visitor to try the live demos.
+   - **How it works**: a 2x2 grid of glass cards, each with a small green line illustration.
+   - **FAQ**: the questions owners ask first (price, time, updating, phone, which type, after launch), each answer in a
+     native details/summary so it works without JavaScript.
    - **Final call to action**: a glass card with green glow, wizard button and WhatsApp.
 4. Header: logo/brand name, links (Guide, Demos, Start), language switch. Floating feedback and WhatsApp buttons.
 
@@ -41,22 +47,27 @@ has soft green light rays falling from the top and concentric green arcs below. 
 | L2 | see the value of each kind of product, not a list of features | I connect it to my own problems |
 | L3 | see how the agency works step by step | I trust the process |
 | L4 | reach the wizard, the guide, or the demos from anywhere on the page | I act when I'm ready |
+| L5 | recognise my own problem | I trust they understand my business |
+| L6 | have my first questions (price, time, updating, phone, which type, after launch) answered on the page | I contact them without doubts |
 
 ## Flow diagram
 
 ```mermaid
 flowchart TD
   IN[Visitor arrives] --> H[Hero: business result]
-  H -->|Start your project| W[Wizard]
-  H -->|See live demos| GAL[Gallery]
-  H --> VAL[Value section]
-  VAL --> DEL[What we deliver]
-  DEL --> GT[Not sure? → Software Guide]
+  H -->|Get my free recommendation| W[Wizard]
+  H -->|Try a live demo| GAL[Gallery]
+  H --> PROB[Problem: sound familiar?]
+  PROB --> VAL[Value: what changes]
+  VAL --> DEL[What we build]
+  DEL --> GT[Guide teaser]
   GT --> GUIDE[Software Guide]
-  DEL --> DEM[Highlighted demos]
+  DEL --> DEM[Demos]
   DEM --> GAL
   DEM --> HOW[How we work]
-  HOW --> CTA[Final CTA]
+  HOW --> FAQ[FAQ]
+  FAQ --> GUIDE
+  FAQ --> CTA[Final CTA]
   CTA --> W
   CTA --> WA[WhatsApp]
 ```
@@ -70,13 +81,16 @@ None stored. `page_view` and `whatsapp_clicked` are tracked. Text in message fil
 | Level | Test | Protects |
 |---|---|---|
 | E2E | ar and en render, `dir` correct, CTAs reach wizard, guide, demos, WhatsApp | L1–L4 |
+| E2E | the problem heading appears before the value heading | L5 |
+| E2E | the closed FAQ answer is hidden, then the price question opens it | L6 |
 | E2E | axe: no serious accessibility issues; title, description, hreflang present | quality, SEO |
 
 ## Files
 
 ```
 src/features/landing/
-  components/      landing-page, hero, value, deliver, guide-teaser, demo-highlights, how-we-work, final-cta, section
+  components/      landing-page, hero, hero-previews, problem, value, deliver, guide-teaser,
+                   demo-highlights, how-we-work, faq, final-cta, section
   messages/        ar.json, en.json
 
 src/features/site-shell/   header (nav, mobile menu, language switch), footer (WhatsApp), skip link

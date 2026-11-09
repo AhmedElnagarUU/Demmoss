@@ -1,66 +1,75 @@
 {
   "hero": {
-    "badge": "Websites, dashboards and custom systems",
-    "title": "A website that brings you customers, even while you sleep",
+    "badge": "For restaurants, clinics, shops and service businesses",
+    "title": "Your website takes bookings and orders, even while you sleep",
     "accent": "even while you sleep",
-    "subtitle": "We build websites, dashboards, and custom systems that take bookings and orders around the clock, build trust with every visitor, and give your team its time back.",
-    "start": "Start your project",
-    "demos": "See live demos",
-    "caption": "No commitment. We show you a working demo first.",
+    "subtitle": "We build websites and dashboards that answer your customers at any hour. Every booking, order and question lands on your phone and WhatsApp, so you stop losing customers to missed calls.",
+    "start": "Get my free recommendation",
+    "demos": "Try a live demo",
+    "caption": "Free and no commitment. You see it working before you decide.",
     "previews": {
       "live": "Live",
-      "leadsTitle": "New leads",
-      "leads1": {
-        "initial": "R",
-        "label": "Restaurant site",
-        "time": "2 min"
+      "night": {
+        "title": "While you slept",
+        "items": {
+          "booking": { "initial": "M", "label": "Table for 4, Friday 8 pm", "time": "11:42 pm" },
+          "order": { "initial": "S", "label": "Order: 2 meals, delivery", "time": "1:15 am" },
+          "question": { "initial": "N", "label": "Are you open on Friday?", "time": "6:05 am" }
+        }
       },
-      "leads2": {
-        "initial": "C",
-        "label": "Clinic dashboard",
-        "time": "9 min"
+      "closed": {
+        "title": "Booked while you were closed",
+        "total": "23",
+        "period": "this week",
+        "hint": "without a single phone call",
+        "today": "+4 today"
       },
-      "leads3": {
-        "initial": "S",
-        "label": "Retail store",
-        "time": "14 min"
-      },
-      "bookingsTitle": "Bookings",
-      "bookingsTrend": "+18%",
-      "bookingsTotal": "128",
-      "bookingsLabel": "this month",
-      "bookingsHint": "confirmed automatically",
-      "ordersTitle": "Today",
-      "orders": {
-        "confirmed": "Order confirmed",
-        "paid": "Payment received",
-        "whatsapp": "Sent to WhatsApp"
-      },
-      "ordersAgo": {
-        "confirmed": "just now",
-        "paid": "3 min",
-        "whatsapp": "12 min"
+      "auto": {
+        "title": "Happened automatically",
+        "steps": {
+          "confirm": { "label": "Customer got a confirmation", "time": "1 s" },
+          "whatsapp": { "label": "You got a WhatsApp alert", "time": "2 s" },
+          "dashboard": { "label": "Saved in your dashboard", "time": "3 s" }
+        }
       }
     }
   },
+  "problem": {
+    "badge": "Sound familiar?",
+    "title": "Customers decide in minutes. Are you there when they do?",
+    "intro": "Most small businesses don't lose customers to bad service. They lose them before the first conversation.",
+    "missed": {
+      "title": "The phone rings while you're busy",
+      "text": "A customer calls during the rush or after closing. Nobody answers, so they book with the next business on the list."
+    },
+    "repeat": {
+      "title": "The same questions, all day long",
+      "text": "Prices, opening hours, location, \"do you have a table at 9?\". Your team repeats answers instead of serving the customers in front of them."
+    },
+    "lost": {
+      "title": "Requests lost in chats and notebooks",
+      "text": "Orders are spread across WhatsApp, calls and paper. One gets forgotten, and that customer doesn't come back."
+    },
+    "answer": "A website that works for you solves all three, every day, without extra staff."
+  },
   "value": {
-    "badge": "Why choose us",
-    "title": "What the right software changes in your business",
+    "badge": "What changes",
+    "title": "What changes when your website works for you",
     "customers": {
       "title": "Customers reach you at any hour",
-      "text": "They book, order, or ask a question at 2am without calling. You wake up to new requests instead of missed opportunities."
+      "text": "They book, order or ask at 2 am without calling. You wake up to new requests, not missed chances."
     },
     "time": {
-      "title": "Your time comes back",
-      "text": "Bookings, orders, and messages land in one dashboard, so your team stops answering the same questions all day."
+      "title": "Your day comes back",
+      "text": "Bookings, orders and messages arrive in one dashboard, already organised. No more copying from chats to notebooks."
     },
     "trust": {
-      "title": "Trust at first sight",
-      "text": "A clear, professional site on the phones your customers use makes them choose you over a competitor."
+      "title": "Chosen over your competitor",
+      "text": "Customers compare you on their phone in seconds. A fast, clear, professional site is what makes them pick you."
     },
     "languages": {
-      "title": "Customers in their own language",
-      "text": "Arabic and English, fully right-to-left where it matters, so every customer feels the business speaks to them."
+      "title": "Every customer in their own language",
+      "text": "Arabic and English, with true right-to-left layout, so every customer feels the business speaks to them."
     },
     "visuals": {
       "rows": {
@@ -77,71 +86,101 @@
       "donutWord": "Fast"
     },
     "dashboard": {
-      "title": "Your dashboard, live",
-      "text": "Every booking and order appears as it happens, so you always know what today looks like."
+      "title": "Your whole day on one screen",
+      "text": "Every booking and order appears the moment it happens, so you always know what today looks like."
     },
     "flow": {
-      "title": "Requests flow to you automatically",
-      "text": "A request on your site reaches your dashboard and your WhatsApp in seconds, with nothing to copy by hand."
+      "title": "Nothing to copy by hand",
+      "text": "A request on your site reaches your dashboard and your WhatsApp in seconds, and the customer gets an instant confirmation."
     }
   },
   "deliver": {
     "badge": "What we build",
-    "title": "What we deliver",
-    "intro": "Three kinds of products. Each one solves a different problem, and we help you pick the one you actually need.",
+    "title": "Pick the product that fits your business",
+    "intro": "Three kinds of products for three different needs. We tell you honestly which one you need, even when it's the smaller one.",
     "website": {
       "title": "Business website",
-      "value": "Be found and be trusted",
-      "text": "A fast, polished website that shows who you are, what you offer, and how to reach you. Best when customers mostly need to know you and contact you."
+      "value": "Be found and trusted",
+      "text": "A fast, polished website that shows who you are, what you offer and how to reach you. Best when customers mainly need to know you and contact you."
     },
     "system": {
       "title": "Website with a dashboard",
       "value": "Take bookings and orders online",
-      "text": "Customers book, order, or send requests on your site, and you manage everything from a dashboard on your phone. Best when you want the website to do the work."
+      "text": "Customers book, order or send requests on your site, and you manage everything from a dashboard on your phone. Best when you want the website to do the work."
     },
     "saas": {
       "title": "Custom system or SaaS",
-      "value": "Run your business your way",
-      "text": "Software built around how you really work, or a product you offer to many customers, each with their own account. Best when ready-made tools no longer fit."
+      "value": "Run the business your way",
+      "text": "Software built around how you really work, or a product you sell to many customers, each with their own account. Best when ready-made tools no longer fit."
     }
   },
   "guide": {
     "badge": "Not sure yet?",
-    "title": "Not sure what you need?",
-    "text": "Many owners ask for a website and need a system, or the other way around. Answer a few simple questions and see which type fits your business.",
+    "title": "Website, system or SaaS? Find out in 2 minutes",
+    "text": "Many owners ask for a website when they need a system, or the other way round. Answer a few simple questions and see which type fits your business.",
     "cta": "Open the Software Guide"
   },
   "demos": {
-    "badge": "Try before you decide",
-    "title": "See it working before you decide",
-    "text": "Open a complete business website, make a booking or an order, then open its dashboard and watch it appear. Everything you do stays in your browser.",
-    "cta": "Browse live demos"
+    "badge": "Don't take our word for it",
+    "title": "Try it yourself, right now",
+    "text": "Open a real restaurant, clinic or real-estate website. Book a table or an appointment, then open its dashboard and watch your request arrive. No sign-up with us; everything stays in your browser.",
+    "cta": "Try the live demos"
   },
   "how": {
-    "badge": "The process",
+    "badge": "How it works",
     "step1": {
-      "title": "You tell us about your project",
-      "text": "Answer a few short questions in the wizard, or message us on WhatsApp."
+      "title": "Tell us about your business",
+      "text": "Answer a few short questions, or just message us on WhatsApp."
     },
     "step2": {
-      "title": "We recommend what fits",
-      "text": "We tell you which type of product suits your business and show you a working example close to your idea."
+      "title": "Get an honest recommendation",
+      "text": "We tell you which product fits, with a clear price, and show you a working example close to your idea."
     },
     "step3": {
-      "title": "We design and build with you",
-      "text": "You review the work as it grows, so the result never comes as a surprise."
+      "title": "Watch it being built",
+      "text": "You review the work as it grows, so the result is never a surprise."
     },
     "step4": {
-      "title": "We launch and stay close",
-      "text": "We put it online and support you after launch."
+      "title": "Launch, and we stay close",
+      "text": "We put it online, show you how to use it, and support you after launch."
     },
-    "titleLead": "Get started in 4",
-    "titleAccent": "simple steps"
+    "titleLead": "From idea to launch in 4",
+    "titleAccent": "clear steps"
+  },
+  "faq": {
+    "badge": "Questions",
+    "title": "Questions owners ask us first",
+    "intro": "Straight answers, before you spend a minute of your time.",
+    "price": {
+      "q": "How much does it cost?",
+      "a": "It depends on what you need: a business website costs less than a system with a dashboard. Tell us about your project and you get a clear price before any work starts."
+    },
+    "time": {
+      "q": "How long does it take?",
+      "a": "We agree on a timeline with you before we start, and you see progress while we build, so you always know where things stand."
+    },
+    "update": {
+      "q": "I'm not technical. Can I update the site myself?",
+      "a": "Yes. You change texts, photos, prices and opening hours from your dashboard, in Arabic and English, right from your phone. You can try it now in any demo."
+    },
+    "phone": {
+      "q": "Will it work well on phones?",
+      "a": "Every page is designed for phones first, because that's where most of your customers will find you, often from social media and WhatsApp."
+    },
+    "which": {
+      "q": "Do I need a website, a system or a SaaS?",
+      "a": "Most owners aren't sure at first, and that's normal. Our free Software Guide explains the difference in plain words and suggests the right type.",
+      "link": "Open the Software Guide"
+    },
+    "after": {
+      "q": "What happens after launch?",
+      "a": "We stay with you: we show you how to use everything, fix what needs fixing and help you grow the site when your business grows."
+    }
   },
   "cta": {
     "badge": "Start today",
-    "title": "Ready to turn visitors into customers?",
-    "text": "Tell us about your business and we will suggest the next step.",
-    "start": "Tell us about your project"
+    "title": "Your next customer is looking for you right now",
+    "text": "Tell us about your business in 2 minutes. We reply on WhatsApp with the right next step, free.",
+    "start": "Get my free recommendation"
   }
 }
