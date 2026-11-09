@@ -21,4 +21,14 @@ describe("release: the Dockerfile public settings are valid", () => {
       [],
     );
   });
+
+  it("every NEXT_PUBLIC_ setting is passed on, one per line, to the build stage and the image", () => {
+    const dockerfile = readProjectFile("Dockerfile");
+    const missing = Object.keys(dockerfileDefaults()).filter((name) => {
+      // "ENV NAME=$NAME \" or "    NAME=$NAME" (one variable per line, so a broken line break is caught).
+      const passedOn = new RegExp(`^(?:ENV | {4})${name}=\\$${name}(?: \\\\)?\\r?$`, "gm");
+      return (dockerfile.match(passedOn) ?? []).length !== 2;
+    });
+    expect(missing).toEqual([]);
+  });
 });
