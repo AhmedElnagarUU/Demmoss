@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { settleAnimations } from "./helpers/animations";
 
 // Sole Trattoria (restaurant-fast-food). Demo data lives in the browser, so these journeys need no database.
 // Photos come from a CDN that may be blocked: nothing here depends on an image loading.
@@ -142,6 +143,7 @@ test.describe("direction", () => {
 
 test.describe("accessibility", () => {
   const serious = async (page: Page) => {
+    await settleAnimations(page);
     const results = await new AxeBuilder({ page }).analyze();
     return results.violations
       .filter((v) => v.impact === "serious" || v.impact === "critical")

@@ -5,7 +5,7 @@ import type { Palette } from "@/features/demo-engine/palettes/palette";
 // script accents, avatars), --sl-on-accent (text on that accent), --sl-band (the tinted reviews section), and
 // --sl-primary-text (the primary hue darkened just enough to read as TEXT at 4.5:1 or better on --color-bg,
 // --color-surface and --sl-band; fills keep using --color-primary).
-// Tomato is the default and mirrors the source exactly (source #d9412b is 4.43:1 on white text; #d83f2b is the
+// Tomato is the default and mirrors the source exactly (source #d9412b is 4.43:1 on white text; #d63e2a is the
 // nearest value that passes AA and is visually identical).
 export const fastFoodPalettes: readonly Palette[] = [
   {
@@ -17,10 +17,10 @@ export const fastFoodPalettes: readonly Palette[] = [
       "--color-text": "#222222",
       "--color-muted": "#6b6459",
       "--color-border": "#eadfce",
-      "--color-primary": "#d83f2b",
+      "--color-primary": "#d63e2a",
       "--color-primary-hover": "#b9321f",
       "--color-on-primary": "#ffffff",
-      "--color-focus": "#d83f2b",
+      "--color-focus": "#d63e2a",
       "--sl-accent": "#3f7d3a",
       "--sl-on-accent": "#ffffff",
       "--sl-band": "#f6ecdc",

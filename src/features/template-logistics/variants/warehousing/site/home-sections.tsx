@@ -111,7 +111,10 @@ export function LogoStrip({ locale }: { locale: Locale }) {
         </div>
         <div
           ref={track}
-          className="flex items-center gap-11 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          role="region"
+          aria-label={t("partners.title")}
+          tabIndex={0}
+          className="flex items-center gap-11 overflow-x-auto focus-visible:outline-2 focus-visible:outline-focus pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {partners.map((key, index) => (
             <span
@@ -318,9 +321,9 @@ export function StatsSection({ locale }: { locale: Locale }) {
   const t = getWarehousingT(locale);
   return (
     <section aria-label={t("stats.accuracy.label")} className="bg-surface px-4 pb-[70px] sm:px-6">
-      <dl className="mx-auto grid max-w-[1200px] gap-4 rounded-2xl bg-bg px-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mx-auto grid max-w-[1200px] gap-4 rounded-2xl bg-bg px-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
         {statKeys.map((key, index) => (
-          <div
+          <li
             key={key}
             className={`flex items-center gap-3.5 px-4 py-2 lg:border-s lg:border-border ${
               index === 0 ? "lg:border-s-0" : ""
@@ -338,15 +341,15 @@ export function StatsSection({ locale }: { locale: Locale }) {
             >
               {statIcons[index]}
             </svg>
-            <div className="flex flex-col">
+            <dl className="flex flex-col">
               <dt className="order-2 text-[11.5px] text-muted">{t(`stats.${key}.label`)}</dt>
               <dd className="order-1 text-[22px] font-semibold leading-tight text-text">
                 {t(`stats.${key}.value`)}
               </dd>
-            </div>
-          </div>
+            </dl>
+          </li>
         ))}
-      </dl>
+      </ul>
     </section>
   );
 }

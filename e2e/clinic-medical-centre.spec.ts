@@ -63,6 +63,8 @@ test("C2: the doctors directory filters by department and opens a profile", asyn
 });
 
 test("C1: only the doctor's own free times are offered, and a taken one disappears", async ({ page }) => {
+  // Early morning: the first free time is never the day's last one, so booking it cannot push the list to the next day.
+  await page.clock.setFixedTime(new Date(2026, 5, 1, 7, 0));
   await page.goto(site("en", "/book?doctor=huda-saeed"));
   const form = page.getByRole("form", { name: "Book an appointment" });
   await expect(form.getByLabel("Doctor")).toHaveValue("huda-saeed");

@@ -46,6 +46,8 @@ test("C1, C4, C5: book a free time, see the request in the dashboard, then confi
 });
 
 test("C1: a booked time is no longer offered, and a missing name or time is explained", async ({ page }) => {
+  // Early morning: the first free time is never the day's last one, so booking it cannot push the list to the next day.
+  await page.clock.setFixedTime(new Date(2026, 5, 1, 7, 0));
   await page.goto(site("en", "/book"));
   const form = page.getByRole("form", { name: "Book an appointment" });
   const firstTime = await form

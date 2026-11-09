@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { settleAnimations } from "./helpers/animations";
 
 // Orbis Cargo (logistics-freight). Demo data lives in the browser, so these journeys need no database.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/logistics/freight${path}`;
@@ -16,6 +17,7 @@ async function register(page: Page, businessName = "") {
 }
 
 async function expectNoSeriousA11yIssues(page: Page) {
+  await settleAnimations(page);
   const results = await new AxeBuilder({ page }).analyze();
   const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
   expect(serious.map((v) => `${v.id}: ${v.help}`)).toEqual([]);

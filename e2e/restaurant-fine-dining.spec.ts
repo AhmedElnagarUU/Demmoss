@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { settleAnimations } from "./helpers/animations";
 
 // Verdant Table (restaurant-fine-dining). Demo data lives in the browser, so these journeys need no database.
 const site = (locale: "ar" | "en", path = "") => `/${locale}/demos/restaurant/fine-dining${path}`;
@@ -139,6 +140,7 @@ test.describe("accessibility", () => {
     test(`no serious accessibility issues on the home page (${locale})`, async ({ page }) => {
       await page.goto(site(locale));
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await settleAnimations(page);
       const results = await new AxeBuilder({ page }).analyze();
       const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
       expect(serious.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
@@ -150,6 +152,7 @@ test.describe("accessibility", () => {
       await page.goto(dashboard("en", path));
       await register(page);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await settleAnimations(page);
       const results = await new AxeBuilder({ page }).analyze();
       const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
       expect(serious.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
@@ -159,6 +162,7 @@ test.describe("accessibility", () => {
   test("no serious accessibility issues on the reserve page, Arabic", async ({ page }) => {
     await page.goto(site("ar", "/reserve"));
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await settleAnimations(page);
     const results = await new AxeBuilder({ page }).analyze();
     const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
     expect(serious.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
