@@ -10,13 +10,12 @@ concurrency:
   group: release-${{ github.ref_name }}
   cancel-in-progress: false
 
-env:
-  IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/bochke
-
 jobs:
   verify:
     name: Check the tag can be released
     runs-on: ubuntu-24.04
+    # DOCKERHUB_USERNAME and DOCKERHUB_TOKEN are secrets of the "production" environment.
+    environment: production
     outputs:
       version: ${{ steps.version.outputs.version }}
     steps:
@@ -46,6 +45,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Version is not on Docker Hub yet (published versions never change)
+        env:
+          IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/bochke
         run: |
           if docker manifest inspect "${IMAGE}:${{ steps.version.outputs.version }}" > /dev/null 2>&1; then
             echo "::error::${IMAGE}:${{ steps.version.outputs.version }} already exists. Release a new version instead."; exit 1
@@ -60,6 +61,7 @@ jobs:
     name: Build and push the image
     needs: [verify, checks]
     runs-on: ubuntu-24.04
+    environment: production
     timeout-minutes: 30
     permissions:
       contents: write
@@ -74,7 +76,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.IMAGE }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/bochke
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

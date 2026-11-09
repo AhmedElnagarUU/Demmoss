@@ -35,11 +35,13 @@ A published version never changes. A fix is a new version.
    3. builds the image from `Dockerfile` and pushes it to Docker Hub with the tags above;
    4. creates the GitHub release with the change list.
 
-If a step fails, nothing is pushed. Fix on a branch, merge, and tag the **next** number (do not move an existing tag).
+If a step fails, nothing is pushed. Fix on a branch, merge, and tag the **next** number. Never move a tag whose image
+is on Docker Hub; a tag whose release pushed nothing may be deleted and created again on the fixed commit.
 
 ## Settings
 
-- GitHub repository secrets: `DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN` (Docker Hub access token with read and write).
+- GitHub secrets of the **`production` environment** (Settings → Environments → production): `DOCKERHUB_USERNAME`,
+  `DOCKERHUB_TOKEN` (Docker Hub access token with read and write). The release jobs run in that environment.
 - Public settings (`NEXT_PUBLIC_*`) are baked into the pages at build time. They are the `ARG` defaults at the top
   of `Dockerfile`. Changing one is a commit and a new release.
 - Secrets are never in the image (anyone who pulls an image can read what is inside it). They live in one file on the
