@@ -8,11 +8,12 @@ const demoHome = `/ar/demos/${firstDemo.category}/${firstDemo.variant}`;
 
 const expectedContentSecurityPolicy = [
   "default-src 'self'",
-  "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com",
+  // Google Tag Manager / Analytics (NEXT_PUBLIC_GTM_ID) are the only third-party scripts and connections.
+  "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://*.google-analytics.com https://*.googletagmanager.com",
   "style-src 'self' 'unsafe-inline'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
