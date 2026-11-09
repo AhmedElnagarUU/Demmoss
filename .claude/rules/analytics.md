@@ -21,6 +21,11 @@ The data must answer the owner's marketing questions:
 - Allowed `meta` keys: `kind`, `section`, `result`, `from`, `to`. Any other key or field is rejected by the schema.
 - Personal data is collected only where the visitor knowingly gives it: wizard (name, WhatsApp, optional email) and optional contact in feedback.
 
+## Google Tag Manager
+
+- Public site and demos also load the owner's GTM container when `NEXT_PUBLIC_GTM_ID` is set; never the admin.
+  Our own `track()` events are not sent to Google. See `docs/04-data-and-tracking.md`.
+
 ## Event list
 
 Use these names exactly. Adding an event = update this table and `docs/04-data-and-tracking.md`.

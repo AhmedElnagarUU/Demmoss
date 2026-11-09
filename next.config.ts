@@ -9,11 +9,12 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com",
+      // Google Tag Manager + Google Analytics (NEXT_PUBLIC_GTM_ID).
+      "img-src 'self' data: blob: https://images.unsplash.com https://images.pexels.com https://*.google-analytics.com https://*.googletagmanager.com",
       "style-src 'self' 'unsafe-inline'",
-      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+      `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
       "font-src 'self'",
-      "connect-src 'self'",
+      "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

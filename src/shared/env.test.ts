@@ -26,6 +26,19 @@ describe("settings from .env (code rule 6)", () => {
     );
   });
 
+  it("Google Tag Manager is optional: no id means no Google tags", () => {
+    expect(parseEnv(publicEnvSchema, validPublicEnv).NEXT_PUBLIC_GTM_ID).toBeUndefined();
+    expect(
+      parseEnv(publicEnvSchema, { ...validPublicEnv, NEXT_PUBLIC_GTM_ID: "GTM-M25RNHGH" }).NEXT_PUBLIC_GTM_ID,
+    ).toBe("GTM-M25RNHGH");
+  });
+
+  it("names the variable when the Google Tag Manager id is not a GTM id", () => {
+    expect(() => parseEnv(publicEnvSchema, { ...validPublicEnv, NEXT_PUBLIC_GTM_ID: "G-12345" })).toThrow(
+      /NEXT_PUBLIC_GTM_ID/,
+    );
+  });
+
   it("fails with a clear message when MONGODB_URI is missing", () => {
     const saved = process.env.MONGODB_URI;
     delete process.env.MONGODB_URI;

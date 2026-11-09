@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { FeedbackButton } from "@/features/feedback/components/feedback-button";
+import { GoogleTagManager } from "@/features/tracking/components/google-tag-manager";
 import { SiteFooter } from "@/features/site-shell/components/site-footer";
 import { SiteHeader } from "@/features/site-shell/components/site-header";
 import { siteFontClass, siteFonts } from "@/features/site-shell/fonts";
@@ -20,6 +21,7 @@ export default async function SiteLayout({ children, params }: LayoutProps<"/[lo
       <SiteFooter locale={locale} />
       <FeedbackButton locale={locale} tone="brand" />
       <PageViewTracker locale={locale} />
+      <GoogleTagManager />
     </div>
   );
 }

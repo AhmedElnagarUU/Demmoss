@@ -91,6 +91,13 @@ sequenceDiagram
 
 `track()` never blocks the UI and never throws to the caller. A failed send is ignored.
 
+## Google Tag Manager
+
+Besides our own tracking, the public site (`(site)` layout) and the demos (`demos` layout) load the owner's Google Tag
+Manager container (Google Analytics) when `NEXT_PUBLIC_GTM_ID` is set (`GoogleTagManager` in
+`features/tracking/components`). The admin never loads it. Empty id = no Google requests (local dev, tests, CI).
+The id is baked into the Docker image (Dockerfile ARG); the CSP in `next.config.ts` allows the Google domains.
+
 ## Admin metrics (computed from events and leads)
 
 - Visitors per day/week/month, unique visitors, devices, countries, languages, sources.

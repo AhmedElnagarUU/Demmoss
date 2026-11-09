@@ -53,6 +53,9 @@ See `docs/04-data-and-tracking.md`.
 
 MongoDB `Visitor` and `Event`. No raw IP. No demo content or demo account data.
 
+Google Tag Manager (owner's Google Analytics) also runs on the public site and the demos when `NEXT_PUBLIC_GTM_ID` is set;
+Google stores that data, under the owner's Google account. Never on the admin.
+
 ## Tests
 
 | Level | Test | Protects |
@@ -62,13 +65,14 @@ MongoDB `Visitor` and `Event`. No raw IP. No demo content or demo account data.
 | Integration | `recordEvent` upserts the visitor once and saves the event | T1, T2 |
 | Integration | notification created only for events in the notify list | T3 |
 | Integration | unknown event names and personal/demo-content meta are rejected | T4 |
+| Unit | `NEXT_PUBLIC_GTM_ID` is optional and must be a `GTM-` id (`shared/env.test.ts`) | GTM setting |
 
 ## Files
 
 ```
 src/features/tracking/
   client/         track(), visitor id, first-visit source
-  components/     page-view tracker, tracked WhatsApp button, tracked language switch
+  components/     page-view tracker, tracked WhatsApp button, tracked language switch, Google Tag Manager
   model.ts        Visitor, Event
   repository.ts
   actions.ts      recordEventAction
@@ -80,4 +84,4 @@ src/features/tracking/
 
 ## Out of scope
 
-- Session replay, heatmaps, cookies, third-party analytics.
+- Session replay and heatmaps in our own tracking. Third-party analytics only through the owner's GTM container (above).
