@@ -4,60 +4,47 @@ import { Section } from "./section";
 
 const products = ["website", "system", "saas"] as const;
 
-const icons = {
-  website: (
-    <>
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M3 9h18M7 7h.01M10 7h.01" />
-    </>
-  ),
-  system: (
-    <>
-      <rect x="3" y="4" width="18" height="7" rx="2" />
-      <rect x="3" y="13" width="8" height="7" rx="2" />
-      <path d="M15 16.5h6M18 13.5v6" />
-    </>
-  ),
-  saas: (
-    <>
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
-    </>
-  ),
-} as const;
-
 export function Deliver({ locale }: { locale: Locale }) {
   const t = landingT(locale);
+  const pad = new Intl.NumberFormat(locale, { minimumIntegerDigits: 2, useGrouping: false });
 
   return (
     <Section
       id="deliver-title"
-      badge={t("deliver.badge")}
-      title={t("deliver.title")}
+      anchor="build"
+      index={pad.format(3)}
+      label={t("deliver.label")}
+      aside={t("deliver.aside")}
+      lead={t("deliver.titleLead")}
+      rest={t("deliver.titleRest")}
       intro={t("deliver.intro")}
     >
       <ul className="grid gap-4 md:grid-cols-3">
         {products.map((product) => (
-          <li key={product} className="site-tile flex flex-col gap-4 p-6 sm:p-7">
-            <span className="flex size-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-5"
-              >
-                {icons[product]}
-              </svg>
-            </span>
-            <div>
-              <h3 className="text-lg font-semibold text-text">{t(`deliver.${product}.title`)}</h3>
-              <p className="mt-1 text-sm font-semibold text-primary">{t(`deliver.${product}.value`)}</p>
+          <li
+            key={product}
+            className={`studio-card flex flex-col p-6 sm:p-8 ${
+              product === "system" ? "border-accent/30 shadow-[0_0_60px_-20px_var(--color-site-glow)]" : ""
+            }`}
+          >
+            <div className="font-mono-label flex items-center justify-between gap-3 text-faint">
+              <span>{t(`deliver.${product}.tag`)}</span>
+              {product === "system" ? (
+                <span className="rounded-full border border-accent/40 px-2.5 py-1 text-[10px] text-accent">
+                  {t("deliver.system.badge")}
+                </span>
+              ) : null}
             </div>
-            <p className="text-base leading-relaxed text-muted">{t(`deliver.${product}.text`)}</p>
+            <h3 className="mt-10 text-2xl font-normal leading-tight text-text">
+              {t(`deliver.${product}.title`)}
+            </h3>
+            <p className="mt-3 text-sm font-medium text-accent">{t(`deliver.${product}.value`)}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted">{t(`deliver.${product}.text`)}</p>
+            <p className="mt-auto pt-8 text-xs text-faint">
+              <span className="block border-t border-white/[0.08] pt-5">
+                {t(`deliver.${product}.bestFor`)}
+              </span>
+            </p>
           </li>
         ))}
       </ul>

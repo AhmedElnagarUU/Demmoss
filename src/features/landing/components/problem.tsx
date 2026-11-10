@@ -1,65 +1,50 @@
-import type { ReactNode } from "react";
+import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
 import { landingT } from "../translate";
-import { Section } from "./section";
+import { ArrowUpRightIcon } from "./icons";
+import { TwoToneHeading } from "./section";
 
 const problems = ["missed", "repeat", "lost"] as const;
 
-const icons: Record<(typeof problems)[number], ReactNode> = {
-  missed: (
-    <path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.5 2.5A15.5 15.5 0 0 1 3 5.5 2.5 2.5 0 0 1 5.5 3z" />
-  ),
-  repeat: (
-    <>
-      <path d="M17 3l4 4-4 4" />
-      <path d="M3 11V9a2 2 0 0 1 2-2h16" />
-      <path d="M7 21l-4-4 4-4" />
-      <path d="M21 13v2a2 2 0 0 1-2 2H3" />
-    </>
-  ),
-  lost: (
-    <>
-      <path d="M9 4h7l4 4v10H9z" />
-      <path d="M16 4v4h4" />
-      <path d="M5 8v12h9" />
-      <path d="M12 11h4M12 14h4" />
-    </>
-  ),
-};
-
 export function Problem({ locale }: { locale: Locale }) {
   const t = landingT(locale);
+  const number = new Intl.NumberFormat(locale, { minimumIntegerDigits: 2 });
 
   return (
-    <Section
-      id="problem-title"
-      badge={t("problem.badge")}
-      title={t("problem.title")}
-      intro={t("problem.intro")}
+    <section
+      aria-labelledby="problem-title"
+      className="mx-auto max-w-[1320px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12"
     >
-      <ul className="grid gap-4 sm:grid-cols-3">
-        {problems.map((problem) => (
-          <li key={problem} className="site-panel p-6">
-            <span className="flex size-11 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-5"
-              >
-                {icons[problem]}
-              </svg>
-            </span>
-            <h3 className="mt-4 text-lg font-semibold text-text">{t(`problem.${problem}.title`)}</h3>
-            <p className="mt-2 text-base leading-relaxed text-muted">{t(`problem.${problem}.text`)}</p>
+      <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">
+        <TwoToneHeading
+          id="problem-title"
+          lead={t("problem.titleLead")}
+          rest={t("problem.titleRest")}
+          className="text-[clamp(2.25rem,5.4vw,4.6rem)]"
+        />
+        <div className="max-w-md text-sm leading-relaxed text-muted lg:justify-self-end">
+          <p>
+            {t("problem.intro")} {t("problem.answer")}
+          </p>
+          <Link
+            href="#how"
+            className="mt-6 inline-flex items-center gap-2 border-b border-white/25 pb-1 text-xs text-text transition-colors hover:border-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+          >
+            {t("problem.link")}
+            <ArrowUpRightIcon className="size-3" />
+          </Link>
+        </div>
+      </div>
+
+      <ul className="mt-14 grid gap-4 sm:mt-20 md:grid-cols-3">
+        {problems.map((problem, index) => (
+          <li key={problem} className="studio-inset p-6 sm:p-7">
+            <p className="font-mono-label text-faint">{number.format(index + 1)}</p>
+            <h3 className="mt-6 text-lg font-normal text-text">{t(`problem.${problem}.title`)}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">{t(`problem.${problem}.text`)}</p>
           </li>
         ))}
       </ul>
-      <p className="mt-8 text-center font-medium text-text">{t("problem.answer")}</p>
-    </Section>
+    </section>
   );
 }

@@ -1,50 +1,39 @@
+import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { LinkButton } from "@/shared/ui/link-button";
 import { landingT } from "../translate";
-import { Section } from "./section";
+import { ArrowRightIcon } from "./icons";
+import { SectionRule, TwoToneHeading } from "./section";
 
 export function GuideTeaser({ locale }: { locale: Locale }) {
   const t = landingT(locale);
+  const pad = new Intl.NumberFormat(locale, { minimumIntegerDigits: 2, useGrouping: false });
 
   return (
-    <Section id="guide-title" badge={t("guide.badge")} title={t("guide.title")} intro={t("guide.text")}>
-      <div className="site-panel mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 py-10 text-center sm:px-10">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -end-20 -top-24 size-64 rounded-full bg-primary/15 blur-3xl"
-        />
-        <span className="relative flex size-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-7"
+    <section
+      aria-labelledby="guide-title"
+      className="mx-auto max-w-[1320px] px-5 py-12 sm:px-8 sm:py-16 lg:px-12"
+    >
+      <SectionRule index={pad.format(4)} label={t("guide.label")} aside={t("guide.aside")} />
+      <div className="studio-card mt-10 grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:p-14">
+        <div>
+          <TwoToneHeading
+            id="guide-title"
+            lead={t("guide.titleLead")}
+            rest={t("guide.titleRest")}
+            className="text-[clamp(1.9rem,3.6vw,3.2rem)]"
+          />
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{t("guide.text")}</p>
+        </div>
+        <div className="lg:justify-self-end">
+          <Link
+            href={`/${locale}/guide`}
+            className="studio-pill-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
           >
-            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15.5A2.5 2.5 0 0 0 16.5 16H4z" />
-            <path d="M4 18.5A2.5 2.5 0 0 1 6.5 16H19v5H6.5A2.5 2.5 0 0 1 4 18.5z" />
-            <path d="M8 7h7M8 10h5" />
-          </svg>
-        </span>
-        <LinkButton
-          href={`/${locale}/guide`}
-          className="site-pill relative gap-2 bg-primary text-on-primary hover:bg-primary-hover"
-        >
-          {t("guide.cta")}
-          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-3.5 rtl:rotate-180">
-            <path
-              d="M2 8h11M9 3.5 13.5 8 9 12.5"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </LinkButton>
+            {t("guide.cta")}
+            <ArrowRightIcon className="size-4" />
+          </Link>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

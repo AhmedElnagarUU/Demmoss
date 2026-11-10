@@ -1,66 +1,44 @@
+import Link from "next/link";
+import { getAllDemos } from "@/features/gallery/catalog";
+import { categoryName } from "@/features/gallery/categories";
 import type { Locale } from "@/shared/i18n/config";
-import { LinkButton } from "@/shared/ui/link-button";
 import { landingT } from "../translate";
-import { Section } from "./section";
-
-const bars = [42, 58, 50, 74, 62, 88, 70, 96];
+import { ArrowRightIcon } from "./icons";
 
 export function DemoHighlights({ locale }: { locale: Locale }) {
   const t = landingT(locale);
+  const featured = getAllDemos()[0];
 
   return (
-    <Section id="demos-title" badge={t("demos.badge")} title={t("demos.title")} intro={t("demos.text")}>
-      <div className="site-panel mx-auto flex max-w-4xl flex-col items-center gap-8 px-5 py-8 sm:px-8 sm:py-10">
-        <div aria-hidden="true" className="w-full max-w-xl">
-          <div className="overflow-hidden rounded-xl border border-white/10 bg-[#060a08]">
-            <div className="flex items-center gap-2 border-b border-white/5 px-4 py-2.5">
-              <span className="size-2 rounded-full bg-red-400/70" />
-              <span className="size-2 rounded-full bg-amber-300/70" />
-              <span className="size-2 rounded-full bg-primary/80" />
-              <span className="ms-2 h-4 flex-1 rounded-full bg-white/5" />
-            </div>
-            <div className="grid gap-3 p-4 sm:grid-cols-[1.2fr_1fr]">
-              <div className="rounded-lg border border-white/5 bg-white/[0.03] p-3">
-                <div className="h-2 w-16 rounded-full bg-white/15" />
-                <div className="mt-3 flex h-20 items-end gap-1.5">
-                  {bars.map((height, index) => (
-                    <span
-                      key={index}
-                      className={`flex-1 rounded-sm ${index === 5 ? "bg-primary" : "bg-primary/20"}`}
-                      style={{ height: `${height}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="grid gap-2">
-                {["bg-primary/30", "bg-white/10", "bg-white/10"].map((tone, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 rounded-lg border border-white/5 bg-white/[0.02] p-2.5"
-                  >
-                    <span className={`size-6 rounded-md ${tone}`} />
-                    <span className="flex-1">
-                      <span className="block h-1.5 w-14 rounded-full bg-white/15" />
-                      <span className="mt-1.5 block h-1.5 w-8 rounded-full bg-white/10" />
-                    </span>
-                  </div>
-                ))}
+    <section aria-labelledby="demos-title" className="mx-auto max-w-[1320px] px-5 py-6 sm:px-8 lg:px-12">
+      <div className="studio-card grid items-center gap-10 p-7 sm:p-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:p-14">
+        <div>
+          <p className="font-mono-label text-faint">{t("demos.badge")}</p>
+          <h2 id="demos-title" className="studio-display mt-5 text-[clamp(1.9rem,3.6vw,3.2rem)] text-text">
+            {t("demos.title")}
+          </h2>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">{t("demos.text")}</p>
+          <Link
+            href={`/${locale}/demos`}
+            className="studio-pill-primary mt-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
+          >
+            {t("demos.cta")}
+            <ArrowRightIcon className="size-4" />
+          </Link>
+        </div>
+
+        {featured ? (
+          <div aria-hidden="true" className="relative mx-auto h-56 w-full max-w-sm">
+            <div className="absolute inset-x-4 inset-y-3 flex rotate-[-9deg] flex-col justify-between rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(90,214,192,0.12),rgba(255,255,255,0.02)_60%)] p-5 shadow-xl shadow-black/50 rtl:rotate-[9deg]">
+              <span className="studio-badge self-end">{t("demos.featured")}</span>
+              <div>
+                <p className="text-lg font-medium text-text">{featured.name[locale]}</p>
+                <p className="mt-1 text-xs text-muted">{categoryName(featured.category, locale)}</p>
               </div>
             </div>
           </div>
-        </div>
-
-        <LinkButton
-          href={`/${locale}/demos`}
-          variant="secondary"
-          className="site-pill site-btn-secondary relative gap-2"
-        >
-          <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="size-4">
-            <path d="M7 5.5v9l7-4.5-7-4.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-          </svg>
-          {t("demos.cta")}
-        </LinkButton>
+        ) : null}
       </div>
-    </Section>
+    </section>
   );
 }

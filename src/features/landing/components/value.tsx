@@ -1,233 +1,308 @@
 import type { ReactNode } from "react";
+import { getAllDemos } from "@/features/gallery/catalog";
 import type { Locale } from "@/shared/i18n/config";
+import { landingStats } from "../stats";
 import { landingT } from "../translate";
+import { ArrowRightIcon, CheckIcon, EyeIcon, EyeOffIcon } from "./icons";
 import { Section } from "./section";
 
-const weekdayValues = [18, 26, 22, 34, 42, 30, 24];
-const highlightedDay = 4;
-const maxValue = 48;
-const notifications = [
-  { kind: "booking", time: "first" },
-  { kind: "order", time: "second" },
-  { kind: "message", time: "third" },
-] as const;
-const donutRadius = 70;
-const donutLength = 2 * Math.PI * donutRadius;
+const cardIcons: Record<string, ReactNode> = {
+  hour: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 2" />
+    </>
+  ),
+  dashboard: (
+    <>
+      <rect x="3.5" y="4" width="17" height="16" rx="2.5" />
+      <path d="M3.5 9h17M9 9v11" />
+    </>
+  ),
+  languages: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.500 3.500 8.500s-1 6-3.500 8.500c-2.500-2.500-3.500-5.500-3.500-8.500s1-6 3.500-8.500Z" />
+    </>
+  ),
+  edit: (
+    <>
+      <path d="M12 3 3.500 7.500 12 12l8.500-4.500L12 3Z" />
+      <path d="m3.500 12 8.500 4.500 8.500-4.500M3.500 16.500 12 21l8.500-4.500" />
+    </>
+  ),
+  flow: (
+    <>
+      <path d="M13 3 5 13.500h6L10 21l8-10.500h-6L13 3Z" />
+    </>
+  ),
+};
 
-const iconProps = {
-  "aria-hidden": true,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.6,
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  className: "size-5",
-} as const;
-
-const orbitTiles = [
-  { x: 34, y: 88, path: "M5 8h14M5 12h14M5 16h8" },
-  { x: 90, y: 22, path: "M7 12h10M12 7v10" },
-  { x: 270, y: 22, path: "M12 4a6 6 0 0 1 6 6c0 4-6 10-6 10S6 14 6 10a6 6 0 0 1 6-6Z" },
-  { x: 326, y: 88, path: "M4 7h16v10H4zM4 11h16" },
-  { x: 90, y: 154, path: "M12 4l2.4 5 5.6.7-4.1 3.8 1.1 5.5L12 16.4 7 19l1.1-5.5L4 9.7 9.6 9z" },
-  {
-    x: 270,
-    y: 154,
-    path: "M4 12a8 8 0 1 0 16 0 8 8 0 0 0-16 0ZM4 12h16M12 4c2.5 2.5 2.5 13.5 0 16M12 4c-2.5 2.5-2.5 13.5 0 16",
-  },
-] as const;
-
-const flowNodes = [
-  "M3 5h18v12H3zM8 21h8",
-  "M4 5h7v7H4zM13 5h7v4h-7zM13 11h7v8h-7zM4 14h7v5H4z",
-  "M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z",
-] as const;
-
-function weekdayLabels(locale: Locale): string[] {
-  const format = new Intl.DateTimeFormat(locale, { weekday: "short", timeZone: "UTC" });
-  return weekdayValues.map((_, index) => format.format(new Date(Date.UTC(2024, 0, 1 + index))));
-}
-
-function Card({ className = "", children }: { className?: string; children: ReactNode }) {
-  return <li className={`site-tile flex flex-col justify-between gap-6 p-6 ${className}`}>{children}</li>;
-}
-
-function CardText({ title, text }: { title: string; text: string }) {
+function Card({
+  icon,
+  label,
+  position,
+  title,
+  text,
+  className = "",
+  children,
+}: {
+  icon: keyof typeof cardIcons;
+  label: string;
+  position: string;
+  title: string;
+  text?: string;
+  className?: string;
+  children: ReactNode;
+}) {
   return (
-    <div>
-      <h3 className="text-lg font-medium text-text">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted">{text}</p>
-    </div>
-  );
-}
-
-function IconTile({ children }: { children: ReactNode }) {
-  return (
-    <span className="flex size-12 items-center justify-center rounded-xl border border-primary/25 bg-primary/10 text-primary">
-      {children}
-    </span>
+    <li className={`studio-card flex flex-col p-6 sm:p-7 ${className}`}>
+      <div className="font-mono-label flex items-center justify-between gap-3 text-faint">
+        <span className="flex items-center gap-2.5">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="size-4"
+          >
+            {cardIcons[icon]}
+          </svg>
+          {label}
+        </span>
+        <span>{position}</span>
+      </div>
+      <h3 className="mt-10 max-w-md text-balance text-[clamp(1.5rem,2.2vw,1.9rem)] font-normal leading-tight text-text">
+        {title}
+      </h3>
+      {text ? <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">{text}</p> : null}
+      <div className="mt-auto pt-8">{children}</div>
+    </li>
   );
 }
 
 export function Value({ locale }: { locale: Locale }) {
   const t = landingT(locale);
   const number = new Intl.NumberFormat(locale);
-  const days = weekdayLabels(locale);
+  const pad = new Intl.NumberFormat(locale, { minimumIntegerDigits: 2, useGrouping: false });
+  const { demoCount, categoryCount } = landingStats(getAllDemos());
+  const position = (index: number) => `${pad.format(index)} / ${pad.format(5)}`;
+  const ringLength = 2 * Math.PI * 44;
+  const ringShown = ringLength * 0.78;
 
   return (
-    <Section id="value-title" badge={t("value.badge")} title={t("value.title")}>
-      <ul className="grid gap-4 md:grid-cols-3">
-        <Card>
-          <CardText title={t("value.customers.title")} text={t("value.customers.text")} />
-          <div aria-hidden="true" className="flex gap-3">
-            <IconTile>
-              <svg {...iconProps}>
-                <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
-              </svg>
-            </IconTile>
-            <IconTile>
-              <svg {...iconProps}>
-                <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
-                <path d="M3.5 10h17M8 3v4M16 3v4" />
-              </svg>
-            </IconTile>
-            <IconTile>
-              <svg {...iconProps}>
-                <path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" />
-              </svg>
-            </IconTile>
+    <Section
+      id="value-title"
+      anchor="value"
+      index={pad.format(2)}
+      label={t("value.label")}
+      aside={t("value.aside")}
+      lead={t("value.titleLead")}
+      rest={t("value.titleRest")}
+      intro={t("value.intro")}
+    >
+      <ul className="grid gap-4 lg:grid-cols-12">
+        <Card
+          icon="hour"
+          label={t("value.cards.hour")}
+          position={position(1)}
+          title={t("value.customers.title")}
+          text={t("value.customers.text")}
+          className="lg:col-span-7"
+        >
+          <div className="studio-inset grid items-center gap-4 p-4 sm:grid-cols-[1fr_auto_1.25fr]">
+            <div>
+              <p className="font-mono-label text-faint">{t("value.visuals.fromCustomer")}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                <span className="studio-chip">{t("value.visuals.table")}</span>
+                <span className="studio-chip">{t("value.visuals.friday")}</span>
+                <span className="studio-chip">{t("value.visuals.eightPm")}</span>
+              </div>
+            </div>
+            <ArrowRightIcon className="hidden size-4 text-faint sm:block" />
+            <div className="studio-inset p-3.5">
+              <p className="font-mono-label text-faint">{t("value.visuals.inDashboard")}</p>
+              <p className="mt-2 text-sm font-medium text-text">{t("value.visuals.newBooking")}</p>
+              <p className="font-mono-label mt-3 inline-block rounded-full border border-accent/40 px-2.5 py-1 text-accent">
+                {t("value.visuals.whatsappSent")}
+              </p>
+            </div>
+          </div>
+          <p className="mt-3 flex items-center gap-2.5 rounded-xl border border-accent/20 bg-accent/[0.06] px-4 py-3 text-xs text-muted">
+            <CheckIcon className="size-4 shrink-0 text-accent" />
+            {t("value.visuals.instant")}
+          </p>
+        </Card>
+
+        <Card
+          icon="dashboard"
+          label={t("value.cards.dashboard")}
+          position={position(2)}
+          title={t("value.dashboard.title")}
+          text={t("value.dashboard.text")}
+          className="lg:col-span-5"
+        >
+          <div aria-hidden="true" className="relative mx-auto h-44 max-w-sm">
+            <div className="absolute inset-x-6 inset-y-2 flex rotate-[-12deg] flex-col justify-between rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.01))] p-4 shadow-xl shadow-black/50 rtl:rotate-[12deg]">
+              <span className="studio-badge self-end">{t("value.visuals.today")}</span>
+              <p className="text-lg font-medium text-text">
+                {t("value.visuals.summary", { bookings: number.format(12), orders: number.format(8) })}
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/[0.08] pt-4 text-xs">
+            <span className="text-muted">{t("value.visuals.phone")}</span>
+            <span className="text-end text-text">{t("value.visuals.updated")}</span>
           </div>
         </Card>
 
-        <Card>
-          <CardText title={t("value.time.title")} text={t("value.time.text")} />
-          <ul aria-hidden="true" className="space-y-2">
-            {notifications.map((item) => (
+        <Card
+          icon="languages"
+          label={t("value.cards.languages")}
+          position={position(3)}
+          title={t("value.languages.title")}
+          className="lg:col-span-4"
+        >
+          <ul>
+            {[
+              {
+                badge: "EN",
+                title: t("value.visuals.home"),
+                sub: t("value.visuals.ltr"),
+                value: t("value.visuals.homeUrl"),
+              },
+              {
+                badge: "ع",
+                title: t("value.visuals.arabicHome"),
+                sub: t("value.visuals.rtl"),
+                value: t("value.visuals.arabicHomeUrl"),
+              },
+              {
+                badge: "⇄",
+                title: t("value.visuals.switch"),
+                sub: t("value.visuals.switchNote"),
+                value: t("value.visuals.switchValue"),
+              },
+            ].map((row) => (
               <li
-                key={item.kind}
-                className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2"
+                key={row.badge}
+                className="flex items-center gap-3 border-b border-white/[0.07] py-3 last:border-b-0"
               >
-                <span className="flex items-center gap-2 text-xs text-text">
-                  <span className="size-1.5 rounded-full bg-primary" />
-                  {t(`value.visuals.rows.${item.kind}`)}
+                <span
+                  aria-hidden="true"
+                  className="flex size-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-[11px] text-muted"
+                >
+                  {row.badge}
                 </span>
-                <span className="text-[11px] text-muted">{t(`value.visuals.times.${item.time}`)}</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-sm text-text">{row.title}</span>
+                  <span className="block truncate text-[11px] text-faint">{row.sub}</span>
+                </span>
+                <span dir="ltr" className="font-mono-label shrink-0 normal-case tracking-normal text-text">
+                  {row.value}
+                </span>
               </li>
             ))}
           </ul>
+          <p className="mt-2 flex items-center justify-between gap-3 text-[11px] text-faint">
+            <span>{t("value.visuals.oneDesign")}</span>
+            <span className="text-accent">{t("value.visuals.rtlReady")}</span>
+          </p>
         </Card>
 
-        <Card className="md:row-span-2">
-          <CardText title={t("value.trust.title")} text={t("value.trust.text")} />
-          <div aria-hidden="true" className="relative mx-auto size-48">
-            <svg viewBox="0 0 160 160" className="size-full -rotate-90 rtl:-scale-y-100">
-              <defs>
-                <linearGradient id="value-donut" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#4ade80" />
-                  <stop offset="1" stopColor="#15803d" />
-                </linearGradient>
-              </defs>
-              <circle
-                cx="80"
-                cy="80"
-                r={donutRadius}
-                fill="none"
-                stroke="rgba(255,255,255,0.08)"
-                strokeWidth="12"
-              />
-              <circle
-                cx="80"
-                cy="80"
-                r={donutRadius}
-                fill="none"
-                stroke="url(#value-donut)"
-                strokeWidth="12"
-                strokeLinecap="round"
-                strokeDasharray={`${donutLength * 0.75} ${donutLength}`}
-              />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <span className="text-xs text-muted">{t("value.visuals.donutLabel")}</span>
-              <span className="mt-1 text-3xl font-semibold text-text">{t("value.visuals.donutWord")}</span>
-            </div>
-          </div>
-        </Card>
-
-        <Card className="md:col-span-2">
-          <CardText title={t("value.dashboard.title")} text={t("value.dashboard.text")} />
-          <div aria-hidden="true" className="flex h-36 items-end gap-3">
-            {weekdayValues.map((value, index) => (
-              <div key={days[index]} className="relative flex h-full flex-1 flex-col justify-end gap-2">
-                {index === highlightedDay ? (
-                  <span className="absolute -top-1 start-1/2 -translate-x-1/2 rounded-md bg-white px-2 py-0.5 text-[11px] font-semibold text-black rtl:translate-x-1/2">
-                    {number.format(value)}
-                  </span>
-                ) : null}
+        <Card
+          icon="edit"
+          label={t("value.cards.edit")}
+          position={position(4)}
+          title={t("value.edit.title")}
+          className="lg:col-span-4"
+        >
+          <ol className="relative flex flex-col gap-4">
+            <span aria-hidden="true" className="absolute inset-y-4 start-[0.8rem] w-px bg-white/10" />
+            {[
+              { label: t("value.visuals.hours"), hidden: false },
+              { label: t("value.visuals.menu"), hidden: false },
+              { label: t("value.visuals.photos"), hidden: false },
+              { label: `${t("value.visuals.team")} — ${t("value.visuals.hidden")}`, hidden: true },
+            ].map((row, index) => (
+              <li key={row.label} className="relative flex items-center gap-3">
                 <span
-                  className={`block w-full rounded-md ${index === highlightedDay ? "bg-primary" : "bg-white/15"}`}
-                  style={{ height: `${(value / maxValue) * 80}%` }}
-                />
-                <span className="text-center text-[11px] text-muted">{days[index]}</span>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        <Card className="md:col-span-2">
-          <CardText title={t("value.languages.title")} text={t("value.languages.text")} />
-          <div aria-hidden="true" className="relative mx-auto h-44 w-full max-w-sm">
-            <svg viewBox="0 0 360 176" fill="none" className="size-full">
-              <ellipse
-                cx="180"
-                cy="88"
-                rx="170"
-                ry="80"
-                stroke="#22c55e"
-                strokeOpacity="0.2"
-                strokeDasharray="3 5"
-              />
-              <ellipse cx="180" cy="88" rx="110" ry="52" stroke="#22c55e" strokeOpacity="0.28" />
-              <circle cx="180" cy="88" r="34" fill="#22c55e" fillOpacity="0.18" />
-              <circle cx="180" cy="88" r="26" fill="#22c55e" />
-              <path
-                d="M172 77h9a5.5 5.5 0 0 1 0 11h-9zm0 11h10a6 6 0 0 1 0 12h-10z"
-                fill="#03150b"
-                fillRule="evenodd"
-              />
-              {orbitTiles.map((tile) => (
-                <g key={tile.path} transform={`translate(${tile.x - 17} ${tile.y - 17})`}>
-                  <rect width="34" height="34" rx="9" fill="#0b1410" stroke="#22c55e" strokeOpacity="0.4" />
-                  <path
-                    d={tile.path}
-                    transform="translate(5 5)"
-                    stroke="#4ade80"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </g>
-              ))}
-            </svg>
-          </div>
-        </Card>
-
-        <Card>
-          <CardText title={t("value.flow.title")} text={t("value.flow.text")} />
-          <div
-            aria-hidden="true"
-            className="flex items-center justify-between rounded-lg px-2 py-4 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:16px_16px]"
-          >
-            {flowNodes.map((path, index) => (
-              <span key={path} className="flex flex-1 items-center last:flex-none">
-                <span className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-primary/40 bg-black text-primary">
-                  <svg {...iconProps}>
-                    <path d={path} />
-                  </svg>
+                  aria-hidden="true"
+                  className={`font-mono-label relative flex size-[1.65rem] shrink-0 items-center justify-center rounded-full border bg-surface text-[10px] ${
+                    row.hidden ? "border-white/15 text-faint" : "border-accent/60 text-accent"
+                  }`}
+                >
+                  {pad.format(index + 1)}
                 </span>
-                {index < flowNodes.length - 1 ? <span className="h-px flex-1 bg-primary/50" /> : null}
-              </span>
+                <span className={`flex-1 text-sm ${row.hidden ? "text-faint" : "text-text"}`}>
+                  {row.label}
+                </span>
+                {row.hidden ? (
+                  <EyeOffIcon className="size-4 text-faint" />
+                ) : (
+                  <EyeIcon className="size-4 text-faint" />
+                )}
+              </li>
             ))}
+          </ol>
+          <p className="font-mono-label mt-5 inline-block rounded-full border border-accent/40 px-3 py-1.5 text-accent">
+            {t("value.visuals.editPill")}
+          </p>
+        </Card>
+
+        <Card
+          icon="flow"
+          label={t("value.cards.flow")}
+          position={position(5)}
+          title={t("value.flow.title")}
+          className="lg:col-span-4"
+        >
+          <div className="flex items-center gap-5">
+            <div className="relative size-32 shrink-0">
+              <svg aria-hidden="true" viewBox="0 0 100 100" className="size-full -rotate-90">
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="44"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="6"
+                  className="text-white/10"
+                />
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="44"
+                  fill="none"
+                  stroke="var(--color-accent)"
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                  strokeDasharray={`${ringShown} ${ringLength}`}
+                />
+              </svg>
+              <p className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span className="text-3xl font-light text-text">{number.format(demoCount)}</span>
+                <span className="font-mono-label max-w-[4.5rem] text-[8px] leading-tight text-faint">
+                  {t("value.visuals.ringLabel")}
+                </span>
+              </p>
+            </div>
+            <ul className="flex-1 space-y-2.5 text-xs">
+              {[
+                { label: t("value.visuals.categories"), value: categoryCount, tone: "bg-accent" },
+                { label: t("value.visuals.languages"), value: 2, tone: "bg-faint" },
+                { label: t("value.visuals.signups"), value: 0, tone: "bg-white/40" },
+              ].map((row) => (
+                <li key={row.label} className="flex items-center gap-2 text-muted">
+                  <span aria-hidden="true" className={`size-1.5 shrink-0 rounded-full ${row.tone}`} />
+                  <span className="flex-1">{row.label}</span>
+                  <span className="text-text">{number.format(row.value)}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Card>
       </ul>

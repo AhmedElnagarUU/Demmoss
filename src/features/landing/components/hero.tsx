@@ -1,81 +1,73 @@
-import { LightRays } from "@/features/site-shell/components/light-rays";
+import Link from "next/link";
 import type { Locale } from "@/shared/i18n/config";
-import { LinkButton } from "@/shared/ui/link-button";
 import { landingT } from "../translate";
-import { HeroPreviews } from "./hero-previews";
-import { HillArcs } from "./hill-arcs";
+import { ArrowUpRightIcon } from "./icons";
+
+// Huge thin orbit arcs and fine guide lines behind the headline. Decorative only.
+function HeroArcs() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="studio-guides absolute inset-0" />
+      <svg
+        viewBox="0 0 1350 760"
+        preserveAspectRatio="xMidYMid slice"
+        fill="none"
+        stroke="currentColor"
+        className="absolute inset-0 size-full text-white"
+      >
+        <ellipse cx="675" cy="470" rx="980" ry="350" strokeOpacity="0.1" transform="rotate(-9 675 470)" />
+        <ellipse cx="675" cy="330" rx="880" ry="230" strokeOpacity="0.16" transform="rotate(5 675 330)" />
+        <ellipse cx="675" cy="640" rx="1100" ry="150" strokeOpacity="0.1" transform="rotate(-2 675 640)" />
+        <ellipse cx="500" cy="330" rx="720" ry="560" strokeOpacity="0.07" transform="rotate(-30 500 330)" />
+      </svg>
+    </div>
+  );
+}
 
 export function Hero({ locale }: { locale: Locale }) {
   const t = landingT(locale);
-  const title = t("hero.title");
-  const accent = t("hero.accent");
-  const lead = accent && title.endsWith(accent) ? title.slice(0, -accent.length).trimEnd() : title;
 
   return (
-    <section className="relative overflow-hidden pb-16 sm:pb-24">
-      <div aria-hidden="true" className="site-grid-lines pointer-events-none absolute inset-0" />
-      <LightRays className="absolute inset-x-0 bottom-0 h-[78%]" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-[-12rem] mx-auto h-[30rem] w-[min(52rem,100%)] rounded-full bg-primary/10 blur-[110px]"
-      />
-
-      <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 pt-14 text-center sm:px-6 sm:pt-20">
-        <p className="site-badge">
-          <span aria-hidden="true" className="size-1.5 rounded-full bg-primary" />
-          {t("hero.badge")}
+    <section className="relative -mt-[4.25rem] overflow-hidden pt-[4.25rem]">
+      <HeroArcs />
+      <div className="relative mx-auto flex min-h-[34rem] max-w-[1180px] flex-col items-center px-5 pb-44 pt-16 text-center sm:min-h-[40rem] sm:px-8 sm:pb-52 sm:pt-24">
+        <p className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs text-muted">
+          <span aria-hidden="true" className="size-1.5 shrink-0 rounded-full bg-text" />
+          <span className="text-text">{t("hero.eyebrow")}</span>
+          <span aria-hidden="true">·</span>
+          <span>{t("hero.eyebrowTopics")}</span>
         </p>
 
-        <h1 className="site-display mt-6 text-balance text-[2.5rem] text-text sm:text-6xl lg:text-[4.15rem]">
-          <span>{lead}</span>{" "}
-          {accent ? (
-            <span className="site-accent-box">
-              {accent}
-              <span aria-hidden="true" className="site-cursor" />
-            </span>
-          ) : null}
+        <h1 className="studio-hero-title mt-8 max-w-[13em] text-balance text-text sm:mt-10">
+          {t("hero.title")}
         </h1>
 
-        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
-          {t("hero.subtitle")}
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <LinkButton
+        <div className="mt-10 sm:mt-12">
+          <Link
             href={`/${locale}/start`}
-            className="site-pill gap-2 bg-primary text-on-primary hover:bg-primary-hover"
+            className="group inline-flex items-center gap-2 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus"
           >
-            {t("hero.start")}
-            <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" className="size-3.5 rtl:rotate-180">
-              <path
-                d="M2 8h11M9 3.5 13.5 8 9 12.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </LinkButton>
-          <LinkButton
-            href={`/${locale}/demos`}
-            variant="secondary"
-            className="site-pill site-btn-secondary gap-2"
-          >
-            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="size-4">
-              <path
-                d="M7 5.5v9l7-4.5-7-4.5Z"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {t("hero.demos")}
-          </LinkButton>
+            <span className="studio-cta-glow min-h-[3.25rem] px-7 text-[0.9375rem]">{t("hero.cta")}</span>
+            <span
+              aria-hidden="true"
+              className="flex size-[3.25rem] items-center justify-center rounded-2xl bg-primary text-on-primary transition-colors group-hover:bg-primary-hover"
+            >
+              <ArrowUpRightIcon className="size-4" />
+            </span>
+          </Link>
         </div>
-      </div>
 
-      <HeroPreviews locale={locale} />
-      <HillArcs />
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-faint">
+          <span>{t("hero.note")}</span>
+          <Link
+            href={`/${locale}/demos`}
+            className="inline-flex items-center gap-1.5 rounded text-text underline decoration-white/30 underline-offset-4 hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          >
+            {t("hero.demos")}
+            <ArrowUpRightIcon className="size-3" />
+          </Link>
+        </p>
+      </div>
     </section>
   );
 }

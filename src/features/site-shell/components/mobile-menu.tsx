@@ -17,13 +17,13 @@ export function MobileMenu({ items, navLabel, openLabel, closeLabel, ctaHref, ct
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen(!open)}
-        className="site-pill site-btn-ghost min-h-10 px-4 text-sm font-semibold text-text focus-visible:outline-2 focus-visible:outline-focus"
+        className="studio-pill min-h-10 focus-visible:outline-2 focus-visible:outline-focus"
       >
         {open ? closeLabel : openLabel}
       </button>
@@ -31,7 +31,7 @@ export function MobileMenu({ items, navLabel, openLabel, closeLabel, ctaHref, ct
         <nav
           id="mobile-menu"
           aria-label={navLabel}
-          className="absolute inset-x-0 top-full z-30 border-b border-white/10 bg-black/95 px-4 py-4 shadow-2xl backdrop-blur-xl"
+          className="absolute inset-x-4 top-full z-30 mt-1 rounded-[1.375rem] border border-white/10 bg-surface p-3 shadow-2xl shadow-black/60 sm:inset-x-8"
         >
           <ul className="flex flex-col">
             {items.map((item) => (
@@ -39,7 +39,7 @@ export function MobileMenu({ items, navLabel, openLabel, closeLabel, ctaHref, ct
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base text-muted transition-colors hover:bg-white/5 hover:text-text focus-visible:outline-2 focus-visible:outline-focus"
+                  className="block rounded-xl px-3 py-3 text-base text-muted transition-colors hover:bg-white/5 hover:text-text focus-visible:outline-2 focus-visible:outline-focus"
                 >
                   {item.label}
                 </Link>
@@ -49,7 +49,7 @@ export function MobileMenu({ items, navLabel, openLabel, closeLabel, ctaHref, ct
           <Link
             href={ctaHref}
             onClick={() => setOpen(false)}
-            className="site-pill mt-3 flex items-center justify-center bg-primary text-sm font-semibold text-on-primary hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            className="studio-pill-primary mt-2 w-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             {ctaLabel}
           </Link>

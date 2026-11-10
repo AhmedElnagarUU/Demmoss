@@ -7,33 +7,43 @@ const faqKeys = ["price", "time", "update", "phone", "which", "after"] as const;
 
 export function Faq({ locale }: { locale: Locale }) {
   const t = landingT(locale);
+  const pad = new Intl.NumberFormat(locale, { minimumIntegerDigits: 2, useGrouping: false });
 
   return (
-    <Section id="faq-title" badge={t("faq.badge")} title={t("faq.title")} intro={t("faq.intro")} tone="soft">
-      <div className="mx-auto max-w-3xl space-y-3">
+    <Section
+      id="faq-title"
+      anchor="faq"
+      index={pad.format(5)}
+      label={t("faq.label")}
+      aside={t("faq.aside")}
+      lead={t("faq.titleLead")}
+      rest={t("faq.titleRest")}
+      intro={t("faq.intro")}
+    >
+      <div className="mx-auto max-w-4xl border-t border-white/[0.08]">
         {faqKeys.map((key) => (
-          <details key={key} className="group site-panel p-5 sm:p-6">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg font-semibold text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          <details key={key} className="group border-b border-white/[0.08] py-1">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-lg py-5 text-lg font-normal text-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus">
               {t(`faq.${key}.q`)}
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.8"
+                strokeWidth="1.6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="size-4 shrink-0 text-primary transition-transform group-open:rotate-45"
+                className="size-5 shrink-0 text-muted transition-transform group-open:rotate-45"
               >
                 <path d="M12 5v14M5 12h14" />
               </svg>
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
+            <p className="max-w-2xl pb-6 text-sm leading-relaxed text-muted">
               {t(`faq.${key}.a`)}
               {key === "which" ? (
                 <>
                   {" "}
-                  <Link href={`/${locale}/guide`} className="text-primary underline">
+                  <Link href={`/${locale}/guide`} className="text-text underline underline-offset-4">
                     {t("faq.which.link")}
                   </Link>
                 </>

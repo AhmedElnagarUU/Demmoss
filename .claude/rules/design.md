@@ -11,10 +11,14 @@
 ## Tokens
 
 - Colors, fonts, radii, and spacing are defined once in the Tailwind theme (CSS variables). No random hex values in components.
-- Brand: **BOCHKE**. The public site (`app/[locale]/(site)`) uses a black + emerald green glass identity scoped with
-  the `.brand-site` wrapper in `(site)/layout.tsx`: pure black background, dark-green glass cards (1px border, soft green
-  glow), white headings with an italic serif accent, grey body text, emerald `#22c55e` accents and small green
-  rounded-rectangle primary buttons (white secondary buttons). Reference: `docs/design-references/bochke-ui.png`. The admin uses the BOCHKE identity too (same `.brand-site` wrapper and fonts in `admin/layout.tsx`); demo templates keep their own tokens. Form fields on the dark scope get a dark surface, white text, a green border on focus, and `color-scheme: dark` so native select lists are dark.
+- Brand: **BOCHKE**. The public site (`app/[locale]/(site)`) uses a dark studio identity mirrored from the screenshots in
+  `ui-for-this-project/`, scoped with the `.brand-site` wrapper in `(site)/layout.tsx`: near-black canvas with a soft top glow
+  and film grain, Inter Tight (light) display type with JetBrains Mono uppercase labels (IBM Plex Sans Arabic for Arabic),
+  two-tone headings (near-white lead, grey continuation), off-white pill primary buttons, dark outline pills, a teal accent,
+  thin-border gradient cards (`studio-card`), mono section rules ("01  HOW WE WORK ---- FOUR STEPS"), and a floating owner-dashboard
+  preview under the hero. The admin uses the same identity (`.brand-site` wrapper and fonts in `admin/layout.tsx`); demo
+  templates keep their own tokens. Form fields on the dark scope get a dark surface, light text, a teal border on focus, and
+  `color-scheme: dark` so native select lists are dark.
 - The brand name comes from `NEXT_PUBLIC_BRAND_NAME`. Templates may define their own tokens inside their feature; they do
   not change the main site tokens.
 

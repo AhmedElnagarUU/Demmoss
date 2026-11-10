@@ -21,7 +21,7 @@ test.describe("Arabic / English routing and RTL", () => {
       await expect(page.locator("html")).toHaveAttribute("lang", "en");
       await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        "Your website takes bookings and orders, even while you sleep",
+        "Bookings and orders, even while you sleep",
       );
     });
 
@@ -30,9 +30,7 @@ test.describe("Arabic / English routing and RTL", () => {
       await page.getByRole("link", { name: "العربية" }).click();
       await expect(page).toHaveURL(/\/ar$/);
       await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        "موقعك يستقبل الحجوزات والطلبات حتى وأنت نائم",
-      );
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText("حجوزات وطلبات… حتى وأنت نائم");
 
       await page.goto("/");
       await expect(page).toHaveURL(/\/ar$/);

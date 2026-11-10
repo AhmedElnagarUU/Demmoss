@@ -1,41 +1,81 @@
 {
   "hero": {
-    "badge": "For restaurants, clinics, shops and service businesses",
-    "title": "Your website takes bookings and orders, even while you sleep",
+    "eyebrow": "Websites & dashboards",
+    "eyebrowTopics": "restaurants · clinics · real estate · logistics",
+    "title": "Bookings and orders, even while you sleep",
     "accent": "even while you sleep",
-    "subtitle": "We build websites and dashboards that answer your customers at any hour. Every booking, order and question lands on your phone and WhatsApp, so you stop losing customers to missed calls.",
-    "start": "Get my free recommendation",
+    "cta": "Start your project",
     "demos": "Try a live demo",
-    "previews": {
-      "live": "Live",
-      "night": {
-        "title": "While you slept",
-        "items": {
-          "booking": { "initial": "M", "label": "Table for 4, Friday 8 pm", "time": "11:42 pm" },
-          "order": { "initial": "S", "label": "Order: 2 meals, delivery", "time": "1:15 am" },
-          "question": { "initial": "N", "label": "Are you open on Friday?", "time": "6:05 am" }
-        }
+    "note": "Free recommendation · Reply on WhatsApp · Arabic & English"
+  },
+  "dashboard": {
+    "url": "{brand} · demo dashboard",
+    "nav": {
+      "overview": "Overview",
+      "bookings": "Bookings",
+      "orders": "Orders",
+      "customers": "Customers",
+      "content": "Website content",
+      "settings": "Settings"
+    },
+    "today": "Today",
+    "live": "Live",
+    "langAr": "AR",
+    "langEn": "EN",
+    "bookingsToday": "Bookings today",
+    "newOrders": "New orders",
+    "messages": "Messages",
+    "closed": "Booked while closed",
+    "chartTitle": "Bookings this week",
+    "activityTitle": "Latest activity",
+    "activity": {
+      "booking": {
+        "title": "Table for 4 · Friday 8 pm",
+        "source": "via website",
+        "time": "11:42 pm",
+        "status": "Confirmed"
       },
-      "closed": {
-        "title": "Booked while you were closed",
-        "total": "23",
-        "period": "this week",
-        "hint": "without a single phone call",
-        "today": "+4 today"
+      "order": {
+        "title": "Order: 2 meals, delivery",
+        "source": "via website",
+        "time": "1:15 am",
+        "status": "New"
       },
-      "auto": {
-        "title": "Happened automatically",
-        "steps": {
-          "confirm": { "label": "Customer got a confirmation", "time": "1 s" },
-          "whatsapp": { "label": "You got a WhatsApp alert", "time": "2 s" },
-          "dashboard": { "label": "Saved in your dashboard", "time": "3 s" }
-        }
+      "appointment": {
+        "title": "Appointment: Dr. Karim, Sunday 10 am",
+        "source": "via website",
+        "time": "7:30 am",
+        "status": "Confirmed"
+      },
+      "viewing": {
+        "title": "Viewing request: 2-bed apartment",
+        "source": "via website",
+        "time": "9:05 am",
+        "status": "New"
       }
-    }
+    },
+    "toast": {
+      "title": "New booking",
+      "text": "Table for 4, Friday 8 pm",
+      "meta": "WhatsApp alert sent"
+    },
+    "caption": "An example of the dashboard you get",
+    "link": "try a real one in our live demos"
+  },
+  "industries": {
+    "label": "Made for businesses in"
+  },
+  "statement": {
+    "badge": "What we do",
+    "text": "We build websites and dashboards that answer your customers at any hour — in Arabic, English, or both.",
+    "demos": "Real working demos",
+    "languages": "English · عربي"
   },
   "problem": {
     "badge": "Sound familiar?",
     "title": "Customers decide in minutes. Are you there when they do?",
+    "titleLead": "Customers decide in minutes.",
+    "titleRest": "Are you there when they do?",
     "intro": "Most small businesses don't lose customers to bad service. They lose them before the first conversation.",
     "missed": {
       "title": "The phone rings while you're busy",
@@ -49,73 +89,148 @@
       "title": "Requests lost in chats and notebooks",
       "text": "Orders are spread across WhatsApp, calls and paper. One gets forgotten, and that customer doesn't come back."
     },
-    "answer": "A website that works for you solves all three, every day, without extra staff."
+    "answer": "A website that works for you solves all three, every day, without extra staff.",
+    "link": "See how we work"
+  },
+  "how": {
+    "label": "How we work",
+    "aside": "Four steps",
+    "titleLead": "From idea to launch",
+    "titleAccent": "in 4 clear steps.",
+    "intro": "No tech talk. You answer a few questions, we recommend the right product, and you see it grow until launch.",
+    "step1": {
+      "title": "Tell us about your business",
+      "text": "Answer a few short questions, or just message us on WhatsApp.",
+      "tag": "The brief"
+    },
+    "step2": {
+      "title": "Get an honest recommendation",
+      "text": "We tell you which product fits, with a clear price, and show you a working example close to your idea.",
+      "tag": "The plan"
+    },
+    "step3": {
+      "title": "Watch it being built",
+      "text": "You review the work as it grows, so the result is never a surprise.",
+      "tag": "The build"
+    },
+    "step4": {
+      "title": "Launch, and we stay close",
+      "text": "We put it online, show you how to use it, and support you after launch.",
+      "tag": "Launch"
+    }
   },
   "value": {
-    "badge": "What changes",
+    "label": "What changes",
+    "aside": "For your business",
     "title": "What changes when your website works for you",
+    "titleLead": "What changes",
+    "titleRest": "when your website works for you",
+    "intro": "Your website stops being a brochure and starts doing the work: taking requests, answering questions and keeping everything in one place.",
+    "cards": {
+      "hour": "Any hour",
+      "dashboard": "One dashboard",
+      "languages": "Languages",
+      "edit": "You edit it",
+      "flow": "Flow"
+    },
     "customers": {
       "title": "Customers reach you at any hour",
       "text": "They book, order or ask at 2 am without calling. You wake up to new requests, not missed chances."
-    },
-    "time": {
-      "title": "Your day comes back",
-      "text": "Bookings, orders and messages arrive in one dashboard, already organised. No more copying from chats to notebooks."
-    },
-    "trust": {
-      "title": "Chosen over your competitor",
-      "text": "Customers compare you on their phone in seconds. A fast, clear, professional site is what makes them pick you."
-    },
-    "languages": {
-      "title": "Every customer in their own language",
-      "text": "Arabic and English, with true right-to-left layout, so every customer feels the business speaks to them."
-    },
-    "visuals": {
-      "rows": {
-        "booking": "New booking",
-        "order": "New order",
-        "message": "New message"
-      },
-      "times": {
-        "first": "2 min",
-        "second": "9 min",
-        "third": "1 h"
-      },
-      "donutLabel": "On every phone",
-      "donutWord": "Fast"
     },
     "dashboard": {
       "title": "Your whole day on one screen",
       "text": "Every booking and order appears the moment it happens, so you always know what today looks like."
     },
+    "languages": {
+      "title": "Every customer in their own language",
+      "text": "Arabic and English, with true right-to-left layout, so every customer feels the business speaks to them."
+    },
+    "edit": {
+      "title": "Change it yourself, any time.",
+      "text": "Texts, photos, prices and opening hours are yours to edit from your phone, in Arabic and English. No developer, no waiting."
+    },
     "flow": {
       "title": "Nothing to copy by hand",
       "text": "A request on your site reaches your dashboard and your WhatsApp in seconds, and the customer gets an instant confirmation."
+    },
+    "visuals": {
+      "fromCustomer": "From your customer",
+      "inDashboard": "In your dashboard",
+      "table": "Table for 4",
+      "friday": "Friday",
+      "eightPm": "8 pm",
+      "newBooking": "New booking — confirmed",
+      "whatsappSent": "WhatsApp alert sent",
+      "instant": "Instant confirmation — the customer never waits for a call back.",
+      "today": "Today",
+      "summary": "{bookings} bookings · {orders} orders",
+      "phone": "Your phone",
+      "updated": "Updated the moment it happens",
+      "home": "Home",
+      "ltr": "Left to right",
+      "homeUrl": "/en",
+      "arabicHome": "الرئيسية",
+      "rtl": "Right to left",
+      "arabicHomeUrl": "/ar",
+      "switch": "Language switch",
+      "switchNote": "Same page, other language",
+      "switchValue": "every page",
+      "oneDesign": "One design · two languages",
+      "rtlReady": "RTL ready",
+      "hours": "Opening hours",
+      "menu": "Menu & prices",
+      "photos": "Photos",
+      "team": "Team",
+      "hidden": "hidden by you",
+      "editPill": "Edit · Save · Arabic · English",
+      "ringLabel": "Live demos",
+      "categories": "Categories",
+      "languages": "Languages",
+      "signups": "Sign-ups needed"
     }
   },
   "deliver": {
-    "badge": "What we build",
+    "label": "What we build",
+    "aside": "Three products",
     "title": "Pick the product that fits your business",
+    "titleLead": "Pick the product",
+    "titleRest": "that fits your business",
     "intro": "Three kinds of products for three different needs. We tell you honestly which one you need, even when it's the smaller one.",
     "website": {
+      "tag": "Website",
       "title": "Business website",
       "value": "Be found and trusted",
-      "text": "A fast, polished website that shows who you are, what you offer and how to reach you. Best when customers mainly need to know you and contact you."
+      "text": "A fast, polished website that shows who you are, what you offer and how to reach you. Best when customers mainly need to know you and contact you.",
+      "bestFor": "Best for: a clear presence and easy contact."
     },
     "system": {
+      "tag": "Website + dashboard",
       "title": "Website with a dashboard",
       "value": "Take bookings and orders online",
-      "text": "Customers book, order or send requests on your site, and you manage everything from a dashboard on your phone. Best when you want the website to do the work."
+      "text": "Customers book, order or send requests on your site, and you manage everything from a dashboard on your phone. Best when you want the website to do the work.",
+      "bestFor": "Best for: bookings, orders and requests you manage daily.",
+      "badge": "Takes bookings & orders"
     },
     "saas": {
+      "tag": "System · SaaS",
       "title": "Custom system or SaaS",
       "value": "Run the business your way",
-      "text": "Software built around how you really work, or a product you sell to many customers, each with their own account. Best when ready-made tools no longer fit."
+      "text": "Software built around how you really work, or a product you sell to many customers, each with their own account. Best when ready-made tools no longer fit.",
+      "bestFor": "Best for: workflows no ready-made tool fits."
     }
   },
+  "stats": {
+    "demos": "Live demos to try",
+    "languages": "Languages · English & Arabic",
+    "categories": "Business types covered",
+    "signups": "Sign-ups needed to try"
+  },
   "guide": {
-    "badge": "Not sure yet?",
+    "label": "Not sure yet?",
+    "aside": "2 minutes",
     "title": "Website, system or SaaS? Find out in 2 minutes",
+    "titleLead": "Website, system or SaaS?",
+    "titleRest": "Find out in 2 minutes",
     "text": "Many owners ask for a website when they need a system, or the other way round. Answer a few simple questions and see which type fits your business.",
     "cta": "Open the Software Guide"
   },
@@ -123,32 +238,20 @@
     "badge": "Don't take our word for it",
     "title": "Try it yourself, right now",
     "text": "Open a real restaurant, clinic or real-estate website. Book a table or an appointment, then open its dashboard and watch your request arrive. No sign-up with us; everything stays in your browser.",
-    "cta": "Try the live demos"
+    "cta": "Try the live demos",
+    "featured": "Featured"
   },
-  "how": {
-    "badge": "How it works",
-    "step1": {
-      "title": "Tell us about your business",
-      "text": "Answer a few short questions, or just message us on WhatsApp."
-    },
-    "step2": {
-      "title": "Get an honest recommendation",
-      "text": "We tell you which product fits, with a clear price, and show you a working example close to your idea."
-    },
-    "step3": {
-      "title": "Watch it being built",
-      "text": "You review the work as it grows, so the result is never a surprise."
-    },
-    "step4": {
-      "title": "Launch, and we stay close",
-      "text": "We put it online, show you how to use it, and support you after launch."
-    },
-    "titleLead": "From idea to launch in 4",
-    "titleAccent": "clear steps"
+  "principle": {
+    "label": "Our principle",
+    "quoteLead": "“You don't need more features. You need a website that brings customers.”",
+    "quoteRest": "We tell you honestly which product fits, even when it's the smaller one.",
+    "role": "How we work"
   },
   "faq": {
-    "badge": "Questions",
-    "title": "Questions owners ask us first",
+    "label": "Questions",
+    "aside": "Straight answers",
+    "titleLead": "Questions owners",
+    "titleRest": "ask us first",
     "intro": "Straight answers, before you spend a minute of your time.",
     "price": {
       "q": "How much does it cost?",
@@ -178,8 +281,13 @@
   },
   "cta": {
     "badge": "Start today",
+    "aside": "Free recommendation",
     "title": "Your next customer is looking for you right now",
+    "titleLead": "Your next customer",
+    "titleRest": "is looking for you right now.",
     "text": "Tell us about your business in 2 minutes. We reply on WhatsApp with the right next step, free.",
-    "start": "Get my free recommendation"
+    "start": "Get my free recommendation",
+    "demos": "Try the live demos",
+    "finePrint": "No sign-up · Reply on WhatsApp · Arabic & English"
   }
 }

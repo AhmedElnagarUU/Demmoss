@@ -1,10 +1,13 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { getAllDemos } from "../src/features/gallery/catalog";
+import { landingStats } from "../src/features/landing/stats";
 
 const texts = {
   ar: {
-    h1: "موقعك يستقبل الحجوزات والطلبات حتى وأنت نائم",
+    h1: "حجوزات وطلبات… حتى وأنت نائم",
     start: "احصل على توصيتك المجانية",
+    heroCta: "ابدأ مشروعك",
     demos: "جرّب نموذجًا حيًّا",
     guide: "افتح دليل البرمجيات",
     guideSection: "موقع أم نظام أم SaaS؟ اعرف خلال دقيقتين",
@@ -15,12 +18,14 @@ const texts = {
       priceA:
         "تعتمد على ما تحتاجه: الموقع التعريفي أقل تكلفة من نظام بلوحة تحكم. أخبرنا عن مشروعك وتحصل على سعر واضح قبل بدء أي عمل.",
     },
+    exampleCaption: "مثال على لوحة التحكم التي تحصل عليها",
     menu: "القائمة",
     nav: { guide: "الدليل", demos: "النماذج", start: "ابدأ" },
   },
   en: {
-    h1: "Your website takes bookings and orders, even while you sleep",
+    h1: "Bookings and orders, even while you sleep",
     start: "Get my free recommendation",
+    heroCta: "Start your project",
     demos: "Try a live demo",
     guide: "Open the Software Guide",
     guideSection: "Website, system or SaaS? Find out in 2 minutes",
@@ -31,6 +36,7 @@ const texts = {
       priceA:
         "It depends on what you need: a business website costs less than a system with a dashboard. Tell us about your project and you get a clear price before any work starts.",
     },
+    exampleCaption: "An example of the dashboard you get",
     menu: "Menu",
     nav: { guide: "Guide", demos: "Demos", start: "Start" },
   },
@@ -55,7 +61,10 @@ for (const locale of ["ar", "en"] as const) {
       await page.goto(`/${locale}`);
       const main = page.getByRole("main");
       const hero = main.locator("section").filter({ has: page.getByRole("heading", { level: 1 }) });
-      await expect(hero.getByRole("link", { name: text.start })).toHaveAttribute("href", `/${locale}/start`);
+      await expect(hero.getByRole("link", { name: text.heroCta })).toHaveAttribute(
+        "href",
+        `/${locale}/start`,
+      );
       await expect(main.getByRole("link", { name: text.demos })).toHaveAttribute("href", `/${locale}/demos`);
       const guideSection = page.getByRole("region", { name: text.guideSection });
       await expect(guideSection.getByRole("link", { name: text.guide })).toHaveAttribute(
@@ -100,6 +109,15 @@ for (const locale of ["ar", "en"] as const) {
       await expect(answer).toBeVisible();
     });
 
+    test(`L7: the dashboard preview is labelled as an example and links to the live demos`, async ({
+      page,
+    }) => {
+      await page.goto(`/${locale}`);
+      const figure = page.getByRole("figure");
+      await expect(figure.locator("figcaption")).toContainText(text.exampleCaption);
+      await expect(figure.getByRole("link")).toHaveAttribute("href", `/${locale}/demos`);
+    });
+
     test(`no serious accessibility issues with the menu open`, async ({ page }) => {
       await page.goto(`/${locale}`);
       await openMenuIfCollapsed(page, text.menu);
@@ -110,12 +128,19 @@ for (const locale of ["ar", "en"] as const) {
   });
 }
 
+test("L8: the stats show the real number of live demos", async ({ page }) => {
+  const { demoCount, categoryCount } = landingStats(getAllDemos());
+  await page.goto("/en");
+  await expect(page.locator("[data-stat=demos]")).toContainText(String(demoCount));
+  await expect(page.locator("[data-stat=categories]")).toContainText(String(categoryCount));
+});
+
 test("L4: the hero button takes the visitor to the wizard address", async ({ page }) => {
   await page.goto("/en");
   const hero = page
     .getByRole("main")
     .locator("section")
     .filter({ has: page.getByRole("heading", { level: 1 }) });
-  await hero.getByRole("link", { name: texts.en.start }).click();
+  await hero.getByRole("link", { name: texts.en.heroCta }).click();
   await expect(page).toHaveURL(/\/en\/start$/);
 });
