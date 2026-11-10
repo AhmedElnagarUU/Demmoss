@@ -50,7 +50,7 @@ export function Hero({ locale }: { locale: Locale }) {
             <span className="studio-cta-glow min-h-[3.25rem] px-7 text-[0.9375rem]">{t("hero.cta")}</span>
             <span
               aria-hidden="true"
-              className="flex size-[3.25rem] items-center justify-center rounded-2xl bg-primary text-on-primary transition-colors group-hover:bg-primary-hover"
+              className="flex size-[3.25rem] items-center justify-center rounded-2xl border border-white/15 bg-white/5 text-text transition-colors group-hover:bg-white/10"
             >
               <ArrowUpRightIcon className="size-4" />
             </span>
